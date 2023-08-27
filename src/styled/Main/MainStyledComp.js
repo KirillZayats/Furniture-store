@@ -102,10 +102,6 @@ const ContainerLinkStyle = styled.div`
   gap: 8px;
 `;
 
-const LinkStyle = styled.a`
-  line-height: 24px;
-`;
-
 const IconArroyRightStyle = styled.img``;
 
 const ContainerContactsStyle = styled.ul`
@@ -117,7 +113,6 @@ const ContainerContactsStyle = styled.ul`
 export {
   MainStyle,
   IconArroyRightStyle,
-  LinkStyle,
   TextCenterStyle,
   ContainerImageStyle,
   TextStyle,

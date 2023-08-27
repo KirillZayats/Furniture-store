@@ -1,4 +1,5 @@
 import { styled } from "styled-components";
+import { device, size } from "../../styled/Media/MediaQueryStyledComp";
 
 const SubscribeStyle = styled.div`
   margin-bottom: 30px;
@@ -21,17 +22,35 @@ const SubscribePolicyTextStyle = styled.p`
 
 const InputPolicyStyle = styled.input`
   padding: 10px;
-  height: 20px;
+  height: 18px;
   font-size: 16px;
   border-radius: 5px;
   border: 1px solid ${({ theme }) => theme.colors.mainColor};
-  margin-top: 20px;
-  margin-bottom: 15px;
+
+  @media ${device.mobileS} {
+    margin-top: 20px;
+    margin-bottom: 15px;
+  }
+
+  @media ${device.tablet} {
+    margin-top: 0px;
+    margin-bottom: 0px;  
+    width: calc(${size.tablet} / 2);
+
+    }
 `;
 
 const FormSubscribeStyle = styled.form`
   display: flex;
-  flex-direction: column;
+  @media ${device.mobileS} {
+    flex-direction: column;
+  }
+  @media ${device.tablet} {
+    flex-direction: row;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    justify-content: space-between;
+  }
 `;
 
 export {

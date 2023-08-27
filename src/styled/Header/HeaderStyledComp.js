@@ -1,7 +1,33 @@
 import { styled } from "styled-components";
+import { device, size } from '../../styled/Media/MediaQueryStyledComp';
 
 const HeaderContentStyle = styled.header`
-  width: 320px;
+margin: 0 auto;
+  @media ${device.mobileS} { 
+    max-width: ${size.mobileS};
+  }
+
+  @media ${device.mobileM} {
+    max-width: ${size.mobileM};
+  }
+  @media ${device.mobileL} { 
+    max-width: ${size.mobileL};
+  }
+
+  @media ${device.tablet} {
+    max-width: ${size.tablet};
+  }
+  @media ${device.tabletS} { 
+    max-width: ${size.tabletS};
+  }
+
+  @media ${device.laptop} {
+    max-width: ${size.laptop};
+  }
+
+  @media ${device.desktop} {
+    max-width: ${size.desktop};
+  }
 `;
 
 const HeaderBlockStyle = styled.div`

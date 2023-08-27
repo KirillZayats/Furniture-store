@@ -5,6 +5,7 @@ import {
     TextReservedStyle,
     ContainerLinksStyle
   } from "../../styled/Footer/FooterStyledComp";
+
 const InfoReserved = () => {
   return (
     <InfoReservedStyle>

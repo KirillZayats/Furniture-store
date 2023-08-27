@@ -12,7 +12,7 @@ export const App = () => {
       <BrowserRouter>
         <GlobalStyle />
         <Header />
-        <Home />
+        {/* <Home /> */}
         <Footer />
       </BrowserRouter>
     </Theme>

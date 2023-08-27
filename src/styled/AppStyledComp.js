@@ -1,5 +1,6 @@
 import { createGlobalStyle } from "styled-components";
 import { styled } from "styled-components";
+import { device, size } from '../styled/Media/MediaQueryStyledComp';
 
 const GlobalStyle = createGlobalStyle`
 * {
@@ -31,10 +32,33 @@ input:focus, textarea:focus {
 
 `;
 const ContainerStyle = styled.div`
-  max-width: 300px;
   width: 100%;
   margin: 0 auto;
-`;
+  @media ${device.mobileS} { 
+    max-width: calc(${size.mobileS} - 20px);
+  }
+
+  @media ${device.mobileM} {
+    max-width: calc(${size.mobileM} - 20px);
+  }
+  @media ${device.mobileL} { 
+    max-width: calc(${size.mobileL} - 50px);
+  }
+
+  @media ${device.tablet} {
+    max-width: calc(${size.tablet} - 100px);
+  }
+  @media ${device.tabletS} { 
+    max-width: calc(${size.tabletS} - 20px);
+  }
+
+  @media ${device.laptop} {
+    max-width: calc(${size.laptop} - 20px);
+  }
+
+  @media ${device.desktop} {
+    max-width: calc(${size.desktop} - 20px);
+  }`;
 
 const LinkUnderLineStyle = styled.a`
   text-decoration-line: underline;
@@ -50,10 +74,15 @@ const BlockContentStyle = styled.section`
   margin: 0px auto;
 `;
 
+const LinkStyle = styled.a`
+  line-height: 24px;
+`;
+
 export {
   GlobalStyle,
   ContainerStyle,
   ContainerLinkStyle,
   BlockContentStyle,
-  LinkUnderLineStyle
+  LinkUnderLineStyle,
+  LinkStyle
 };

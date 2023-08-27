@@ -7,6 +7,7 @@ import {
   TitleBlockStyle,
   ListElementStyle,
   LinkStyle,
+  ContainerReserverSocialStyle
 } from "../../styled/Footer/FooterStyledComp";
 import Subscribe from "./Subscribe";
 import { LineStyle } from "../../styled/Header/HeaderStyledComp";
@@ -53,8 +54,11 @@ const Footer = () => {
         </ContainerContactsStyle>
         <Subscribe/>
         <LineStyle/>
+        <ContainerReserverSocialStyle>
         <InfoReserved/>
         <Social/>
+        </ContainerReserverSocialStyle>
+
       </ContainerStyle>
     </FooterContentStyle>
   );

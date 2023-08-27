@@ -3,7 +3,6 @@ import IconArroyRight from "../../../resource/images/icons/arroyRight.svg";
 import {
   TextStyle,
   ContainerLinkStyle,
-  LinkStyle,
   IconArroyRightStyle
 } from "../../../styled/Main/MainStyledComp";
 import {
@@ -11,6 +10,8 @@ import {
   ContainerListElemChoseStyle,
   NumberListChoseStyle
 } from "../../../styled/Main/ListChoseStyledComp";
+
+import {  LinkStyle } from "../../../styled/AppStyledComp"
 
 const ListElement = ({ id, title }) => {
   return (
