@@ -18,7 +18,7 @@ const SidebarElementsstyle = styled.div`
 const SidebarElementStyle = styled.div`
   width: 20px;
   height: 2px;
-  background: #808080;
+  background: ${({theme}) => theme.colors.rearColor};
 `;
 
 export { SidebarStyle, SidebarElementsstyle, SidebarElementStyle };

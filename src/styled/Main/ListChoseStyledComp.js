@@ -1,7 +1,6 @@
 import { styled } from "styled-components";
 
 const ContainerListElemChoseStyle = styled.li`
-  margin-bottom: 30px;
 `;
 
 const NumberListChoseStyle = styled.span`
@@ -14,7 +13,7 @@ const NumberListChoseStyle = styled.span`
 `;
 
 const ContainerChoseStyle = styled.div`
-  margin: 30px auto;
+  margin: 0px auto 30px;
 `;
 
 const TitleChoseContainerStyle = styled.h3`
@@ -25,6 +24,9 @@ const TitleChoseContainerStyle = styled.h3`
 `;
 
 const ContainerListChoseStyle = styled.ul`
+display: flex;
+flex-direction: column;
+gap: 30px;
 `;
 
 export {

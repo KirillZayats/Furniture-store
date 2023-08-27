@@ -32,7 +32,8 @@ const ContainerLinkStyle = styled.div`
 `;
 
 const BlockContentStyle = styled.section`
-  margin: 30px auto;
+  padding: 30px 0;
+  margin: 0px auto;
 `;
 
 export { GlobalStyle, ContainerStyle, ContainerLinkStyle, BlockContentStyle };

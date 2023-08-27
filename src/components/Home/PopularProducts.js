@@ -19,7 +19,7 @@ const PartProducts = () => {
     <BlockContentStyle>
       <ProductsStyle>
         <ArticleContainerStyle>
-          <TitleBlockStyle>Featured Products</TitleBlockStyle>
+          <TitleBlockStyle>Popular Products</TitleBlockStyle>
           <TextStyle>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit.
           </TextStyle>

@@ -4,7 +4,7 @@ import {
     AchievementNumberStyle,
     AchievementStyle,
     BlockAchievementsStyle,
-  } from "../../styled/Main/MainStyledComp";
+  } from "../../styled/Main/AchievementsStyledComp";
 
 const Achievements = () => {
   return (

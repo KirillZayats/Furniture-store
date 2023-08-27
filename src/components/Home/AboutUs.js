@@ -10,6 +10,7 @@ import {
     ImageAboutStyle,
   } from "../../styled/Main/MainStyledComp";
 import Achievements from './Achievements';
+import ImageLamps from "../../resource/images/lamps.jpg";
 
 const AboutUs = () => {
   return (
@@ -29,7 +30,7 @@ const AboutUs = () => {
       </TextCenterStyle>
     </ArticleContainerStyle>
     <ContainerImageStyle>
-      <ImageAboutStyle />
+      <ImageAboutStyle src={ImageLamps}/>
     </ContainerImageStyle>
   </BlockContentStyle>
   )

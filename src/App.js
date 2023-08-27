@@ -4,15 +4,18 @@ import Footer from "./components/Footer/Footer";
 import Home from "./pages/Home";
 import { GlobalStyle } from "./styled/AppStyledComp";
 import { BrowserRouter } from "react-router-dom";
+import { Theme } from "./styled/Theme";
 
 export const App = () => {
   return (
-    <BrowserRouter>
-      <GlobalStyle />
+    <Theme>
+      <BrowserRouter>
+        <GlobalStyle />
         <Header />
         <Home />
         <Footer />
-    </BrowserRouter>
+      </BrowserRouter>
+    </Theme>
   );
 };
 

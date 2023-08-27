@@ -1,5 +1,4 @@
 import { styled } from "styled-components";
-import ImageLamps from "../../resource/images/lamps.jpg";
 
 const MainStyle = styled.main`
   width: 320px;
@@ -8,12 +7,12 @@ const MainStyle = styled.main`
 const ImageMainBlockStyle = styled.div`
   width: 300px;
   height: 300px;
-  border: 1px solid #808080;
+  border: 1px solid ${({theme}) => theme.colors.rearColor};
   border-radius: 5px;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 30px 0px;
+  margin-top: 30px;
 `;
 
 const ImageMainContainerStyle = styled.div`
@@ -24,25 +23,25 @@ const ImageMainContainerStyle = styled.div`
 
 const BlockButtonsStyle = styled.div`
   display: flex;
-  gap: 16px;
+  gap: 20px;
 `;
 
 const BlackButtonInfoStyle = styled.button`
   width: 120px;
   height: 48px;
-  background: #000;
-  color: #fff;
+  background: ${({theme}) => theme.colors.mainColor};
+  color: ${({theme}) => theme.colors.secondColor};
   text-align: center;
-  border: 1px solid black;
+  border: 1px solid ${({theme}) => theme.colors.secondColor};
   border-radius: 5px;
 `;
 const WhiteButtonInfoStyle = styled.button`
   width: 120px;
   height: 48px;
-  background: #fff;
-  color: #000;
+  background: ${({theme}) => theme.colors.secondColor};
+  color: ${({theme}) => theme.colors.mainColor};
   text-align: center;
-  border: 1px solid black;
+  border: 1px solid ${({theme}) => theme.colors.mainColor};
   border-radius: 5px;
 `;
 
@@ -66,11 +65,10 @@ const PreTitleStyle = styled.p`
   font-style: normal;
   font-weight: 600;
   line-height: 150%;
-  padding-top: 30px;
+  margin-bottom: 15px;
 `;
 
 const TitleBlockStyle = styled.h2`
-  margin-top: 15px;
   width: 300px;
   font-size: 32px;
 font-style: normal;
@@ -92,42 +90,12 @@ const TextStyle = styled.p`
 `;
 
 const ContainerImageStyle = styled.div`
-  padding-bottom: 30px;
 `;
 
-const ImageAboutStyle = styled.div`
+const ImageAboutStyle = styled.img`
   width: 320px;
   height: 330px;
-  background-image: url(${ImageLamps});
-  background-position: center;
-  background-size: cover;
 `;
-
-const BlockAchievementsStyle = styled.div`
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
-  grid-row-gap: 30px;
-  width: 300px;
-`;
-
-const AchievementStyle = styled.div`
-  display: flex;
-  flex-direction: column;
-`;
-const AchievementNumberStyle = styled.span`
-  font-size: 24px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 140%;
-`;
-const AchievementTextStyle = styled.span`
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 150%;
-`;
-
 
 const ContainerLinkStyle = styled.div`
   display: flex;
@@ -145,10 +113,6 @@ export {
   MainStyle,
   IconArroyRightStyle,
   LinkStyle,
-  AchievementTextStyle,
-  AchievementNumberStyle,
-  AchievementStyle, 
-  BlockAchievementsStyle,
   TextCenterStyle,
   ContainerImageStyle,
   TextStyle,

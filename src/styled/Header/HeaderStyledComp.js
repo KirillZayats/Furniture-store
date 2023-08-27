@@ -34,7 +34,7 @@ const SearchIconStyle = styled.img`
 const LineStyle = styled.div`
   height: 2px;
   width: 100%;
-  background: #808080;
+  background: ${({theme}) => theme.colors.rearColor};
 `;
 
 export {

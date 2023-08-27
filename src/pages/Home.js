@@ -6,6 +6,9 @@ import Description from "../components/Home/Description";
 import AboutUs from "../components/Home/AboutUs";
 import ChoseUs from "../components/Home/Chose/ChoseUs";
 import PartProducts from "../components/Home/PartProducts";
+import PopularProducts from "../components/Home/PopularProducts";
+import Sale from "../components/Home/Sale";
+import Contacts from "../components/Home/Contacts";
 
 const Home = () => {
   return (
@@ -14,9 +17,9 @@ const Home = () => {
       <AboutUs/>
       <ChoseUs/>
       <PartProducts/>
-      <BlockContentStyle/>
-      <BlockContentStyle/>
-      <BlockContentStyle/>
+      <Sale/>
+      <PopularProducts/>
+      <Contacts/>
       <BlockContentStyle/>
     </MainStyle>
   );
