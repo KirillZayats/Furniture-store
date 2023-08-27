@@ -20,7 +20,6 @@ const Home = () => {
       <Sale/>
       <PopularProducts/>
       <Contacts/>
-      <BlockContentStyle/>
     </MainStyle>
   );
 };

@@ -10,19 +10,6 @@ const HeaderBlockStyle = styled.div`
   padding: 21px 0;
 `;
 
-
-const LogotypeIconStyle = styled.img`
-  margin: 0;
-`;
-
-const LogotypeTitleStyle = styled.span`
-  font-family: "Inter", sans-serif;
-  font-size: 25.067px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: normal;
-`;
-
 const SearchStyle = styled.div`
   margin: 0;
 `;
@@ -39,8 +26,6 @@ const LineStyle = styled.div`
 
 export {
   HeaderContentStyle,
-  LogotypeIconStyle,
-  LogotypeTitleStyle,
   LineStyle,
   SearchStyle,
   SearchIconStyle,

@@ -1,18 +1,15 @@
 import React from "react";
 import IconSearch from "../../resource/images/icons/search.svg";
-import IconLogo from "../../resource/images/icons/logotype.svg";
 import Sidebar from "./Sidebar";
-import { ContainerLinkStyle } from "../../styled/AppStyledComp";
 import { ContainerStyle } from "../../styled/AppStyledComp";
 import {
   HeaderContentStyle,
-  LogotypeIconStyle,
-  LogotypeTitleStyle,
   LineStyle,
   SearchStyle,
   SearchIconStyle,
   HeaderBlockStyle
 } from "../../styled/Header/HeaderStyledComp";
+import Logotype from "../Logotyle";
 
 const Header = () => {
   return (
@@ -20,10 +17,7 @@ const Header = () => {
       <ContainerStyle>
         <HeaderBlockStyle>
         <Sidebar />
-        <ContainerLinkStyle>
-          <LogotypeIconStyle src={IconLogo}></LogotypeIconStyle>
-          <LogotypeTitleStyle>Zayakiri</LogotypeTitleStyle>
-        </ContainerLinkStyle>
+        <Logotype/>
         <SearchStyle>
           <SearchIconStyle src={IconSearch} />
         </SearchStyle>

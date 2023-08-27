@@ -28,7 +28,7 @@ const BlockButtonsStyle = styled.div`
 
 const BlackButtonInfoStyle = styled.button`
   width: 120px;
-  height: 48px;
+  height: 40px;
   background: ${({theme}) => theme.colors.mainColor};
   color: ${({theme}) => theme.colors.secondColor};
   text-align: center;
@@ -37,7 +37,7 @@ const BlackButtonInfoStyle = styled.button`
 `;
 const WhiteButtonInfoStyle = styled.button`
   width: 120px;
-  height: 48px;
+  height: 40px;
   background: ${({theme}) => theme.colors.secondColor};
   color: ${({theme}) => theme.colors.mainColor};
   text-align: center;
@@ -108,6 +108,11 @@ const LinkStyle = styled.a`
 
 const IconArroyRightStyle = styled.img``;
 
+const ContainerContactsStyle = styled.ul`
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+`;
 
 export {
   MainStyle,
@@ -127,5 +132,6 @@ export {
   ImageMainBlockStyle,
   ImageAboutStyle,
   ImageMainContainerStyle,
-  ContainerLinkStyle
+  ContainerLinkStyle,
+  ContainerContactsStyle
 };

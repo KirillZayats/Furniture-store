@@ -19,11 +19,25 @@ a {
   text-decoration: none;
   cursor: pointer;
 }
+
+button {
+  font-size: 14px;
+}
+
+input:focus, textarea:focus {
+         outline: none;
+         border-color: ${({ theme }) => theme.colors.rearColor};
+    }
+
 `;
 const ContainerStyle = styled.div`
   max-width: 300px;
   width: 100%;
   margin: 0 auto;
+`;
+
+const LinkUnderLineStyle = styled.a`
+  text-decoration-line: underline;
 `;
 
 const ContainerLinkStyle = styled.div`
@@ -36,4 +50,10 @@ const BlockContentStyle = styled.section`
   margin: 0px auto;
 `;
 
-export { GlobalStyle, ContainerStyle, ContainerLinkStyle, BlockContentStyle };
+export {
+  GlobalStyle,
+  ContainerStyle,
+  ContainerLinkStyle,
+  BlockContentStyle,
+  LinkUnderLineStyle
+};
