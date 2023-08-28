@@ -1,18 +1,22 @@
 {
   "files": {
-    "main.js": "/Furniture-store/static/js/main.e2406f12.js",
+    "main.js": "/Furniture-store/static/js/main.5ac5996f.js",
     "static/media/lamps.jpg": "/Furniture-store/static/media/lamps.f93df4ce83861ffeeb05.jpg",
     "static/media/lamp.png": "/Furniture-store/static/media/lamp.4353ea871ca9e1293faf.png",
+    "static/media/Twitter.svg": "/Furniture-store/static/media/Twitter.c80ff15f6cdc704a24f1a447b64a78f8.svg",
+    "static/media/Instagram.svg": "/Furniture-store/static/media/Instagram.e47fd9a01c9a48b44a635d264a48e79d.svg",
+    "static/media/LinkedIn.svg": "/Furniture-store/static/media/LinkedIn.662556ef69ef49309f34b2d16a841aeb.svg",
     "static/media/Phone.svg": "/Furniture-store/static/media/Phone.6b0d87062824a29986860f7578c4c77f.svg",
     "index.html": "/Furniture-store/index.html",
     "static/media/logotype.svg": "/Furniture-store/static/media/logotype.b18f29b96e340c3f66485032c33e2e7f.svg",
     "static/media/search.svg": "/Furniture-store/static/media/search.60fd92376ab92c7832dc518c726a1adb.svg",
     "static/media/Pin.svg": "/Furniture-store/static/media/Pin.7206d4874f8c95766054cd5f81e415bc.svg",
+    "static/media/Facebook.svg": "/Furniture-store/static/media/Facebook.589bdc88e0207aa2bd886275c8bacb74.svg",
     "static/media/arroyRight.svg": "/Furniture-store/static/media/arroyRight.44638390d3e073c8a68823b12f6aff3b.svg",
     "static/media/Email.svg": "/Furniture-store/static/media/Email.e06e105911444935af70f2f8cf29ce32.svg",
-    "main.e2406f12.js.map": "/Furniture-store/static/js/main.e2406f12.js.map"
+    "main.5ac5996f.js.map": "/Furniture-store/static/js/main.5ac5996f.js.map"
   },
   "entrypoints": [
-    "static/js/main.e2406f12.js"
+    "static/js/main.5ac5996f.js"
   ]
 }
