@@ -104,7 +104,7 @@ const ContainerLinkStyle = styled.div`
 
 const IconArroyRightStyle = styled.img``;
 
-const ContainerContactsStyle = styled.ul`
+const ContainerListStyle = styled.ul`
   display: flex;
   flex-direction: column;
   gap: 16px;
@@ -128,5 +128,5 @@ export {
   ImageAboutStyle,
   ImageMainContainerStyle,
   ContainerLinkStyle,
-  ContainerContactsStyle
+  ContainerListStyle
 };

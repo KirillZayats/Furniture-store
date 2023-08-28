@@ -2,7 +2,23 @@ import { styled } from "styled-components";
 import { device, size } from "../../styled/Media/MediaQueryStyledComp";
 
 const SubscribeStyle = styled.div`
-  margin-bottom: 30px;
+  @media ${device.mobileS} {
+    margin-bottom: 30px;
+
+  }
+
+  @media ${device.tabletS} {
+    width: calc(${size.tablet} / 2.3);
+    margin-bottom: 0px;
+    }
+
+    @media ${device.laptop} {
+    width: calc(${size.laptop} / 2.3);
+
+    }
+    @media ${device.desktop} {
+    width: calc(${size.desktop} / 2.9);
+    }
 `;
 
 const SubscribeTextStyle = styled.p`
@@ -36,7 +52,16 @@ const InputPolicyStyle = styled.input`
     margin-top: 0px;
     margin-bottom: 0px;  
     width: calc(${size.tablet} / 2);
+    }
+    @media ${device.tabletS} {
+    width: calc(${size.tabletS} / 4.2);
+    }
 
+    @media ${device.laptop} {
+    width: calc(${size.laptop} / 3.45);
+    }
+    @media ${device.desktop} {
+    width: calc(${size.desktop} / 4);
     }
 `;
 
@@ -49,7 +74,15 @@ const FormSubscribeStyle = styled.form`
     flex-direction: row;
     margin-top: 20px;
     margin-bottom: 20px;
-    justify-content: space-between;
+    gap: 20px;
+  }
+
+  @media ${device.tabletS} {
+    gap: 10px;
+  }
+
+  @media ${device.laptop} {
+    gap: 10px;
   }
 `;
 

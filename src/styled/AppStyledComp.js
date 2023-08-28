@@ -53,11 +53,11 @@ const ContainerStyle = styled.div`
   }
 
   @media ${device.laptop} {
-    max-width: calc(${size.laptop} - 20px);
+    max-width: calc(${size.laptop} - 100px);
   }
 
   @media ${device.desktop} {
-    max-width: calc(${size.desktop} - 20px);
+    max-width: calc(${size.desktop} - 140px);
   }`;
 
 const LinkUnderLineStyle = styled.a`

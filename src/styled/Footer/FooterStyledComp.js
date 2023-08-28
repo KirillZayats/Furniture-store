@@ -5,6 +5,7 @@ const FooterContentStyle = styled.footer`
   margin: 0 auto;
   @media ${device.mobileS} {
     max-width: ${size.mobileS};
+    padding: 30px 0;
   }
 
   @media ${device.mobileM} {
@@ -23,12 +24,16 @@ const FooterContentStyle = styled.footer`
 
   @media ${device.laptop} {
     max-width: ${size.laptop};
+    padding: 50px 0;
+
   }
 
   @media ${device.desktop} {
     max-width: ${size.desktop};
+    padding: 80px 0;
+
   }
-  padding: 30px 0;
+
 `;
 
 const TitleBlockStyle = styled.h4`
@@ -36,14 +41,70 @@ const TitleBlockStyle = styled.h4`
   font-style: normal;
   font-weight: 600;
   line-height: 150%;
-  margin-top: 25px;
   margin-bottom: 16px;
+  @media ${device.mobileS} {
+    margin-top: 25px;
+  }
+
+  @media ${device.tablet} {
+    margin-top: 0px;
+  }
 `;
 const ListElementStyle = styled.li`
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
   line-height: 150%;
+`;
+
+const ContainerMainInfoFooter = styled.div`
+  display: flex;
+
+  @media ${device.mobileS} {
+    flex-direction: column;
+
+  }
+
+  @media ${device.tabletS} {
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 30px;
+  }
+
+  @media ${device.laptop} {
+    margin-bottom: 50px;
+  }
+
+  @media ${device.desktop} {
+    margin-bottom: 80px;
+  }
+  `;
+
+const BlocksStyle = styled.div`
+      display: flex;
+
+  @media ${device.mobileS} {
+    flex-direction: column;
+
+  }
+
+  @media ${device.tablet} {
+    flex-direction: row;
+    gap: 100px;
+  }
+
+    @media ${device.tablet} {
+    gap: 50px;
+  }
+
+      @media ${device.desktop} {
+    gap: 100px;
+  }
+`; 
+
+const BlockStyle = styled.div`
+    display: flex;
+  flex-direction: column;
 `;
 
 const LinkStyle = styled.a``;
@@ -113,5 +174,8 @@ export {
   LinkStyle,
   ContainerLinksStyle,
   TextReservedStyle,
-  ContainerReserverSocialStyle
+  ContainerReserverSocialStyle,
+  ContainerMainInfoFooter,
+  BlockStyle,
+  BlocksStyle
 };

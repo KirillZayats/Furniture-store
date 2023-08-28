@@ -1,5 +1,4 @@
 import { styled } from "styled-components";
-import {ContainerContactsStyle} from "../../styled/Main/MainStyledComp"
 const ContainerInfoStyle = styled.div`
   margin-bottom: 30px;
 `;
@@ -70,7 +69,6 @@ export {
   FormTextareaStyle,
   IconStyle,
   ContainerContactStyle,
-  ContainerContactsStyle,
   ContainerInfoStyle,
   InfoContactsStyle
 };

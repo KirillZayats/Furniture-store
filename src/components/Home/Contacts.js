@@ -4,6 +4,7 @@ import {
   TextStyle,
   ArticleContainerStyle,
   TitleBlockStyle,
+  ContainerListStyle
 } from "../../styled/Main/MainStyledComp";
 import IconEmail from "../../resource/images/icons/constacts/Email.svg";
 import IconPhone from "../../resource/images/icons/constacts/Phone.svg";
@@ -17,10 +18,10 @@ import {
   FormTextareaStyle,
   IconStyle,
   ContainerContactStyle,
-  ContainerContactsStyle,
   ContainerInfoStyle,
   InfoContactsStyle
 } from "../../styled/Main/ContactsStyledComp";
+
 
 
 const Contacts = () => {
@@ -32,7 +33,7 @@ const Contacts = () => {
           <TextStyle>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit.
           </TextStyle>
-          <ContainerContactsStyle>
+          <ContainerListStyle>
             <ContainerContactStyle>
               <IconStyle src={IconEmail}></IconStyle>
               <InfoContactsStyle>hello@relume.io</InfoContactsStyle>
@@ -47,7 +48,7 @@ const Contacts = () => {
                 123 Sample St, Sydney NSW 2000 AU
               </InfoContactsStyle>
             </ContainerContactStyle>
-          </ContainerContactsStyle>
+          </ContainerListStyle>
         </ContainerInfoStyle>
         <FormStyle>
           <FormContainerInputStyle>
