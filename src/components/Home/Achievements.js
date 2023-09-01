@@ -16,7 +16,7 @@ const Achievements = () => {
       </AchievementTextStyle>
     </AchievementStyle>
     <AchievementStyle>
-      <AchievementNumberStyle>300</AchievementNumberStyle>
+      <AchievementNumberStyle>300+</AchievementNumberStyle>
       <AchievementTextStyle>Product</AchievementTextStyle>
     </AchievementStyle>
     <AchievementStyle>

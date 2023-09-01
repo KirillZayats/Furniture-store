@@ -15,11 +15,11 @@ const Home = () => {
     <MainStyle>
       <Description/>
       <AboutUs/>
-      <ChoseUs/>
+      {/* <ChoseUs/>
       <PartProducts/>
       <Sale/>
       <PopularProducts/>
-      <Contacts/>
+      <Contacts/> */}
     </MainStyle>
   );
 };

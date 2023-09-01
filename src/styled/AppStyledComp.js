@@ -70,8 +70,14 @@ const ContainerLinkStyle = styled.div`
 `;
 
 const BlockContentStyle = styled.section`
-  padding: 30px 0;
   margin: 0px auto;
+  @media ${device.mobileS} {
+    padding: 30px 0;
+  }
+
+  @media ${device.desktop} {
+    padding: 55px 0;
+  }
 `;
 
 const LinkStyle = styled.a`

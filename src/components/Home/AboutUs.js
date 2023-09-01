@@ -1,39 +1,40 @@
-import React from 'react'
-import { BlockContentStyle } from "../../styled/AppStyledComp";
+import React from "react";
 import {
-    TextCenterStyle,
-    ContainerImageStyle,
-    TextStyle,
-    TitleBlockStyle,
-    PreTitleStyle,
-    ArticleContainerStyle,
-    ImageAboutStyle,
-  } from "../../styled/Main/MainStyledComp";
-import Achievements from './Achievements';
+  TextStyle,
+  TitleBlockStyle,
+  PreTitleStyle,
+} from "../../styled/Main/MainStyledComp";
+import Achievements from "./Achievements";
 import ImageLamps from "../../resource/images/lamps.jpg";
+import {
+  ContainerAboutUsStyle,
+  TextAboutStyle,
+  ContainerAboutImageStyle,
+  ImageAboutStyle,
+  BlockContentStyle
+} from "../../styled/Main/AboutUsStyledComp";
 
 const AboutUs = () => {
   return (
     <BlockContentStyle>
-    <ArticleContainerStyle>
-      <TextCenterStyle>
-        <PreTitleStyle>About Us</PreTitleStyle>
-        <TitleBlockStyle>About the shop</TitleBlockStyle>
+      <ContainerAboutUsStyle>
+        <TextAboutStyle>
+          <PreTitleStyle>About Us</PreTitleStyle>
+          <TitleBlockStyle>About the shop</TitleBlockStyle>
           <TextStyle>
             Whether you're moving into a new home, redecorating your current
-            space, or just looking for a few accents to spruce up your
-            style, we've got you covered. Shop our products online, and
-            enjoy fast and free shipping, easy returns, and friendly
-            customer service.
+            space, or just looking for a few accents to spruce up your style,
+            we've got you covered. Shop our products online, and enjoy fast and
+            free shipping, easy returns, and friendly customer service.
           </TextStyle>
-        <Achievements/>
-      </TextCenterStyle>
-    </ArticleContainerStyle>
-    <ContainerImageStyle>
-      <ImageAboutStyle src={ImageLamps}/>
-    </ContainerImageStyle>
-  </BlockContentStyle>
-  )
-}
+          <Achievements/>
+        </TextAboutStyle>
+      </ContainerAboutUsStyle>
+      <ContainerAboutImageStyle>
+        <ImageAboutStyle src={ImageLamps} />
+      </ContainerAboutImageStyle>
+    </BlockContentStyle>
+  );
+};
 
-export default AboutUs
+export default AboutUs;
