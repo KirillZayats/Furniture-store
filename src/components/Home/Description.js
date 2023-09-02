@@ -37,7 +37,7 @@ const Description = () => {
             </BlockButtonsStyle>
           </ContainerInfoDescriptionStyle>
           <ImageMainBlockStyle>
-          <ImageMainContainerStyle />
+          <ImageMainContainerStyle/>
           </ImageMainBlockStyle>
         </ContainerFlexDescriptionsStyle>
       </ArticleContainerStyle>

@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 import {
   ContainerListChoseStyle,
-} from "../../../styled/Main/ListChoseStyledComp";
+} from "../../../styled/Main/ChoseUs/ListChoseStyledComp";
 import ListElement from "./ListElement";
 
 

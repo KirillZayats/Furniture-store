@@ -1,6 +1,6 @@
 import { styled } from "styled-components";
 import { device, size } from "../../styled/Media/MediaQueryStyledComp";
-
+import ImageMain from "../../resource/images/main.jpg";
 const MainStyle = styled.main`
   margin: 0 auto;
 
@@ -33,15 +33,14 @@ const MainStyle = styled.main`
 
 const ImageMainBlockStyle = styled.div`
   height: 300px;
-  border: 1px solid ${({ theme }) => theme.colors.rearColor};
-  border-radius: 5px;
   display: flex;
+  border: none;
   justify-content: center;
   align-items: center;
-  margin-top: 30px;
 
   @media ${device.mobileS} {
     max-width: calc(${size.mobileS} - 20px);
+    margin-top: 30px;
   }
 
   @media ${device.mobileM} {
@@ -53,9 +52,10 @@ const ImageMainBlockStyle = styled.div`
 
   @media ${device.tablet} {
     max-width: calc(${size.tablet} - 100px);
+    height: 400px;
   }
   @media ${device.tabletS} {
-    max-width: calc(${size.tabletS} - 20px);
+    max-width: calc(${size.tabletS} - 100px);
   }
 
   @media ${device.laptop} {
@@ -63,18 +63,55 @@ const ImageMainBlockStyle = styled.div`
     grid-column-start: 1;
     grid-column-end: 3;
     grid-row-start: 2;
+    margin-top: 40px;
+    height: 600px;
+
   }
 
   @media ${device.desktop} {
     max-width: calc(${size.desktop} - 140px);
+    margin-top: 60px;
   }
 `;
 
-const ImageMainContainerStyle = styled.img`
-  width: 270px;
-  height: 270px;
-  background-image: url(${"https://via.assets.so/furniture.png?id=1&q=95&w=270&h=270&fit=fill"});
-  /* background-image: url("../images/main_2.png"); */
+const ImageMainContainerStyle = styled.div`
+  width: 100%;
+  height: 100%;
+  border-radius: 5px;
+  background-image: url(${ImageMain});
+  background-repeat: no-repeat;
+
+  @media ${device.mobileS} {
+    background-position: 10% 0%;
+    background-size: 180%;
+  }
+
+  @media ${device.mobileM} {
+    background-size: 150%;
+  }
+
+  @media ${device.mobileL} {
+    background-position: 10% 0%;
+    background-size: 145%;
+  }
+
+  @media ${device.tablet} {
+    background-position: 20% 60%;
+    background-size: 110%;
+  }
+  @media ${device.tabletS} {
+    background-position: 20% 70%;
+  }
+
+  @media ${device.laptop} {
+    background-position: 25% 80%;
+    background-size: 120%;
+
+  }
+
+  @media ${device.desktop} {
+    background-position: 20% 80%;
+  }
 `;
 
 const BlockButtonsStyle = styled.div`
@@ -118,7 +155,7 @@ const ArticleContainerStyle = styled.article`
     max-width: calc(${size.tablet} - 100px);
   }
   @media ${device.tabletS} {
-    max-width: calc(${size.tabletS} - 20px);
+    max-width: calc(${size.tabletS} - 100px);
   }
 
   @media ${device.laptop} {
@@ -209,7 +246,7 @@ const TextStyle = styled.p`
     margin: 20px 0;
   }
   @media ${device.laptop} {
-    margin: 10px 0 40px;
+    margin: 10px 0 25px;
   }
   @media ${device.desktop} {
     margin: 20px 0 40px;

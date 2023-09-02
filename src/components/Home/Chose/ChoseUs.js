@@ -1,34 +1,34 @@
 import React from "react";
 import { BlockContentStyle } from "../../../styled/AppStyledComp";
 import {
-  TextStyle,
-  ArticleContainerStyle,
   BlackButtonInfoStyle,
-
+  TitleBlockStyle
 } from "../../../styled/Main/MainStyledComp";
 import {
   ContainerChoseStyle,
   TitleChoseContainerStyle,
-} from "../../../styled/Main/ListChoseStyledComp";
+  ArticleContainerChoseUsStyle,
+  TestChoseStyle
+} from "../../../styled/Main/ChoseUs/ListChoseStyledComp";
 import ListChose from "./ListChose";
 
 const ChoseUs = () => {
   return (
     <BlockContentStyle>
-      <ArticleContainerStyle>
+      <ArticleContainerChoseUsStyle>
         <ContainerChoseStyle>
-          <TitleChoseContainerStyle>Why Choose Us</TitleChoseContainerStyle>
-          <TextStyle>
+          <TitleBlockStyle>Why Choose Us</TitleBlockStyle>
+          <TestChoseStyle>
             Welcome to our furniture store, where we believe that a
             well-furnished home is a happy home. We offer a wide selection of
             high-quality furniture for every room in your home, from cozy sofas
             and elegant dining sets to stylish office desks and comfortable
             beds.
-          </TextStyle>
+          </TestChoseStyle>
           <BlackButtonInfoStyle>Shop Now</BlackButtonInfoStyle>
         </ContainerChoseStyle>
         <ListChose />
-      </ArticleContainerStyle>
+      </ArticleContainerChoseUsStyle>
     </BlockContentStyle>
   );
 };

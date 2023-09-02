@@ -25,10 +25,12 @@ button {
   font-size: 14px;
 }
 
-input:focus, textarea:focus {
-         outline: none;
-         border-color: ${({ theme }) => theme.colors.rearColor};
-    }
+input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: ${({ theme }) => theme.colors.mainColor};
+
+};
 
 `;
 const ContainerStyle = styled.div`
@@ -49,7 +51,7 @@ const ContainerStyle = styled.div`
     max-width: calc(${size.tablet} - 100px);
   }
   @media ${device.tabletS} { 
-    max-width: calc(${size.tabletS} - 20px);
+    max-width: calc(${size.tabletS} - 100px);
   }
 
   @media ${device.laptop} {
@@ -63,6 +65,7 @@ const ContainerStyle = styled.div`
 const LinkUnderLineStyle = styled.a`
   text-decoration-line: underline;
 `;
+
 
 const ContainerLinkStyle = styled.div`
   display: flex;

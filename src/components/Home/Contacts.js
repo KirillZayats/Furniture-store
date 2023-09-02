@@ -1,8 +1,7 @@
 import React from "react";
-import { BlockContentStyle } from "../../styled/AppStyledComp";
+import { BlockContentStyle, LinkUnderLineStyle } from "../../styled/AppStyledComp";
 import {
   TextStyle,
-  ArticleContainerStyle,
   TitleBlockStyle,
   ContainerListStyle
 } from "../../styled/Main/MainStyledComp";
@@ -19,7 +18,11 @@ import {
   IconStyle,
   ContainerContactStyle,
   ContainerInfoStyle,
-  InfoContactsStyle
+  InfoContactsStyle,
+  ArticleContainerStyle,
+  TextCheckboxStyle,
+  ContainerCheckboxStyle,
+  CheckboxStyle
 } from "../../styled/Main/ContactsStyledComp";
 
 
@@ -63,6 +66,12 @@ const Contacts = () => {
             <FormLabelStyle>Message</FormLabelStyle>
             <FormTextareaStyle placeholder="Type your message..."/>
           </FormContainerInputStyle>
+          <ContainerCheckboxStyle>
+            <CheckboxStyle type="checkbox"/>
+            <TextCheckboxStyle>
+              I accept the <LinkUnderLineStyle>Terms</LinkUnderLineStyle>
+            </TextCheckboxStyle>
+          </ContainerCheckboxStyle>
           <FormSendStyle>Submit</FormSendStyle>
         </FormStyle>
       </ArticleContainerStyle>

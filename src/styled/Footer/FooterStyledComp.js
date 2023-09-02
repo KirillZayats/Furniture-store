@@ -97,6 +97,10 @@ const BlocksStyle = styled.div`
     gap: 50px;
   }
 
+  @media ${device.tabletS} {
+    gap: 40px;
+  }
+
       @media ${device.desktop} {
     gap: 100px;
   }

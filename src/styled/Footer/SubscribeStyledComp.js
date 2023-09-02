@@ -8,7 +8,7 @@ const SubscribeStyle = styled.div`
   }
 
   @media ${device.tabletS} {
-    width: calc(${size.tablet} / 2.3);
+    width: calc(${size.tabletS} / 2.9);
     margin-bottom: 0px;
     }
 
@@ -51,10 +51,10 @@ const InputPolicyStyle = styled.input`
   @media ${device.tablet} {
     margin-top: 0px;
     margin-bottom: 0px;  
-    width: calc(${size.tablet} / 2);
+    width: calc(${size.tablet} / 2.5);
     }
     @media ${device.tabletS} {
-    width: calc(${size.tabletS} / 4.2);
+    width: calc(${size.tabletS} / 2.9 - 22px);
     }
 
     @media ${device.laptop} {
@@ -79,10 +79,12 @@ const FormSubscribeStyle = styled.form`
 
   @media ${device.tabletS} {
     gap: 10px;
+    flex-direction: column;
+
   }
 
   @media ${device.laptop} {
-    gap: 10px;
+    flex-direction: row;
   }
 `;
 
