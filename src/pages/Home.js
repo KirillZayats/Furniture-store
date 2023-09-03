@@ -1,5 +1,4 @@
-import React from "react";
-import { BlockContentStyle } from "../styled/AppStyledComp";
+import React, { useEffect } from "react";
 import { MainStyle } from "../styled/Main/MainStyledComp";
 
 import Description from "../components/Home/Description";
@@ -11,6 +10,7 @@ import Sale from "../components/Home/Sale";
 import Contacts from "../components/Home/Contacts";
 
 const Home = () => {
+
   return (
     <MainStyle>
       <Description/>

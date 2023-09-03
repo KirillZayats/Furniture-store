@@ -1,6 +1,6 @@
 import { createGlobalStyle } from "styled-components";
 import { styled } from "styled-components";
-import { device, size } from '../styled/Media/MediaQueryStyledComp';
+import { device, size } from './Media/MediaQueryStyledComp';
 
 const GlobalStyle = createGlobalStyle`
 * {

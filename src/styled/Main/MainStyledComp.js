@@ -1,5 +1,5 @@
 import { styled } from "styled-components";
-import { device, size } from "../../styled/Media/MediaQueryStyledComp";
+import { device, size } from "../Media/MediaQueryStyledComp";
 import ImageMain from "../../resource/images/main.jpg";
 const MainStyle = styled.main`
   margin: 0 auto;

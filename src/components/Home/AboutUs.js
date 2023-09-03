@@ -15,6 +15,7 @@ import {
 } from "../../styled/Main/AboutUsStyledComp";
 
 const AboutUs = () => {
+  
   return (
     <BlockContentStyle>
       <ContainerAboutUsStyle>

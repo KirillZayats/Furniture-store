@@ -1,5 +1,5 @@
 import { styled } from "styled-components";
-import { device, size } from '../../styled/Media/MediaQueryStyledComp';
+import { device, size } from '../Media/MediaQueryStyledComp';
 
 const HeaderContentStyle = styled.header`
 margin: 0 auto;
