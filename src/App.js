@@ -9,6 +9,7 @@ import Contacts from "./pages/Contacts";
 import AboutUsP from "./pages/AboutUsP";
 import Products from "./pages/Products";
 import Pay from "./pages/Pay";
+import Details from "./pages/Details";
 
 export const App = () => {
   return (
@@ -20,7 +21,8 @@ export const App = () => {
         {/* <Contacts/> */}
         {/* <AboutUsP/> */}
         {/* <Products/> */}
-        <Pay/>
+        {/* <Pay/> */}
+        <Details/>
         <Footer />
       </BrowserRouter>
     </Theme>
