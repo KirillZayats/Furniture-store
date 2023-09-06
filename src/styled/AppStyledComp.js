@@ -28,7 +28,6 @@ button {
 input[type="checkbox"] {
   width: 18px;
   height: 18px;
-  accent-color: ${({ theme }) => theme.colors.mainColor};
 
 };
 

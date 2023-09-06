@@ -11,7 +11,7 @@ import Products from "./pages/Products";
 import Pay from "./pages/Pay";
 import Details from "./pages/Details";
 import Account from "./pages/log/Account";
-
+import Cart from "./pages/Cart"
 export const App = () => {
   return (
     <Theme>
@@ -24,7 +24,8 @@ export const App = () => {
         {/* <Products/> */}
         {/* <Pay/> */}
         {/* <Details/> */}
-        <Account/>
+        {/* <Account/> */}
+        <Cart/>
         <Footer />
       </BrowserRouter>
     </Theme>

@@ -122,16 +122,6 @@ const ContainerTotalPayStyle = styled.div`
     justify-content: end;
     gap: 10px;
   }
-
-  @media ${device.tablet} {
-    justify-content: space-between;
-  }
-
-  @media ${device.laptop} {
-    justify-content: end;
-    gap: 10px;
-
-  }
 `;
 
 const TextTotalPayStyle = styled.p`

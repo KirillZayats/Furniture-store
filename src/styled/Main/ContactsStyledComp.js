@@ -148,7 +148,10 @@ const TextCheckboxStyle = styled.p`
   line-height: 150%;
 `;
 
-const CheckboxStyle = styled.input``;
+const CheckboxStyle = styled.input`
+  accent-color: ${({ theme }) => theme.colors.mainColor};
+
+`;
 
 export {
   FormContainerInputStyle,
