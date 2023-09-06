@@ -44,13 +44,13 @@ const FormPay = () => {
       <ContainerInputsStyle>
         <ContainerInputStyle>
           <LabelInputStyle>Email</LabelInputStyle>
-          <InputStyle />
+          <InputStyle type='email'/>
         </ContainerInputStyle>
         <ContainerInputStyle>
           <LabelInputStyle>Card details</LabelInputStyle>
           <ContainerSpecialInputsStyle>
             <ContainerInputNumberCardStyle>
-              <InputSpecialStyle placeholder="1234 1234 1234 1234" />
+              <InputSpecialStyle type="number" placeholder="1234 1234 1234 1234" />
               <ContainerImageCardStyle>
                 <ImageCardStyle src={IconVisa} />
                 <ImageCardStyle src={IconMaster} />
@@ -65,7 +65,7 @@ const FormPay = () => {
               </ContainerInputMonthCardStyle>
               <LineVerticalStyle />
               <ContainerInputCVCCardStyle>
-                <InputCVCSpecialStyle placeholder="CVC" />
+                <InputCVCSpecialStyle type="number" placeholder="CVC" />
                 <ImageCardBackStyle />
               </ContainerInputCVCCardStyle>
             </ContainerBackSpecialInputsStyle>

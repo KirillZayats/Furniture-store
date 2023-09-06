@@ -12,6 +12,7 @@ import Pay from "./pages/Pay";
 import Details from "./pages/Details";
 import Account from "./pages/log/Account";
 import Cart from "./pages/Cart"
+import Login from "./pages/log/Login";
 export const App = () => {
   return (
     <Theme>
@@ -25,7 +26,8 @@ export const App = () => {
         {/* <Pay/> */}
         {/* <Details/> */}
         {/* <Account/> */}
-        <Cart/>
+        {/* <Cart/> */}
+        <Login/>
         <Footer />
       </BrowserRouter>
     </Theme>

@@ -25,6 +25,7 @@ const Account = () => {
         console.log(error);
       }
     }
+    
 
   return (
     <MainStyle>
@@ -37,7 +38,9 @@ const Account = () => {
         </ContainerAvatarStyle>
         <ContainerInfoAccountStyle>
           <NameStyle>Name: Kirill</NameStyle>
+          <NameStyle>Nickname: zayakiri</NameStyle>
           <EmailStyle>Email: kirill.zayats.99@mail.ru</EmailStyle>
+          
           <ButtonLogoutStyle>Logout</ButtonLogoutStyle>
         </ContainerInfoAccountStyle>
       </AccountStyle>

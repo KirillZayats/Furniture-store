@@ -150,7 +150,6 @@ const TextCheckboxStyle = styled.p`
 
 const CheckboxStyle = styled.input`
   accent-color: ${({ theme }) => theme.colors.mainColor};
-
 `;
 
 export {
