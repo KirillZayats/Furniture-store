@@ -113,6 +113,7 @@ const ContainerCheckboxStyle = styled.div`
 const IconClearStyle = styled.img`
   width: 24px;
   height: 24px;
+  cursor: pointer;
 `;
 const InputSelectAllStyle = styled.input`
   accent-color: ${({ theme }) => theme.colors.buttonPayColor};

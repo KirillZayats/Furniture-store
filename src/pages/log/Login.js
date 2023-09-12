@@ -61,7 +61,7 @@ const TitleLoginStyle = styled.h3`
 
 const ButtonLoginStyle = styled.button`
   width: 100%;
-  height: 55px;
+  height: 50px;
   background: ${({ theme }) => theme.colors.mainColor};
   color: ${({ theme }) => theme.colors.secondColor};
 
@@ -111,7 +111,7 @@ const Login = () => {
           <TextCheckboxStyle>Forgot Password</TextCheckboxStyle>
         </ContainerCheckboxStyle>
 
-        <ButtonLoginStyle>Sign in</ButtonLoginStyle>
+        <ButtonLoginStyle className="button_dark">Sign in</ButtonLoginStyle>
       </LoginStyle>
     </MainStyle>
   );

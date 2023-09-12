@@ -15,7 +15,7 @@ import {
   ContainerArrowsStyle,
 } from "../../styled/Cart/ProductCartStyledComp";
 
-const ProductCart = () => {
+const ProductCart = ({id}) => {
   return (
     <ProductPayStyle>
       <ImageProductStyle
@@ -39,7 +39,7 @@ const ProductCart = () => {
           </ContainerArrowStyle>
         </ContainerArrowsStyle>
       </ContainerTextStyle>
-      <CheckboxStyle type="checkbox" />
+      <CheckboxStyle type="checkbox" id={id} />
     </ProductPayStyle>
   );
 };

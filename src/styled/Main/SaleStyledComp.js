@@ -60,7 +60,7 @@ const ButtonModStyle = styled.div`
   justify-content: center;
 `;
 
-const ButtonTextStyle = styled.p`
+const ButtonTextStyle = styled.a`
   font-size: 14px;
   font-style: normal;
   font-weight: 400;

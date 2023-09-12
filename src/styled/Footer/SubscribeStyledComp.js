@@ -43,6 +43,11 @@ const InputPolicyStyle = styled.input`
   border-radius: 5px;
   border: 1px solid ${({ theme }) => theme.colors.mainColor};
 
+  &:hover {
+    border: 1px solid ${({ theme }) => theme.colors.rearColor};
+
+  }
+  
   @media ${device.mobileS} {
     margin-top: 20px;
     margin-bottom: 15px;

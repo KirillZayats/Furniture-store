@@ -25,7 +25,7 @@ const ChoseUs = () => {
             and elegant dining sets to stylish office desks and comfortable
             beds.
           </TestChoseStyle>
-          <BlackButtonInfoStyle>Shop Now</BlackButtonInfoStyle>
+          <BlackButtonInfoStyle className="button_dark">Shop Now</BlackButtonInfoStyle>
         </ContainerChoseStyle>
         <ListChose />
       </ArticleContainerChoseUsStyle>

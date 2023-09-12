@@ -109,9 +109,26 @@ const BlocksStyle = styled.div`
 const BlockStyle = styled.div`
     display: flex;
   flex-direction: column;
+  
 `;
 
-const LinkStyle = styled.a``;
+const LinkStyle = styled.a`
+  display: inline-block;
+  transition: all .4s ease-in;
+
+  &::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 1px;
+    transition: all .5s ease-in;
+  }
+
+  &:hover::after {
+      width: 100%;
+      background: ${({ theme }) => theme.colors.mainColor};
+    }
+`;
 
 const ContainerLinksStyle = styled.div`
   display: flex;

@@ -41,7 +41,7 @@ const Account = () => {
           <NameStyle>Nickname: zayakiri</NameStyle>
           <EmailStyle>Email: kirill.zayats.99@mail.ru</EmailStyle>
           
-          <ButtonLogoutStyle>Logout</ButtonLogoutStyle>
+          <ButtonLogoutStyle className="button_dark">Logout</ButtonLogoutStyle>
         </ContainerInfoAccountStyle>
       </AccountStyle>
     </MainStyle>

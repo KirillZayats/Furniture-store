@@ -48,7 +48,7 @@ const Footer = () => {
               <TitleBlockStyle>About</TitleBlockStyle>
               <ContainerListStyle>
                 <ListElementStyle>
-                  <LinkStyle>Contact Us</LinkStyle>
+                  <LinkStyle href="#" target="_blank">Contact Us</LinkStyle>
                 </ListElementStyle>
                 <ListElementStyle>
                   <LinkStyle>About Us</LinkStyle>

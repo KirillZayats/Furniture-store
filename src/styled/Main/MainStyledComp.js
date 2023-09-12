@@ -266,6 +266,25 @@ const ContainerListStyle = styled.ul`
   display: flex;
   flex-direction: column;
   gap: 16px;
+
+  &a:hover {
+    animation: scale 0.5s ease-in;
+  };
+
+  @keyframes scale {
+    0% {
+          transform: scale(1);
+
+    }
+
+      50% {
+          transform: scale(1.05);
+      }
+
+      100% {
+          transform: scale(1);
+      }
+  }
 `;
 
 export {

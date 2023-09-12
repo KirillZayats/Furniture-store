@@ -4,6 +4,7 @@ import IconVisa from "../../resource/images/icons/pay/visa.svg";
 import IconMaster from "../../resource/images/icons/pay/master_sard.svg";
 import IconDiscover from "../../resource/images/icons/pay/discover.svg";
 import IconAmex from "../../resource/images/icons/pay/amex.svg";
+
 import {
   ContainerInputsStyle,
   ImageCardBackStyle,
@@ -28,13 +29,14 @@ import {
   ButtonPayCardStyle,
   ButtonPayStyle,
   ContainerPayStyle,
+  IconApplePay
 } from "../../styled/Pay/FormPayStyledComp";
 
 const FormPay = () => {
   return (
     <ContainerPayStyle>
-      <ButtonPayStyle>
-        <ImgButtonPayStyle src={IconButtonPay} />
+      <ButtonPayStyle className="button_dark">
+        <IconApplePay className="icon__button"/>
       </ButtonPayStyle>
       <ContainerTransitionStyle>
         <LineTransitionStyle />

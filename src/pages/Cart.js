@@ -8,6 +8,7 @@ import {
   LinkBackStyle,
   TextProductStyle,
   TextTotalPayStyle,
+  IconArrowLeft
 } from "../styled/Pay/InfoPayStyledComp";
 import {
   InputSelectAllStyle,
@@ -26,7 +27,7 @@ import IconClear from "../resource/images/icons/delete.svg";
 
 const Cart = () => {
   const selectAll = () => {
-    const inputs = document.querySelector("ul").querySelectorAll("input");
+    const inputs = document.querySelector(".list_elements").querySelectorAll("input");
     if (document.getElementById("inputSelectAll").checked) {
       inputs.forEach((element) => {
         element.checked = true;
@@ -39,7 +40,7 @@ const Cart = () => {
   };
 
   const clearList = () => {
-    let list = document.querySelector("ul");
+    let list = document.querySelector(".list_elements");
     for (let index = 0; index < list.childNodes.length; index++) {
       if (list.childNodes[index].querySelector("input").checked) {
         list.removeChild(list.childNodes[index]);
@@ -53,9 +54,9 @@ const Cart = () => {
       <ContainerCartStyle>
         <ContainerMainBlockStyle>
           <ContainerTitlePageStyle>
-            <ContainerBackStyle title="click to back">
+            <ContainerBackStyle className="container_back" title="Click to back">
               <ContainerIconBackStyle>
-                <IconBackStyle src={IconArroyBack} alt="Icon back" />
+                <IconArrowLeft/>
               </ContainerIconBackStyle>
               <LinkBackStyle>Back</LinkBackStyle>
             </ContainerBackStyle>
@@ -74,10 +75,10 @@ const Cart = () => {
               />
             </ContainerCheckboxStyle>
           </ContainerTitlePageStyle>
-          <ListProductsStyle>
-            <ProductCart />
-            <ProductCart />
-            <ProductCart />
+          <ListProductsStyle className="list_elements">
+            <ProductCart id='1'/>
+            <ProductCart id='2'/>
+            <ProductCart id='3'/>
           </ListProductsStyle>
           <ContainerTotalPayStyle>
             <TextTotalPayStyle>Total due:</TextTotalPayStyle>
@@ -87,7 +88,7 @@ const Cart = () => {
         <ContainerPayInfoStyle>
           <TextProductStyle>Select products to continue</TextProductStyle>{" "}
           {/*при нажатии выделяется всё и функция кнопки меняется на преобрести(Checkout)*/}
-          <ButtonInPayStyle>Select all</ButtonInPayStyle>
+          <ButtonInPayStyle className="button_rear">Select all</ButtonInPayStyle>
         </ContainerPayInfoStyle>
       </ContainerCartStyle>
     </MainStyle>

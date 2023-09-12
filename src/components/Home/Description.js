@@ -32,7 +32,7 @@ const Description = () => {
               comfortable beds.
             </TextStyle>
             <BlockButtonsStyle>
-              <BlackButtonInfoStyle>Shop Now</BlackButtonInfoStyle>
+              <BlackButtonInfoStyle className="button_dark">Shop Now</BlackButtonInfoStyle>
               <WhiteButtonInfoStyle>Learn More</WhiteButtonInfoStyle>
             </BlockButtonsStyle>
           </ContainerInfoDescriptionStyle>

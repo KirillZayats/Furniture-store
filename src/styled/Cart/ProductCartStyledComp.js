@@ -1,6 +1,6 @@
 import { styled } from "styled-components";
 import { device, size } from "../../styled/Media/MediaQueryStyledComp";
-
+import {Scale} from "../../styled/AppStyledComp";
 const ContainerArrowsStyle = styled.div`
   display: flex;
   flex-direction: row;
@@ -14,6 +14,16 @@ const ContainerArrowStyle = styled.div`
   display: flex;
   justify-content: center;
   cursor: pointer;
+  transition: all .2s ease-in;
+
+  &:hover {
+    background: ${({ theme }) => theme.colors.mainColor};
+
+  }
+  &:active {
+    animation: ${Scale} 0.1s ease-in;
+
+  }
 `;
 const ArrowStyle = styled.img`
   height: 24px;

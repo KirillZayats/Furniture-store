@@ -180,6 +180,7 @@ const ContainerArrowStyle = styled.div`
   background: ${({ theme }) => theme.colors.buttonPayColor};
   display: flex;
   justify-content: center;
+  cursor: pointer;
 `;
 const ArrowStyle = styled.img`
   height: 24px;

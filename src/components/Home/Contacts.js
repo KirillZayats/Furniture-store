@@ -72,7 +72,7 @@ const Contacts = () => {
               I accept the <LinkUnderLineStyle>Terms</LinkUnderLineStyle>
             </TextCheckboxStyle>
           </ContainerCheckboxStyle>
-          <FormSendStyle>Submit</FormSendStyle>
+          <FormSendStyle className="button_dark">Submit</FormSendStyle>
         </FormStyle>
       </ArticleContainerStyle>
     </BlockContentStyle>
