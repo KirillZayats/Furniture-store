@@ -23,11 +23,14 @@ a {
 
 button {
   font-size: 14px;
+  cursor: pointer;
+
 }
 
 input[type="checkbox"] {
   width: 18px;
   height: 18px;
+  cursor: pointer;
 
 };
 

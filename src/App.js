@@ -19,14 +19,14 @@ export const App = () => {
       <BrowserRouter>
         <GlobalStyle />
         <Header />
-        {/* <Home /> */}
-        {/* <Contacts/> */}
-        {/* <AboutUsP/> */}
-        {/* <Products/> */}
-        {/* <Pay/> */}
-        {/* <Details/> */}
-        {/* <Account/> */}
-        {/* <Cart/> */}
+        <Home />
+        <Contacts/>
+        <AboutUsP/>
+        <Products/>
+        <Pay/>
+        <Details/>
+        <Account/>
+        <Cart/>
         <Login/>
         <Footer />
       </BrowserRouter>

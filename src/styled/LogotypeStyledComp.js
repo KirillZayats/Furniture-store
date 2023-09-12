@@ -2,7 +2,7 @@
 import { styled } from "styled-components";
 
 const LogotypeStyle = styled.div`
-
+  cursor: pointer;
 `;
 
 const LogotypeIconStyle = styled.img`

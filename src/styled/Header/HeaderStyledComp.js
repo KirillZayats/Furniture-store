@@ -88,7 +88,6 @@ const HeaderBlockStyle = styled.div`
     transform: rotate(-45deg);
     background: ${({ theme }) => theme.colors.secondColor};
     top: -20px;
-
   }
 
   input[type="checkbox"]:checked ~ ${SidebarStyle} {
@@ -143,7 +142,7 @@ const SearchStyle = styled.div`
 `;
 
 const SearchIconStyle = styled.img`
-  /* margin-top: 4px; */
+    cursor: pointer;
 `;
 
 const LineStyle = styled.div`

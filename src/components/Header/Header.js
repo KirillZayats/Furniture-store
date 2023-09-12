@@ -85,6 +85,8 @@ const ContainerBlockSetStyle = styled.div`
   display: flex;
   gap: 8px;
   align-items: center;
+    cursor: pointer;
+
 `;
 
 const IconSettingStyle = styled.img``;
@@ -166,6 +168,7 @@ const ContainerCartStyle = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  cursor: pointer;
 
   @media ${device.mobileS} {
     margin-left: auto;
@@ -275,13 +278,7 @@ const Header = () => {
           </UpBlockHeaderStyle>
           <TopLineStyle />
           <HeaderBlockStyle>
-            {/* <InputCheckBoxStyle type="checkbox" id="checked"/>
-          <Sidebar /> */}
             <Logotype />
-            {/* <ContainerSearchStyle>
-              <InputSearchStyle placeholder="Search"/>
-              <SearchIconStyle src={IconSearch}/>
-          </ContainerSearchStyle> */}
             <NavStyle>
               <ListStyle>
                 <ElementListStyle>
@@ -307,7 +304,6 @@ const Header = () => {
                 />
                 <SearchIconStyle src={IconSearch} />
               </ContainerSearchStyle>
-              {/* <SearchIconStyle src={IconSearch} /> */}
               <ContainerCartStyle>
                 <ContainerIconCartStyle>
                   <IconCartStyle src={IconBasket} />
@@ -355,28 +351,28 @@ const Header = () => {
                 </ElementListStyle>
               </ListStyle>
               <ContainerSocialStyle>
-                <LinkStyle>
+              <LinkStyle href="https://www.facebook.com/" target="_black">
                   <ImageSocialStyle
                     src={IconFacebook}
                     alt="Facebook"
                     title="Icon faceBook"
                   />
                 </LinkStyle>
-                <LinkStyle>
+                <LinkStyle href="https://www.instagram.com/" target="_black">
                   <ImageSocialStyle
                     src={IconInstagram}
                     alt="Instagram"
                     title="Icon instagram"
                   />
                 </LinkStyle>
-                <LinkStyle>
+                <LinkStyle href="https://www.twitter.com/" target="_black">
                   <ImageSocialStyle
                     src={IconTwitter}
                     alt="Twitter"
                     title="Icon Twitter"
                   />
                 </LinkStyle>
-                <LinkStyle>
+                <LinkStyle href="https://www.linkedin.com/" target="_black">
                   <ImageSocialStyle
                     src={IconLinkedin}
                     alt="Linkedin"
