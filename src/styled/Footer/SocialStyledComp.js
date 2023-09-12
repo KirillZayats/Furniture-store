@@ -9,10 +9,16 @@ const ContainerImagesStyle = styled.div`
 
   @media ${device.tablet} {
     margin-top: 10px;
-
   }
 `;
 
-const ImageSocialStyle = styled.img``;
+const ImageSocialStyle = styled.img`
+  @media ${device.mobileS} {
+    filter: brightness(0) invert(1);
+  }
+  @media ${device.laptop} {
+    filter: none;
+  }
+`;
 
 export { ContainerImagesStyle, ImageSocialStyle };

@@ -9,7 +9,6 @@ const standartTheme = {
         buttonPayColor: "#3C4257",
         textButtonPayColor: "#8792A2",
         lineTransitionPayColor: "rgba(60, 66, 87, 0.12)",
-        
     }
 }
 

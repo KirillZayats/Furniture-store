@@ -19,7 +19,7 @@ const Subscribe = () => {
         Join our newsletter to stay up to date on features and releases.
       </SubscribeTextStyle>
       <FormSubscribeStyle>
-        <InputPolicyStyle placeholder="Enter your email" />
+        <InputPolicyStyle type="email" name="email" autoComplete="on" placeholder="Enter your email"/>
         <WhiteButtonInfoStyle>Subscribe</WhiteButtonInfoStyle>
       </FormSubscribeStyle>
       <SubscribePolicyTextStyle>

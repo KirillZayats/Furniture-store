@@ -100,16 +100,14 @@ const Login = () => {
         <TitleLoginStyle>Sign in</TitleLoginStyle>
         <ContainerInputStyle>
           <LabelInputStyle>Email</LabelInputStyle>
-          <InputStyle type="email" />
+          <InputStyle type="email" name="email_sign" autoComplete="on"/>
         </ContainerInputStyle>
         <ContainerInputStyle>
           <LabelInputStyle>Password</LabelInputStyle>
-          <InputStyle type="password" />
+          <InputStyle type="password" name="password" />
         </ContainerInputStyle>
-        {/* <InputNicknameOrEmailStyle type='text' placeholder=''/>
-        <InputPasswordStyle type='password'/> */}
         <ContainerCheckboxStyle>
-          <CheckboxStyle type="checkbox" />
+          <CheckboxStyle type="checkbox" name="checkbox_forgot"/>
           <TextCheckboxStyle>Forgot Password</TextCheckboxStyle>
         </ContainerCheckboxStyle>
 

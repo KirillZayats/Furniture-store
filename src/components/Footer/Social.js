@@ -12,16 +12,16 @@ import { LinkStyle } from "../../styled/AppStyledComp";
 const Social = () => {
   return (
     <ContainerImagesStyle>
-      <LinkStyle>
+      <LinkStyle href="https://www.facebook.com/" target="_black">
         <ImageSocialStyle src={IconFacebook} />
       </LinkStyle>
-      <LinkStyle>
+      <LinkStyle href="https://www.instagram.com/" target="_black">
         <ImageSocialStyle src={IconInstagram} />
       </LinkStyle>
-      <LinkStyle>
+      <LinkStyle href="https://www.twitter.com/" target="_black">
         <ImageSocialStyle src={IconTwitter} />
       </LinkStyle>
-      <LinkStyle>
+      <LinkStyle href="https://www.linkedin.com/" target="_black">
         <ImageSocialStyle src={IconLinkedin} />
       </LinkStyle>
     </ContainerImagesStyle>
