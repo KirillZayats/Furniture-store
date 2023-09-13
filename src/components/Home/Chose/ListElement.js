@@ -23,9 +23,9 @@ const ListElement = ({ id, title }) => {
         varius enim in eros elementum tristique. Duis cursus, mi quis viverra
         ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat.
       </TextChoseListStyle>
-      <ContainerLinkStyle>
+      <ContainerLinkStyle className="block__link_hover">
         <LinkStyle>Learn more</LinkStyle>
-        <IconArroyRightStyle src={IconArroyRight} />
+        <IconArroyRightStyle/>
       </ContainerLinkStyle>
     </ContainerListElemChoseStyle>
   );

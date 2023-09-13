@@ -59,7 +59,7 @@ const Header = () => {
               <TextInfoStyle>Email:info@ddsgnr.com</TextInfoStyle>
             </LeftContainerInfoStyle>
             <RightContainerInfoStyle>
-              <ContainerSocialStyle>
+              <ContainerSocialStyle className="container-social__image">
                 <LinkStyle href="https://www.facebook.com/" target="_blank">
                   <ImageSocialStyle
                     src={IconFacebook}
@@ -129,8 +129,8 @@ const Header = () => {
                 />
                 <SearchIconStyle src={IconSearch} />
               </ContainerSearchStyle>
-              <ContainerCartStyle>
-                <ContainerIconCartStyle>
+              <ContainerCartStyle className="block_hover">
+                <ContainerIconCartStyle className="container__link-cart">
                   <IconCartStyle src={IconBasket} />
                   <ContainerNumberProductsCartStyle>
                     <NumberProductsCartStyle>100</NumberProductsCartStyle>
@@ -164,8 +164,8 @@ const Header = () => {
                   <LinkNavStyle>Contact</LinkNavStyle>
                 </ElementListStyle>
                 <ElementListStyle>
-                  <ContainerCartStyle className="div_hover">
-                    <ContainerIconCartStyle>
+                  <ContainerCartStyle className="block_hover">
+                    <ContainerIconCartStyle className="container__link-cart">
                       <IconCartStyle src={IconBasket} />
                       <ContainerNumberProductsCartStyle>
                         <NumberProductsCartStyle>100</NumberProductsCartStyle>
@@ -175,7 +175,7 @@ const Header = () => {
                   </ContainerCartStyle>
                 </ElementListStyle>
               </ListStyle>
-              <ContainerSocialStyle>
+              <ContainerSocialStyle className="container-social__image">
               <LinkStyle href="https://www.facebook.com/" target="_blank">
                   <ImageSocialStyle
                     src={IconFacebook}

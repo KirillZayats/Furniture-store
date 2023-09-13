@@ -29,7 +29,6 @@ import {
   ContainerPayStyle,
   IconApplePay,
 } from "../../styled/Pay/FormPayStyledComp";
-import { LinkStyle } from "../../styled/AppStyledComp";
 import { useForm } from "react-hook-form";
 import ErrorMessage from "../ErrorMessage";
 
@@ -68,11 +67,12 @@ const FormPay = () => {
 
   return (
     <ContainerPayStyle onSubmit={handleSubmit(onSubmit)}>
-      <ButtonPayStyle className="button_dark">
-        <LinkStyle href="https://www.apple.com/apple-pay/">
+        <ButtonPayStyle href="https://www.apple.com/apple-pay/" target="_blank"
+          className="button_dark"
+          disabled={true}
+        >
           <IconApplePay className="icon__button" />
-        </LinkStyle>
-      </ButtonPayStyle>
+        </ButtonPayStyle>
       <ContainerTransitionStyle>
         <LineTransitionStyle />
         <TextTransitionStyle>Or pay with card</TextTransitionStyle>

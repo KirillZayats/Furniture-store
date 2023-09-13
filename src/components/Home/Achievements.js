@@ -9,21 +9,21 @@ import {
 const Achievements = () => {
   return (
     <BlockAchievementsStyle>
-    <AchievementStyle>
+    <AchievementStyle className='block-achievements'>
       <AchievementNumberStyle>500+</AchievementNumberStyle>
       <AchievementTextStyle>
         Increase in productivity
       </AchievementTextStyle>
     </AchievementStyle>
-    <AchievementStyle>
+    <AchievementStyle className='block-achievements'>
       <AchievementNumberStyle>300+</AchievementNumberStyle>
       <AchievementTextStyle>Product</AchievementTextStyle>
     </AchievementStyle>
-    <AchievementStyle>
+    <AchievementStyle className='block-achievements'>
       <AchievementNumberStyle>5k+</AchievementNumberStyle>
       <AchievementTextStyle>Happy customers</AchievementTextStyle>
     </AchievementStyle>
-    <AchievementStyle>
+    <AchievementStyle className='block-achievements'>
       <AchievementNumberStyle>100=</AchievementNumberStyle>
       <AchievementTextStyle>5 Star Review</AchievementTextStyle>
     </AchievementStyle>

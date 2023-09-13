@@ -17,6 +17,22 @@ const Scale = keyframes`
   
 `;
 
+const Swing = keyframes`
+  20% { transform: rotate(3deg); } 
+  40% { transform: rotate(-2deg); } 
+  60% { transform: rotate(1deg); } 
+  80% { transform: rotate(-1deg); } 
+  100% { transform: rotate(0deg); } 
+`;
+
+const SwingText = keyframes`
+    20% { transform: rotate(10deg); } 
+    40% { transform: rotate(-7deg); } 
+    60% { transform: rotate(3deg); } 
+    80% { transform: rotate(-3deg); } 
+    100% { transform: rotate(0deg); } 
+`;
+
 const ScaleButton = keyframes`
     0% {
           transform: scale(1);
@@ -67,36 +83,44 @@ const GlobalStyle = createGlobalStyle`
     height: 18px;
   };
 
-  a, button, input[type="checkbox"], li a {
+  a, button, input[type="checkbox"], li a, .block_hover, 
+  .block__button_sale, svg, .block__link_hover, .block_product {
     cursor: pointer;
   };
 
-  a:hover, li:hover a, li:hover .div_hover {
+  a:hover, li:hover > a, li:hover > .block_hover, .block_hover:hover p, .block__link_hover:hover, .block__button_sale:hover a {
     color: ${({ theme }) => theme.colors.textButtonPayColor};
   };
 
-  a:active, li:active a, li:active .div_hover, input[type="checkbox"]:active {
-    animation: ${Scale} 0.1s ease-in;
+  a:active, li:active > a, li:active > .block_hover, 
+  input[type="checkbox"]:active, .block__link_hover:active, 
+  .container_back:active path, .container_back:active p, 
+  .block__button_sale:active svg, .block__button_sale:active a {
+    animation: ${Scale} 0.2s ease-in;
   };
 
-  button:active {
-    animation: ${ScaleButton} 0.3s ease-in;
+  button:active, .button_dark:active {
+    animation: ${ScaleButton} .1s ease-in;
+  }
+
+  .block__button_sale path{
+    fill: ${({ theme }) => theme.colors.secondColor};
   }
 
   a:hover img {
     filter: invert(48%) sepia(12%) saturate(641%) hue-rotate(181deg) brightness(90%) contrast(83%);
   }
 
-  .container_back p, .container_back path, img, button{
+  .container_back p, .container_back path, img, button, svg path{
     transition: all .2s ease-in;
-  }
-
-  .container_back:active path, .container_back:active p {
-    animation: ${Scale} 0.1s ease-in;
   }
 
   .container_back:hover path {
     fill: ${({ theme }) => theme.colors.mainColor};
+  }
+
+  .block__link_hover:hover path, .block__button_sale:hover path {
+    fill: ${({ theme }) => theme.colors.textButtonPayColor};
   }
 
   .container_back:hover p {
@@ -114,7 +138,7 @@ const GlobalStyle = createGlobalStyle`
     color: ${({ theme }) => theme.colors.mainColor};
   }
 
-  button:hover path {
+  .button_dark:hover path {
     fill: ${({ theme }) => theme.colors.mainColor};
   }
 
@@ -127,6 +151,16 @@ const GlobalStyle = createGlobalStyle`
     transition: all .2s ease-in;
     outline-color: ${({ theme }) => theme.colors.rearColor}; 
 
+  }
+
+  .block_product:hover img, .block_product:hover .price, 
+  .block-achievements:hover {
+    animation: ${Swing} .5s ease-in;
+  }
+
+  .block_product:hover .price, .container-social__image img:hover, .block_hover:hover .container__link-cart, 
+  li:hover .container__link-cart{
+    animation: ${SwingText} .5s ease-in;
   }
 
   input::-webkit-outer-spin-button,

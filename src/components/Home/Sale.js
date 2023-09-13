@@ -26,11 +26,13 @@ const Sale = () => {
           <TitleBlockStyle>Sales Up to 50%</TitleBlockStyle>
           <ContainerIndentStyle>
             <BlockButtonsStyle>
-              <BlackButtonInfoStyle className="button_special">Shop Now</BlackButtonInfoStyle>
-              <ButtonModStyle>
+              <BlackButtonInfoStyle className="button_special">
+                Shop Now
+              </BlackButtonInfoStyle>
+              <ButtonModStyle className="block__button_sale">
                 <ButtonTextStyle>Button</ButtonTextStyle>
                 <ArroyChangeColor>
-                  <IconArroyRightStyle src={IconArroyRight} />
+                  <IconArroyRightStyle />
                 </ArroyChangeColor>
               </ButtonModStyle>
             </BlockButtonsStyle>

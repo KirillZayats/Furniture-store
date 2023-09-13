@@ -21,13 +21,13 @@ export const App = () => {
         <Header />
         <Home />
         <Contacts/>
-        {/* <AboutUsP/>
-        <Products/> */}
-        {/* <Pay/>
+        <AboutUsP/>
+        <Products/>
+        <Pay/>
         <Details/>
         <Account/>
         <Cart/>
-        <Login/> */}
+        <Login/>
         <Footer />
       </BrowserRouter>
     </Theme>

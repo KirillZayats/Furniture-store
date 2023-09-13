@@ -28,17 +28,16 @@ const SaleStyle = styled.div`
   @media ${device.tabletS} {
     background-position: 165% 70%;
     background-size: 60%;
-
   }
 
   @media ${device.laptop} {
-    background-position: 110% 255%;    
+    background-position: 110% 255%;
     background-size: 40%;
     padding: 60px 0;
   }
 
   @media ${device.desktop} {
-    background-position: 105% 255%;    
+    background-position: 105% 255%;
     padding: 100px 0;
   }
 `;
@@ -65,6 +64,7 @@ const ButtonTextStyle = styled.a`
   font-style: normal;
   font-weight: 400;
   line-height: 150%;
+  transition: all 0.2s ease-in;
 `;
 
 export {

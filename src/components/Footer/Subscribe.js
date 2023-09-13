@@ -38,7 +38,7 @@ const Subscribe = () => {
             type="email"
             autoComplete="on"
             {...register("email_sub", {
-              required: "email required",
+              required: "Email required",
               pattern: {
                 value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{1,64}$/i,
                 message: "Please enter a valid email",

@@ -1,6 +1,7 @@
 import { styled } from "styled-components";
 import { device, size } from "../Media/MediaQueryStyledComp";
 import ImageMain from "../../resource/images/main.jpg";
+import IconArrow from "../../resource/images/icons/Icon";
 const MainStyle = styled.main`
   margin: 0 auto;
 
@@ -65,7 +66,6 @@ const ImageMainBlockStyle = styled.div`
     grid-row-start: 2;
     margin-top: 40px;
     height: 600px;
-
   }
 
   @media ${device.desktop} {
@@ -106,7 +106,6 @@ const ImageMainContainerStyle = styled.div`
   @media ${device.laptop} {
     background-position: 25% 80%;
     background-size: 120%;
-
   }
 
   @media ${device.desktop} {
@@ -225,7 +224,6 @@ const TitleBlockStyle = styled.h2`
 
   @media ${device.mobileS} {
     font-size: 32px;
-
   }
   @media ${device.desktop} {
     font-size: 48px;
@@ -260,7 +258,23 @@ const ContainerLinkStyle = styled.div`
   gap: 8px;
 `;
 
-const IconArroyRightStyle = styled.img``;
+const Svg = styled(IconArrow)`
+  width: 24px;
+  height: 24px;
+`;
+const IconArroyRightStyle = ({ className }) => (
+  <Svg viewBox="0 0 24 24" className={className}>
+    <g id="Icon / Chevron Right">
+      <path
+        id="Vector"
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M14.9603 11.1423C15.18 11.362 15.18 11.7181 14.9603 11.9378L9.22541 17.6727C9.00573 17.8923 8.64963 17.8923 8.42996 17.6727L8.16476 17.4075C7.94508 17.1878 7.94508 16.8317 8.16476 16.612L13.2367 11.5401L8.16476 6.46812C7.94508 6.24844 7.94508 5.89234 8.16476 5.67267L8.42996 5.40747C8.64963 5.18779 9.00573 5.18779 9.22541 5.40747L14.9603 11.1423Z"
+        fill="black"
+      />
+    </g>
+  </Svg>
+);
 
 const ContainerListStyle = styled.ul`
   display: flex;
@@ -269,21 +283,20 @@ const ContainerListStyle = styled.ul`
 
   &a:hover {
     animation: scale 0.5s ease-in;
-  };
+  }
 
   @keyframes scale {
     0% {
-          transform: scale(1);
-
+      transform: scale(1);
     }
 
-      50% {
-          transform: scale(1.05);
-      }
+    50% {
+      transform: scale(1.05);
+    }
 
-      100% {
-          transform: scale(1);
-      }
+    100% {
+      transform: scale(1);
+    }
   }
 `;
 
@@ -307,5 +320,4 @@ export {
   ContainerListStyle,
   ContainerInfoDescriptionStyle,
   ContainerFlexDescriptionsStyle,
-  
 };
