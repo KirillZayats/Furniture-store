@@ -1,9 +1,12 @@
 import React from "react";
-import { BlockContentStyle, LinkUnderLineStyle } from "../../styled/AppStyledComp";
+import {
+  BlockContentStyle,
+  LinkUnderLineStyle,
+} from "../../styled/AppStyledComp";
 import {
   TextStyle,
   TitleBlockStyle,
-  ContainerListStyle
+  ContainerListStyle,
 } from "../../styled/Main/MainStyledComp";
 import IconEmail from "../../resource/images/icons/constacts/Email.svg";
 import IconPhone from "../../resource/images/icons/constacts/Phone.svg";
@@ -22,12 +25,24 @@ import {
   ArticleContainerStyle,
   TextCheckboxStyle,
   ContainerCheckboxStyle,
-  CheckboxStyle
+  CheckboxStyle,
 } from "../../styled/Main/ContactsStyledComp";
-
-
+import { useForm } from "react-hook-form";
+import ErrorMessage from "../ErrorMessage";
 
 const Contacts = () => {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    reset,
+  } = useForm();
+
+  const onSubmit = (data) => {
+    reset();
+    console.log(data);
+  };
+
   return (
     <BlockContentStyle>
       <ArticleContainerStyle>
@@ -53,24 +68,71 @@ const Contacts = () => {
             </ContainerContactStyle>
           </ContainerListStyle>
         </ContainerInfoStyle>
-        <FormStyle>
+        <FormStyle onSubmit={handleSubmit(onSubmit)}>
           <FormContainerInputStyle>
             <FormLabelStyle>Name</FormLabelStyle>
-            <FormInputStyle></FormInputStyle>
+            <FormInputStyle
+              type="text"
+              autoComplete="on"
+              {...register("first_name", {
+                required: "Name required",
+                pattern: {
+                  value: /^[A-Z]{2,40}$/i,
+                  message: "Name must have 2 or more letters",
+                },
+              })}
+            />
+            {errors.first_name && (
+              <ErrorMessage message={errors.first_name.message} />
+            )}
           </FormContainerInputStyle>
           <FormContainerInputStyle>
             <FormLabelStyle>Email</FormLabelStyle>
-            <FormInputStyle></FormInputStyle>
+            <FormInputStyle
+              type="email"
+              autoComplete="on"
+              {...register("email_client", {
+                required: "Email required",
+                pattern: {
+                  value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{1,64}$/i,
+                  message: "Please enter a valid email",
+                },
+              })}
+            />
+            {errors.email_client && (
+              <ErrorMessage message={errors.email_client.message} />
+            )}
           </FormContainerInputStyle>
           <FormContainerInputStyle>
             <FormLabelStyle>Message</FormLabelStyle>
-            <FormTextareaStyle placeholder="Type your message..."/>
+            <FormTextareaStyle
+              type="text"
+              {...register("message_client", {
+                required: "Message required",
+                minLength: {
+                  value: 10,
+                  message: "Message must have 10 or more symbols",
+                },
+              })}
+              placeholder="Type your message..."
+            />
+            {errors.message_client && (
+              <ErrorMessage message={errors.message_client.message} />
+            )}
           </FormContainerInputStyle>
           <ContainerCheckboxStyle>
-            <CheckboxStyle type="checkbox"/>
+            <CheckboxStyle
+              type="checkbox"
+              {...register("checkbox_agree", {
+                required: "Checkbox required", 
+              })}
+            />
             <TextCheckboxStyle>
               I accept the <LinkUnderLineStyle>Terms</LinkUnderLineStyle>
             </TextCheckboxStyle>
+            {errors.checkbox_agree && (
+            <ErrorMessage message={errors.checkbox_agree.message} />
+          )}
           </ContainerCheckboxStyle>
           <FormSendStyle className="button_dark">Submit</FormSendStyle>
         </FormStyle>

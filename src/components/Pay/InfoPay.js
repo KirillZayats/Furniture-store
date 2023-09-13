@@ -8,6 +8,7 @@ import {
   IconBackStyle,
   ContainerIconBackStyle,
   ContainerBackStyle,
+  IconArrowLeft
 } from "../../styled/Pay/InfoPayStyledComp";
 import IconArroyBack from "../../resource/images/icons/arroy_left.svg";
 import ProductPay from "./ProductPay";
@@ -15,9 +16,9 @@ import ProductPay from "./ProductPay";
 const InfoPay = () => {
   return (
     <ContainerPayStyle>
-      <ContainerBackStyle>
+      <ContainerBackStyle className="container_back">
         <ContainerIconBackStyle>
-          <IconBackStyle src={IconArroyBack} />
+          <IconArrowLeft/>
         </ContainerIconBackStyle>
         <LinkBackStyle>Back</LinkBackStyle>
       </ContainerBackStyle>

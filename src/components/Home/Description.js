@@ -33,7 +33,7 @@ const Description = () => {
             </TextStyle>
             <BlockButtonsStyle>
               <BlackButtonInfoStyle className="button_dark">Shop Now</BlackButtonInfoStyle>
-              <WhiteButtonInfoStyle>Learn More</WhiteButtonInfoStyle>
+              <WhiteButtonInfoStyle className="button_white">Learn More</WhiteButtonInfoStyle>
             </BlockButtonsStyle>
           </ContainerInfoDescriptionStyle>
           <ImageMainBlockStyle>

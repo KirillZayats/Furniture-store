@@ -278,7 +278,7 @@ const ElementListStyle = styled.li`
     display: block;
     width: 0;
     height: 1px;
-    transition: all .5s ease-in;
+    transition: all .3s ease-in;
 
     margin-top: 5px;
   }

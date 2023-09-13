@@ -36,6 +36,13 @@ const GlobalStyle = createGlobalStyle`
   * {
     margin: 0;
     padding: 0;
+
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none; 
   }
 
   body {
@@ -74,7 +81,6 @@ const GlobalStyle = createGlobalStyle`
 
   button:active {
     animation: ${ScaleButton} 0.3s ease-in;
-
   }
 
   a:hover img {
@@ -98,25 +104,43 @@ const GlobalStyle = createGlobalStyle`
   }
 
   .button_dark:hover {
-    background: ${({ theme }) => theme.colors.secondColor};
+    background: ${({ theme }) => theme.colors.lineTransitionPayColor};
     color: ${({ theme }) => theme.colors.mainColor};
     border: 1px solid ${({ theme }) => theme.colors.mainColor};
+  }
+
+  .button_special:hover {
+    background: ${({ theme }) => theme.colors.secondColor};
+    color: ${({ theme }) => theme.colors.mainColor};
   }
 
   button:hover path {
     fill: ${({ theme }) => theme.colors.mainColor};
   }
 
-  input {
-    transition: all .2s ease-in;
+  .button_white:hover {
+    background: ${({ theme }) => theme.colors.rearColor};
+    color: ${({ theme }) => theme.colors.secondColor};
   }
 
-  input:hover {
-    border-color: ${({ theme }) => theme.colors.mainColor}; 
+  input, .inputs_card, textarea {
+    transition: all .2s ease-in;
+    outline-color: ${({ theme }) => theme.colors.rearColor}; 
+
+  }
+
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+  input:hover, .inputs_card:hover, textarea:hover {
+    border-color: ${({ theme }) => theme.colors.rearColor}; 
     }
     
-  input:focus {
-    outline-color: ${({ theme }) => theme.colors.rearColor}; 
+  input:focus, textarea:focus {
+    outline-color: ${({ theme }) => theme.colors.mainColor}; 
     }
 `;
 
@@ -153,7 +177,7 @@ const ContainerStyle = styled.div`
 const LinkUnderLineStyle = styled.a`
   display: inline-block;
   text-decoration-line: underline;
-  transition: all 0.4s ease-in;
+  transition: all 0.2s ease-in;
 `;
 
 const ContainerLinkStyle = styled.div`

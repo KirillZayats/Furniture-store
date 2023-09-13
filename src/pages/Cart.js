@@ -88,7 +88,7 @@ const Cart = () => {
         <ContainerPayInfoStyle>
           <TextProductStyle>Select products to continue</TextProductStyle>{" "}
           {/*при нажатии выделяется всё и функция кнопки меняется на преобрести(Checkout)*/}
-          <ButtonInPayStyle className="button_rear">Select all</ButtonInPayStyle>
+          <ButtonInPayStyle className="button_rear button_dark">Select all</ButtonInPayStyle>
         </ContainerPayInfoStyle>
       </ContainerCartStyle>
     </MainStyle>

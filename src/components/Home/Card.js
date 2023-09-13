@@ -18,7 +18,7 @@ const Card = () => {
       <CardFigcaptionStyle>$55</CardFigcaptionStyle>
       </ContainerFigcaptionStyle>
       <CardCategoriesStyle>Desk decor</CardCategoriesStyle>
-      <CardButtonStyle>Add to cart</CardButtonStyle>
+      <CardButtonStyle className="button_white">Add to cart</CardButtonStyle>
     </CardStyle>
   );
 };

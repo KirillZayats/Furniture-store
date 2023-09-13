@@ -36,6 +36,11 @@ const SubscribePolicyTextStyle = styled.p`
   margin-top: 15px;
 `;
 
+const ContainerInputPolicyStyle = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
 const InputPolicyStyle = styled.input`
   padding: 10px;
   height: 18px;
@@ -98,5 +103,6 @@ export {
   SubscribeStyle,
   SubscribeTextStyle,
   FormSubscribeStyle,
-  InputPolicyStyle
+  InputPolicyStyle,
+  ContainerInputPolicyStyle
 };

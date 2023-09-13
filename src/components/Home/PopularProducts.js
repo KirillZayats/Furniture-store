@@ -35,7 +35,7 @@ const PartProducts = () => {
               Lorem ipsum dolor sit amet, consectetur adipiscing elit.
             </TextStyle>
             <ContainerButtonViewAllUpStyle>
-              <ButtonViewAllStyle>View all</ButtonViewAllStyle>
+              <ButtonViewAllStyle className="button_white">View all</ButtonViewAllStyle>
             </ContainerButtonViewAllUpStyle>
           </ContainerTitleBlockStyle>
           <ContainterCardsStyle>
@@ -46,7 +46,7 @@ const PartProducts = () => {
             {addCard()}
           </ContainterCardsStyle>
           <ContainerButtonViewAllDownStyle>
-            <ButtonViewAllStyle>View all</ButtonViewAllStyle>
+            <ButtonViewAllStyle className="button_white">View all</ButtonViewAllStyle>
           </ContainerButtonViewAllDownStyle>
         </ArticleContainerStyle>
       </ProductsStyle>

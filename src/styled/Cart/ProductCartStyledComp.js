@@ -22,7 +22,6 @@ const ContainerArrowStyle = styled.div`
   }
   &:active {
     animation: ${Scale} 0.1s ease-in;
-
   }
 `;
 const ArrowStyle = styled.img`

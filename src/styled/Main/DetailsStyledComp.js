@@ -1,5 +1,6 @@
 import { styled } from "styled-components";
 import { device, size } from "../../styled/Media/MediaQueryStyledComp";
+import {Scale} from "../../styled/AppStyledComp";
 
 const ContainerDetailsStyle = styled.article`
   margin: 0 auto;
@@ -181,6 +182,15 @@ const ContainerArrowStyle = styled.div`
   display: flex;
   justify-content: center;
   cursor: pointer;
+  transition: all .2s ease-in;
+
+&:hover {
+  background: ${({ theme }) => theme.colors.mainColor};
+
+}
+&:active {
+  animation: ${Scale} 0.1s ease-in;
+}
 `;
 const ArrowStyle = styled.img`
   height: 24px;
@@ -235,6 +245,15 @@ const ContainerButtonsStyle = styled.div`
   }
   button:last-child {
     background: ${({ theme }) => theme.colors.buttonPayColor};
+  }
+
+  button:first-child:hover {
+    background: ${({ theme }) => theme.colors.lineTransitionPayColor};
+    color: ${({ theme }) => theme.colors.mainColor};
+    border: 1px solid ${({ theme }) => theme.colors.mainColor};
+  }
+  button:last-child:hover {
+    background: ${({ theme }) => theme.colors.mainColor};
   }
 `;
 

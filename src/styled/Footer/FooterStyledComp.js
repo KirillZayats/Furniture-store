@@ -25,15 +25,12 @@ const FooterContentStyle = styled.footer`
   @media ${device.laptop} {
     max-width: ${size.laptop};
     padding: 50px 0;
-
   }
 
   @media ${device.desktop} {
     max-width: ${size.desktop};
     padding: 80px 0;
-
   }
-
 `;
 
 const TitleBlockStyle = styled.h4`
@@ -50,19 +47,12 @@ const TitleBlockStyle = styled.h4`
     margin-top: 0px;
   }
 `;
-const ListElementStyle = styled.li`
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 150%;
-`;
 
 const ContainerMainInfoFooter = styled.div`
   display: flex;
 
   @media ${device.mobileS} {
     flex-direction: column;
-
   }
 
   @media ${device.tabletS} {
@@ -78,14 +68,13 @@ const ContainerMainInfoFooter = styled.div`
   @media ${device.desktop} {
     margin-bottom: 80px;
   }
-  `;
+`;
 
 const BlocksStyle = styled.div`
-      display: flex;
+  display: flex;
 
   @media ${device.mobileS} {
     flex-direction: column;
-
   }
 
   @media ${device.tablet} {
@@ -93,7 +82,7 @@ const BlocksStyle = styled.div`
     gap: 100px;
   }
 
-    @media ${device.tablet} {
+  @media ${device.tablet} {
     gap: 50px;
   }
 
@@ -101,33 +90,48 @@ const BlocksStyle = styled.div`
     gap: 40px;
   }
 
-      @media ${device.desktop} {
+  @media ${device.desktop} {
     gap: 100px;
   }
-`; 
+`;
 
 const BlockStyle = styled.div`
-    display: flex;
+  display: flex;
   flex-direction: column;
-  
+`;
+
+const ListElementStyle = styled.li`
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+  transition: all 0.3s ease-in;
+
+  &::after {
+    content: "";
+    display: block;
+    width: 0;
+    height: 1px;
+    transition: all 0.5s ease-in;
+  }
+
+  @media ${device.mobileS} {
+    &:hover::after {
+    width: 84px;
+    background: ${({ theme }) => theme.colors.mainColor};
+  }
+  }
+
+  @media ${device.tablet} {
+    &:hover::after {
+    width: 100%;
+    background: ${({ theme }) => theme.colors.mainColor};
+  }
+  }
 `;
 
 const LinkStyle = styled.a`
   display: inline-block;
-  transition: all .4s ease-in;
-
-  &::after {
-    content: '';
-    display: block;
-    width: 0;
-    height: 1px;
-    transition: all .5s ease-in;
-  }
-
-  &:hover::after {
-      width: 100%;
-      background: ${({ theme }) => theme.colors.mainColor};
-    }
 `;
 
 const ContainerLinksStyle = styled.div`
@@ -138,7 +142,6 @@ const ContainerLinksStyle = styled.div`
   @media ${device.mobileS} {
     margin-top: 20px;
     margin-bottom: 20px;
-
   }
 
   @media ${device.tablet} {
@@ -175,17 +178,15 @@ const TextReservedStyle = styled.p`
 `;
 
 const ContainerReserverSocialStyle = styled.div`
-width: 100%;
+  width: 100%;
   display: flex;
   @media ${device.mobileS} {
     flex-direction: column;
-
   }
 
   @media ${device.tablet} {
     flex-direction: row;
     justify-content: space-between;
-
   }
 `;
 export {
@@ -198,5 +199,5 @@ export {
   ContainerReserverSocialStyle,
   ContainerMainInfoFooter,
   BlockStyle,
-  BlocksStyle
+  BlocksStyle,
 };
