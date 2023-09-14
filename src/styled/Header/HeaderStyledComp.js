@@ -1,6 +1,8 @@
 import { styled } from "styled-components";
 import { device, size } from "../Media/MediaQueryStyledComp";
 import { SidebarStyle } from "./SidebarStyledComp";
+import { SidebarActiveStyle } from "./SidebarActiveStyledComp";
+
 import IconArrow from "../../resource/images/icons/Icon";
 
 const HeaderContentStyle = styled.header`
@@ -71,76 +73,28 @@ const HeaderBlockStyle = styled.div`
   align-items: center;
   padding: 21px 0;
 
-  .top {
-    transform: rotate(0deg);
-  }
-
-  input[type="checkbox"]:checked ~ ${SidebarStyle} .middle {
+  input[type="checkbox"]:checked ~ ${SidebarStyle} span {
+    /* top: -55px; */
     opacity: 0;
-    @media ${device.mobileS} {
-      top: -15px;
-    left: 115px;
   }
 
-    @media ${device.mobileL} {
-      top: -15px;
-    left: 105px;
+  /* input[type="checkbox"]:checked ~ ${SidebarActiveStyle} .top-active {
+    left: -20px;
+
   }
 
-  @media ${device.tablet} {
-    top: -15px;
-    left: 80px;
-  }
-  }
+  input[type="checkbox"]:checked ~ ${SidebarActiveStyle} .bottom-active {
+     left: -20px;
+  } */
 
-  input[type="checkbox"]:checked ~ ${SidebarStyle} .top {
-    background: ${({ theme }) => theme.colors.secondColor};
-    transform: rotate(45deg);
-
-    @media ${device.mobileS} {
-      top: -15px;
-    left: 115px;
+  input[type="checkbox"]:checked ~ ${SidebarActiveStyle}{
+    left: 10px;
   }
-
-    @media ${device.mobileL} {
-      top: -15px;
-    left: 105px;
-  }
-
-  @media ${device.tablet} {
-    top: -15px;
-    left: 80px;
-  }
-  }
-
-  input[type="checkbox"]:checked ~ ${SidebarStyle} .bottom {
-    transform: rotate(-45deg);
-    background: ${({ theme }) => theme.colors.secondColor};
-
-    @media ${device.mobileS} {
-      top: -25px;
-    left: 115px;
-  }
-
-    @media ${device.mobileL} {
-      top: -25px;
-    left: 105px;
-  }
-
-  @media ${device.tablet} {
-    top: -25px;
-    left: 80px;
-  }
-  }
-
   
 
   input[type="checkbox"]:checked ~ ${SidebarStyle} {
-    position: fixed;
-    transition: all .5s ease-in;
-    /* left: 130px;
-    top: 20px; */
-  }
+    position: relative;
+  } 
 
   input[type="checkbox"]:checked ~ ul {
     opacity: 1;

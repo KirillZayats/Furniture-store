@@ -1,13 +1,13 @@
 import { styled } from "styled-components";
 
-const SidebarStyle = styled.label`
-  display: block;
+const SidebarActiveStyle = styled.label`
   width: 24px;
   height: 24px;
   margin-top: 4px;
   z-index: 999;
-  /* left: -50px; */
-  top: 0px;
+  left: -50px;
+  top:10px;
+  position: fixed;
   cursor: pointer;
   transition: all .5s ease-in;
 `;
@@ -20,29 +20,29 @@ const SidebarElementsstyle = styled.label`
   gap: 3px;
   margin: 6px auto;
   cursor: pointer;
-
-`;
-
-const InputCheckBoxStyle = styled.input`
-  display: none;
 `;
 
 const SidebarElementStyle = styled.span`
   display: block;
   position: relative;
   transition: 0.3s ease-in;
-  left: 0px;
-  top: 0px;
   width: 20px;
   height: 2px;
-  background: ${({ theme }) => theme.colors.rearColor};
-  opacity: 1;
-  
+  background: ${({ theme }) => theme.colors.secondColor};
+  &.top-active {
+    transform: rotate(45deg);
+    top: 5px;
+    
+  }
+  &.bottom-active {
+    transform: rotate(-45deg);
+    top: 0px;
+
+  }
 `;
 
 export {
-  SidebarStyle,
+  SidebarActiveStyle,
   SidebarElementsstyle,
   SidebarElementStyle,
-  InputCheckBoxStyle,
 };

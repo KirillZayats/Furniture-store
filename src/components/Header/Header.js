@@ -42,19 +42,21 @@ import IconInstagram from "../../resource/images/icons/social/Instagram.svg";
 import IconTwitter from "../../resource/images/icons/social/Twitter.svg";
 import IconLinkedin from "../../resource/images/icons/social/LinkedIn.svg";
 import { InputCheckBoxStyle } from "../../styled/Header/SidebarStyledComp";
+import SidebarActive from "./SidebarActive";
 
 const Header = () => {
   const [containerLogotype, setContainerLogotype] = useState("");
   const [containerSearch, setContainerSearch] = useState("");
   const [inputSearch, setInputSearch] = useState("");
   const [isOpenSearchBlock, setIsOpenSearchBlock] = useState(false);
-  const [clickElements, setClickElements] = useState("");
-  const [positionClient, setPositionClient] = useState(0);
+  const [isOpenSidebar, setIsOpenSidebar] = useState(false);
+  const [sidebar, setSidebar] = useState("");
+
   useEffect(() => {
     setContainerLogotype(document.getElementById("container-logotype"));
     setContainerSearch(document.querySelector(".container-search"));
     setInputSearch(document.querySelector("#search_products"));
-
+    setSidebar(document.getElementById("sidebar"));
     document.addEventListener("scroll", scrollPage);
   });
 
@@ -74,7 +76,7 @@ const Header = () => {
       }
       setIsOpenSearchBlock(true);
     } else {
-      console.log("lol");
+      console.log("find");
     }
   };
 
@@ -104,31 +106,19 @@ const Header = () => {
     }
   };
 
-  const hideBlockInput = () => {
-    console.log(clickElements);
-    if (isOpenSearchBlock) {
-      if (window.innerWidth < 1024) {
-        containerSearch.style.width = "24px";
-        containerSearch.style.border = `0px`;
-        containerSearch.style.padding = "0px";
-        inputSearch.style.opacity = 0;
-        inputSearch.style.width = "0px";
-      }
-      if (window.innerWidth <= 425) {
-        setTimeout(() => {
-          containerLogotype.style.display = "block";
-        }, 200);
-        setTimeout(() => {
-          containerLogotype.style.opacity = 1;
-        }, 300);
-      }
-      setIsOpenSearchBlock(false);
-    }
-  };
+  const toggleSidebar = () => {
+    console.log(sidebar);
 
-  const clickSearchBlock = (e) => {
-    setClickElements(e.target.tagName);
-  };
+    if(!isOpenSidebar) {
+      setTimeout(() => {
+        sidebar.style.top = '-60px';
+      },600)
+      setIsOpenSidebar(true);
+    } else {
+        sidebar.style.top = '0px';
+      setIsOpenSidebar(false);
+    }
+  }
 
   const loadHeader = () => {
     if (window.innerWidth >= 1024) {
@@ -236,8 +226,9 @@ const Header = () => {
         <HeaderContentStyle>
           <HeaderBlockStyle>
             <NavStyle>
-              <InputCheckBoxStyle type="checkbox" id="checked" />
-              <Sidebar />
+              <InputCheckBoxStyle type="checkbox" id="checked" onClick={toggleSidebar}/>
+              <Sidebar/>
+              <SidebarActive/>
               <ListStyle>
                 <ElementListStyle>
                   <LinkNavStyle>Home</LinkNavStyle>
@@ -309,12 +300,11 @@ const Header = () => {
                 <TextInfoStyle>Email: info@ddsgnr.com</TextInfoStyle>
                 <TextInfoStyle>Phone Number: 956 742 455 678</TextInfoStyle>
               </ContainerContactsBarMenuStyle>
-              <ChangePlaceStyle />
+              {/* <ChangePlaceStyle /> */}
             </NavStyle>
             <Logotype />
             <ContainerSearchStyle
               className="container-search"
-              onClick={clickSearchBlock}
             >
               <InputSearchStyle
                 // onBlur={hideBlockInput}

@@ -3,12 +3,11 @@ import {
   SidebarStyle,
   SidebarElementsstyle,
   SidebarElementStyle,
-  InputCheckBoxStyle,
 } from "../../styled/Header/SidebarStyledComp";
 
 const Sidebar = () => {
   return (
-    <SidebarStyle htmlFor="checked">
+    <SidebarStyle htmlFor="checked" id="sidebar">
       <SidebarElementsstyle htmlFor="checked">
         <SidebarElementStyle className="top" />
         <SidebarElementStyle className="middle" />
