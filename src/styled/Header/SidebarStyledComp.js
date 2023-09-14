@@ -1,12 +1,13 @@
 import { styled } from "styled-components";
+import { device } from "../Media/MediaQueryStyledComp";
 
 const SidebarStyle = styled.label`
   width: 24px;
   height: 24px;
   margin-top: 4px;
   z-index: 999;
-  left: 10px;
-  top: 20px;
+  /* left: 10px;
+  top: 20px; */
   cursor: pointer;
   transition: all .5s ease-in;
 `;

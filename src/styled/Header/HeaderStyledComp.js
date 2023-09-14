@@ -77,26 +77,69 @@ const HeaderBlockStyle = styled.div`
 
   input[type="checkbox"]:checked ~ ${SidebarStyle} .middle {
     opacity: 0;
+    @media ${device.mobileS} {
+      top: -15px;
+    left: 115px;
+  }
+
+    @media ${device.mobileL} {
+      top: -15px;
+    left: 105px;
+  }
+
+  @media ${device.tablet} {
+    top: -15px;
+    left: 80px;
+  }
   }
 
   input[type="checkbox"]:checked ~ ${SidebarStyle} .top {
     background: ${({ theme }) => theme.colors.secondColor};
-
     transform: rotate(45deg);
-    top: -10px;
+
+    @media ${device.mobileS} {
+      top: -15px;
+    left: 115px;
+  }
+
+    @media ${device.mobileL} {
+      top: -15px;
+    left: 105px;
+  }
+
+  @media ${device.tablet} {
+    top: -15px;
+    left: 80px;
+  }
   }
 
   input[type="checkbox"]:checked ~ ${SidebarStyle} .bottom {
     transform: rotate(-45deg);
     background: ${({ theme }) => theme.colors.secondColor};
-    top: -20px;
+
+    @media ${device.mobileS} {
+      top: -25px;
+    left: 115px;
   }
+
+    @media ${device.mobileL} {
+      top: -25px;
+    left: 105px;
+  }
+
+  @media ${device.tablet} {
+    top: -25px;
+    left: 80px;
+  }
+  }
+
+  
 
   input[type="checkbox"]:checked ~ ${SidebarStyle} {
     position: fixed;
     transition: all .5s ease-in;
-    left: 130px;
-    top: 20px;
+    /* left: 130px;
+    top: 20px; */
   }
 
   input[type="checkbox"]:checked ~ ul {
