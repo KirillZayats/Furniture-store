@@ -90,7 +90,7 @@ const GlobalStyle = createGlobalStyle`
 
   a:hover, li:hover > a, li:hover > .block_hover, .block_hover:hover p, 
   .block__link_hover:hover, .block__button_sale:hover a, .container_setting:hover p,
-  li:hover p {
+  li:hover .header__title-block {
     color: ${({ theme }) => theme.colors.textButtonPayColor};
   };
 
@@ -102,14 +102,17 @@ const GlobalStyle = createGlobalStyle`
     animation: ${Scale} 0.2s ease-in;
   };
 
-  button:active, .button_dark:active {
+  button:active, .button_dark:active, #icon_delete:active {
     animation: ${ScaleButton} .1s ease-in;
   }
 
-  .icon-search:hover path {
+  .icon-search:hover path, #icon_delete:hover path {
     fill: ${({ theme }) => theme.colors.mainColor};
   }
 
+  #icon_delete path {
+    fill: ${({ theme }) => theme.colors.buttonPayColor};
+  }
 
 
   .block__button_sale path{
@@ -164,7 +167,8 @@ const GlobalStyle = createGlobalStyle`
   }
 
   .block_product:hover img, .block_product:hover .price, 
-  .block-achievements:hover, .container_setting:hover svg,  li:hover .container_setting svg {
+  .block-achievements:hover, .container_setting:hover svg,  
+  li:hover .container_setting svg, #id_search_icon:hover, #container__icon-delete:hover {
     animation: ${Swing} .5s ease-in;
   }
 

@@ -19,15 +19,15 @@ export const App = () => {
       <BrowserRouter>
         <GlobalStyle />
         <Header />
-        {/* <Home />
-        <Contacts/>
+        <Home />
+        {/* <Contacts/>
         <AboutUsP/>
-        <Products/>
+        <Products/> */}
         <Pay/>
         <Details/>
         <Account/>
         <Cart/>
-        <Login/> */}
+        <Login/>
         <Footer />
       </BrowserRouter>
     </Theme>

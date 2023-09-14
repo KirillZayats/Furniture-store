@@ -13,16 +13,32 @@ const Social = () => {
   return (
     <ContainerImagesStyle className="container-social__image">
       <LinkStyle href="https://www.facebook.com/" target="_blank">
-        <ImageSocialStyle src={IconFacebook} />
+        <ImageSocialStyle
+          src={IconFacebook}
+          alt="Icon Facebook"
+          title="Go to Facebook"
+        />
       </LinkStyle>
       <LinkStyle href="https://www.instagram.com/" target="_blank">
-        <ImageSocialStyle src={IconInstagram} />
+        <ImageSocialStyle
+          src={IconInstagram}
+          alt="Icon Instagram"
+          title="Go to Instagram"
+        />
       </LinkStyle>
       <LinkStyle href="https://www.twitter.com/" target="_blank">
-        <ImageSocialStyle src={IconTwitter} />
+        <ImageSocialStyle
+          src={IconTwitter}
+          alt="Icon Twitter"
+          title="Go to Twitter"
+        />
       </LinkStyle>
       <LinkStyle href="https://www.linkedin.com/" target="_blank">
-        <ImageSocialStyle src={IconLinkedin} />
+        <ImageSocialStyle
+          src={IconLinkedin}
+          alt="Icon Linkedin"
+          title="Go to LinedIn"
+        />
       </LinkStyle>
     </ContainerImagesStyle>
   );

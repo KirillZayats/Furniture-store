@@ -33,7 +33,7 @@ import {
   ImageSocialStyle,
   IconLeanguageStyle,
   IconSignStyle,
-  ContainerSearchIconStyle
+  ContainerSearchIconStyle,
 } from "../../styled/Header/HeaderStyledComp";
 import Logotype from "../Logotyle";
 import { LinkStyle } from "../../styled/AppStyledComp";
@@ -44,51 +44,91 @@ import IconLinkedin from "../../resource/images/icons/social/LinkedIn.svg";
 import { InputCheckBoxStyle } from "../../styled/Header/SidebarStyledComp";
 
 const Header = () => {
-
-  const [containerLogotype, setContainerLogotype] = useState('')
-  const [containerSearch, setContainerSearch] = useState('')
-  const [inputSearch, setInputSearch] = useState('')
-
+  const [containerLogotype, setContainerLogotype] = useState("");
+  const [containerSearch, setContainerSearch] = useState("");
+  const [inputSearch, setInputSearch] = useState("");
+  const [isOpenSearchBlock, setIsOpenSearchBlock] = useState(false);
+  const [clickElements, setClickElements] = useState("");
+  const [positionClient, setPositionClient] = useState(0);
   useEffect(() => {
     setContainerLogotype(document.getElementById("container-logotype"));
     setContainerSearch(document.querySelector(".container-search"));
     setInputSearch(document.querySelector("#search_products"));
-  }, [])
+
+    document.addEventListener("scroll", scrollPage);
+  });
 
   const clickIconSearch = () => {
-    if (window.innerWidth < 1024) {
-      containerSearch.style.width = "150px";
-      containerSearch.style.border = `1px solid`;
-      containerSearch.style.padding = "7px 19px"
-      inputSearch.style.opacity = 1;
-      inputSearch.style.width = "84px";
-      inputSearch.focus();
+    if (!isOpenSearchBlock) {
+      if (window.innerWidth < 1024) {
+        containerSearch.style.width = "150px";
+        containerSearch.style.border = `1px solid`;
+        containerSearch.style.padding = "7px 19px";
+        inputSearch.style.opacity = 1;
+        inputSearch.style.width = "120px";
+        inputSearch.focus();
+      }
+      if (window.innerWidth <= 768) {
+        containerLogotype.style.opacity = 0;
+        setTimeout(() => (containerLogotype.style.display = "none"), 150);
+      }
+      setIsOpenSearchBlock(true);
+    } else {
+      console.log("lol");
     }
-    if(window.innerWidth <= 425) {
-      containerLogotype.style.opacity = 0;
-      setTimeout(() => containerLogotype.style.display = "none", 150)
+  };
+
+  const scrollPage = () => {
+    if (
+      window.scrollY >= 100 &&
+      containerSearch != "" &&
+      inputSearch != "" &&
+      containerLogotype != ""
+    ) {
+      if (window.innerWidth < 1024) {
+        containerSearch.style.width = "24px";
+        containerSearch.style.border = `0px`;
+        containerSearch.style.padding = "0px";
+        inputSearch.style.opacity = 0;
+        inputSearch.style.width = "0px";
+      }
+      if (window.innerWidth <= 768) {
+        setTimeout(() => {
+          containerLogotype.style.display = "block";
+        }, 200);
+        setTimeout(() => {
+          containerLogotype.style.opacity = 1;
+        }, 300);
+      }
+      setIsOpenSearchBlock(false);
     }
-  }
+  };
 
   const hideBlockInput = () => {
-    if (window.innerWidth < 1024) {
-      containerSearch.style.width = "24px";
-      containerSearch.style.border = `0px`;
-      containerSearch.style.padding = "0px"
-      inputSearch.style.opacity = 0;
-      inputSearch.style.width = "0px";
+    console.log(clickElements);
+    if (isOpenSearchBlock) {
+      if (window.innerWidth < 1024) {
+        containerSearch.style.width = "24px";
+        containerSearch.style.border = `0px`;
+        containerSearch.style.padding = "0px";
+        inputSearch.style.opacity = 0;
+        inputSearch.style.width = "0px";
+      }
+      if (window.innerWidth <= 425) {
+        setTimeout(() => {
+          containerLogotype.style.display = "block";
+        }, 200);
+        setTimeout(() => {
+          containerLogotype.style.opacity = 1;
+        }, 300);
+      }
+      setIsOpenSearchBlock(false);
     }
-    if(window.innerWidth <= 425) {
-      setTimeout(() => {
-        containerLogotype.style.display = "block"
-      }, 200)
-      setTimeout(() => {
-        containerLogotype.style.opacity = 1;
-      }, 300)
-    }
-  }
+  };
 
-  
+  const clickSearchBlock = (e) => {
+    setClickElements(e.target.tagName);
+  };
 
   const loadHeader = () => {
     if (window.innerWidth >= 1024) {
@@ -96,48 +136,52 @@ const Header = () => {
         <HeaderContentStyle>
           <UpBlockHeaderStyle>
             <LeftContainerInfoStyle>
-              <TextInfoStyle>Phone Number: 956 742 455 678</TextInfoStyle>
+              <TextInfoStyle title="Our phone">
+                Phone Number: 956 742 455 678
+              </TextInfoStyle>
               <VerticalLineStyle />
-              <TextInfoStyle>Email:info@ddsgnr.com</TextInfoStyle>
+              <TextInfoStyle title="Our email">
+                Email:info@ddsgnr.com
+              </TextInfoStyle>
             </LeftContainerInfoStyle>
             <RightContainerInfoStyle>
               <ContainerSocialStyle className="container-social__image">
                 <LinkStyle href="https://www.facebook.com/" target="_blank">
                   <ImageSocialStyle
                     src={IconFacebook}
-                    alt="Facebook"
-                    title="Icon faceBook"
+                    alt="Icon Facebook"
+                    title="Go to Facebook"
                   />
                 </LinkStyle>
                 <LinkStyle href="https://www.instagram.com/" target="_blank">
                   <ImageSocialStyle
                     src={IconInstagram}
-                    alt="Instagram"
-                    title="Icon instagram"
+                    alt="Icon Instagram"
+                    title="Go to Instagram"
                   />
                 </LinkStyle>
                 <LinkStyle href="https://www.twitter.com/" target="_blank">
                   <ImageSocialStyle
                     src={IconTwitter}
-                    alt="Twitter"
-                    title="Icon Twitter"
+                    alt="Icon Twitter"
+                    title="Go to Twitter"
                   />
                 </LinkStyle>
                 <LinkStyle href="https://www.linkedin.com/" target="_blank">
                   <ImageSocialStyle
                     src={IconLinkedin}
-                    alt="Linkedin"
-                    title="Icon lined in"
+                    alt="Icon Linkedin"
+                    title="Go to LinedIn"
                   />
                 </LinkStyle>
               </ContainerSocialStyle>
               <ContainerSettingStyle>
                 <ContainerBlockSetStyle className="container_setting">
-                  <IconLeanguageStyle/>
+                  <IconLeanguageStyle />
                   <TextInfoStyle>English</TextInfoStyle>
                 </ContainerBlockSetStyle>
                 <ContainerBlockSetStyle className="container_setting">
-                  <IconSignStyle/>
+                  <IconSignStyle />
                   <TextInfoStyle>Sign In</TextInfoStyle>
                 </ContainerBlockSetStyle>
               </ContainerSettingStyle>
@@ -161,7 +205,7 @@ const Header = () => {
                   <LinkNavStyle>Contact</LinkNavStyle>
                 </ElementListStyle>
               </ListStyle>
-              <ContainerSearchStyle className="container-search"> 
+              <ContainerSearchStyle className="container-search">
                 <InputSearchStyle
                   type="text"
                   name="search"
@@ -169,12 +213,13 @@ const Header = () => {
                   autoComplete="on"
                   placeholder="Search"
                 />
-              <ContainerSearchIconStyle onClick={clickIconSearch}>
-              <SearchIconStyle className="icon-search"/>
-              </ContainerSearchIconStyle>              </ContainerSearchStyle>
+                <ContainerSearchIconStyle onClick={clickIconSearch}>
+                  <SearchIconStyle className="icon-search" />
+                </ContainerSearchIconStyle>{" "}
+              </ContainerSearchStyle>
               <ContainerCartStyle className="block_hover">
                 <ContainerIconCartStyle className="container__link-cart">
-                  <IconCartStyle/>
+                  <IconCartStyle />
                   <ContainerNumberProductsCartStyle>
                     <NumberProductsCartStyle>100</NumberProductsCartStyle>
                   </ContainerNumberProductsCartStyle>
@@ -209,54 +254,54 @@ const Header = () => {
                 <ElementListStyle>
                   <ContainerCartStyle className="block_hover">
                     <ContainerIconCartStyle className="container__link-cart">
-                      <IconCartStyle/>
+                      <IconCartStyle />
                       <ContainerNumberProductsCartStyle>
                         <NumberProductsCartStyle>100</NumberProductsCartStyle>
                       </ContainerNumberProductsCartStyle>
                     </ContainerIconCartStyle>
-                    <TitleCartStyle>Cart</TitleCartStyle>
+                    <TitleCartStyle className="header__title-block">Cart</TitleCartStyle>
                   </ContainerCartStyle>
                 </ElementListStyle>
                 <ElementListStyle>
-                <ContainerBlockSetStyle className="container_setting">
-                <IconLeanguageStyle/>
-                  <TextInfoStyle>English</TextInfoStyle>
-                </ContainerBlockSetStyle>
+                  <ContainerBlockSetStyle className="container_setting">
+                    <IconLeanguageStyle />
+                    <TextInfoStyle className="header__title-block">English</TextInfoStyle>
+                  </ContainerBlockSetStyle>
                 </ElementListStyle>
                 <ElementListStyle>
-                <ContainerBlockSetStyle className="container_setting">
-                <IconSignStyle/>
-                  <TextInfoStyle>Sign In</TextInfoStyle>
-                </ContainerBlockSetStyle>
+                  <ContainerBlockSetStyle className="container_setting">
+                    <IconSignStyle />
+                    <TextInfoStyle className="header__title-block">Sign In</TextInfoStyle>
+                  </ContainerBlockSetStyle>
                 </ElementListStyle>
               </ListStyle>
               <ContainerSocialStyle className="container-social__image">
                 <LinkStyle href="https://www.facebook.com/" target="_blank">
                   <ImageSocialStyle
                     src={IconFacebook}
-                    alt="Facebook"
-                    title="Icon faceBook"
+                    alt="Icon Facebook"
+                    title="Go to Facebook"
                   />
                 </LinkStyle>
                 <LinkStyle href="https://www.instagram.com/" target="_blank">
                   <ImageSocialStyle
                     src={IconInstagram}
-                    alt="Instagram"
-                    title="Icon instagram"
+                    alt="Icon Instagram"
+                    title="Go to Instagram"
                   />
                 </LinkStyle>
                 <LinkStyle href="https://www.twitter.com/" target="_blank">
                   <ImageSocialStyle
                     src={IconTwitter}
-                    alt="Twitter"
-                    title="Icon Twitter"
+                    alt="Icon Twitter"
+                    title="Go to Twitter"
                   />
                 </LinkStyle>
                 <LinkStyle href="https://www.linkedin.com/" target="_blank">
                   <ImageSocialStyle
                     src={IconLinkedin}
-                    alt="Linkedin"
-                    title="Icon lined in"
+                    alt="Icon Linkedin"
+                    title="Go to LinedIn"
                   />
                 </LinkStyle>
               </ContainerSocialStyle>
@@ -267,16 +312,20 @@ const Header = () => {
               <ChangePlaceStyle />
             </NavStyle>
             <Logotype />
-            <ContainerSearchStyle className="container-search">
-              <InputSearchStyle onBlurCapture={hideBlockInput}
+            <ContainerSearchStyle
+              className="container-search"
+              onClick={clickSearchBlock}
+            >
+              <InputSearchStyle
+                // onBlur={hideBlockInput}
                 type="text"
                 name="search"
                 id="search_products"
                 autoComplete="on"
                 placeholder="Search"
               />
-              <ContainerSearchIconStyle onClick={clickIconSearch}>
-              <SearchIconStyle className="icon-search"/>
+              <ContainerSearchIconStyle onClick={clickIconSearch} id="id_search_icon">
+                <SearchIconStyle className="icon-search" />
               </ContainerSearchIconStyle>
             </ContainerSearchStyle>
           </HeaderBlockStyle>

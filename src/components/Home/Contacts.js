@@ -70,10 +70,11 @@ const Contacts = () => {
         </ContainerInfoStyle>
         <FormStyle onSubmit={handleSubmit(onSubmit)}>
           <FormContainerInputStyle>
-            <FormLabelStyle>Name</FormLabelStyle>
+            <FormLabelStyle htmlFor="name_client">Name</FormLabelStyle>
             <FormInputStyle
               type="text"
               autoComplete="on"
+              id="name_client"
               {...register("first_name", {
                 required: "Name required",
                 pattern: {
@@ -87,10 +88,11 @@ const Contacts = () => {
             )}
           </FormContainerInputStyle>
           <FormContainerInputStyle>
-            <FormLabelStyle>Email</FormLabelStyle>
+            <FormLabelStyle htmlFor="email_client_id">Email</FormLabelStyle>
             <FormInputStyle
               type="email"
               autoComplete="on"
+              id="email_client_id"
               {...register("email_client", {
                 required: "Email required",
                 pattern: {
@@ -104,9 +106,10 @@ const Contacts = () => {
             )}
           </FormContainerInputStyle>
           <FormContainerInputStyle>
-            <FormLabelStyle>Message</FormLabelStyle>
+            <FormLabelStyle htmlFor="message_client_id">Message</FormLabelStyle>
             <FormTextareaStyle
               type="text"
+              id="message_client_id"
               {...register("message_client", {
                 required: "Message required",
                 minLength: {

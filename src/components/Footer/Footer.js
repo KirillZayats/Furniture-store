@@ -10,7 +10,7 @@ import {
   ContainerReserverSocialStyle,
   ContainerMainInfoFooter,
   BlockStyle,
-  BlocksStyle
+  BlocksStyle,
 } from "../../styled/Footer/FooterStyledComp";
 import Subscribe from "./Subscribe";
 import { LineStyle } from "../../styled/Header/HeaderStyledComp";
@@ -23,7 +23,7 @@ const Footer = () => {
       <ContainerStyle>
         <ContainerMainInfoFooter>
           <BlocksStyle>
-          <Logotype />
+            <Logotype />
             <BlockStyle>
               <TitleBlockStyle>Categories</TitleBlockStyle>
               <ContainerListStyle>
@@ -48,7 +48,9 @@ const Footer = () => {
               <TitleBlockStyle>About</TitleBlockStyle>
               <ContainerListStyle>
                 <ListElementStyle>
-                  <LinkStyle href="#" target="_blank">Contact Us</LinkStyle>
+                  <LinkStyle href="#" target="_blank">
+                    Contact Us
+                  </LinkStyle>
                 </ListElementStyle>
                 <ListElementStyle>
                   <LinkStyle>About Us</LinkStyle>

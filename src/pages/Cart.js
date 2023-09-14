@@ -4,11 +4,10 @@ import {
   ContainerBackStyle,
   ContainerIconBackStyle,
   ContainerTotalPayStyle,
-  IconBackStyle,
   LinkBackStyle,
   TextProductStyle,
   TextTotalPayStyle,
-  IconArrowLeft
+  IconArrowLeft,
 } from "../styled/Pay/InfoPayStyledComp";
 import {
   InputSelectAllStyle,
@@ -20,14 +19,15 @@ import {
   ContainerMainBlockStyle,
   ButtonInPayStyle,
   ListProductsStyle,
+  ContainerIconClearStyle,
 } from "../styled/Cart/CartStyledComp";
 import ProductCart from "../components/Cart/ProductCart";
-import IconArroyBack from "../resource/images/icons/arroy_left.svg";
-import IconClear from "../resource/images/icons/delete.svg";
 
 const Cart = () => {
   const selectAll = () => {
-    const inputs = document.querySelector(".list_elements").querySelectorAll("input");
+    const inputs = document
+      .querySelector(".list_elements")
+      .querySelectorAll("input");
     if (document.getElementById("inputSelectAll").checked) {
       inputs.forEach((element) => {
         element.checked = true;
@@ -54,20 +54,25 @@ const Cart = () => {
       <ContainerCartStyle>
         <ContainerMainBlockStyle>
           <ContainerTitlePageStyle>
-            <ContainerBackStyle className="container_back" title="Click to back">
+            <ContainerBackStyle
+              className="container_back"
+              title="Click to back"
+            >
               <ContainerIconBackStyle>
-                <IconArrowLeft/>
+                <IconArrowLeft />
               </ContainerIconBackStyle>
               <LinkBackStyle>Back</LinkBackStyle>
             </ContainerBackStyle>
             <TitleBlockStyle>Cart</TitleBlockStyle>
             <ContainerCheckboxStyle>
-              <IconClearStyle
+              <ContainerIconClearStyle
+                id="container__icon-delete"
                 onClick={clearList}
-                src={IconClear}
-                alt="cart icon to clear cart"
-                title="clear selected products"
-              />
+                alt="Icon to clear cart"
+                title="Clear selected products"
+              >
+                <IconClearStyle/>
+              </ContainerIconClearStyle>
               <InputSelectAllStyle
                 type="checkbox"
                 id="inputSelectAll"
@@ -76,9 +81,9 @@ const Cart = () => {
             </ContainerCheckboxStyle>
           </ContainerTitlePageStyle>
           <ListProductsStyle className="list_elements">
-            <ProductCart id='1'/>
-            <ProductCart id='2'/>
-            <ProductCart id='3'/>
+            <ProductCart id="1" />
+            <ProductCart id="2" />
+            <ProductCart id="3" />
           </ListProductsStyle>
           <ContainerTotalPayStyle>
             <TextTotalPayStyle>Total due:</TextTotalPayStyle>
@@ -88,7 +93,9 @@ const Cart = () => {
         <ContainerPayInfoStyle>
           <TextProductStyle>Select products to continue</TextProductStyle>{" "}
           {/*при нажатии выделяется всё и функция кнопки меняется на преобрести(Checkout)*/}
-          <ButtonInPayStyle className="button_rear button_dark">Select all</ButtonInPayStyle>
+          <ButtonInPayStyle className="button_rear button_dark">
+            Select all
+          </ButtonInPayStyle>
         </ContainerPayInfoStyle>
       </ContainerCartStyle>
     </MainStyle>
