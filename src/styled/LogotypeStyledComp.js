@@ -3,6 +3,8 @@ import { styled } from "styled-components";
 
 const LogotypeStyle = styled.div`
   cursor: pointer;
+  opacity: 1;
+  transition: all .2s ease-in;
 `;
 
 const LogotypeIconStyle = styled.img`

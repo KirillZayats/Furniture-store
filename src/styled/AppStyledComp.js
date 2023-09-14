@@ -88,20 +88,29 @@ const GlobalStyle = createGlobalStyle`
     cursor: pointer;
   };
 
-  a:hover, li:hover > a, li:hover > .block_hover, .block_hover:hover p, .block__link_hover:hover, .block__button_sale:hover a {
+  a:hover, li:hover > a, li:hover > .block_hover, .block_hover:hover p, 
+  .block__link_hover:hover, .block__button_sale:hover a, .container_setting:hover p,
+  li:hover p {
     color: ${({ theme }) => theme.colors.textButtonPayColor};
   };
 
   a:active, li:active > a, li:active > .block_hover, 
   input[type="checkbox"]:active, .block__link_hover:active, 
   .container_back:active path, .container_back:active p, 
-  .block__button_sale:active svg, .block__button_sale:active a {
+  .block__button_sale:active svg, .block__button_sale:active a,
+  .icon-search:active, .container_setting:active {
     animation: ${Scale} 0.2s ease-in;
   };
 
   button:active, .button_dark:active {
     animation: ${ScaleButton} .1s ease-in;
   }
+
+  .icon-search:hover path {
+    fill: ${({ theme }) => theme.colors.mainColor};
+  }
+
+
 
   .block__button_sale path{
     fill: ${({ theme }) => theme.colors.secondColor};
@@ -111,7 +120,7 @@ const GlobalStyle = createGlobalStyle`
     filter: invert(48%) sepia(12%) saturate(641%) hue-rotate(181deg) brightness(90%) contrast(83%);
   }
 
-  .container_back p, .container_back path, img, button, svg path{
+  .container_back p, .container_back path, img, button, svg path, .container_setting p, .block_hover p{
     transition: all .2s ease-in;
   }
 
@@ -119,7 +128,9 @@ const GlobalStyle = createGlobalStyle`
     fill: ${({ theme }) => theme.colors.mainColor};
   }
 
-  .block__link_hover:hover path, .block__button_sale:hover path {
+  .block__link_hover:hover path, .block__button_sale:hover path, 
+  .container_setting:hover path, li:hover .container_setting path,
+  li:hover .container__link-cart path, .block_hover:hover path {
     fill: ${({ theme }) => theme.colors.textButtonPayColor};
   }
 
@@ -150,11 +161,10 @@ const GlobalStyle = createGlobalStyle`
   input, .inputs_card, textarea {
     transition: all .2s ease-in;
     outline-color: ${({ theme }) => theme.colors.rearColor}; 
-
   }
 
   .block_product:hover img, .block_product:hover .price, 
-  .block-achievements:hover {
+  .block-achievements:hover, .container_setting:hover svg,  li:hover .container_setting svg {
     animation: ${Swing} .5s ease-in;
   }
 
@@ -172,6 +182,13 @@ const GlobalStyle = createGlobalStyle`
   input:hover, .inputs_card:hover, textarea:hover {
     border-color: ${({ theme }) => theme.colors.rearColor}; 
     }
+
+
+    @media ${device.laptop} {
+      .container-search:hover {
+      border: 1px solid ${({ theme }) => theme.colors.rearColor}; 
+    }  
+  }
     
   input:focus, textarea:focus {
     outline-color: ${({ theme }) => theme.colors.mainColor}; 

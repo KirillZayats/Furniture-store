@@ -19,7 +19,7 @@ export const App = () => {
       <BrowserRouter>
         <GlobalStyle />
         <Header />
-        <Home />
+        {/* <Home />
         <Contacts/>
         <AboutUsP/>
         <Products/>
@@ -27,7 +27,7 @@ export const App = () => {
         <Details/>
         <Account/>
         <Cart/>
-        <Login/>
+        <Login/> */}
         <Footer />
       </BrowserRouter>
     </Theme>

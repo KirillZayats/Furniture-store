@@ -9,7 +9,7 @@ import {
 
 const Logotype = () => {
   return (
-    <LogotypeStyle>
+    <LogotypeStyle id="container-logotype">
       <ContainerLinkStyle>
         <LogotypeIconStyle src={IconLogo}></LogotypeIconStyle>
         <LogotypeTitleStyle>Zayakiri</LogotypeTitleStyle>

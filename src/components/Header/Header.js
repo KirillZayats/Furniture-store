@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import IconSearch from "../../resource/images/icons/search.svg";
 import Sidebar from "./Sidebar";
 import {
@@ -22,7 +22,6 @@ import {
   ElementListStyle,
   ListStyle,
   NavStyle,
-  IconSettingStyle,
   ContainerBlockSetStyle,
   TextInfoStyle,
   ContainerSettingStyle,
@@ -31,23 +30,66 @@ import {
   LeftContainerInfoStyle,
   UpBlockHeaderStyle,
   IconCartStyle,
-  ImageSocialStyle
+  ImageSocialStyle,
+  IconLeanguageStyle,
+  IconSignStyle,
+  ContainerSearchIconStyle
 } from "../../styled/Header/HeaderStyledComp";
 import Logotype from "../Logotyle";
 import { LinkStyle } from "../../styled/AppStyledComp";
-
 import IconFacebook from "../../resource/images/icons/social/Facebook.svg";
 import IconInstagram from "../../resource/images/icons/social/Instagram.svg";
 import IconTwitter from "../../resource/images/icons/social/Twitter.svg";
 import IconLinkedin from "../../resource/images/icons/social/LinkedIn.svg";
-import IconGlobal from "../../resource/images/icons/header_icons/global.svg";
-import IconUser from "../../resource/images/icons/header_icons/user.svg";
-import IconBasket from "../../resource/images/icons/header_icons/shopping_cart.svg";
 import { InputCheckBoxStyle } from "../../styled/Header/SidebarStyledComp";
 
-
-
 const Header = () => {
+
+  const [containerLogotype, setContainerLogotype] = useState('')
+  const [containerSearch, setContainerSearch] = useState('')
+  const [inputSearch, setInputSearch] = useState('')
+
+  useEffect(() => {
+    setContainerLogotype(document.getElementById("container-logotype"));
+    setContainerSearch(document.querySelector(".container-search"));
+    setInputSearch(document.querySelector("#search_products"));
+  }, [])
+
+  const clickIconSearch = () => {
+    if (window.innerWidth < 1024) {
+      containerSearch.style.width = "150px";
+      containerSearch.style.border = `1px solid`;
+      containerSearch.style.padding = "7px 19px"
+      inputSearch.style.opacity = 1;
+      inputSearch.style.width = "84px";
+      inputSearch.focus();
+    }
+    if(window.innerWidth <= 425) {
+      containerLogotype.style.opacity = 0;
+      setTimeout(() => containerLogotype.style.display = "none", 150)
+    }
+  }
+
+  const hideBlockInput = () => {
+    if (window.innerWidth < 1024) {
+      containerSearch.style.width = "24px";
+      containerSearch.style.border = `0px`;
+      containerSearch.style.padding = "0px"
+      inputSearch.style.opacity = 0;
+      inputSearch.style.width = "0px";
+    }
+    if(window.innerWidth <= 425) {
+      setTimeout(() => {
+        containerLogotype.style.display = "block"
+      }, 200)
+      setTimeout(() => {
+        containerLogotype.style.opacity = 1;
+      }, 300)
+    }
+  }
+
+  
+
   const loadHeader = () => {
     if (window.innerWidth >= 1024) {
       return (
@@ -90,12 +132,12 @@ const Header = () => {
                 </LinkStyle>
               </ContainerSocialStyle>
               <ContainerSettingStyle>
-                <ContainerBlockSetStyle>
-                  <IconSettingStyle src={IconGlobal} alt="" title="" />
+                <ContainerBlockSetStyle className="container_setting">
+                  <IconLeanguageStyle/>
                   <TextInfoStyle>English</TextInfoStyle>
                 </ContainerBlockSetStyle>
-                <ContainerBlockSetStyle>
-                  <IconSettingStyle src={IconUser} alt="" title="" />
+                <ContainerBlockSetStyle className="container_setting">
+                  <IconSignStyle/>
                   <TextInfoStyle>Sign In</TextInfoStyle>
                 </ContainerBlockSetStyle>
               </ContainerSettingStyle>
@@ -119,7 +161,7 @@ const Header = () => {
                   <LinkNavStyle>Contact</LinkNavStyle>
                 </ElementListStyle>
               </ListStyle>
-              <ContainerSearchStyle>
+              <ContainerSearchStyle className="container-search"> 
                 <InputSearchStyle
                   type="text"
                   name="search"
@@ -127,11 +169,12 @@ const Header = () => {
                   autoComplete="on"
                   placeholder="Search"
                 />
-                <SearchIconStyle src={IconSearch} />
-              </ContainerSearchStyle>
+              <ContainerSearchIconStyle onClick={clickIconSearch}>
+              <SearchIconStyle className="icon-search"/>
+              </ContainerSearchIconStyle>              </ContainerSearchStyle>
               <ContainerCartStyle className="block_hover">
                 <ContainerIconCartStyle className="container__link-cart">
-                  <IconCartStyle src={IconBasket} />
+                  <IconCartStyle/>
                   <ContainerNumberProductsCartStyle>
                     <NumberProductsCartStyle>100</NumberProductsCartStyle>
                   </ContainerNumberProductsCartStyle>
@@ -166,7 +209,7 @@ const Header = () => {
                 <ElementListStyle>
                   <ContainerCartStyle className="block_hover">
                     <ContainerIconCartStyle className="container__link-cart">
-                      <IconCartStyle src={IconBasket} />
+                      <IconCartStyle/>
                       <ContainerNumberProductsCartStyle>
                         <NumberProductsCartStyle>100</NumberProductsCartStyle>
                       </ContainerNumberProductsCartStyle>
@@ -174,9 +217,21 @@ const Header = () => {
                     <TitleCartStyle>Cart</TitleCartStyle>
                   </ContainerCartStyle>
                 </ElementListStyle>
+                <ElementListStyle>
+                <ContainerBlockSetStyle className="container_setting">
+                <IconLeanguageStyle/>
+                  <TextInfoStyle>English</TextInfoStyle>
+                </ContainerBlockSetStyle>
+                </ElementListStyle>
+                <ElementListStyle>
+                <ContainerBlockSetStyle className="container_setting">
+                <IconSignStyle/>
+                  <TextInfoStyle>Sign In</TextInfoStyle>
+                </ContainerBlockSetStyle>
+                </ElementListStyle>
               </ListStyle>
               <ContainerSocialStyle className="container-social__image">
-              <LinkStyle href="https://www.facebook.com/" target="_blank">
+                <LinkStyle href="https://www.facebook.com/" target="_blank">
                   <ImageSocialStyle
                     src={IconFacebook}
                     alt="Facebook"
@@ -212,10 +267,18 @@ const Header = () => {
               <ChangePlaceStyle />
             </NavStyle>
             <Logotype />
-            {/* <ContainerSearchStyle>
-              <InputSearchStyle placeholder="Search" />
-            </ContainerSearchStyle> */}
-            <SearchIconStyle src={IconSearch} />
+            <ContainerSearchStyle className="container-search">
+              <InputSearchStyle onBlurCapture={hideBlockInput}
+                type="text"
+                name="search"
+                id="search_products"
+                autoComplete="on"
+                placeholder="Search"
+              />
+              <ContainerSearchIconStyle onClick={clickIconSearch}>
+              <SearchIconStyle className="icon-search"/>
+              </ContainerSearchIconStyle>
+            </ContainerSearchStyle>
           </HeaderBlockStyle>
         </HeaderContentStyle>
       );
