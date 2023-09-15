@@ -2,7 +2,7 @@ import { styled } from "styled-components";
 import { device, size } from "../Media/MediaQueryStyledComp";
 import { SidebarStyle } from "./SidebarStyledComp";
 import { SidebarActiveStyle } from "./SidebarActiveStyledComp";
-
+import { Link } from "react-router-dom";
 import IconArrow from "../../resource/images/icons/Icon";
 
 const HeaderContentStyle = styled.header`
@@ -45,7 +45,7 @@ const ContainerContactsBarMenuStyle = styled.div`
   display: flex;
   flex-direction: column;
   bottom: -50px;
-  transition: all .5s ease-in;
+  transition: all 0.5s ease-in;
   text-align: center;
   left: 10px;
 `;
@@ -56,7 +56,7 @@ const ContainerSocialStyle = styled.div`
   gap: 12px;
   left: -145px;
   bottom: 50px;
-  transition: all .5s ease-in;
+  transition: all 0.5s ease-in;
 
   @media ${device.mobileS} {
     position: fixed;
@@ -74,27 +74,16 @@ const HeaderBlockStyle = styled.div`
   padding: 21px 0;
 
   input[type="checkbox"]:checked ~ ${SidebarStyle} span {
-    /* top: -55px; */
     opacity: 0;
   }
 
-  /* input[type="checkbox"]:checked ~ ${SidebarActiveStyle} .top-active {
-    left: -20px;
-
-  }
-
-  input[type="checkbox"]:checked ~ ${SidebarActiveStyle} .bottom-active {
-     left: -20px;
-  } */
-
-  input[type="checkbox"]:checked ~ ${SidebarActiveStyle}{
+  input[type="checkbox"]:checked ~ ${SidebarActiveStyle} {
     left: 10px;
   }
-  
 
   input[type="checkbox"]:checked ~ ${SidebarStyle} {
     position: relative;
-  } 
+  }
 
   input[type="checkbox"]:checked ~ ul {
     opacity: 1;
@@ -103,7 +92,13 @@ const HeaderBlockStyle = styled.div`
     height: 100%;
     padding: 60px 30px 0px 30px;
     left: 0px;
-    transition: all .5s ease-in;
+    transition: all 0.5s ease-in;
+    a:visited {
+      color: ${({ theme }) => theme.colors.secondColor};
+    }
+    a:visited:hover {
+      color: ${({ theme }) => theme.colors.textButtonPayColor};
+    }
   }
   input[type="checkbox"]:checked ~ ${ChangePlaceStyle} {
     display: block;
@@ -341,25 +336,43 @@ const ListStyle = styled.ul`
     padding: 0;
   }
 `;
+
 const ElementListStyle = styled.li`
+  @media ${device.mobileS} {
+    &:hover {
+      background-size: 120%;
+    }
+  }
+
+  @media ${device.laptop} {
+    width: auto;
+  }
+`;
+
+const ContainerLinkNavStyle = styled(Link)`
+  cursor: pointer;
   display: flex;
   flex-direction: column;
-  cursor: pointer;
   &::after {
     content: "";
     display: block;
     width: 0;
     height: 1px;
     transition: all 0.3s ease-in;
-
     margin-top: 5px;
+  }
+  &:visited {
+    color: ${({ theme }) => theme.colors.mainColor};
+  }
+
+  &:visited:hover {
+    color: ${({ theme }) => theme.colors.textButtonPayColor};
   }
   @media ${device.mobileS} {
     width: 105px;
+
     padding: 0 0 10px 0;
-    &:hover {
-      background-size: 120%;
-    }
+
     &:hover::after {
       width: 100%;
       background: ${({ theme }) => theme.colors.secondColor};
@@ -368,18 +381,33 @@ const ElementListStyle = styled.li`
 
   @media ${device.laptop} {
     align-items: center;
-    width: auto;
+
     padding: 10px 10px 5px 10px;
+    width: auto;
+
     &:hover::after {
       width: 100%;
       background: ${({ theme }) => theme.colors.mainColor};
     }
   }
 `;
-const LinkNavStyle = styled.a`
+
+const LinkSpanNavStyle = styled.span`
   width: 100%;
   text-align: right;
-  transition: all .4s ease-in;
+  transition: all 0.4s ease-in;
+`;
+const LinkElement = styled(Link)`
+  display: flex;
+  color: ${({ theme }) => theme.colors.mainColor};
+
+  @media ${device.mobileS} {
+    justify-content: end;
+    width: 100%;
+  }
+  @media ${device.laptop} {
+    width: auto;
+  }
 `;
 const ContainerSearchStyle = styled.div`
   border-radius: 5px;
@@ -387,8 +415,7 @@ const ContainerSearchStyle = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  transition: all .2s ease-in;
-
+  transition: all 0.2s ease-in;
 
   @media ${device.mobileS} {
     width: 24px;
@@ -428,11 +455,22 @@ const ContainerCartStyle = styled.div`
 
 const IconCartStyle = ({ className }) => (
   <Svg viewBox="0 0 24 24" className={className}>
-<path d="M17.19 16.75H6.53999C5.54999 16.75 4.59999 16.33 3.92999 15.6C3.25999 14.87 2.92 13.89 3 12.9L3.83 2.94C3.86 2.63 3.74999 2.33001 3.53999 2.10001C3.32999 1.87001 3.04 1.75 2.73 1.75H1C0.59 1.75 0.25 1.41 0.25 1C0.25 0.59 0.59 0.25 1 0.25H2.74001C3.47001 0.25 4.15999 0.559996 4.64999 1.09C4.91999 1.39 5.12 1.74 5.23 2.13H17.72C18.73 2.13 19.66 2.53 20.34 3.25C21.01 3.98 21.35 4.93 21.27 5.94L20.73 13.44C20.62 15.27 19.02 16.75 17.19 16.75ZM5.28 3.62L4.5 13.02C4.45 13.6 4.64 14.15 5.03 14.58C5.42 15.01 5.95999 15.24 6.53999 15.24H17.19C18.23 15.24 19.17 14.36 19.25 13.32L19.79 5.82001C19.83 5.23001 19.64 4.67001 19.25 4.26001C18.86 3.84001 18.32 3.60999 17.73 3.60999H5.28V3.62Z" fill="#292D32"/>
-<path d="M15.25 21.75C14.15 21.75 13.25 20.85 13.25 19.75C13.25 18.65 14.15 17.75 15.25 17.75C16.35 17.75 17.25 18.65 17.25 19.75C17.25 20.85 16.35 21.75 15.25 21.75ZM15.25 19.25C14.97 19.25 14.75 19.47 14.75 19.75C14.75 20.03 14.97 20.25 15.25 20.25C15.53 20.25 15.75 20.03 15.75 19.75C15.75 19.47 15.53 19.25 15.25 19.25Z" fill="#292D32"/>
-<path d="M7.25 21.75C6.15 21.75 5.25 20.85 5.25 19.75C5.25 18.65 6.15 17.75 7.25 17.75C8.35 17.75 9.25 18.65 9.25 19.75C9.25 20.85 8.35 21.75 7.25 21.75ZM7.25 19.25C6.97 19.25 6.75 19.47 6.75 19.75C6.75 20.03 6.97 20.25 7.25 20.25C7.53 20.25 7.75 20.03 7.75 19.75C7.75 19.47 7.53 19.25 7.25 19.25Z" fill="#292D32"/>
-<path d="M20 7.75H8C7.59 7.75 7.25 7.41 7.25 7C7.25 6.59 7.59 6.25 8 6.25H20C20.41 6.25 20.75 6.59 20.75 7C20.75 7.41 20.41 7.75 20 7.75Z" fill="#292D32"/>
-
+    <path
+      d="M17.19 16.75H6.53999C5.54999 16.75 4.59999 16.33 3.92999 15.6C3.25999 14.87 2.92 13.89 3 12.9L3.83 2.94C3.86 2.63 3.74999 2.33001 3.53999 2.10001C3.32999 1.87001 3.04 1.75 2.73 1.75H1C0.59 1.75 0.25 1.41 0.25 1C0.25 0.59 0.59 0.25 1 0.25H2.74001C3.47001 0.25 4.15999 0.559996 4.64999 1.09C4.91999 1.39 5.12 1.74 5.23 2.13H17.72C18.73 2.13 19.66 2.53 20.34 3.25C21.01 3.98 21.35 4.93 21.27 5.94L20.73 13.44C20.62 15.27 19.02 16.75 17.19 16.75ZM5.28 3.62L4.5 13.02C4.45 13.6 4.64 14.15 5.03 14.58C5.42 15.01 5.95999 15.24 6.53999 15.24H17.19C18.23 15.24 19.17 14.36 19.25 13.32L19.79 5.82001C19.83 5.23001 19.64 4.67001 19.25 4.26001C18.86 3.84001 18.32 3.60999 17.73 3.60999H5.28V3.62Z"
+      fill="#292D32"
+    />
+    <path
+      d="M15.25 21.75C14.15 21.75 13.25 20.85 13.25 19.75C13.25 18.65 14.15 17.75 15.25 17.75C16.35 17.75 17.25 18.65 17.25 19.75C17.25 20.85 16.35 21.75 15.25 21.75ZM15.25 19.25C14.97 19.25 14.75 19.47 14.75 19.75C14.75 20.03 14.97 20.25 15.25 20.25C15.53 20.25 15.75 20.03 15.75 19.75C15.75 19.47 15.53 19.25 15.25 19.25Z"
+      fill="#292D32"
+    />
+    <path
+      d="M7.25 21.75C6.15 21.75 5.25 20.85 5.25 19.75C5.25 18.65 6.15 17.75 7.25 17.75C8.35 17.75 9.25 18.65 9.25 19.75C9.25 20.85 8.35 21.75 7.25 21.75ZM7.25 19.25C6.97 19.25 6.75 19.47 6.75 19.75C6.75 20.03 6.97 20.25 7.25 20.25C7.53 20.25 7.75 20.03 7.75 19.75C7.75 19.47 7.53 19.25 7.25 19.25Z"
+      fill="#292D32"
+    />
+    <path
+      d="M20 7.75H8C7.59 7.75 7.25 7.41 7.25 7C7.25 6.59 7.59 6.25 8 6.25H20C20.41 6.25 20.75 6.59 20.75 7C20.75 7.41 20.41 7.75 20 7.75Z"
+      fill="#292D32"
+    />
   </Svg>
 );
 
@@ -483,7 +521,7 @@ const ContainerIconCartStyle = styled.div`
 `;
 
 const ImageSocialStyle = styled.img`
-  transition: filter .5s ease-in;
+  transition: filter 0.5s ease-in;
 
   @media ${device.mobileS} {
     filter: brightness(0) invert(1);
@@ -511,7 +549,7 @@ export {
   ContainerCartStyle,
   InputSearchStyle,
   ContainerSearchStyle,
-  LinkNavStyle,
+  LinkSpanNavStyle,
   ElementListStyle,
   ListStyle,
   NavStyle,
@@ -526,4 +564,6 @@ export {
   IconLeanguageStyle,
   IconSignStyle,
   ContainerSearchIconStyle,
+  LinkElement,
+  ContainerLinkNavStyle,
 };

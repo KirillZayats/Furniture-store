@@ -1,6 +1,7 @@
 import { styled } from "styled-components";
 import { device, size } from "../../styled/Media/MediaQueryStyledComp";
 import {Scale} from "../../styled/AppStyledComp";
+import { Link } from "react-router-dom";
 
 const ContainerDetailsStyle = styled.article`
   margin: 0 auto;
@@ -212,8 +213,7 @@ const ContainerSettingForPayStyle = styled.div`
     gap: 30px;
   }
 `;
-const ButtonPayStyle = styled.button`
-  width: calc(50% - 5px);
+const ButtonAddCartStyle = styled.button`
   height: 40px;
   color: ${({ theme }) => theme.colors.secondColor};
   text-align: center;
@@ -228,6 +228,17 @@ const ButtonPayStyle = styled.button`
     width: 200px;
   }
 `;
+
+const ButtonPayStyle = styled.button`
+  height: 40px;
+  color: ${({ theme }) => theme.colors.secondColor};
+  text-align: center;
+  border: 1px solid ${({ theme }) => theme.colors.secondColor};
+  border-radius: 5px;
+  font-size: 16px;
+  width: 100%;
+`;
+
 const ContainerButtonsStyle = styled.div`
   width: 100%;
   display: flex;
@@ -247,7 +258,7 @@ const ContainerButtonsStyle = styled.div`
     background: ${({ theme }) => theme.colors.buttonPayColor};
   }
 
-  button:first-child:hover {
+  &>button:first-child:hover {
     background: ${({ theme }) => theme.colors.lineTransitionPayColor};
     color: ${({ theme }) => theme.colors.mainColor};
     border: 1px solid ${({ theme }) => theme.colors.mainColor};
@@ -256,6 +267,15 @@ const ContainerButtonsStyle = styled.div`
     background: ${({ theme }) => theme.colors.mainColor};
   }
 `;
+
+const LinkPayStyle = styled(Link)`
+  /* display: block; */
+  @media ${device.mobileS} {
+    width: calc(50% - 5px);
+  }
+  @media ${device.desktop} {
+    width: 200px;
+  }`;
 
 export {
   ContainerButtonsStyle,
@@ -274,4 +294,6 @@ export {
   TitleProductStyle,
   ImageProductStyle,
   ContainerProductStyle,
+  LinkPayStyle,
+  ButtonAddCartStyle
 };

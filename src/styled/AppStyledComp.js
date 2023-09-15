@@ -84,7 +84,7 @@ const GlobalStyle = createGlobalStyle`
   };
 
   a, button, input[type="checkbox"], li a, .block_hover, 
-  .block__button_sale, svg, .block__link_hover, .block_product {
+  .block__button_sale, svg, .block__link_hover {
     cursor: pointer;
   };
 

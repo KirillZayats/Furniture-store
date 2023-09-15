@@ -1,6 +1,7 @@
 import { styled } from "styled-components";
 import { device, size } from "../Media/MediaQueryStyledComp";
 import IconArrow from "../../resource/images/icons/Icon"
+import { Link } from "react-router-dom";
 const ContainerPayStyle = styled.article`
   margin: 0 auto;
   width: 100%;
@@ -106,7 +107,11 @@ const IconBackStyle = styled.img`
   height: 14px;
   width: 14px;
 `;
-const LinkBackStyle = styled.p`
+
+const LinkBackStyle = styled(Link)`
+`;
+
+const LinkParagrafStyle = styled.p`
   font-style: normal;
   font-weight: 500;
   line-height: 150%;
@@ -186,5 +191,6 @@ export {
   ContainerBackStyle,
   TextProductStyle,
   ContainerTextStyle,
-  IconArrowLeft
+  IconArrowLeft,
+  LinkParagrafStyle
 };

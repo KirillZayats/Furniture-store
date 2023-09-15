@@ -16,7 +16,7 @@ import Subscribe from "./Subscribe";
 import { LineStyle } from "../../styled/Header/HeaderStyledComp";
 import InfoReserved from "./InfoReserved";
 import Social from "./Social";
-
+import { nameSite } from "../../Constants";
 const Footer = () => {
   return (
     <FooterContentStyle>
@@ -48,15 +48,15 @@ const Footer = () => {
               <TitleBlockStyle>About</TitleBlockStyle>
               <ContainerListStyle>
                 <ListElementStyle>
-                  <LinkStyle href="#" target="_blank">
-                    Contact Us
+                  <LinkStyle to={`${nameSite}/contacts`}>Contact Us</LinkStyle>
+                </ListElementStyle>
+                <ListElementStyle>
+                  <LinkStyle to={`${nameSite}/about`}>About Us</LinkStyle>
+                </ListElementStyle>
+                <ListElementStyle>
+                  <LinkStyle to={`${nameSite}/contacts`}>
+                    Support/Help
                   </LinkStyle>
-                </ListElementStyle>
-                <ListElementStyle>
-                  <LinkStyle>About Us</LinkStyle>
-                </ListElementStyle>
-                <ListElementStyle>
-                  <LinkStyle>Support/Help</LinkStyle>
                 </ListElementStyle>
                 <ListElementStyle>
                   <LinkStyle>FAQ</LinkStyle>

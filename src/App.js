@@ -3,33 +3,34 @@ import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 import Home from "./pages/Home";
 import { GlobalStyle } from "./styled/AppStyledComp";
-import { BrowserRouter } from "react-router-dom";
 import { Theme } from "./styled/Theme";
 import Contacts from "./pages/Contacts";
-import AboutUsP from "./pages/AboutUsP";
+import AboutUs from "./pages/AboutUs";
 import Products from "./pages/Products";
 import Pay from "./pages/Pay";
 import Details from "./pages/Details";
 import Account from "./pages/log/Account";
 import Cart from "./pages/Cart"
 import Login from "./pages/log/Login";
+import { Route, Routes } from "react-router-dom";
+import { nameSite } from "./Constants";
 export const App = () => {
   return (
     <Theme>
-      <BrowserRouter>
         <GlobalStyle />
         <Header />
-        <Home />
-        {/* <Contacts/>
-        <AboutUsP/>
-        <Products/> */}
-        <Pay/>
-        <Details/>
-        <Account/>
-        <Cart/>
-        <Login/>
+        <Routes>
+          <Route path={`${nameSite}/`} element={<Home />} />
+          <Route path={`${nameSite}/contacts`} element={<Contacts/>}/>
+          <Route path={`${nameSite}/about`} element={<AboutUs/>}/>
+          <Route path={`${nameSite}/products`} element={<Products/>}/>
+          <Route path={`${nameSite}/pay`} element={<Pay/>}/>
+          <Route path={`${nameSite}/details`} element={<Details/>}/>
+          <Route path={`${nameSite}/account`} element={<Account/>}/>
+          <Route path={`${nameSite}/cart`} element={<Cart/>}/>
+          <Route path={`${nameSite}/login`} element={<Login/>}/>
+        </Routes>
         <Footer />
-      </BrowserRouter>
     </Theme>
   );
 };

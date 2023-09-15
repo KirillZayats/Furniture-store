@@ -1,5 +1,6 @@
 import { styled } from "styled-components";
 import { device, size } from "../Media/MediaQueryStyledComp";
+import { Link } from "react-router-dom";
 
 const FooterContentStyle = styled.footer`
   margin: 0 auto;
@@ -130,8 +131,9 @@ const ListElementStyle = styled.li`
   }
 `;
 
-const LinkStyle = styled.a`
+const LinkStyle = styled(Link)`
   display: inline-block;
+  color: ${({ theme }) => theme.colors.mainColor};
 `;
 
 const ContainerLinksStyle = styled.div`

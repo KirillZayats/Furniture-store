@@ -2,6 +2,7 @@ import { styled } from "styled-components";
 import { device, size } from "../Media/MediaQueryStyledComp";
 import ImageMain from "../../resource/images/main.jpg";
 import IconArrow from "../../resource/images/icons/Icon";
+import {Link} from "react-router-dom";
 const MainStyle = styled.main`
   margin: 0 auto;
 
@@ -300,6 +301,10 @@ const ContainerListStyle = styled.ul`
   }
 `;
 
+const LinkPage = styled(Link)`
+  color: ${({ theme }) => theme.colors.mainColor};
+`;
+
 export {
   MainStyle,
   IconArroyRightStyle,
@@ -320,4 +325,5 @@ export {
   ContainerListStyle,
   ContainerInfoDescriptionStyle,
   ContainerFlexDescriptionsStyle,
+  LinkPage
 };

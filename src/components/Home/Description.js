@@ -12,6 +12,7 @@ import {
   ImageMainContainerStyle,
   ContainerInfoDescriptionStyle,
   ContainerFlexDescriptionsStyle,
+  LinkPage,
 } from "../../styled/Main/MainStyledComp";
 
 const Description = () => {
@@ -32,8 +33,12 @@ const Description = () => {
               comfortable beds.
             </TextStyle>
             <BlockButtonsStyle>
+              <LinkPage to={`products`}>
               <BlackButtonInfoStyle className="button_dark">Shop Now</BlackButtonInfoStyle>
+              </LinkPage>
+              <LinkPage to={`about`}>
               <WhiteButtonInfoStyle className="button_white">Learn More</WhiteButtonInfoStyle>
+              </LinkPage>
             </BlockButtonsStyle>
           </ContainerInfoDescriptionStyle>
           <ImageMainBlockStyle>

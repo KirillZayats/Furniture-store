@@ -1,14 +1,11 @@
-import React, { useEffect, useRef, useState } from "react";
-import IconSearch from "../../resource/images/icons/search.svg";
+import React, { useEffect, useState } from "react";
 import Sidebar from "./Sidebar";
 import {
   HeaderContentStyle,
   LineStyle,
   TopLineStyle,
-  SearchStyle,
   SearchIconStyle,
   HeaderBlockStyle,
-  ChangePlaceStyle,
   ContainerContactsBarMenuStyle,
   ContainerSocialStyle,
   ContainerIconCartStyle,
@@ -18,7 +15,7 @@ import {
   ContainerCartStyle,
   InputSearchStyle,
   ContainerSearchStyle,
-  LinkNavStyle,
+  LinkSpanNavStyle,
   ElementListStyle,
   ListStyle,
   NavStyle,
@@ -34,6 +31,8 @@ import {
   IconLeanguageStyle,
   IconSignStyle,
   ContainerSearchIconStyle,
+  LinkElement,
+  ContainerLinkNavStyle,
 } from "../../styled/Header/HeaderStyledComp";
 import Logotype from "../Logotyle";
 import { LinkStyle } from "../../styled/AppStyledComp";
@@ -43,6 +42,8 @@ import IconTwitter from "../../resource/images/icons/social/Twitter.svg";
 import IconLinkedin from "../../resource/images/icons/social/LinkedIn.svg";
 import { InputCheckBoxStyle } from "../../styled/Header/SidebarStyledComp";
 import SidebarActive from "./SidebarActive";
+import { nameSite } from "../../Constants";
+import { LinkPage } from "../../styled/Main/MainStyledComp";
 
 const Header = () => {
   const [containerLogotype, setContainerLogotype] = useState("");
@@ -58,7 +59,7 @@ const Header = () => {
     setInputSearch(document.querySelector("#search_products"));
     setSidebar(document.getElementById("sidebar"));
     document.addEventListener("scroll", scrollPage);
-  });
+  }, []);
 
   const clickIconSearch = () => {
     if (!isOpenSearchBlock) {
@@ -83,9 +84,9 @@ const Header = () => {
   const scrollPage = () => {
     if (
       window.scrollY >= 100 &&
-      containerSearch != "" &&
-      inputSearch != "" &&
-      containerLogotype != ""
+      containerSearch !== "" &&
+      inputSearch !== "" &&
+      containerLogotype !== ""
     ) {
       if (window.innerWidth < 1024) {
         containerSearch.style.width = "24px";
@@ -107,18 +108,16 @@ const Header = () => {
   };
 
   const toggleSidebar = () => {
-    console.log(sidebar);
-
-    if(!isOpenSidebar) {
+    if (!isOpenSidebar) {
       setTimeout(() => {
-        sidebar.style.top = '-60px';
-      },600)
+        sidebar.style.top = "-60px";
+      }, 600);
       setIsOpenSidebar(true);
     } else {
-        sidebar.style.top = '0px';
+      sidebar.style.top = "0px";
       setIsOpenSidebar(false);
     }
-  }
+  };
 
   const loadHeader = () => {
     if (window.innerWidth >= 1024) {
@@ -170,29 +169,41 @@ const Header = () => {
                   <IconLeanguageStyle />
                   <TextInfoStyle>English</TextInfoStyle>
                 </ContainerBlockSetStyle>
-                <ContainerBlockSetStyle className="container_setting">
-                  <IconSignStyle />
-                  <TextInfoStyle>Sign In</TextInfoStyle>
-                </ContainerBlockSetStyle>
+                <LinkElement to={`${nameSite}/login`}>
+                  <ContainerBlockSetStyle className="container_setting">
+                    <IconSignStyle />
+                    <TextInfoStyle>Sign In</TextInfoStyle>
+                  </ContainerBlockSetStyle>
+                </LinkElement>
               </ContainerSettingStyle>
             </RightContainerInfoStyle>
           </UpBlockHeaderStyle>
           <TopLineStyle />
           <HeaderBlockStyle>
+            <LinkElement to={`${nameSite}/`}>
             <Logotype />
+            </LinkElement>
             <NavStyle>
               <ListStyle>
                 <ElementListStyle>
-                  <LinkNavStyle>Home</LinkNavStyle>
+                  <ContainerLinkNavStyle to={`${nameSite}/`}>
+                    <LinkSpanNavStyle>Home</LinkSpanNavStyle>
+                  </ContainerLinkNavStyle>
                 </ElementListStyle>
                 <ElementListStyle>
-                  <LinkNavStyle>Products</LinkNavStyle>
+                  <ContainerLinkNavStyle to={`${nameSite}/products`}>
+                    <LinkSpanNavStyle>Products</LinkSpanNavStyle>
+                  </ContainerLinkNavStyle>
                 </ElementListStyle>
                 <ElementListStyle>
-                  <LinkNavStyle>About Us</LinkNavStyle>
+                  <ContainerLinkNavStyle to={`${nameSite}/about`}>
+                    <LinkSpanNavStyle>About Us</LinkSpanNavStyle>
+                  </ContainerLinkNavStyle>
                 </ElementListStyle>
                 <ElementListStyle>
-                  <LinkNavStyle>Contact</LinkNavStyle>
+                  <ContainerLinkNavStyle to={`${nameSite}/contacts`}>
+                    <LinkSpanNavStyle>Contact</LinkSpanNavStyle>
+                  </ContainerLinkNavStyle>
                 </ElementListStyle>
               </ListStyle>
               <ContainerSearchStyle className="container-search">
@@ -207,15 +218,17 @@ const Header = () => {
                   <SearchIconStyle className="icon-search" />
                 </ContainerSearchIconStyle>{" "}
               </ContainerSearchStyle>
-              <ContainerCartStyle className="block_hover">
-                <ContainerIconCartStyle className="container__link-cart">
-                  <IconCartStyle />
-                  <ContainerNumberProductsCartStyle>
-                    <NumberProductsCartStyle>100</NumberProductsCartStyle>
-                  </ContainerNumberProductsCartStyle>
-                </ContainerIconCartStyle>
-                <TitleCartStyle>Cart</TitleCartStyle>
-              </ContainerCartStyle>
+              <LinkElement to={`${nameSite}/cart`}>
+                <ContainerCartStyle className="block_hover">
+                  <ContainerIconCartStyle className="container__link-cart">
+                    <IconCartStyle />
+                    <ContainerNumberProductsCartStyle>
+                      <NumberProductsCartStyle>100</NumberProductsCartStyle>
+                    </ContainerNumberProductsCartStyle>
+                  </ContainerIconCartStyle>
+                  <TitleCartStyle>Cart</TitleCartStyle>
+                </ContainerCartStyle>
+              </LinkElement>
             </NavStyle>
           </HeaderBlockStyle>
           <LineStyle />
@@ -226,44 +239,70 @@ const Header = () => {
         <HeaderContentStyle>
           <HeaderBlockStyle>
             <NavStyle>
-              <InputCheckBoxStyle type="checkbox" id="checked" onClick={toggleSidebar}/>
-              <Sidebar/>
-              <SidebarActive/>
+              <InputCheckBoxStyle
+                type="checkbox"
+                id="checked"
+                onClick={toggleSidebar}
+              />
+              <Sidebar />
+              <SidebarActive />
               <ListStyle>
                 <ElementListStyle>
-                  <LinkNavStyle>Home</LinkNavStyle>
+                  <ContainerLinkNavStyle to={`${nameSite}/`}>
+                    <LinkSpanNavStyle>Home</LinkSpanNavStyle>
+                  </ContainerLinkNavStyle>
                 </ElementListStyle>
                 <ElementListStyle>
-                  <LinkNavStyle>Products</LinkNavStyle>
+                  <ContainerLinkNavStyle to={`${nameSite}/products`}>
+                    <LinkSpanNavStyle>Products</LinkSpanNavStyle>
+                  </ContainerLinkNavStyle>
                 </ElementListStyle>
                 <ElementListStyle>
-                  <LinkNavStyle>About Us</LinkNavStyle>
+                  <ContainerLinkNavStyle to={`${nameSite}/about`}>
+                    <LinkSpanNavStyle>About Us</LinkSpanNavStyle>
+                  </ContainerLinkNavStyle>
                 </ElementListStyle>
                 <ElementListStyle>
-                  <LinkNavStyle>Contact</LinkNavStyle>
+                  <ContainerLinkNavStyle to={`${nameSite}/contacts`}>
+                    <LinkSpanNavStyle >
+                      Contact
+                    </LinkSpanNavStyle>
+                  </ContainerLinkNavStyle>
                 </ElementListStyle>
                 <ElementListStyle>
-                  <ContainerCartStyle className="block_hover">
-                    <ContainerIconCartStyle className="container__link-cart">
-                      <IconCartStyle />
-                      <ContainerNumberProductsCartStyle>
-                        <NumberProductsCartStyle>100</NumberProductsCartStyle>
-                      </ContainerNumberProductsCartStyle>
-                    </ContainerIconCartStyle>
-                    <TitleCartStyle className="header__title-block">Cart</TitleCartStyle>
-                  </ContainerCartStyle>
+                  <LinkElement to={`${nameSite}/cart`}>
+                    <ContainerCartStyle className="block_hover">
+                      <ContainerIconCartStyle className="container__link-cart">
+                        <IconCartStyle />
+                        <ContainerNumberProductsCartStyle>
+                          <NumberProductsCartStyle>100</NumberProductsCartStyle>
+                        </ContainerNumberProductsCartStyle>
+                      </ContainerIconCartStyle>
+                      <TitleCartStyle className="header__title-block">
+                        Cart
+                      </TitleCartStyle>
+                    </ContainerCartStyle>
+                  </LinkElement>
                 </ElementListStyle>
                 <ElementListStyle>
-                  <ContainerBlockSetStyle className="container_setting">
+                <LinkElement to={`${nameSite}/`}>
+                <ContainerBlockSetStyle className="container_setting">
                     <IconLeanguageStyle />
-                    <TextInfoStyle className="header__title-block">English</TextInfoStyle>
+                    <TextInfoStyle className="header__title-block">
+                      English
+                    </TextInfoStyle>
                   </ContainerBlockSetStyle>
+                </LinkElement>
                 </ElementListStyle>
                 <ElementListStyle>
-                  <ContainerBlockSetStyle className="container_setting">
-                    <IconSignStyle />
-                    <TextInfoStyle className="header__title-block">Sign In</TextInfoStyle>
-                  </ContainerBlockSetStyle>
+                  <LinkElement to={`${nameSite}/login`}>
+                    <ContainerBlockSetStyle className="container_setting">
+                      <IconSignStyle />
+                      <TextInfoStyle className="header__title-block">
+                        Sign In
+                      </TextInfoStyle>
+                    </ContainerBlockSetStyle>
+                  </LinkElement>
                 </ElementListStyle>
               </ListStyle>
               <ContainerSocialStyle className="container-social__image">
@@ -300,21 +339,22 @@ const Header = () => {
                 <TextInfoStyle>Email: info@ddsgnr.com</TextInfoStyle>
                 <TextInfoStyle>Phone Number: 956 742 455 678</TextInfoStyle>
               </ContainerContactsBarMenuStyle>
-              {/* <ChangePlaceStyle /> */}
             </NavStyle>
+            <LinkPage to={`${nameSite}/`}>
             <Logotype />
-            <ContainerSearchStyle
-              className="container-search"
-            >
+            </LinkPage>
+            <ContainerSearchStyle className="container-search">
               <InputSearchStyle
-                // onBlur={hideBlockInput}
                 type="text"
                 name="search"
                 id="search_products"
                 autoComplete="on"
                 placeholder="Search"
               />
-              <ContainerSearchIconStyle onClick={clickIconSearch} id="id_search_icon">
+              <ContainerSearchIconStyle
+                onClick={clickIconSearch}
+                id="id_search_icon"
+              >
                 <SearchIconStyle className="icon-search" />
               </ContainerSearchIconStyle>
             </ContainerSearchStyle>

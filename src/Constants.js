@@ -1,0 +1,1 @@
+export const nameSite = "Furniture-store"

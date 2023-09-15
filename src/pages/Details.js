@@ -20,9 +20,11 @@ import {
   TitleProductStyle,
   ImageProductStyle,
   ContainerProductStyle,
+  LinkPayStyle,
+  ButtonAddCartStyle
 } from "../styled/Main/DetailsStyledComp";
 import { Rating } from "@mui/material";
-
+import {nameSite} from "../Constants"
 const Details = () => {
   return (
     <MainStyle>
@@ -65,8 +67,10 @@ const Details = () => {
               <PriceStyle>Price: $3112.50</PriceStyle>
             </ContainerSettingForPayStyle>
             <ContainerButtonsStyle>
-              <ButtonPayStyle>Add to cart</ButtonPayStyle>
-              <ButtonPayStyle>Pay now</ButtonPayStyle>
+              <ButtonAddCartStyle>Add to cart</ButtonAddCartStyle>
+              <LinkPayStyle to={`/${nameSite}/pay`}>
+                <ButtonPayStyle>Pay now</ButtonPayStyle>
+              </LinkPayStyle>
             </ContainerButtonsStyle>
           </ContainerPayStyle>
         </ContainerProductStyle>

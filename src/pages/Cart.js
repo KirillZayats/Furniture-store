@@ -8,6 +8,7 @@ import {
   TextProductStyle,
   TextTotalPayStyle,
   IconArrowLeft,
+  LinkParagrafStyle,
 } from "../styled/Pay/InfoPayStyledComp";
 import {
   InputSelectAllStyle,
@@ -22,8 +23,11 @@ import {
   ContainerIconClearStyle,
 } from "../styled/Cart/CartStyledComp";
 import ProductCart from "../components/Cart/ProductCart";
+import { useNavigate } from "react-router-dom";
 
 const Cart = () => {
+  const navigate = useNavigate();
+
   const selectAll = () => {
     const inputs = document
       .querySelector(".list_elements")
@@ -54,15 +58,23 @@ const Cart = () => {
       <ContainerCartStyle>
         <ContainerMainBlockStyle>
           <ContainerTitlePageStyle>
-            <ContainerBackStyle
-              className="container_back"
-              title="Click to back"
+            <LinkBackStyle
+              to={`..`}
+              onClick={(e) => {
+                e.preventDefault();
+                navigate(-1);
+              }}
             >
-              <ContainerIconBackStyle>
-                <IconArrowLeft />
-              </ContainerIconBackStyle>
-              <LinkBackStyle>Back</LinkBackStyle>
-            </ContainerBackStyle>
+              <ContainerBackStyle
+                className="container_back"
+                title="Click to back"
+              >
+                <ContainerIconBackStyle>
+                  <IconArrowLeft />
+                </ContainerIconBackStyle>
+                <LinkParagrafStyle>Back</LinkParagrafStyle>
+              </ContainerBackStyle>
+            </LinkBackStyle>
             <TitleBlockStyle>Cart</TitleBlockStyle>
             <ContainerCheckboxStyle>
               <ContainerIconClearStyle
@@ -71,7 +83,7 @@ const Cart = () => {
                 alt="Icon to clear cart"
                 title="Clear selected products"
               >
-                <IconClearStyle/>
+                <IconClearStyle />
               </ContainerIconClearStyle>
               <InputSelectAllStyle
                 type="checkbox"

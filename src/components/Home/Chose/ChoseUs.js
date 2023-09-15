@@ -2,16 +2,16 @@ import React from "react";
 import { BlockContentStyle } from "../../../styled/AppStyledComp";
 import {
   BlackButtonInfoStyle,
+  LinkPage,
   TitleBlockStyle
 } from "../../../styled/Main/MainStyledComp";
 import {
   ContainerChoseStyle,
-  TitleChoseContainerStyle,
   ArticleContainerChoseUsStyle,
   TestChoseStyle
 } from "../../../styled/Main/ChoseUs/ListChoseStyledComp";
 import ListChose from "./ListChose";
-
+import {nameSite} from "../../../Constants"
 const ChoseUs = () => {
   return (
     <BlockContentStyle>
@@ -25,7 +25,9 @@ const ChoseUs = () => {
             and elegant dining sets to stylish office desks and comfortable
             beds.
           </TestChoseStyle>
+          <LinkPage to={`/${nameSite}/products`}>
           <BlackButtonInfoStyle className="button_dark">Shop Now</BlackButtonInfoStyle>
+          </LinkPage>
         </ContainerChoseStyle>
         <ListChose />
       </ArticleContainerChoseUsStyle>
