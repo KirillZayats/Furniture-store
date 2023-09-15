@@ -12,9 +12,13 @@ import Details from "./pages/Details";
 import Account from "./pages/log/Account";
 import Cart from "./pages/Cart"
 import Login from "./pages/log/Login";
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useLocation } from "react-router-dom";
 import { nameSite } from "./Constants";
+import DownUp from "./components/DownUp";
+
 export const App = () => {
+
+
   return (
     <Theme>
         <GlobalStyle />
@@ -31,6 +35,7 @@ export const App = () => {
           <Route path={`${nameSite}/login`} element={<Login/>}/>
         </Routes>
         <Footer />
+        <DownUp/>
     </Theme>
   );
 };

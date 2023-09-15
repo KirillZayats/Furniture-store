@@ -2,23 +2,11 @@ import React from "react";
 import { MainStyle } from "../styled/Main/MainStyledComp";
 import InfoPay from "../components/Pay/InfoPay";
 import FormPay from "../components/Pay/FormPay";
-import { styled } from "styled-components";
-import { device, size } from "../styled/Media/MediaQueryStyledComp";
-
-const ContainerBlocksStyle = styled.div`
-  display: flex;
-  flex-direction: column;
-  @media ${device.mobileS} {
-    flex-direction: column;
-  }
-
-  @media ${device.tablet} {
-    flex-direction: row;
-    justify-content: space-between;
-  }
-`;
+import { useLocation } from "react-router-dom";
+import { ContainerBlocksStyle } from "../styled/Pay/InfoPayStyledComp";
 
 const Pay = () => {
+
   return (
     <MainStyle>
       <ContainerBlocksStyle>

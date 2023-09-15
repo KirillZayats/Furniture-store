@@ -5,6 +5,7 @@ import PopularProducts from "../components/Home/PopularProducts";
 import Sale from "../components/Home/Sale";
 
 const Products = () => {
+  
   return (
     <MainStyle>
       <PartProducts />

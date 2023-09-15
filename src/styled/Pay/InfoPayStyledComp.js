@@ -176,6 +176,18 @@ const IconArrowLeft = ({ className }) => (
   </Svg>
 )
 
+const ContainerBlocksStyle = styled.div`
+  display: flex;
+  flex-direction: column;
+  @media ${device.mobileS} {
+    flex-direction: column;
+  }
+
+  @media ${device.tablet} {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+`;
 
 
 export {
@@ -192,5 +204,6 @@ export {
   TextProductStyle,
   ContainerTextStyle,
   IconArrowLeft,
-  LinkParagrafStyle
+  LinkParagrafStyle,
+  ContainerBlocksStyle
 };

@@ -59,6 +59,7 @@ const GlobalStyle = createGlobalStyle`
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none; 
+    scroll-behavior: smooth;
   }
 
   body {
@@ -98,7 +99,7 @@ const GlobalStyle = createGlobalStyle`
   input[type="checkbox"]:active, .block__link_hover:active, 
   .container_back:active path, .container_back:active p, 
   .block__button_sale:active svg, .block__button_sale:active a,
-  .icon-search:active, .container_setting:active {
+  .icon-search:active, .container_setting:active, #down-up:active {
     animation: ${Scale} 0.2s ease-in;
   };
 
@@ -166,15 +167,23 @@ const GlobalStyle = createGlobalStyle`
     outline-color: ${({ theme }) => theme.colors.rearColor}; 
   }
 
-  .block_product:hover img, .block_product:hover .price, 
   .block-achievements:hover, .container_setting:hover svg,  
   li:hover .container_setting svg, #id_search_icon:hover, #container__icon-delete:hover {
     animation: ${Swing} .5s ease-in;
   }
 
-  .block_product:hover .price, .container-social__image img:hover, .block_hover:hover .container__link-cart, 
+ .container-social__image img:hover, .block_hover:hover .container__link-cart, 
   li:hover .container__link-cart{
     animation: ${SwingText} .5s ease-in;
+  }
+
+  @media ${device.laptop} {
+    .block_product:hover img{
+      animation: ${Swing} .5s ease-in;
+    }
+    .block_product:hover .price  {
+      animation: ${SwingText} .5s ease-in;
+    }
   }
 
   input::-webkit-outer-spin-button,

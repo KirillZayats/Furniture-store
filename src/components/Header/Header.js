@@ -44,6 +44,7 @@ import { InputCheckBoxStyle } from "../../styled/Header/SidebarStyledComp";
 import SidebarActive from "./SidebarActive";
 import { nameSite } from "../../Constants";
 import { LinkPage } from "../../styled/Main/MainStyledComp";
+import { useLocation } from "react-router-dom";
 
 const Header = () => {
   const [containerLogotype, setContainerLogotype] = useState("");
@@ -52,14 +53,23 @@ const Header = () => {
   const [isOpenSearchBlock, setIsOpenSearchBlock] = useState(false);
   const [isOpenSidebar, setIsOpenSidebar] = useState(false);
   const [sidebar, setSidebar] = useState("");
+  const [inputCheckbox, setInputCheckbox] = useState("");
+  const { pathname } = useLocation();
+  const [buttonDownUp, setButtonDownUp] = useState("");
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    closeSidebar();
+  }, [pathname])
 
   useEffect(() => {
     setContainerLogotype(document.getElementById("container-logotype"));
     setContainerSearch(document.querySelector(".container-search"));
     setInputSearch(document.querySelector("#search_products"));
     setSidebar(document.getElementById("sidebar"));
+    setButtonDownUp(document.getElementById("down-up"));
+    if (window.innerWidth < 1024) setInputCheckbox(document.getElementById('checked'));
     document.addEventListener("scroll", scrollPage);
-  }, []);
+  });
 
   const clickIconSearch = () => {
     if (!isOpenSearchBlock) {
@@ -79,9 +89,23 @@ const Header = () => {
     } else {
       console.log("find");
     }
+
   };
 
   const scrollPage = () => {
+    closeSearchBlock()
+    closeSidebar()
+  };
+
+  const closeSidebar = () => {
+    if(window.innerWidth < 1024) {
+      if(inputCheckbox.checked && inputCheckbox != "") {
+        inputCheckbox.checked = false
+      }
+    }
+  }
+
+  const closeSearchBlock = () => {
     if (
       window.scrollY >= 100 &&
       containerSearch !== "" &&
@@ -105,7 +129,23 @@ const Header = () => {
       }
       setIsOpenSearchBlock(false);
     }
-  };
+    if (window.scrollY >= 800 && buttonDownUp !== "") {
+      viewButtonDownUp();
+    }
+    if (window.scrollY < 800 && buttonDownUp !== "") {
+      hideButtonDownUp();
+    }
+  }
+
+  const viewButtonDownUp = () => {
+    buttonDownUp.style.opacity = 1;
+    buttonDownUp.style.bottom = "10px";
+  }
+
+  const hideButtonDownUp = () => {
+    buttonDownUp.style.opacity = 0;
+    buttonDownUp.style.bottom = "-50px";
+  }
 
   const toggleSidebar = () => {
     if (!isOpenSidebar) {
@@ -180,9 +220,7 @@ const Header = () => {
           </UpBlockHeaderStyle>
           <TopLineStyle />
           <HeaderBlockStyle>
-            <LinkElement to={`${nameSite}/`}>
             <Logotype />
-            </LinkElement>
             <NavStyle>
               <ListStyle>
                 <ElementListStyle>
@@ -340,9 +378,7 @@ const Header = () => {
                 <TextInfoStyle>Phone Number: 956 742 455 678</TextInfoStyle>
               </ContainerContactsBarMenuStyle>
             </NavStyle>
-            <LinkPage to={`${nameSite}/`}>
             <Logotype />
-            </LinkPage>
             <ContainerSearchStyle className="container-search">
               <InputSearchStyle
                 type="text"

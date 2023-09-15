@@ -1,14 +1,17 @@
 import React from "react";
 import {
-  CardButtonStyle,
+  CardButtonCartStyle,
+  CardButtonDetailsStyle,
   CardCategoriesStyle,
   CardFigcaptionStyle,
   CardImageStyle,
   CardStyle,
-  ContainerFigcaptionStyle
+  ContainerFigcaptionStyle,
+  ContainerButtonStyle,
+  LinkButtonStyle
 } from "../../styled/Main/CardStyledComp";
 import ImageLamps from "../../resource/images/lamps.jpg";
-
+import {nameSite} from "../../Constants"
 const Card = () => {
   return (
     <CardStyle className="block_product">
@@ -18,7 +21,12 @@ const Card = () => {
       <CardFigcaptionStyle className="price">$55</CardFigcaptionStyle>
       </ContainerFigcaptionStyle>
       <CardCategoriesStyle>Desk decor</CardCategoriesStyle>
-      <CardButtonStyle className="button_white">Add to cart</CardButtonStyle>
+      <ContainerButtonStyle>
+        <LinkButtonStyle to={`/${nameSite}/details`}>
+        <CardButtonDetailsStyle className="button_dark">Details</CardButtonDetailsStyle>
+        </LinkButtonStyle>
+      <CardButtonCartStyle className="button_white">Add to cart</CardButtonCartStyle>
+      </ContainerButtonStyle>
     </CardStyle>
   );
 };

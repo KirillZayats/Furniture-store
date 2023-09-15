@@ -1,5 +1,6 @@
 import { styled } from "styled-components";
 import { device, size } from "../Media/MediaQueryStyledComp";
+import { Link } from "react-router-dom";
 
 const CardStyle = styled.div``;
 const CardImageStyle = styled.img`
@@ -48,35 +49,48 @@ const CardCategoriesStyle = styled.p`
   line-height: 150%;
   margin-bottom: 10px;
 `;
-const CardButtonStyle = styled.button`
+const CardButtonCartStyle = styled.button`
   text-align: center;
-  border: 1px solid ${({ theme }) => theme.colors.mainColor};
+  border: 1px solid ${({ theme }) => theme.colors.buttonPayColor};
   border-radius: 5px;
-  background: ${({ theme }) => theme.colors.secondColor};
+  background: ${({ theme }) => theme.colors.buttonPayColor};
+  color: ${({ theme }) => theme.colors.secondColor};
   height: 35px;
-  @media ${device.mobileS} {
-    width: 100%;
-  }
-  @media ${device.tablet} {
-    width: calc(${size.tablet} / 2 - 70px);
-  }
+  width: 49%;
 
-  @media ${device.tabletS} {
-    width: calc(${size.tabletS} / 2 - 80px);
-  }
-  @media ${device.laptop} {
-    width: calc(${size.laptop} / 4 - 40px);
-  }
-  @media ${device.desktop} {
-    width: calc(${size.desktop} / 4 - 60px);
+  &:hover {
+    background: ${({ theme }) => theme.colors.mainColor};
   }
 `;
 
+const CardButtonDetailsStyle = styled.button`
+  text-align: center;
+  border-radius: 5px;
+  border: 1px solid ${({ theme }) => theme.colors.veryRearColor};
+  background: ${({ theme }) => theme.colors.veryRearColor};
+  color: ${({ theme }) => theme.colors.secondColor};
+  height: 35px;
+  width: 100%;
+`;
+
+const ContainerButtonStyle = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+`;
+
+const LinkButtonStyle = styled(Link)`
+  width: 49%;
+`;
+
 export {
-  CardButtonStyle,
+  CardButtonCartStyle,
+  CardButtonDetailsStyle,
   CardCategoriesStyle,
   CardFigcaptionStyle,
   CardImageStyle,
   CardStyle,
-  ContainerFigcaptionStyle
+  ContainerFigcaptionStyle,
+  ContainerButtonStyle,
+  LinkButtonStyle
 };

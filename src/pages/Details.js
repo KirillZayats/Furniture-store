@@ -26,6 +26,7 @@ import {
 import { Rating } from "@mui/material";
 import {nameSite} from "../Constants"
 const Details = () => {
+  
   return (
     <MainStyle>
       <ContainerDetailsStyle>

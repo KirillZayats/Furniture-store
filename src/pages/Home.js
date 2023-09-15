@@ -8,9 +8,11 @@ import PartProducts from "../components/Home/PartProducts";
 import PopularProducts from "../components/Home/PopularProducts";
 import Sale from "../components/Home/Sale";
 import Contacts from "../components/Home/Contacts";
-
+import { useLocation } from "react-router-dom";
 const Home = () => {
 
+
+  
   return (
     <MainStyle>
       <Description/>

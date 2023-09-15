@@ -5,6 +5,7 @@ const LogotypeStyle = styled.div`
   cursor: pointer;
   opacity: 1;
   transition: all .2s ease-in;
+  height: 32px;
 `;
 
 const LogotypeIconStyle = styled.img`
