@@ -93,10 +93,11 @@ const HeaderBlockStyle = styled.div`
     padding: 60px 30px 0px 30px;
     left: 0px;
     transition: all 0.5s ease-in;
-    a:visited {
+
+    a:visited, a:link {
       color: ${({ theme }) => theme.colors.secondColor};
     }
-    a:visited:hover {
+    a:hover {
       color: ${({ theme }) => theme.colors.textButtonPayColor};
     }
   }
@@ -361,11 +362,11 @@ const ContainerLinkNavStyle = styled(Link)`
     transition: all 0.3s ease-in;
     margin-top: 5px;
   }
-  &:visited {
+  &:visited, &:link {
     color: ${({ theme }) => theme.colors.mainColor};
   }
 
-  &:visited:hover {
+  &:hover {
     color: ${({ theme }) => theme.colors.textButtonPayColor};
   }
   @media ${device.mobileS} {

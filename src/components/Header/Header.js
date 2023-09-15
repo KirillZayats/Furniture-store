@@ -56,6 +56,7 @@ const Header = () => {
   const [inputCheckbox, setInputCheckbox] = useState("");
   const { pathname } = useLocation();
   const [buttonDownUp, setButtonDownUp] = useState("");
+
   useEffect(() => {
     window.scrollTo(0, 0);
     closeSidebar();
@@ -139,7 +140,7 @@ const Header = () => {
 
   const viewButtonDownUp = () => {
     buttonDownUp.style.opacity = 1;
-    buttonDownUp.style.bottom = "10px";
+    buttonDownUp.style.bottom = "20px";
   }
 
   const hideButtonDownUp = () => {

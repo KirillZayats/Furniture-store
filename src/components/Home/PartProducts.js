@@ -10,19 +10,25 @@ import {
   ContainerTitleBlockStyle,
   TitleBlockStyle,
   TextStyle,
+  LinkButtonStyle,
 } from "../../styled/Main/PartProductStyledComp";
 import Card from "./Card";
+import { nameSite } from "../../Constants";
 
 const PartProducts = () => {
-
   const addCard = () => {
-    if(window.innerWidth >= 1024) {
-      return [<Card key="5"/>,<Card key="6"/>,<Card key="7"/>,<Card key="8"/>]
+    if (window.innerWidth >= 1024) {
+      return [
+        <Card key="5" />,
+        <Card key="6" />,
+        <Card key="7" />,
+        <Card key="8" />,
+      ];
     }
-  }
+  };
 
   return (
-    <BlockContentStyle>
+    <BlockContentStyle className={window.location.pathname == `/${nameSite}/` ? "element-animation" : ""}>
       <ProductsStyle>
         <ArticleContainerStyle>
           <ContainerTitleBlockStyle>
@@ -31,7 +37,11 @@ const PartProducts = () => {
               Lorem ipsum dolor sit amet, consectetur adipiscing elit.
             </TextStyle>
             <ContainerButtonViewAllUpStyle>
-              <ButtonViewAllStyle className="button_white">View all</ButtonViewAllStyle>
+              <LinkButtonStyle to={`/${nameSite}/products`}>
+                <ButtonViewAllStyle className="button_white">
+                  View all
+                </ButtonViewAllStyle>
+              </LinkButtonStyle>
             </ContainerButtonViewAllUpStyle>
           </ContainerTitleBlockStyle>
           <ContainterCardsStyle>
@@ -41,9 +51,13 @@ const PartProducts = () => {
             <Card />
             {addCard()}
           </ContainterCardsStyle>
-            <ContainerButtonViewAllDownStyle>
-              <ButtonViewAllStyle className="button_white">View all</ButtonViewAllStyle>
-            </ContainerButtonViewAllDownStyle>
+          <ContainerButtonViewAllDownStyle>
+            <LinkButtonStyle to={`/${nameSite}/products`}>
+              <ButtonViewAllStyle className="button_white">
+                View all
+              </ButtonViewAllStyle>
+            </LinkButtonStyle>
+          </ContainerButtonViewAllDownStyle>
         </ArticleContainerStyle>
       </ProductsStyle>
     </BlockContentStyle>

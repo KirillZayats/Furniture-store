@@ -1,5 +1,6 @@
 import { styled } from "styled-components";
-import { device, size } from "../Media/MediaQueryStyledComp";
+import { device } from "../Media/MediaQueryStyledComp";
+import { Link } from "react-router-dom";
 
 const ContainterCardsStyle = styled.div`
   display: flex;
@@ -138,6 +139,12 @@ const TextStyle = styled.p`
   }
 `;
 
+const LinkButtonStyle = styled(Link)`
+
+`;
+
+
+
 export {
   ContainterCardsStyle,
   ProductsStyle,
@@ -147,5 +154,6 @@ export {
   ContainerButtonViewAllUpStyle,
   ContainerTitleBlockStyle,
   TitleBlockStyle,
-  TextStyle
+  TextStyle,
+  LinkButtonStyle
 };

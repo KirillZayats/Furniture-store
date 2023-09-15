@@ -10,31 +10,27 @@ import {
   BlackButtonInfoStyle,
 } from "../../styled/Main/MainStyledComp";
 import {
-  ButtonTextStyle,
-  ButtonModStyle,
   ContainerIndentStyle,
-  ArroyChangeColor,
   SaleStyle,
 } from "../../styled/Main/SaleStyledComp";
+import {LinkButtonStyle} from "../../styled/Main/PartProductStyledComp"
+import { nameSite } from "../../Constants";
 
 const Sale = () => {
   return (
-    <BlockContentStyle>
+    <BlockContentStyle className={window.location.pathname == `/${nameSite}/` ? "element-animation" : ""}>
       <SaleStyle>
         <ArticleContainerStyle>
           <PreTitleStyle>Tagline</PreTitleStyle>
           <TitleBlockStyle>Sales Up to 50%</TitleBlockStyle>
           <ContainerIndentStyle>
             <BlockButtonsStyle>
-              <BlackButtonInfoStyle className="button_special">
+            <LinkButtonStyle to={`/${nameSite}/products`}>
+            <BlackButtonInfoStyle className="button_special">
                 Shop Now
               </BlackButtonInfoStyle>
-              <ButtonModStyle className="block__button_sale">
-                <ButtonTextStyle>Button</ButtonTextStyle>
-                <ArroyChangeColor>
-                  <IconArroyRightStyle />
-                </ArroyChangeColor>
-              </ButtonModStyle>
+              </LinkButtonStyle>
+
             </BlockButtonsStyle>
           </ContainerIndentStyle>
         </ArticleContainerStyle>

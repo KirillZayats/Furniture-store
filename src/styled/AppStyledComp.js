@@ -99,7 +99,9 @@ const GlobalStyle = createGlobalStyle`
   input[type="checkbox"]:active, .block__link_hover:active, 
   .container_back:active path, .container_back:active p, 
   .block__button_sale:active svg, .block__button_sale:active a,
-  .icon-search:active, .container_setting:active, #down-up:active {
+  .icon-search:active, .container_setting:active, #down-up:active,
+  #categories-products li:active
+  {
     animation: ${Scale} 0.2s ease-in;
   };
 
@@ -206,6 +208,15 @@ const GlobalStyle = createGlobalStyle`
   input:focus, textarea:focus {
     outline-color: ${({ theme }) => theme.colors.mainColor}; 
     }
+
+    .element-animation {
+      opacity: 0;
+    }
+    .element-animation.element-show {
+  opacity: 1;
+  transition: all .3s;
+  transform: translateY(0%);
+}
 `;
 
 const ContainerStyle = styled.div`
