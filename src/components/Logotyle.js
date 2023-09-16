@@ -6,12 +6,12 @@ import {
   LogotypeTitleStyle,
   LogotypeStyle,
 } from "../styled/LogotypeStyledComp";
-import { nameSite } from "../Constants";
+import { NAME_SITE } from "../Constants";
 import {LinkStyle} from "../styled/Footer/FooterStyledComp"
 const Logotype = () => {
   return (
     <LogotypeStyle id="container-logotype">
-      <LinkStyle to={`${nameSite}/`}>
+      <LinkStyle to={`${NAME_SITE}/`}>
         <ContainerLinkStyle>
           <LogotypeIconStyle src={IconLogo}></LogotypeIconStyle>
           <LogotypeTitleStyle>Zayakiri</LogotypeTitleStyle>

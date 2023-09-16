@@ -14,18 +14,18 @@ import {
   SaleStyle,
 } from "../../styled/Main/SaleStyledComp";
 import {LinkButtonStyle} from "../../styled/Main/PartProductStyledComp"
-import { nameSite } from "../../Constants";
+import { NAME_SITE } from "../../Constants";
 
 const Sale = () => {
   return (
-    <BlockContentStyle className={window.location.pathname == `/${nameSite}/` ? "element-animation" : ""}>
+    <BlockContentStyle className={window.location.pathname == `/${NAME_SITE}/` ? "element-animation" : ""}>
       <SaleStyle>
         <ArticleContainerStyle>
           <PreTitleStyle>Tagline</PreTitleStyle>
           <TitleBlockStyle>Sales Up to 50%</TitleBlockStyle>
           <ContainerIndentStyle>
             <BlockButtonsStyle>
-            <LinkButtonStyle to={`/${nameSite}/products`}>
+            <LinkButtonStyle to={`/${NAME_SITE}/products`}>
             <BlackButtonInfoStyle className="button_special">
                 Shop Now
               </BlackButtonInfoStyle>

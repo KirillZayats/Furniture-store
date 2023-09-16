@@ -13,7 +13,7 @@ import {
   LinkButtonStyle
 } from "../../styled/Main/PartProductStyledComp";
 import Card from "./Card";
-import { nameSite } from "../../Constants";
+import { NAME_SITE } from "../../Constants";
 
 const PartProducts = () => {
   const addCard = () => {
@@ -28,7 +28,7 @@ const PartProducts = () => {
   };
 
   return (
-    <BlockContentStyle className={window.location.pathname == `/${nameSite}/` ? "element-animation" : ""}>
+    <BlockContentStyle className={window.location.pathname == `/${NAME_SITE}/` ? "element-animation" : ""}>
       <ProductsStyle>
         <ArticleContainerStyle>
           <ContainerTitleBlockStyle>
@@ -37,7 +37,7 @@ const PartProducts = () => {
               Lorem ipsum dolor sit amet, consectetur adipiscing elit.
             </TextStyle>
             <ContainerButtonViewAllUpStyle>
-              <LinkButtonStyle to={`/${nameSite}/products`}>
+              <LinkButtonStyle to={`/${NAME_SITE}/products`}>
                 <ButtonViewAllStyle className="button_white">
                   View all
                 </ButtonViewAllStyle>
@@ -52,7 +52,7 @@ const PartProducts = () => {
             {addCard()}
           </ContainterCardsStyle>
           <ContainerButtonViewAllDownStyle>
-            <LinkButtonStyle to={`/${nameSite}/products`}>
+            <LinkButtonStyle to={`/${NAME_SITE}/products`}>
               <ButtonViewAllStyle className="button_white">
                 View all
               </ButtonViewAllStyle>

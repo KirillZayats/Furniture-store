@@ -10,32 +10,34 @@ import Products from "./pages/Products";
 import Pay from "./pages/Pay";
 import Details from "./pages/Details";
 import Account from "./pages/log/Account";
-import Cart from "./pages/Cart"
+import Cart from "./pages/Cart";
 import Login from "./pages/log/Login";
-import { Route, Routes, useLocation } from "react-router-dom";
-import { nameSite } from "./Constants";
+import { Route, Routes } from "react-router-dom";
+import { NAME_SITE } from "./Constants";
 import DownUp from "./components/DownUp";
+import { Provider } from "react-redux";
+import { store } from "./store";
 
 export const App = () => {
-
-
   return (
     <Theme>
-        <GlobalStyle />
+      <GlobalStyle />
+      <Provider store={store}>
         <Header />
         <Routes>
-          <Route path={`${nameSite}/`} element={<Home />} />
-          <Route path={`${nameSite}/contacts`} element={<Contacts/>}/>
-          <Route path={`${nameSite}/about`} element={<AboutUs/>}/>
-          <Route path={`${nameSite}/products`} element={<Products/>}/>
-          <Route path={`${nameSite}/pay`} element={<Pay/>}/>
-          <Route path={`${nameSite}/details`} element={<Details/>}/>
-          <Route path={`${nameSite}/account`} element={<Account/>}/>
-          <Route path={`${nameSite}/cart`} element={<Cart/>}/>
-          <Route path={`${nameSite}/login`} element={<Login/>}/>
+          <Route path={`${NAME_SITE}/`} element={<Home />} />
+          <Route path={`${NAME_SITE}/contacts`} element={<Contacts />} />
+          <Route path={`${NAME_SITE}/about`} element={<AboutUs />} />
+          <Route path={`${NAME_SITE}/products`} element={<Products />} />
+          <Route path={`${NAME_SITE}/pay`} element={<Pay />} />
+          <Route path={`${NAME_SITE}/details`} element={<Details />} />
+          <Route path={`${NAME_SITE}/account`} element={<Account />} />
+          <Route path={`${NAME_SITE}/cart`} element={<Cart />} />
+          <Route path={`${NAME_SITE}/login`} element={<Login />} />
         </Routes>
         <Footer />
-        <DownUp/>
+      </Provider>
+      <DownUp />
     </Theme>
   );
 };

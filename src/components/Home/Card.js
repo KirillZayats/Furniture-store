@@ -11,7 +11,7 @@ import {
   LinkButtonStyle
 } from "../../styled/Main/CardStyledComp";
 import ImageLamps from "../../resource/images/lamps.jpg";
-import {nameSite} from "../../Constants"
+import {NAME_SITE} from "../../Constants"
 const Card = () => {
   return (
     <CardStyle className="block_product">
@@ -22,7 +22,7 @@ const Card = () => {
       </ContainerFigcaptionStyle>
       <CardCategoriesStyle>Desk decor</CardCategoriesStyle>
       <ContainerButtonStyle>
-        <LinkButtonStyle to={`/${nameSite}/details`}>
+        <LinkButtonStyle to={`/${NAME_SITE}/details`}>
         <CardButtonDetailsStyle className="button_dark">Details</CardButtonDetailsStyle>
         </LinkButtonStyle>
       <CardButtonCartStyle className="button_white">Add to cart</CardButtonCartStyle>

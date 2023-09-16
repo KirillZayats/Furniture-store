@@ -42,7 +42,7 @@ import IconTwitter from "../../resource/images/icons/social/Twitter.svg";
 import IconLinkedin from "../../resource/images/icons/social/LinkedIn.svg";
 import { InputCheckBoxStyle } from "../../styled/Header/SidebarStyledComp";
 import SidebarActive from "./SidebarActive";
-import { nameSite } from "../../Constants";
+import { NAME_SITE } from "../../Constants";
 import { LinkPage } from "../../styled/Main/MainStyledComp";
 import { useLocation } from "react-router-dom";
 
@@ -210,7 +210,7 @@ const Header = () => {
                   <IconLeanguageStyle />
                   <TextInfoStyle>English</TextInfoStyle>
                 </ContainerBlockSetStyle>
-                <LinkElement to={`${nameSite}/login`}>
+                <LinkElement to={`${NAME_SITE}/login`}>
                   <ContainerBlockSetStyle className="container_setting">
                     <IconSignStyle />
                     <TextInfoStyle>Sign In</TextInfoStyle>
@@ -225,22 +225,22 @@ const Header = () => {
             <NavStyle>
               <ListStyle>
                 <ElementListStyle>
-                  <ContainerLinkNavStyle to={`${nameSite}/`}>
+                  <ContainerLinkNavStyle to={`${NAME_SITE}/`}>
                     <LinkSpanNavStyle>Home</LinkSpanNavStyle>
                   </ContainerLinkNavStyle>
                 </ElementListStyle>
                 <ElementListStyle>
-                  <ContainerLinkNavStyle to={`${nameSite}/products`}>
+                  <ContainerLinkNavStyle to={`${NAME_SITE}/products`}>
                     <LinkSpanNavStyle>Products</LinkSpanNavStyle>
                   </ContainerLinkNavStyle>
                 </ElementListStyle>
                 <ElementListStyle>
-                  <ContainerLinkNavStyle to={`${nameSite}/about`}>
+                  <ContainerLinkNavStyle to={`${NAME_SITE}/about`}>
                     <LinkSpanNavStyle>About Us</LinkSpanNavStyle>
                   </ContainerLinkNavStyle>
                 </ElementListStyle>
                 <ElementListStyle>
-                  <ContainerLinkNavStyle to={`${nameSite}/contacts`}>
+                  <ContainerLinkNavStyle to={`${NAME_SITE}/contacts`}>
                     <LinkSpanNavStyle>Contact</LinkSpanNavStyle>
                   </ContainerLinkNavStyle>
                 </ElementListStyle>
@@ -257,7 +257,7 @@ const Header = () => {
                   <SearchIconStyle className="icon-search" />
                 </ContainerSearchIconStyle>{" "}
               </ContainerSearchStyle>
-              <LinkElement to={`${nameSite}/cart`}>
+              <LinkElement to={`${NAME_SITE}/cart`}>
                 <ContainerCartStyle className="block_hover">
                   <ContainerIconCartStyle className="container__link-cart">
                     <IconCartStyle />
@@ -287,29 +287,29 @@ const Header = () => {
               <SidebarActive />
               <ListStyle>
                 <ElementListStyle>
-                  <ContainerLinkNavStyle to={`${nameSite}/`}>
+                  <ContainerLinkNavStyle to={`${NAME_SITE}/`}>
                     <LinkSpanNavStyle>Home</LinkSpanNavStyle>
                   </ContainerLinkNavStyle>
                 </ElementListStyle>
                 <ElementListStyle>
-                  <ContainerLinkNavStyle to={`${nameSite}/products`}>
+                  <ContainerLinkNavStyle to={`${NAME_SITE}/products`}>
                     <LinkSpanNavStyle>Products</LinkSpanNavStyle>
                   </ContainerLinkNavStyle>
                 </ElementListStyle>
                 <ElementListStyle>
-                  <ContainerLinkNavStyle to={`${nameSite}/about`}>
+                  <ContainerLinkNavStyle to={`${NAME_SITE}/about`}>
                     <LinkSpanNavStyle>About Us</LinkSpanNavStyle>
                   </ContainerLinkNavStyle>
                 </ElementListStyle>
                 <ElementListStyle>
-                  <ContainerLinkNavStyle to={`${nameSite}/contacts`}>
+                  <ContainerLinkNavStyle to={`${NAME_SITE}/contacts`}>
                     <LinkSpanNavStyle >
                       Contact
                     </LinkSpanNavStyle>
                   </ContainerLinkNavStyle>
                 </ElementListStyle>
                 <ElementListStyle>
-                  <LinkElement to={`${nameSite}/cart`}>
+                  <LinkElement to={`${NAME_SITE}/cart`}>
                     <ContainerCartStyle className="block_hover">
                       <ContainerIconCartStyle className="container__link-cart">
                         <IconCartStyle />
@@ -324,7 +324,7 @@ const Header = () => {
                   </LinkElement>
                 </ElementListStyle>
                 <ElementListStyle>
-                <LinkElement to={`${nameSite}/`}>
+                <LinkElement to={`${NAME_SITE}/`}>
                 <ContainerBlockSetStyle className="container_setting">
                     <IconLeanguageStyle />
                     <TextInfoStyle className="header__title-block">
@@ -334,7 +334,7 @@ const Header = () => {
                 </LinkElement>
                 </ElementListStyle>
                 <ElementListStyle>
-                  <LinkElement to={`${nameSite}/login`}>
+                  <LinkElement to={`${NAME_SITE}/login`}>
                     <ContainerBlockSetStyle className="container_setting">
                       <IconSignStyle />
                       <TextInfoStyle className="header__title-block">

@@ -29,7 +29,7 @@ import {
 } from "../../styled/Main/ContactsStyledComp";
 import { useForm } from "react-hook-form";
 import ErrorMessage from "../ErrorMessage";
-import { nameSite } from "../../Constants";
+import { NAME_SITE } from "../../Constants";
 
 const Contacts = () => {
   const {
@@ -45,7 +45,7 @@ const Contacts = () => {
   };
 
   return (
-    <BlockContentStyle className={window.location.pathname == `/${nameSite}/` ? "element-animation" : ""}>
+    <BlockContentStyle className={window.location.pathname == `/${NAME_SITE}/` ? "element-animation" : ""}>
       <ArticleContainerStyle>
         <ContainerInfoStyle>
           <TitleBlockStyle>Contact Us</TitleBlockStyle>

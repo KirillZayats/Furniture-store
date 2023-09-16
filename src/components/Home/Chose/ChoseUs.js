@@ -11,10 +11,10 @@ import {
   TestChoseStyle
 } from "../../../styled/Main/ChoseUs/ListChoseStyledComp";
 import ListChose from "./ListChose";
-import {nameSite} from "../../../Constants"
+import {NAME_SITE} from "../../../Constants"
 const ChoseUs = () => {
   return (
-    <BlockContentStyle className={window.location.pathname == `/${nameSite}/` ? "element-animation" : ""}>
+    <BlockContentStyle className={window.location.pathname == `/${NAME_SITE}/` ? "element-animation" : ""}>
       <ArticleContainerChoseUsStyle>
         <ContainerChoseStyle>
           <TitleBlockStyle>Why Choose Us</TitleBlockStyle>
@@ -25,7 +25,7 @@ const ChoseUs = () => {
             and elegant dining sets to stylish office desks and comfortable
             beds.
           </TestChoseStyle>
-          <LinkPage to={`/${nameSite}/products`}>
+          <LinkPage to={`/${NAME_SITE}/products`}>
           <BlackButtonInfoStyle className="button_dark">Shop Now</BlackButtonInfoStyle>
           </LinkPage>
         </ContainerChoseStyle>

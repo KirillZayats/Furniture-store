@@ -24,9 +24,13 @@ import {
   ButtonAddCartStyle
 } from "../styled/Main/DetailsStyledComp";
 import { Rating } from "@mui/material";
-import {nameSite} from "../Constants"
+import {NAME_SITE} from "../Constants"
+import { useSelector } from "react-redux";
+import { useAction } from "../hooks/useAction";
 const Details = () => {
-  
+  const {count} = useSelector((state) => state.count);
+  const { incrementCount, decrementCount} = useAction();
+
   return (
     <MainStyle>
       <ContainerDetailsStyle>
@@ -57,11 +61,11 @@ const Details = () => {
             <ContainerSettingForPayStyle>
               <ContainerArrowsStyle>
                 <CountProductsStyle>Count:</CountProductsStyle>
-                <ContainerArrowStyle>
+                <ContainerArrowStyle onClick={() => decrementCount(count)}>
                   <ArrowStyle src={IconLeft} />
                 </ContainerArrowStyle>
-                <CountProductsStyle>3</CountProductsStyle>
-                <ContainerArrowStyle>
+                <CountProductsStyle>{count}</CountProductsStyle>
+                <ContainerArrowStyle onClick={() => incrementCount(count)}>
                   <ArrowStyle src={IconRight} />
                 </ContainerArrowStyle>
               </ContainerArrowsStyle>
@@ -69,7 +73,7 @@ const Details = () => {
             </ContainerSettingForPayStyle>
             <ContainerButtonsStyle>
               <ButtonAddCartStyle>Add to cart</ButtonAddCartStyle>
-              <LinkPayStyle to={`/${nameSite}/pay`}>
+              <LinkPayStyle to={`/${NAME_SITE}/pay`}>
                 <ButtonPayStyle>Pay now</ButtonPayStyle>
               </LinkPayStyle>
             </ContainerButtonsStyle>
