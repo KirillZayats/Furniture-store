@@ -10,28 +10,8 @@ import Sale from "../components/Home/Sale";
 import Contacts from "../components/Home/Contacts";
 const Home = () => {
 
-  const onEntry = (entry) => {
-    entry.forEach(change => {
-      if (change.isIntersecting) {
-        change.target.classList.add('element-show');
-      }
-    });
-  }
-
-  const loadPage = () => {
-    let options = { threshold: [0.3] };
-    if(window.innerWidth < 1024) {
-      options = { threshold: [0.2] };
-    }
-    let observer = new IntersectionObserver(onEntry, options);
-    let elements = document.querySelectorAll(".element-animation");
-    for (let elm of elements) {
-      observer.observe(elm);
-    }
-  };
-
   return (
-    <MainStyle onLoad={loadPage}>
+    <MainStyle>
       <Description />
       <AboutUs />
       <ChoseUs/>

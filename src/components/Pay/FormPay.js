@@ -48,13 +48,13 @@ const FormPay = () => {
 
   const addSymbolForDate = (e) => {
     let valueInput = e.target.value;
-    if (valueInput.length == 2 && pastValueDate < 3) valueInput += "/";
-    if (pastValueDate.length == 4 && valueInput.length == 3) {
+    if (valueInput.length === 2 && pastValueDate < 3) valueInput += "/";
+    if (pastValueDate.length === 4 && valueInput.length === 3) {
       valueInput = valueInput.split("");
       valueInput.length = valueInput.length - 1;
       valueInput = valueInput.join("");
     }
-    if (valueInput.length == 3 && pastValueDate.length == 2) {
+    if (valueInput.length === 3 && pastValueDate.length === 2) {
       let lastValue = valueInput[valueInput.length - 1];
       valueInput = valueInput.split("");
       valueInput[valueInput.length - 1] = "/";

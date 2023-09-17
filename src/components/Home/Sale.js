@@ -18,7 +18,7 @@ import { NAME_SITE } from "../../Constants";
 
 const Sale = () => {
   return (
-    <BlockContentStyle className={window.location.pathname == `/${NAME_SITE}/` ? "element-animation" : ""}>
+    <BlockContentStyle >
       <SaleStyle>
         <ArticleContainerStyle>
           <PreTitleStyle>Tagline</PreTitleStyle>

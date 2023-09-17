@@ -14,7 +14,7 @@ import ListChose from "./ListChose";
 import {NAME_SITE} from "../../../Constants"
 const ChoseUs = () => {
   return (
-    <BlockContentStyle className={window.location.pathname == `/${NAME_SITE}/` ? "element-animation" : ""}>
+    <BlockContentStyle >
       <ArticleContainerChoseUsStyle>
         <ContainerChoseStyle>
           <TitleBlockStyle>Why Choose Us</TitleBlockStyle>

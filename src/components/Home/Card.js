@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {
   CardButtonCartStyle,
   CardButtonDetailsStyle,
@@ -8,24 +8,38 @@ import {
   CardStyle,
   ContainerFigcaptionStyle,
   ContainerButtonStyle,
-  LinkButtonStyle
+  LinkButtonStyle,
+  ContainerInformationStyle,
 } from "../../styled/Main/CardStyledComp";
 import ImageLamps from "../../resource/images/lamps.jpg";
-import {NAME_SITE} from "../../Constants"
-const Card = () => {
+import { NAME_SITE, NAME_SITE_URL } from "../../Constants";
+import { useAction } from "../../hooks/useAction";
+const Card = ({ product }) => {
+  const { setProduct } = useAction();
+
   return (
     <CardStyle className="block_product">
-      <CardImageStyle src={ImageLamps}/>
-      <ContainerFigcaptionStyle>
-      <CardFigcaptionStyle>Right Hand Fabric</CardFigcaptionStyle>
-      <CardFigcaptionStyle className="price">$55</CardFigcaptionStyle>
-      </ContainerFigcaptionStyle>
-      <CardCategoriesStyle>Desk decor</CardCategoriesStyle>
+      <CardImageStyle
+        src={`${NAME_SITE_URL}images/${product.category}/${product.image[0]}.png`}
+      />
+      <ContainerInformationStyle>
+        <ContainerFigcaptionStyle>
+          <CardFigcaptionStyle>{product.title}</CardFigcaptionStyle>
+          <CardFigcaptionStyle className="price">
+            ${product.price}
+          </CardFigcaptionStyle>
+        </ContainerFigcaptionStyle>
+        <CardCategoriesStyle>{product.category}</CardCategoriesStyle>
+      </ContainerInformationStyle>
       <ContainerButtonStyle>
         <LinkButtonStyle to={`/${NAME_SITE}/details`}>
-        <CardButtonDetailsStyle className="button_dark">Details</CardButtonDetailsStyle>
+          <CardButtonDetailsStyle className="button_dark" onClick={() => setProduct(product)}>
+            Details
+          </CardButtonDetailsStyle>
         </LinkButtonStyle>
-      <CardButtonCartStyle className="button_white">Add to cart</CardButtonCartStyle>
+        <CardButtonCartStyle className="button_white">
+          Add to cart
+        </CardButtonCartStyle>
       </ContainerButtonStyle>
     </CardStyle>
   );

@@ -208,15 +208,6 @@ const GlobalStyle = createGlobalStyle`
   input:focus, textarea:focus {
     outline-color: ${({ theme }) => theme.colors.mainColor}; 
     }
-
-    .element-animation {
-      opacity: 0;
-    }
-    .element-animation.element-show {
-  opacity: 1;
-  transition: all .3s;
-  transform: translateY(0%);
-}
 `;
 
 const ContainerStyle = styled.div`
@@ -276,6 +267,25 @@ const LinkStyle = styled.a`
   transition: all 0.2s ease-in;
 `;
 
+const ContainerProvider = styled.div``;
+const ContainerLoader = styled.div`
+  margin: auto;
+  vertical-align: middle;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  @media ${device.mobileS} {
+    height: 500px;
+  }
+
+  @media ${device.laptop} {
+    height: 600px;
+  }
+
+  @media ${device.desktop} {
+    height: 800px;
+  }
+`;
 export {
   GlobalStyle,
   ContainerStyle,
@@ -284,4 +294,6 @@ export {
   LinkUnderLineStyle,
   LinkStyle,
   Scale,
+  ContainerProvider,
+  ContainerLoader
 };

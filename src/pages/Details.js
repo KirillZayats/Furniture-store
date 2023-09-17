@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { MainStyle } from "../styled/Main/MainStyledComp";
 import ImageProduct from "../resource/images/lamps.jpg";
 import IconLeft from "../resource/images/icons/setting/left.svg";
@@ -24,52 +24,54 @@ import {
   ButtonAddCartStyle
 } from "../styled/Main/DetailsStyledComp";
 import { Rating } from "@mui/material";
-import {NAME_SITE} from "../Constants"
+import {NAME_SITE, NAME_SITE_URL} from "../Constants"
 import { useSelector } from "react-redux";
 import { useAction } from "../hooks/useAction";
 const Details = () => {
-  const {count} = useSelector((state) => state.count);
-  const { incrementCount, decrementCount} = useAction();
+  const {value, limit} = useSelector((state) => state.count);
+
+  const { incrementCount, decrementCount, initLimit} = useAction();
+  const {product} = useSelector((state) => state.product);
+
+  useEffect(() => {
+    initLimit(product.count)
+    console.log(limit);
+  }, [product])
 
   return (
     <MainStyle>
       <ContainerDetailsStyle>
         <ContainerProductStyle>
           <TitleProductStyle>
-            Divani Casa Kinsey - Modern Blue Fabric Modular Sectional Sofa
+            {product.title}
           </TitleProductStyle>
           <ContainerRatingStyle>
             <Rating
               name="half-rating-read"
-              defaultValue={4.6}
+              defaultValue={product.rating}
               precision={0.1}
               readOnly
               size="large"
             />
-            <ValueRatingStyle>4.6</ValueRatingStyle>
+            <ValueRatingStyle>{product.rating.toFixed(1)}</ValueRatingStyle>
           </ContainerRatingStyle>
-          <ImageProductStyle src={ImageProduct} />
+          <ImageProductStyle src={`${NAME_SITE_URL}images/${product.category}/${product.image[0]}.png`} />
           <DescriptionStyle>
-            Update your living room with the Kinsey Sectional! This modern
-            sectional sports a stylish navy blue polyester fabric that creates
-            an elegant and cozy atmosphere. The Kinsey combines excellent
-            quality materials and superb design that makes it the perfect
-            communal piece for entertaining. The modular design offers
-            moveability and creates options for your size needs.
+            {product.description}
           </DescriptionStyle>
           <ContainerPayStyle>
             <ContainerSettingForPayStyle>
               <ContainerArrowsStyle>
                 <CountProductsStyle>Count:</CountProductsStyle>
-                <ContainerArrowStyle onClick={() => decrementCount(count)}>
+                <ContainerArrowStyle onClick={() => decrementCount(value)}>
                   <ArrowStyle src={IconLeft} />
                 </ContainerArrowStyle>
-                <CountProductsStyle>{count}</CountProductsStyle>
-                <ContainerArrowStyle onClick={() => incrementCount(count)}>
+                <CountProductsStyle>{value}</CountProductsStyle>
+                <ContainerArrowStyle onClick={() => incrementCount(value)}>
                   <ArrowStyle src={IconRight} />
                 </ContainerArrowStyle>
               </ContainerArrowsStyle>
-              <PriceStyle>Price: $3112.50</PriceStyle>
+              <PriceStyle>Price: ${product.price}</PriceStyle>
             </ContainerSettingForPayStyle>
             <ContainerButtonsStyle>
               <ButtonAddCartStyle>Add to cart</ButtonAddCartStyle>

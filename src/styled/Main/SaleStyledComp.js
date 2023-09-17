@@ -1,6 +1,6 @@
 import { styled } from "styled-components";
 import ImageLamp from "../../resource/images/lamp.png";
-import { device, size } from "../Media/MediaQueryStyledComp";
+import { device } from "../Media/MediaQueryStyledComp";
 
 const SaleStyle = styled.div`
   background-color: ${({ theme }) => theme.colors.mainColor};

@@ -13,12 +13,11 @@ import {
   ImageAboutStyle,
   BlockContentStyle
 } from "../../styled/Main/AboutUsStyledComp";
-import { NAME_SITE } from "../../Constants";
 
 const AboutUs = () => {
 
   return (
-    <BlockContentStyle className={window.location.pathname == `/${NAME_SITE}/` ? "element-animation" : ""}>
+    <BlockContentStyle >
       <ContainerAboutUsStyle>
         <TextAboutStyle>
           <PreTitleStyle>About Us</PreTitleStyle>

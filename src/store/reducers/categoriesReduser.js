@@ -3,14 +3,16 @@ import {
   } from "../types/types";
   
   const initialState = {
-    categories: []
+    categories: [],
+    isLoadingCategories: false
   };
   
   export const categoriesReduser = (state = initialState, action) => {
     switch (action.type) {
         case FETCH_CATEGORIES:
           return {
-            categories: action.categories
+            categories: action.categories,
+            isLoadingCategories: true
           }
       default:
         return state;

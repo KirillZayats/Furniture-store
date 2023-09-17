@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { BlockContentStyle } from "../../styled/AppStyledComp";
 import { ArticleContainerStyle } from "../../styled/Main/MainStyledComp";
 import {
@@ -10,25 +10,58 @@ import {
   ContainerTitleBlockStyle,
   TitleBlockStyle,
   TextStyle,
-  LinkButtonStyle
+  LinkButtonStyle,
 } from "../../styled/Main/PartProductStyledComp";
 import Card from "./Card";
 import { NAME_SITE } from "../../Constants";
+import { useSelector } from "react-redux";
 
 const PartProducts = () => {
-  const addCard = () => {
-    if (window.innerWidth >= 1024) {
-      return [
-        <Card key="5" />,
-        <Card key="6" />,
-        <Card key="7" />,
-        <Card key="8" />,
-      ];
+  const { products, isLoadingProducts } = useSelector(
+    (state) => state.products
+  );
+  const { category } = useSelector(
+    (state) => state.category
+  );
+  const [partProducts, setPartProducts] = useState([]);
+  const [popularProducts, setPopularProducts] = useState([]);
+
+  useEffect(() => {
+      if(window.location.href.includes("#all_popular")) {
+        setPartProducts(
+          products.filter((product) => product.catalog.includes("popular"))
+        );
+      } else {
+        window.innerWidth < 1024
+        ? setPartProducts(popularProducts.slice(0, 4))
+        : setPartProducts(popularProducts.slice(0, 8));
+      }
+
+  }, [popularProducts]);
+
+  useEffect(() => {
+    if (isLoadingProducts) {
+      setPopularProducts(
+        products.filter((product) => product.catalog.includes("popular"))
+      );
     }
-  };
+  }, [isLoadingProducts]);
+
+  useEffect(() => {
+    category === "All" ?
+    setPartProducts (popularProducts)
+     : 
+    setPartProducts(
+      popularProducts.filter((product) => product.category.includes(category))
+    );
+  }, [category])
+
+  const getAllProducts = () => {
+    setPartProducts(popularProducts)
+  }
 
   return (
-    <BlockContentStyle className={window.location.pathname == `/${NAME_SITE}/` ? "element-animation" : ""}>
+    <BlockContentStyle>
       <ProductsStyle>
         <ArticleContainerStyle>
           <ContainerTitleBlockStyle>
@@ -37,23 +70,21 @@ const PartProducts = () => {
               Lorem ipsum dolor sit amet, consectetur adipiscing elit.
             </TextStyle>
             <ContainerButtonViewAllUpStyle>
-              <LinkButtonStyle to={`/${NAME_SITE}/products`}>
-                <ButtonViewAllStyle className="button_white">
+              <LinkButtonStyle to={`/${NAME_SITE}/products?#all_popular`}>
+                <ButtonViewAllStyle className="button_white" onClick={getAllProducts}>
                   View all
                 </ButtonViewAllStyle>
               </LinkButtonStyle>
             </ContainerButtonViewAllUpStyle>
           </ContainerTitleBlockStyle>
           <ContainterCardsStyle>
-            <Card />
-            <Card />
-            <Card />
-            <Card />
-            {addCard()}
+            {partProducts.map((product, index) => (
+              <Card key={index} product={product} />
+            ))}
           </ContainterCardsStyle>
           <ContainerButtonViewAllDownStyle>
-            <LinkButtonStyle to={`/${NAME_SITE}/products`}>
-              <ButtonViewAllStyle className="button_white">
+            <LinkButtonStyle to={`/${NAME_SITE}/products?#all_popular`}>
+              <ButtonViewAllStyle className="button_white" onClick={getAllProducts}>
                 View all
               </ButtonViewAllStyle>
             </LinkButtonStyle>{" "}

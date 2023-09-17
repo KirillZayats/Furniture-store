@@ -27,7 +27,6 @@ export const getDataProducts = (namePath) => {
             .then(response => response.json())
             .then(data => {
                 if(namePath === PRODUCTS) {
-                    console.log("test");
                     dispatch(getProductsSuccess(data))
                 } 
                 else if(namePath === CATEGORIES) {

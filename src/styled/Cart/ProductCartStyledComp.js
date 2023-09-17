@@ -1,5 +1,5 @@
 import { styled } from "styled-components";
-import { device, size } from "../../styled/Media/MediaQueryStyledComp";
+import { device } from "../../styled/Media/MediaQueryStyledComp";
 import {Scale} from "../../styled/AppStyledComp";
 const ContainerArrowsStyle = styled.div`
   display: flex;

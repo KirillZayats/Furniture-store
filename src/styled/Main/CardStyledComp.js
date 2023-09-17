@@ -35,12 +35,40 @@ const CardFigcaptionStyle = styled.p`
   font-weight: 600;
   line-height: 150%;
   margin-top: 10px;
+
+  @media ${device.mobileS} {
+    max-width: 245px;
+  }
+  @media ${device.mobileM} {
+    max-width: 300px;
+  }
+  @media ${device.mobileL} {
+    max-width: 320px;
+  }
+  @media ${device.tablet} {
+    max-width: 260px;
+  }
+
+  @media ${device.laptop} {
+    max-width: 155px;
+  }
+
+  @media ${device.desktop} {
+    max-width: 250px;
+  }
 `;
 
 const ContainerFigcaptionStyle = styled.div`
   display: flex;
   justify-content: space-between;
 `;
+
+const ContainerInformationStyle = styled.div`
+  display: flex;
+  flex-direction: column;
+  height: 122px;
+`;
+
 
 const CardCategoriesStyle = styled.p`
   font-size: 14px;
@@ -92,5 +120,6 @@ export {
   CardStyle,
   ContainerFigcaptionStyle,
   ContainerButtonStyle,
-  LinkButtonStyle
+  LinkButtonStyle,
+  ContainerInformationStyle
 };

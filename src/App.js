@@ -1,43 +1,86 @@
-import React from "react";
-import Header from "./components/Header/Header";
-import Footer from "./components/Footer/Footer";
-import Home from "./pages/Home";
-import { GlobalStyle } from "./styled/AppStyledComp";
+import React, { useEffect, Suspense, lazy } from "react";
+// import Header from "./components/Header/Header";
+// import Footer from "./components/Footer/Footer";
+// import Home from "./pages/Home";
+import {
+  ContainerLoader,
+  ContainerProvider,
+  GlobalStyle,
+} from "./styled/AppStyledComp";
 import { Theme } from "./styled/Theme";
-import Contacts from "./pages/Contacts";
-import AboutUs from "./pages/AboutUs";
-import Products from "./pages/Products";
-import Pay from "./pages/Pay";
-import Details from "./pages/Details";
-import Account from "./pages/log/Account";
-import Cart from "./pages/Cart";
-import Login from "./pages/log/Login";
+// import Contacts from "./pages/Contacts";
+// import AboutUs from "./pages/AboutUs";
+// import Products from "./pages/Products";
+// import Pay from "./pages/Pay";
+// import Details from "./pages/Details";
+// import Account from "./pages/log/Account";
+// import Cart from "./pages/Cart";
+// import Login from "./pages/log/Login";
 import { Route, Routes } from "react-router-dom";
 import { NAME_SITE } from "./Constants";
 import DownUp from "./components/DownUp";
-import { Provider } from "react-redux";
-import { store } from "./store";
+import { useSelector } from "react-redux";
+import { useAction } from "./hooks/useAction";
+import { InfinitySpin } from "react-loader-spinner";
+
+const Header = lazy(() => import("./components/Header/Header"));
+const Footer = lazy(() => import("./components/Footer/Footer"));
+
+const Home = lazy(() => import("./pages/Home"));
+const AboutUs = lazy(() => import("./pages/AboutUs"));
+const Contacts = lazy(() => import("./pages/Contacts"));
+const Products = lazy(() => import("./pages/Products"));
+const Pay = lazy(() => import("./pages/Pay"));
+const Details = lazy(() => import("./pages/Details"));
+const Account = lazy(() => import("./pages/log/Account"));
+const Cart = lazy(() => import("./pages/Cart"));
+const Login = lazy(() => import("./pages/log/Login"));
 
 export const App = () => {
+  const { getDataProducts } = useAction();
+
+  const {isLoadingProducts } = useSelector(
+    (state) => state.products
+  );
+  const {isLoadingCategories } = useSelector(
+    (state) => state.categories
+  );
+
+  useEffect(() => {
+    getDataProducts("products");
+    getDataProducts("categories");
+  }, []);
+
   return (
     <Theme>
       <GlobalStyle />
-      <Provider store={store}>
-        <Header />
-        <Routes>
-          <Route path={`${NAME_SITE}/`} element={<Home />} />
-          <Route path={`${NAME_SITE}/contacts`} element={<Contacts />} />
-          <Route path={`${NAME_SITE}/about`} element={<AboutUs />} />
-          <Route path={`${NAME_SITE}/products`} element={<Products />} />
-          <Route path={`${NAME_SITE}/pay`} element={<Pay />} />
-          <Route path={`${NAME_SITE}/details`} element={<Details />} />
-          <Route path={`${NAME_SITE}/account`} element={<Account />} />
-          <Route path={`${NAME_SITE}/cart`} element={<Cart />} />
-          <Route path={`${NAME_SITE}/login`} element={<Login />} />
-        </Routes>
-        <Footer />
-      </Provider>
-      <DownUp />
+
+      <Suspense
+        fallback={
+          <ContainerLoader>
+            <InfinitySpin width="200" color="#000" />
+          </ContainerLoader>
+        }
+      >
+        {isLoadingProducts && isLoadingCategories && (
+          <ContainerProvider>
+            <Header />
+            <Routes>
+              <Route path={`${NAME_SITE}/`} element={<Home />} />
+              <Route path={`${NAME_SITE}/contacts`} element={<Contacts />} />
+              <Route path={`${NAME_SITE}/about`} element={<AboutUs />} />
+              <Route path={`${NAME_SITE}/products`} element={<Products />} />
+              <Route path={`${NAME_SITE}/pay`} element={<Pay />} />
+              <Route path={`${NAME_SITE}/details`} element={<Details />} />
+              <Route path={`${NAME_SITE}/account`} element={<Account />} />
+              <Route path={`${NAME_SITE}/cart`} element={<Cart />} />
+              <Route path={`${NAME_SITE}/login`} element={<Login />} />
+            </Routes>
+            <Footer />
+            <DownUp />
+          </ContainerProvider>
+        )}
+      </Suspense>
     </Theme>
   );
 };
