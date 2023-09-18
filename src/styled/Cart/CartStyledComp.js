@@ -1,6 +1,7 @@
 import { styled } from "styled-components";
 import { device, size } from "../../styled/Media/MediaQueryStyledComp";
 import IconSvg from "../../resource/images/icons/Icon";
+import { Link } from "react-router-dom";
 
 const ContainerCartStyle = styled.article`
   margin: 0 auto;
@@ -60,6 +61,9 @@ const ButtonInPayStyle = styled.button`
   border: 1px solid ${({ theme }) => theme.colors.secondColor};
   border-radius: 5px;
 `;
+
+const ContainerLinkPayStyle = styled(Link)``;
+
 const ContainerPayInfoStyle = styled.div`
   display: flex;
   flex-direction: column;
@@ -139,5 +143,6 @@ export {
   ContainerMainBlockStyle,
   ButtonInPayStyle,
   ListProductsStyle,
-  ContainerIconClearStyle
+  ContainerIconClearStyle,
+  ContainerLinkPayStyle
 };

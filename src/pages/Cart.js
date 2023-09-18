@@ -21,14 +21,24 @@ import {
   ButtonInPayStyle,
   ListProductsStyle,
   ContainerIconClearStyle,
+  ContainerLinkPayStyle,
 } from "../styled/Cart/CartStyledComp";
 import ProductCart from "../components/Cart/ProductCart";
 import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { useAction } from "../hooks/useAction";
+import { NAME_SITE } from "../Constants";
 
 const Cart = () => {
   const navigate = useNavigate();
+  const products = useSelector((state) => state.cartProduct.productsCart);
+  const allPrice = useSelector((state) => state.cartProduct.allPrice);
+  const { deleteProduct } = useAction();
 
-  const selectAll = () => {
+  const selectAll = (e) => {
+    const buttonPay = document.getElementById("idButtonPay");
+    const containerPay = document.getElementById("containerLinkPay");
+
     const inputs = document
       .querySelector(".list_elements")
       .querySelectorAll("input");
@@ -48,6 +58,8 @@ const Cart = () => {
     for (let index = 0; index < list.childNodes.length; index++) {
       if (list.childNodes[index].querySelector("input").checked) {
         list.removeChild(list.childNodes[index]);
+        console.log(products);
+        // deleteProduct(products[index].id);
         index--;
       }
     }
@@ -93,21 +105,26 @@ const Cart = () => {
             </ContainerCheckboxStyle>
           </ContainerTitlePageStyle>
           <ListProductsStyle className="list_elements">
-            <ProductCart id="1" />
-            <ProductCart id="2" />
-            <ProductCart id="3" />
+            {products.map((product, index) => (
+              <ProductCart key={index} index={index} />
+            ))}
           </ListProductsStyle>
           <ContainerTotalPayStyle>
             <TextTotalPayStyle>Total due:</TextTotalPayStyle>
-            <TextTotalPayStyle>$133.23</TextTotalPayStyle>
+            <TextTotalPayStyle>${Number(allPrice).toFixed(2)}</TextTotalPayStyle>
           </ContainerTotalPayStyle>
         </ContainerMainBlockStyle>
         <ContainerPayInfoStyle>
           <TextProductStyle>Select products to continue</TextProductStyle>{" "}
-          {/*при нажатии выделяется всё и функция кнопки меняется на преобрести(Checkout)*/}
-          <ButtonInPayStyle className="button_rear button_dark">
-            Select all
-          </ButtonInPayStyle>
+          <ContainerLinkPayStyle to={`/${NAME_SITE}/pay`}>
+            <ButtonInPayStyle
+              className="button_rear button_dark"
+              id="idButtonPay"
+              onClick={selectAll}
+            >
+              Select all
+            </ButtonInPayStyle>
+          </ContainerLinkPayStyle>
         </ContainerPayInfoStyle>
       </ContainerCartStyle>
     </MainStyle>

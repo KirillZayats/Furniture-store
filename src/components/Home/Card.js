@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import {
   CardButtonCartStyle,
   CardButtonDetailsStyle,
@@ -11,11 +11,36 @@ import {
   LinkButtonStyle,
   ContainerInformationStyle,
 } from "../../styled/Main/CardStyledComp";
-import ImageLamps from "../../resource/images/lamps.jpg";
 import { NAME_SITE, NAME_SITE_URL } from "../../Constants";
 import { useAction } from "../../hooks/useAction";
+import { useSelector } from "react-redux";
 const Card = ({ product }) => {
-  const { setProduct } = useAction();
+  const { getProduct, addProduct, deleteProduct } = useAction();
+  const [nameButton, setNameButton] = useState("Add to cart");
+  const products = useSelector(state => state.cartProduct.productsCart);
+  const { category } = useSelector(
+    (state) => state.category
+  );
+  useEffect(() => {
+    products.forEach(element => {
+      if(product.id === element.id) {
+        setNameButton("Delete from cart")
+      }
+    });
+  }, [])
+
+  const addToCart = (e) => {
+    if(nameButton === "Add to cart") {
+      // e.target.innerText = "Delete from cart";
+      setNameButton("Delete from cart");
+      addProduct(product);
+    } else {
+      // e.target.innerText = "Add to cart";
+      setNameButton("Add to cart");
+
+      deleteProduct(product.id);
+    }
+  }
 
   return (
     <CardStyle className="block_product">
@@ -32,13 +57,13 @@ const Card = ({ product }) => {
         <CardCategoriesStyle>{product.category}</CardCategoriesStyle>
       </ContainerInformationStyle>
       <ContainerButtonStyle>
-        <LinkButtonStyle to={`/${NAME_SITE}/details`}>
-          <CardButtonDetailsStyle className="button_dark" onClick={() => setProduct(product)}>
+        <LinkButtonStyle to={`/${NAME_SITE}/products/details/${product.id}`}>
+          <CardButtonDetailsStyle className="button_dark" onClick={() => getProduct(product.id)}>
             Details
           </CardButtonDetailsStyle>
         </LinkButtonStyle>
-        <CardButtonCartStyle className="button_white">
-          Add to cart
+        <CardButtonCartStyle className="button_white" onClick={addToCart}>
+          {nameButton}
         </CardButtonCartStyle>
       </ContainerButtonStyle>
     </CardStyle>

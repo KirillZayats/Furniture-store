@@ -45,6 +45,7 @@ import SidebarActive from "./SidebarActive";
 import { NAME_SITE } from "../../Constants";
 import { LinkPage } from "../../styled/Main/MainStyledComp";
 import { useLocation } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const Header = () => {
   const [containerLogotype, setContainerLogotype] = useState("");
@@ -56,6 +57,8 @@ const Header = () => {
   const [inputCheckbox, setInputCheckbox] = useState("");
   const { pathname } = useLocation();
   const [buttonDownUp, setButtonDownUp] = useState("");
+  const countProducts = useSelector(state => state.cartProduct.productsCart.length);
+
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -262,7 +265,7 @@ const Header = () => {
                   <ContainerIconCartStyle className="container__link-cart">
                     <IconCartStyle />
                     <ContainerNumberProductsCartStyle>
-                      <NumberProductsCartStyle>100</NumberProductsCartStyle>
+                      <NumberProductsCartStyle>{countProducts}</NumberProductsCartStyle>
                     </ContainerNumberProductsCartStyle>
                   </ContainerIconCartStyle>
                   <TitleCartStyle>Cart</TitleCartStyle>
@@ -314,7 +317,7 @@ const Header = () => {
                       <ContainerIconCartStyle className="container__link-cart">
                         <IconCartStyle />
                         <ContainerNumberProductsCartStyle>
-                          <NumberProductsCartStyle>100</NumberProductsCartStyle>
+                          <NumberProductsCartStyle>{countProducts}</NumberProductsCartStyle>
                         </ContainerNumberProductsCartStyle>
                       </ContainerIconCartStyle>
                       <TitleCartStyle className="header__title-block">

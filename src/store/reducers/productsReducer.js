@@ -1,10 +1,11 @@
 import {
-  FETCH_PRODUCTS,
+  FETCH_PRODUCTS, GET_PRODUCT,
 } from "../types/types";
 
 const initialState = {
   products: [],
-  isLoadingProducts: false
+  isLoadingProducts: false,
+  product: null
 };
 
 export const productsReduser = (state = initialState, action) => {
@@ -12,8 +13,16 @@ export const productsReduser = (state = initialState, action) => {
     case FETCH_PRODUCTS:
       return {
         products: action.products,
-        isLoadingProducts: true
+        isLoadingProducts: true,
+        product: state.product
+      };
+    case GET_PRODUCT: {
+      return {
+        products: state.products,
+        isLoadingProducts: state.isLoadingProducts,
+        product: state.products[action.payload - 1]
       }
+    } 
     default:
       return state;
   }
