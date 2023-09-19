@@ -5,6 +5,7 @@ import { categoriesReduser } from './categoriesReduser';
 import { categoryReduser } from './categoryReducer';
 import { productReduser } from './productReducer';
 import { cartReduser } from './cartReduser';
+import { payReduser } from './payReduser';
 
 export const rootReducer = combineReducers({
     count: countReducer,
@@ -12,5 +13,6 @@ export const rootReducer = combineReducers({
     categories: categoriesReduser,
     category: categoryReduser,
     product: productReduser,
-    cartProduct: cartReduser
+    cartProduct: cartReduser,
+    payProducts: payReduser
 });

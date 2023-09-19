@@ -35,7 +35,7 @@ export const countReducer = (state = initialState, action) => {
           };
     case INIT_LIMIT:
       return {
-        value: state.value,
+        value: 1,
         limit: action.limit,
       };
     case RESET_COUNT:

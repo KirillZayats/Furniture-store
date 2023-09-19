@@ -59,7 +59,8 @@ export const App = () => {
               <Route path={`${NAME_SITE}/contacts`} element={<Contacts />} />
               <Route path={`${NAME_SITE}/about`} element={<AboutUs />} />
               <Route path={`${NAME_SITE}/products`} element={<Products />} />
-              <Route path={`${NAME_SITE}/pay`} element={<Pay />} />
+              <Route path={`${NAME_SITE}/cart/pay`} element={<Pay />} />
+              <Route path={`${NAME_SITE}/products/details/:id/pay`} element={<Pay />} />
               <Route path={`${NAME_SITE}/products/details/:id`} element={<Details/>} />
               <Route path={`${NAME_SITE}/account`} element={<Account />} />
               <Route path={`${NAME_SITE}/cart`} element={<Cart />} />

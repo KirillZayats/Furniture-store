@@ -37,7 +37,6 @@ const Card = ({ product }) => {
     } else {
       // e.target.innerText = "Add to cart";
       setNameButton("Add to cart");
-
       deleteProduct(product.id);
     }
   }

@@ -35,7 +35,7 @@ const Details = () => {
   const params = useParams();
   const { value, limit } = useSelector((state) => state.count);
   const { product } = useSelector((state) => state.products);
-  const { incrementCount, decrementCount, initLimit, getProduct, addProduct, deleteProduct } = useAction();
+  const { incrementCount, decrementCount, initLimit, getProduct, addProduct, deleteProduct, payProducts } = useAction();
   const [nameButton, setNameButton] = useState("Add to cart");
   const products = useSelector(state => state.cartProduct.productsCart);
 
@@ -48,13 +48,14 @@ const Details = () => {
   }, [])
 
   useEffect(() => {
+    console.log(product);
+
     if ((product == null || product == undefined)) {
       getProduct(params.id)
 
     } else {
       setIsLoadingData(true);
       initLimit(product.limit)
-
     }
   }, [product])
 
@@ -62,13 +63,17 @@ const Details = () => {
     if(nameButton === "Add to cart") {
       // e.target.innerText = "Delete from cart";
       setNameButton("Delete from cart");
-      addProduct(product);
+      addProduct(product, value);
     } else {
       // e.target.innerText = "Add to cart";
       setNameButton("Add to cart");
 
       deleteProduct(product.id);
     }
+  }
+
+  const clickPay = () => {
+    payProducts(product, value);
   }
 
   return (
@@ -105,18 +110,18 @@ const Details = () => {
                     <ArrowStyle src={IconRight} />
                   </ContainerArrowStyle>
                 </ContainerArrowsStyle>
-                <PriceStyle>Price: ${product.price}</PriceStyle>
+                <PriceStyle>Price: ${Number(product.price*value).toFixed(2)}</PriceStyle>
               </ContainerSettingForPayStyle>
               <ContainerButtonsStyle>
                 <ButtonAddCartStyle  onClick={addToCart}>{nameButton}</ButtonAddCartStyle>
-                <LinkPayStyle to={`/${NAME_SITE}/pay`}>
-                  <ButtonPayStyle>Pay now</ButtonPayStyle>
+                <LinkPayStyle to={`pay`}>
+                  <ButtonPayStyle onClick={clickPay}>Pay now</ButtonPayStyle>
                 </LinkPayStyle>
               </ContainerButtonsStyle>
             </ContainerPayStyle>
           </ContainerProductStyle>
           :
-          product == undefined ? <h1>Товара с таким уникальным номером не существует!!!</h1> :
+          product == undefined ? <h1>There is no product with this id!!!</h1> :
             <ContainerLoader>
               <InfinitySpin width="200" color="#000" />
             </ContainerLoader>

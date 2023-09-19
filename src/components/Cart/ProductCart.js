@@ -20,8 +20,15 @@ import { useSelector } from "react-redux";
 
 const ProductCart = ({index}) => {
   const products = useSelector(state => state.cartProduct.productsCart);
-  const [count, setCount] = useState(1)
-  const { incrementCountProduct, decrementCountProduct } = useAction();
+  const [count, setCount] = useState(products[index].count)
+  const { incrementCountProduct, decrementCountProduct, setStatusPay } = useAction();
+
+  useEffect(() => {
+    console.log(index);
+    console.log(products[index].statusPay);
+    document.getElementById(`checkboxCart_${index}`).checked = products[index].statusPay
+    console.log("lol");
+  }, [])
 
   const clickIncrementCountProduct = () => {
     incrementCountProduct(index)
@@ -59,7 +66,7 @@ const ProductCart = ({index}) => {
           </ContainerArrowStyle>
         </ContainerArrowsStyle>
       </ContainerTextStyle>
-      <CheckboxStyle type="checkbox" id={products[index].id} />
+      <CheckboxStyle type="checkbox" id={`checkboxCart_${index}`} onClick={() => setStatusPay(index)}/>
     </ProductPayStyle>
   );
 };

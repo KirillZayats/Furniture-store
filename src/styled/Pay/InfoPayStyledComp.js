@@ -58,9 +58,9 @@ const ImageProductStyle = styled.img`
   }
 `;
 const ContainerTextStyle = styled.div`
-  display: flex;
   width: 100%;
   @media ${device.mobileS} {
+    display: flex;
     flex-direction: column;
     max-width: 400px;
   }
@@ -73,6 +73,17 @@ const ContainerTextStyle = styled.div`
     max-width: 600px;
 
   }`;
+
+const ContainerMainTextStyle = styled.div`
+  display: flex;
+  flex-direction: column;
+  @media ${device.laptop} {
+    max-width: 285px;
+  }
+  @media ${device.desktop} {
+    max-width: 400px;
+  }
+`;
 
 const TextProductStyle = styled.h3`
   font-size: 18px;
@@ -205,5 +216,6 @@ export {
   ContainerTextStyle,
   IconArrowLeft,
   LinkParagrafStyle,
-  ContainerBlocksStyle
+  ContainerBlocksStyle,
+  ContainerMainTextStyle
 };

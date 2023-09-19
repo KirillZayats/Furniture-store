@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { MainStyle, TitleBlockStyle } from "../styled/Main/MainStyledComp";
 import {
   ContainerBackStyle,
@@ -33,8 +33,9 @@ const Cart = () => {
   const navigate = useNavigate();
   const products = useSelector((state) => state.cartProduct.productsCart);
   const allPrice = useSelector((state) => state.cartProduct.allPrice);
-  const { deleteProduct } = useAction();
 
+  const { deleteProduct, payProducts } = useAction();
+  const [textButtonPay, setTextButtonPay] = useState("Select All"); 
   const selectAll = (e) => {
     const buttonPay = document.getElementById("idButtonPay");
     const containerPay = document.getElementById("containerLinkPay");
@@ -53,13 +54,18 @@ const Cart = () => {
     }
   };
 
+  const clickPay = () => {
+    // console.log(pricePay);
+    payProducts(products);
+  }
+
   const clearList = () => {
     let list = document.querySelector(".list_elements");
     for (let index = 0; index < list.childNodes.length; index++) {
       if (list.childNodes[index].querySelector("input").checked) {
         list.removeChild(list.childNodes[index]);
         console.log(products);
-        // deleteProduct(products[index].id);
+        deleteProduct(products[index].id);
         index--;
       }
     }
@@ -116,13 +122,13 @@ const Cart = () => {
         </ContainerMainBlockStyle>
         <ContainerPayInfoStyle>
           <TextProductStyle>Select products to continue</TextProductStyle>{" "}
-          <ContainerLinkPayStyle to={`/${NAME_SITE}/pay`}>
+          <ContainerLinkPayStyle to={`pay`}>
             <ButtonInPayStyle
               className="button_rear button_dark"
               id="idButtonPay"
-              onClick={selectAll}
+              onClick={clickPay}
             >
-              Select all
+              {textButtonPay}
             </ButtonInPayStyle>
           </ContainerLinkPayStyle>
         </ContainerPayInfoStyle>
