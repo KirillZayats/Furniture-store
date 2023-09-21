@@ -169,16 +169,16 @@ const GlobalStyle = createGlobalStyle`
     outline-color: ${({ theme }) => theme.colors.rearColor}; 
   }
 
-  .block-achievements:hover, .container_setting:hover svg,  
+  .block-achievements:hover, .container_setting:hover svg, .block_product:hover img,
   li:hover .container_setting svg, #id_search_icon:hover, #container__icon-delete:hover {
     animation: ${Swing} .5s ease-in;
   }
 
  .container-social__image img:hover, .block_hover:hover .container__link-cart, 
-  li:hover .container__link-cart{
+  li:hover .container__link-cart, .block_product:hover .price{
     animation: ${SwingText} .5s ease-in;
   }
-
+/* 
   @media ${device.laptop} {
     .block_product:hover img{
       animation: ${Swing} .5s ease-in;
@@ -186,7 +186,7 @@ const GlobalStyle = createGlobalStyle`
     .block_product:hover .price  {
       animation: ${SwingText} .5s ease-in;
     }
-  }
+  } */
 
   input::-webkit-outer-spin-button,
   input::-webkit-inner-spin-button {

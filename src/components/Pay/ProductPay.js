@@ -10,9 +10,7 @@ import {
 import { NAME_SITE_URL } from '../../Constants';
 
 const ProductPay = ({product}) => {
-  useEffect(() => {
-    console.log(product);
-  }, [])
+
   return (
     <ProductPayStyle>
         <ImageProductStyle src={`${NAME_SITE_URL}images/${product.category}/${product.image[0]}.png`}/>
@@ -21,7 +19,7 @@ const ProductPay = ({product}) => {
           <TextProductStyle>{product.title}</TextProductStyle>
             <TextProductStyle>Count: {product.count}</TextProductStyle>
           </ContainerMainTextStyle>
-            <TextProductStyle>${product.price * product.count}</TextProductStyle>
+            <TextProductStyle>${Number(product.price * product.count).toFixed(2)}</TextProductStyle>
         </ContainerTextStyle>
     </ProductPayStyle>
   )

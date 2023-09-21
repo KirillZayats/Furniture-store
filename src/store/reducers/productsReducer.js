@@ -1,11 +1,12 @@
 import {
-  FETCH_PRODUCTS, GET_PRODUCT,
+  FETCH_PRODUCTS, GET_PRODUCT, GET_VALUE_SEARCH,
 } from "../types/types";
 
 const initialState = {
   products: [],
   isLoadingProducts: false,
-  product: null
+  product: null,
+  valueInput: ""
 };
 
 export const productsReduser = (state = initialState, action) => {
@@ -14,15 +15,25 @@ export const productsReduser = (state = initialState, action) => {
       return {
         products: action.products,
         isLoadingProducts: true,
-        product: state.product
+        product: state.product,
+        valueInput: state.valueInput
       };
-    case GET_PRODUCT: {
+    case GET_PRODUCT: 
       return {
         products: state.products,
         isLoadingProducts: state.isLoadingProducts,
-        product: state.products[action.payload - 1]
+        product: state.products[action.payload - 1],
+        valueInput: state.valueInput
       }
-    } 
+    
+    case GET_VALUE_SEARCH: 
+      return {
+        products: state.products,
+        isLoadingProducts: state.isLoadingProducts,
+        product: state.product,
+        valueInput: action.payload
+      }
+    
     default:
       return state;
   }

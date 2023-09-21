@@ -1,4 +1,4 @@
-import { FETCH_PRODUCTS, FETCH_CATEGORIES, GET_PRODUCT } from "../types/types"
+import { FETCH_PRODUCTS, FETCH_CATEGORIES, GET_PRODUCT, GET_VALUE_SEARCH } from "../types/types"
 import { CATEGORIES, NAME_SITE_URL, PRODUCTS } from '../../Constants';
 
 export const getProductsSuccess = (products) => {
@@ -18,6 +18,13 @@ export const getProduct = (id) => {
     return {
         type: GET_PRODUCT,
         payload: id
+    }
+}
+
+export const getValueSearch = (value) => {
+    return {
+        type: GET_VALUE_SEARCH,
+        payload: value
     }
 }
 

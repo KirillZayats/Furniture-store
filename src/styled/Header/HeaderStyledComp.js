@@ -48,6 +48,7 @@ const ContainerContactsBarMenuStyle = styled.div`
   transition: all 0.5s ease-in;
   text-align: center;
   left: 10px;
+  z-index: 3;
 `;
 
 const ContainerSocialStyle = styled.div`
@@ -57,6 +58,7 @@ const ContainerSocialStyle = styled.div`
   left: -145px;
   bottom: 50px;
   transition: all 0.5s ease-in;
+  z-index: 3;
 
   @media ${device.mobileS} {
     position: fixed;
@@ -314,6 +316,7 @@ const NavStyle = styled.nav`
 const ListStyle = styled.ul`
   display: flex;
   transition: all 0.5s ease-in;
+  z-index: 2;
 
   @media ${device.mobileS} {
     position: fixed;

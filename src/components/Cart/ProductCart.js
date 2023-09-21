@@ -24,10 +24,7 @@ const ProductCart = ({index}) => {
   const { incrementCountProduct, decrementCountProduct, setStatusPay } = useAction();
 
   useEffect(() => {
-    console.log(index);
-    console.log(products[index].statusPay);
     document.getElementById(`checkboxCart_${index}`).checked = products[index].statusPay
-    console.log("lol");
   }, [])
 
   const clickIncrementCountProduct = () => {
@@ -54,7 +51,7 @@ const ProductCart = ({index}) => {
         <TextProductStyle>
           {products[index].title}
         </TextProductStyle>
-        <PriceProductStyle>${products[index].price}</PriceProductStyle>
+        <PriceProductStyle>${Number(products[index].price * products[index].count).toFixed(2)}</PriceProductStyle>
         <ContainerArrowsStyle>
           <CountProductsStyle>Count:</CountProductsStyle>
           <ContainerArrowStyle onClick={clickDecrementCountProduct}>

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { MainStyle, TitleBlockStyle } from "../styled/Main/MainStyledComp";
 import {
   ContainerBackStyle,
@@ -34,12 +34,25 @@ const Cart = () => {
   const products = useSelector((state) => state.cartProduct.productsCart);
   const allPrice = useSelector((state) => state.cartProduct.allPrice);
 
-  const { deleteProduct, payProducts } = useAction();
+  const { deleteProduct, payProducts, setStatusPay } = useAction();
   const [textButtonPay, setTextButtonPay] = useState("Select All"); 
-  const selectAll = (e) => {
-    const buttonPay = document.getElementById("idButtonPay");
-    const containerPay = document.getElementById("containerLinkPay");
 
+  useEffect(() => {
+    if(products.length === products.filter((element) => element.statusPay).length && products.length > 0) {
+      document.getElementById("inputSelectAll").checked = true
+      setTextButtonPay("Checkout")
+    }
+    const inputs = document
+    .querySelector(".list_elements")
+    .querySelectorAll("input");
+    inputs.forEach((element) => {
+      if(element.checked) {
+        setTextButtonPay("Checkout")
+      }
+    });
+  }, [])
+
+  const selectAll = () => {
     const inputs = document
       .querySelector(".list_elements")
       .querySelectorAll("input");
@@ -47,29 +60,72 @@ const Cart = () => {
       inputs.forEach((element) => {
         element.checked = true;
       });
+      products.forEach((element, index) => {
+        if(!element.statusPay) {
+          setStatusPay(index);
+        }
+      });
+      setTextButtonPay("Checkout")
     } else {
       inputs.forEach((element) => {
         element.checked = false;
       });
+      products.forEach((element, index) => {
+        if(element.statusPay) {
+          setStatusPay(index);
+        }
+      });
+      setTextButtonPay("Select All")
     }
   };
 
-  const clickPay = () => {
-    // console.log(pricePay);
-    payProducts(products);
+  const clickPay = (e) => {
+    if(textButtonPay === "Select All") {
+      if(products.length > 0) {
+        setTextButtonPay("Checkout")
+      document.getElementById("inputSelectAll").checked = true;
+      selectAll();
+      }
+      e.preventDefault();
+    } else {
+      payProducts(products);
+    }
   }
 
   const clearList = () => {
     let list = document.querySelector(".list_elements");
     for (let index = 0; index < list.childNodes.length; index++) {
-      if (list.childNodes[index].querySelector("input").checked) {
-        list.removeChild(list.childNodes[index]);
-        console.log(products);
-        deleteProduct(products[index].id);
+      list.childNodes[index].querySelector("input").checked = false; 
+    }
+    for (let index = 0; index < products.length; index++) {
+      console.log(products);
+      if (products[index].statusPay) {
+        deleteProduct(index)
         index--;
       }
     }
+    setTextButtonPay("Select All");
+    document.getElementById("inputSelectAll").checked = false;
   };
+
+  const clickCheckBox = (e) => {
+    let isCheck = false;
+    let lengthCheckedInputs = 0;
+    const inputs = document
+    .querySelector(".list_elements")
+    .querySelectorAll("input");
+    inputs.forEach(element => {
+      if(element.checked) {
+        setTextButtonPay("Checkout");
+        isCheck = true;
+        lengthCheckedInputs++;
+      } else {
+        document.getElementById("inputSelectAll").checked = false;
+      } 
+    });
+    !isCheck && setTextButtonPay("Select All");
+    document.getElementById("inputSelectAll").checked = inputs.length === lengthCheckedInputs ? true : false
+  }
 
   return (
     <MainStyle>
@@ -110,7 +166,7 @@ const Cart = () => {
               />
             </ContainerCheckboxStyle>
           </ContainerTitlePageStyle>
-          <ListProductsStyle className="list_elements">
+          <ListProductsStyle className="list_elements" onClick={clickCheckBox}>
             {products.map((product, index) => (
               <ProductCart key={index} index={index} />
             ))}

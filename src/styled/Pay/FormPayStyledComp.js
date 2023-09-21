@@ -3,6 +3,7 @@ import { device, size } from "../../styled/Media/MediaQueryStyledComp";
 import IconNumberCard from "../../resource/images/icons/pay/number_card.svg";
 import IconBackCard from "../../resource/images/icons/pay/back_card.svg";
 import Icon from "../../resource/images/icons/Icon";
+import { Link } from "react-router-dom";
 
 const Svg = styled(Icon)`
   width: 59px;
@@ -55,10 +56,10 @@ const ContainerPayStyle = styled.form`
   @media ${device.laptop} {
     max-width: calc(${size.laptop} / 2 - 50px);
     padding: 50px 0;
+    max-width: 425px;
   }
 
   @media ${device.desktop} {
-    max-width: calc(${size.desktop} / 2 - 70px);
     margin: 0 140px 0 0;
     padding: 80px 0;
   }
@@ -93,6 +94,11 @@ const ButtonPayCardStyle = styled.button`
 
   margin: 35px auto;
 `;
+
+const LinkButtonStyle = styled(Link)`
+  width: 100%;
+`;
+
 const ImgButtonPayStyle = styled.img``;
 const ContainerTransitionStyle = styled.div`
   width: 100%;
@@ -196,6 +202,7 @@ const ContainerInputCVCCardStyle = styled.div`
   width: calc(50% - 1px);
 `;
 const InputSpecialStyle = styled.input`
+  max-width: 400px;
   border: none;
   outline: none;
   width: 100%;
@@ -277,5 +284,6 @@ export {
   ButtonPayCardStyle,
   ButtonPayStyle,
   ContainerPayStyle,
-  IconApplePay
+  IconApplePay,
+  LinkButtonStyle
 };

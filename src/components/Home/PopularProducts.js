@@ -17,7 +17,7 @@ import { NAME_SITE } from "../../Constants";
 import { useSelector } from "react-redux";
 
 const PartProducts = () => {
-  const { products, isLoadingProducts } = useSelector(
+  const { products, isLoadingProducts, valueInput } = useSelector(
     (state) => state.products
   );
   const { category } = useSelector(
@@ -26,7 +26,7 @@ const PartProducts = () => {
   const [partProducts, setPartProducts] = useState([]);
   const [popularProducts, setPopularProducts] = useState([]);
 
-  useEffect(() => {
+    const showProducts = () => {
       if(window.location.href.includes("#all_popular")) {
         setPartProducts(
           products.filter((product) => product.catalog.includes("popular"))
@@ -36,8 +36,21 @@ const PartProducts = () => {
         ? setPartProducts(popularProducts.slice(0, 4))
         : setPartProducts(popularProducts.slice(0, 8));
       }
+    }
 
+  useEffect(() => {
+    showProducts();
   }, [popularProducts]);
+
+  useEffect(() => {
+    if(valueInput.length) {
+      setPartProducts(
+        products.filter((product) => product.title.toLowerCase().includes(valueInput.toLowerCase()) && product.catalog.includes("popular"))
+      );
+    } else {
+      showProducts();
+    }
+  }, [valueInput])
 
   useEffect(() => {
     if (isLoadingProducts) {

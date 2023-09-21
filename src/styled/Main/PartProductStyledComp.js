@@ -21,7 +21,11 @@ const ContainterCardsStyle = styled.div`
     row-gap: 40px;
   }
     @media ${device.laptop} {
-      row-gap: 20px;
+      justify-content: start;
+      gap: 20px;
+  }
+  @media ${device.desktop} {
+      gap: 33px;
   }
 `;
 

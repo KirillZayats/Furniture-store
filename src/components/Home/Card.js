@@ -15,7 +15,7 @@ import { NAME_SITE, NAME_SITE_URL } from "../../Constants";
 import { useAction } from "../../hooks/useAction";
 import { useSelector } from "react-redux";
 const Card = ({ product }) => {
-  const { getProduct, addProduct, deleteProduct } = useAction();
+  const { getProduct, addProduct, deleteProduct, setStatusPay } = useAction();
   const [nameButton, setNameButton] = useState("Add to cart");
   const products = useSelector(state => state.cartProduct.productsCart);
   const { category } = useSelector(
@@ -34,6 +34,7 @@ const Card = ({ product }) => {
       // e.target.innerText = "Delete from cart";
       setNameButton("Delete from cart");
       addProduct(product);
+      setStatusPay(products.length - 1);
     } else {
       // e.target.innerText = "Add to cart";
       setNameButton("Add to cart");
@@ -50,7 +51,7 @@ const Card = ({ product }) => {
         <ContainerFigcaptionStyle>
           <CardFigcaptionStyle>{product.title}</CardFigcaptionStyle>
           <CardFigcaptionStyle className="price">
-            ${product.price}
+            ${Number(product.price).toFixed(1)}
           </CardFigcaptionStyle>
         </ContainerFigcaptionStyle>
         <CardCategoriesStyle>{product.category}</CardCategoriesStyle>

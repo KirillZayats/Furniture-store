@@ -46,6 +46,7 @@ import { NAME_SITE } from "../../Constants";
 import { LinkPage } from "../../styled/Main/MainStyledComp";
 import { useLocation } from "react-router-dom";
 import { useSelector } from "react-redux";
+import { useAction } from "../../hooks/useAction";
 
 const Header = () => {
   const [containerLogotype, setContainerLogotype] = useState("");
@@ -57,8 +58,9 @@ const Header = () => {
   const [inputCheckbox, setInputCheckbox] = useState("");
   const { pathname } = useLocation();
   const [buttonDownUp, setButtonDownUp] = useState("");
+  const [widthWindow, setWidthWindow] = useState(window.innerWidth);
   const countProducts = useSelector(state => state.cartProduct.productsCart.length);
-
+  const {getValueSearch} = useAction();
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -74,6 +76,15 @@ const Header = () => {
     if (window.innerWidth < 1024) setInputCheckbox(document.getElementById('checked'));
     document.addEventListener("scroll", scrollPage);
   });
+
+  useEffect(() => {
+    const handleWindowResize = () => {
+      setWidthWindow(window.innerWidth)
+    };
+
+    window.addEventListener('resize', handleWindowResize);
+
+  }, []);
 
   const clickIconSearch = () => {
     if (!isOpenSearchBlock) {
@@ -163,8 +174,12 @@ const Header = () => {
     }
   };
 
+  const searchProducts = (e) => {
+    getValueSearch(e.target.value);
+  }
+
   const loadHeader = () => {
-    if (window.innerWidth >= 1024) {
+    if (widthWindow >= 1024) {
       return (
         <HeaderContentStyle>
           <UpBlockHeaderStyle>
@@ -249,7 +264,7 @@ const Header = () => {
                 </ElementListStyle>
               </ListStyle>
               <ContainerSearchStyle className="container-search">
-                <InputSearchStyle
+                <InputSearchStyle onChange={searchProducts}
                   type="text"
                   name="search"
                   id="search_products"
@@ -384,7 +399,7 @@ const Header = () => {
             </NavStyle>
             <Logotype />
             <ContainerSearchStyle className="container-search">
-              <InputSearchStyle
+              <InputSearchStyle onChange={searchProducts}
                 type="text"
                 name="search"
                 id="search_products"

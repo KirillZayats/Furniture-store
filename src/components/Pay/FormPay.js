@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import IconVisa from "../../resource/images/icons/pay/visa.svg";
 import IconMaster from "../../resource/images/icons/pay/master_sard.svg";
 import IconDiscover from "../../resource/images/icons/pay/discover.svg";
@@ -28,11 +28,14 @@ import {
   ButtonPayStyle,
   ContainerPayStyle,
   IconApplePay,
+  LinkButtonStyle
 } from "../../styled/Pay/FormPayStyledComp";
 import { useForm } from "react-hook-form";
 import ErrorMessage from "../ErrorMessage";
+import { useSelector } from "react-redux";
+import { useAction } from "../../hooks/useAction";
 
-const FormPay = () => {
+const FormPay = ({active, setActive}) => {
   const {
     register,
     handleSubmit,
@@ -40,10 +43,16 @@ const FormPay = () => {
     reset,
   } = useForm();
   const [pastValueDate, setPastValueDate] = useState("");
+  const { products, pricePay } = useSelector((state) => state.payProducts);
+  const {deleteProductsPayFromCart, clearPrice} = useAction();
 
   const onSubmit = (data) => {
     reset();
+    setActive(true);
     console.log(data);
+    deleteProductsPayFromCart(products)
+    clearPrice();
+    
   };
 
   const addSymbolForDate = (e) => {
@@ -65,14 +74,15 @@ const FormPay = () => {
     e.target.value = valueInput;
   };
 
+
   return (
     <ContainerPayStyle onSubmit={handleSubmit(onSubmit)}>
-        <ButtonPayStyle href="https://www.apple.com/apple-pay/" target="_blank"
-          className="button_dark"
-          disabled={true}
-        >
-          <IconApplePay className="icon__button" />
-        </ButtonPayStyle>
+      <ButtonPayStyle href="https://www.apple.com/apple-pay/" target="_blank"
+        className="button_dark"
+        disabled={true}
+      >
+        <IconApplePay className="icon__button" />
+      </ButtonPayStyle>
       <ContainerTransitionStyle>
         <LineTransitionStyle />
         <TextTransitionStyle>Or pay with card</TextTransitionStyle>
@@ -177,9 +187,9 @@ const FormPay = () => {
           {errors.name && <ErrorMessage message={errors.name.message} />}
         </ContainerInputStyle>
       </ContainerInputsStyle>
-      <ButtonPayCardStyle className="button_dark">
-        Pay $133.23
-      </ButtonPayCardStyle>
+        <ButtonPayCardStyle className="button_dark">
+          Pay ${Number(pricePay).toFixed(2)}
+        </ButtonPayCardStyle>
     </ContainerPayStyle>
   );
 };

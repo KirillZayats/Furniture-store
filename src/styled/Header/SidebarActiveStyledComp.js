@@ -20,6 +20,7 @@ const SidebarElementsstyle = styled.label`
   gap: 3px;
   margin: 6px auto;
   cursor: pointer;
+  z-index: 999;
 `;
 
 const SidebarElementStyle = styled.span`

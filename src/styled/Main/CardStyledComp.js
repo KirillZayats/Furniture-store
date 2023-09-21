@@ -50,11 +50,11 @@ const CardFigcaptionStyle = styled.p`
   }
 
   @media ${device.laptop} {
-    max-width: 155px;
+    max-width: 147px;
   }
 
   @media ${device.desktop} {
-    max-width: 250px;
+    max-width: 230px;
   }
 `;
 
