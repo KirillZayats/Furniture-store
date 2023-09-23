@@ -55,6 +55,7 @@ const AchievementNumberStyle = styled.span`
     font-size: 48px;
   }
 `;
+const DataCountStyle = styled.span``;
 const AchievementTextStyle = styled.span`
   font-size: 16px;
   font-style: normal;
@@ -66,5 +67,6 @@ export {
     AchievementTextStyle,
     AchievementNumberStyle,
     AchievementStyle, 
-    BlockAchievementsStyle
+    BlockAchievementsStyle,
+    DataCountStyle
   };

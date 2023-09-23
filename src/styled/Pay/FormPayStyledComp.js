@@ -137,6 +137,7 @@ const LabelInputStyle = styled.span`
 const InputStyle = styled.input`
   width: auto;
   height: 25px;
+  font-size: 18px;
   border-radius: 5px;
   border: 1px solid ${({ theme }) => theme.colors.lineTransitionPayColor};
   box-shadow: 0px 1px 1px 0px rgba(0, 0, 0, 0.04),
@@ -144,7 +145,6 @@ const InputStyle = styled.input`
   padding: 10px 13px;
 
   color: ${({ theme }) => theme.colors.veryRearColor};
-  font-size: 15.995px;
   font-style: normal;
   font-weight: 500;
   line-height: 150%;
@@ -207,6 +207,7 @@ const InputSpecialStyle = styled.input`
   outline: none;
   width: 100%;
   height: 25px;
+  font-size: 18px;
 `;
 
 const InputCVCSpecialStyle = styled.input`
@@ -214,6 +215,7 @@ const InputCVCSpecialStyle = styled.input`
   outline: none;
   width: 100%;
   height: 25px;
+  font-size: 18px;
 `;
 
 const ContainerImageCardStyle = styled.div`

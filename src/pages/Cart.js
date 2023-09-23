@@ -56,6 +56,9 @@ const Cart = () => {
     const inputs = document
       .querySelector(".list_elements")
       .querySelectorAll("input");
+    if(inputs.length === 0) {
+      document.getElementById("inputSelectAll").checked = false
+    }
     if (document.getElementById("inputSelectAll").checked) {
       inputs.forEach((element) => {
         element.checked = true;

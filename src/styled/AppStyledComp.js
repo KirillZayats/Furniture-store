@@ -178,15 +178,6 @@ const GlobalStyle = createGlobalStyle`
   li:hover .container__link-cart, .block_product:hover .price{
     animation: ${SwingText} .5s ease-in;
   }
-/* 
-  @media ${device.laptop} {
-    .block_product:hover img{
-      animation: ${Swing} .5s ease-in;
-    }
-    .block_product:hover .price  {
-      animation: ${SwingText} .5s ease-in;
-    }
-  } */
 
   input::-webkit-outer-spin-button,
   input::-webkit-inner-spin-button {

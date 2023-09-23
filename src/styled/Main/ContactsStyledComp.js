@@ -107,7 +107,7 @@ const FormInputStyle = styled.input`
   border-radius: 5px;
   border: 1px solid ${({ theme }) => theme.colors.mainColor};
   padding: 10px;
-  font-size: 14px;
+  font-size: 16px;
 `;
 
 const FormTextareaStyle = styled.textarea`
@@ -115,7 +115,7 @@ const FormTextareaStyle = styled.textarea`
   border-radius: 5px;
   border: 1px solid ${({ theme }) => theme.colors.mainColor};
   padding: 10px;
-  font-size: 14px;
+  font-size: 16px;
   resize: none;
 `;
 

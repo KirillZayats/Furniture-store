@@ -38,6 +38,40 @@ const ContainerPayStyle = styled.article`
   }
 `;
 
+const ContainerErrorStyle = styled.div`
+  margin: 0 auto;
+  display: flex;
+    flex-direction: column;
+  @media ${device.mobileS} {
+    width: calc(${size.mobileS} - 20px);
+    padding: 30px 0;
+
+  }
+
+  @media ${device.mobileM} {
+    width: calc(${size.mobileM} - 20px);
+  }
+  @media ${device.mobileL} {
+    width: calc(${size.mobileL} - 50px);
+  }
+
+  @media ${device.tablet} {
+    width: calc(${size.tablet} - 100px);
+  }
+  @media ${device.tabletS} {
+    width: calc(${size.tabletS} - 100px);
+  }
+
+  @media ${device.laptop} {
+    width: calc(${size.laptop} - 100px);
+  }
+
+  @media ${device.desktop} {
+    width: calc(${size.desktop} - 140px);
+    padding: 55px 0;
+  }
+`;
+
 const ProductPayStyle = styled.li`
   width: 100%;
   display: flex;
@@ -78,7 +112,7 @@ const ContainerMainTextStyle = styled.div`
   display: flex;
   flex-direction: column;
   @media ${device.laptop} {
-    max-width: 285px;
+    max-width: 275px;
   }
   @media ${device.desktop} {
     max-width: 400px;
@@ -217,5 +251,6 @@ export {
   IconArrowLeft,
   LinkParagrafStyle,
   ContainerBlocksStyle,
-  ContainerMainTextStyle
+  ContainerMainTextStyle,
+  ContainerErrorStyle
 };

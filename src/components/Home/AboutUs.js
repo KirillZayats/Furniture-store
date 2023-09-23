@@ -17,7 +17,7 @@ import {
 const AboutUs = () => {
 
   return (
-    <BlockContentStyle >
+    <BlockContentStyle id="block-about">
       <ContainerAboutUsStyle>
         <TextAboutStyle>
           <PreTitleStyle>About Us</PreTitleStyle>

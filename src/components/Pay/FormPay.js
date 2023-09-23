@@ -34,8 +34,9 @@ import { useForm } from "react-hook-form";
 import ErrorMessage from "../ErrorMessage";
 import { useSelector } from "react-redux";
 import { useAction } from "../../hooks/useAction";
+import { MESSAGE_ERROR_NO_PRODUCTS, SUCCESS_PAY } from "../../Constants";
 
-const FormPay = ({active, setActive}) => {
+const FormPay = ({setActive, setMessage}) => {
   const {
     register,
     handleSubmit,
@@ -47,12 +48,15 @@ const FormPay = ({active, setActive}) => {
   const {deleteProductsPayFromCart, clearPrice} = useAction();
 
   const onSubmit = (data) => {
-    reset();
     setActive(true);
-    console.log(data);
+    if(products.length) {
+      setMessage(SUCCESS_PAY)
+      reset();
+    } else {
+      setMessage(MESSAGE_ERROR_NO_PRODUCTS)
+    }
     deleteProductsPayFromCart(products)
     clearPrice();
-    
   };
 
   const addSymbolForDate = (e) => {

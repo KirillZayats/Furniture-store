@@ -60,7 +60,7 @@ const Header = () => {
   const [buttonDownUp, setButtonDownUp] = useState("");
   const [widthWindow, setWidthWindow] = useState(window.innerWidth);
   const countProducts = useSelector(state => state.cartProduct.productsCart.length);
-  const {getValueSearch} = useAction();
+  const {getValueSearch, addFunction} = useAction();
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -81,8 +81,9 @@ const Header = () => {
     const handleWindowResize = () => {
       setWidthWindow(window.innerWidth)
     };
-
     window.addEventListener('resize', handleWindowResize);
+    // addFunction(closeSearchBlock)
+    // addFunction(closeSidebar)
 
   }, []);
 
@@ -112,7 +113,9 @@ const Header = () => {
     closeSidebar()
   };
 
-  const closeSidebar = () => {
+  
+
+  function closeSidebar() {
     if(window.innerWidth < 1024) {
       if(inputCheckbox.checked && inputCheckbox != "") {
         inputCheckbox.checked = false
@@ -120,7 +123,7 @@ const Header = () => {
     }
   }
 
-  const closeSearchBlock = () => {
+  function closeSearchBlock() {
     if (
       window.scrollY >= 100 &&
       containerSearch !== "" &&

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { TitleBlockStyle } from "../../styled/Footer/FooterStyledComp";
 import { WhiteButtonInfoStyle } from "../../styled/Main/MainStyledComp";
 import { LinkUnderLineStyle } from "../../styled/AppStyledComp";
@@ -12,8 +12,13 @@ import {
 } from "../../styled/Footer/SubscribeStyledComp";
 import { useForm } from "react-hook-form";
 import ErrorMessage from "../ErrorMessage";
+import { MESSAGE_SUCCESS_SUBSCRIBE, NAME_SITE } from "../../Constants";
+import Modal from "../Modal/Modal";
 
 const Subscribe = () => {
+  const [modalActive, setModalActive] = useState(false);
+  const [message, setMessage] = useState('');
+
   const {
     register,
     handleSubmit,
@@ -22,8 +27,10 @@ const Subscribe = () => {
   } = useForm();
 
   const onSubmit = (data) => {
-    reset();
     console.log(data);
+    setModalActive(true);
+    setMessage(MESSAGE_SUCCESS_SUBSCRIBE(data.email_sub));
+    reset();
   };
 
   return (
@@ -60,6 +67,7 @@ const Subscribe = () => {
         <LinkUnderLineStyle>Privacy Policy</LinkUnderLineStyle> and provide
         consent to receive updates from our company.
       </SubscribePolicyTextStyle>
+      <Modal active={modalActive} setActive={setModalActive} message={message} pathNameLink={`/${NAME_SITE}/`} />
     </SubscribeStyle>
   );
 };

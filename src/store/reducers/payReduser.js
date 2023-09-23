@@ -15,11 +15,10 @@ export const payReduser = (state = initialState, action) => {
         case PAY_PRODUCTS:
             if (Array.isArray(action.products)) {
                 state.products = [...action.products.filter((element) => element.statusPay && element)];
-                action.products.forEach(element => {
+                state.products.forEach(element => {
                     price += element.price * element.count
                 });
             } else {
-                console.log(action.products);
                 action.products.count = action.value;
                 price = action.products.price * action.products.count;
                 state.products.push(action.products)

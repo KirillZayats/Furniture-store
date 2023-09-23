@@ -29,8 +29,13 @@ import {
 } from "../../styled/Main/ContactsStyledComp";
 import { useForm } from "react-hook-form";
 import ErrorMessage from "../ErrorMessage";
+import { MESSAGE_SUCCESS_SEND, NAME_SITE } from "../../Constants";
+import { useState } from "react";
+import Modal from "../Modal/Modal";
 
 const Contacts = () => {
+  const [modalActive, setModalActive] = useState(false);
+  const [message, setMessage] = useState('');
   const {
     register,
     handleSubmit,
@@ -39,6 +44,9 @@ const Contacts = () => {
   } = useForm();
 
   const onSubmit = (data) => {
+    console.log(data);
+    setMessage(`Dear, ${data.first_name}. ${MESSAGE_SUCCESS_SEND}`);
+    setModalActive(true)
     reset();
     console.log(data);
   };
@@ -140,6 +148,7 @@ const Contacts = () => {
           <FormSendStyle className="button_dark">Submit</FormSendStyle>
         </FormStyle>
       </ArticleContainerStyle>
+      <Modal active={modalActive} setActive={setModalActive} message={message} pathNameLink={`/${NAME_SITE}/`} />
     </BlockContentStyle>
   );
 };

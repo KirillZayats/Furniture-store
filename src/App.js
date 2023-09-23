@@ -27,6 +27,7 @@ const Login = lazy(() => import("./pages/log/Login"));
 
 export const App = () => {
   const { getDataProducts } = useAction();
+  // const {arrayFunctions} = useSelector(state => state.functions);
 
   const {isLoadingProducts } = useSelector(
     (state) => state.products
@@ -39,6 +40,13 @@ export const App = () => {
     getDataProducts("products");
     getDataProducts("categories");
   }, []);
+
+  // const scrollPage = () => {
+  //   // console.log(arrayFunctions[0]);
+  //   arrayFunctions[0]();
+  //   // (arrayFunctions[1])()
+  //   // arrayFunctions.closeSearchBlock();
+  // }
 
   return (
     <Theme>
@@ -55,7 +63,7 @@ export const App = () => {
           <ContainerProvider>
             <Header />
             <Routes>
-              <Route path={`${NAME_SITE}/`} element={<Home />} />
+              <Route path={`${NAME_SITE}/`} element={<Home/>} />
               <Route path={`${NAME_SITE}/contacts`} element={<Contacts />} />
               <Route path={`${NAME_SITE}/about`} element={<AboutUs />} />
               <Route path={`${NAME_SITE}/products`} element={<Products />} />

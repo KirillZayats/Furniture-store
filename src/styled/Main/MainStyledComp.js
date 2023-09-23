@@ -2,7 +2,7 @@ import { styled } from "styled-components";
 import { device, size } from "../Media/MediaQueryStyledComp";
 import ImageMain from "../../resource/images/main.jpg";
 import IconArrow from "../../resource/images/icons/Icon";
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 const MainStyle = styled.main`
   margin: 0 auto;
 
@@ -305,6 +305,27 @@ const LinkPage = styled(Link)`
   color: ${({ theme }) => theme.colors.mainColor};
 `;
 
+const TextErrorStyle = styled.h3`
+  font-style: normal;
+  font-weight: 700;
+  line-height: 130%;
+  color: red;
+  text-align: center;
+  @media ${device.mobileS} {
+    font-size: 26px;
+  }
+  @media ${device.desktop} {
+    font-size: 40px;
+  }
+`;
+
+const ContainerErrorStyle = styled.div`
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+`;
+
 export {
   MainStyle,
   IconArroyRightStyle,
@@ -325,5 +346,7 @@ export {
   ContainerListStyle,
   ContainerInfoDescriptionStyle,
   ContainerFlexDescriptionsStyle,
-  LinkPage
+  LinkPage,
+  TextErrorStyle,
+  ContainerErrorStyle
 };

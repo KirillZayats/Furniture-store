@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React from "react";
 import {
   ContainerPayStyle,
   ListProductsStyle,
@@ -35,7 +35,6 @@ const InfoPay = () => {
         </ContainerBackStyle>
       </LinkBackStyle>
       <ListProductsStyle>
-        
         {products.map((elem, index) => (<ProductPay key={index} product={elem}/>))}
       </ListProductsStyle>
       <ContainerTotalPayStyle>

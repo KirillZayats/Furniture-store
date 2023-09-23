@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { MainStyle } from "../styled/Main/MainStyledComp";
+import { MainStyle, ContainerErrorStyle, TextErrorStyle } from "../styled/Main/MainStyledComp";
 import ImageProduct from "../resource/images/lamps.jpg";
 import IconLeft from "../resource/images/icons/setting/left.svg";
 import IconRight from "../resource/images/icons/setting/right.svg";
@@ -23,14 +23,24 @@ import {
   LinkPayStyle,
   ButtonAddCartStyle
 } from "../styled/Main/DetailsStyledComp";
+import {
+  ContainerBlocksStyle,
+  LinkBackStyle,
+  ContainerIconBackStyle,
+  ContainerBackStyle,
+  IconArrowLeft,
+  LinkParagrafStyle,
+} from "../styled/Pay/InfoPayStyledComp";
 import { Rating } from "@mui/material";
-import { NAME_SITE, NAME_SITE_URL } from "../Constants"
+import { MESSAGE_ERROR_ID, NAME_SITE, NAME_SITE_URL } from "../Constants"
 import { useSelector } from "react-redux";
 import { useAction } from "../hooks/useAction";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { ContainerLoader } from "../styled/AppStyledComp";
 import { InfinitySpin } from "react-loader-spinner";
 const Details = () => {
+  const navigate = useNavigate();
+
   const [isLoadingData, setIsLoadingData] = useState(false)
   const params = useParams();
   const { value, limit } = useSelector((state) => state.count);
@@ -41,7 +51,7 @@ const Details = () => {
 
   useEffect(() => {
     products.forEach(element => {
-      if(product.id === element.id) {
+      if (product.id === element.id) {
         setNameButton("Delete from cart")
       }
     });
@@ -60,7 +70,7 @@ const Details = () => {
   }, [product])
 
   const addToCart = (e) => {
-    if(nameButton === "Add to cart") {
+    if (nameButton === "Add to cart") {
       // e.target.innerText = "Delete from cart";
       setNameButton("Delete from cart");
       addProduct(product, value);
@@ -110,10 +120,10 @@ const Details = () => {
                     <ArrowStyle src={IconRight} />
                   </ContainerArrowStyle>
                 </ContainerArrowsStyle>
-                <PriceStyle>Price: ${Number(product.price*value).toFixed(2)}</PriceStyle>
+                <PriceStyle>Price: ${Number(product.price * value).toFixed(2)}</PriceStyle>
               </ContainerSettingForPayStyle>
               <ContainerButtonsStyle>
-                <ButtonAddCartStyle  onClick={addToCart}>{nameButton}</ButtonAddCartStyle>
+                <ButtonAddCartStyle onClick={addToCart}>{nameButton}</ButtonAddCartStyle>
                 <LinkPayStyle to={`pay`}>
                   <ButtonPayStyle onClick={clickPay}>Pay now</ButtonPayStyle>
                 </LinkPayStyle>
@@ -121,7 +131,25 @@ const Details = () => {
             </ContainerPayStyle>
           </ContainerProductStyle>
           :
-          product == undefined ? <h1>There is no product with this id!!!</h1> :
+          product == undefined ?
+            <ContainerErrorStyle>
+              <TextErrorStyle>{MESSAGE_ERROR_ID}</TextErrorStyle>
+              <LinkBackStyle
+                to={`..`}
+                onClick={(e) => {
+                  e.preventDefault();
+                  navigate(-1);
+                }}
+              >
+                <ContainerBackStyle className="container_back" title="Click to back">
+                  <ContainerIconBackStyle>
+                    <IconArrowLeft />
+                  </ContainerIconBackStyle>
+                  <LinkParagrafStyle>Back</LinkParagrafStyle>
+                </ContainerBackStyle>
+              </LinkBackStyle>
+            </ContainerErrorStyle>
+            :
             <ContainerLoader>
               <InfinitySpin width="200" color="#000" />
             </ContainerLoader>
