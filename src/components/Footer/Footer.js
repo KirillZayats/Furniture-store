@@ -16,7 +16,7 @@ import Subscribe from "./Subscribe";
 import { LineStyle } from "../../styled/Header/HeaderStyledComp";
 import InfoReserved from "./InfoReserved";
 import Social from "./Social";
-import { NAME_SITE } from "../../Constants";
+import { NAME_SITE } from "../../constants";
 const Footer = () => {
   return (
     <FooterContentStyle>

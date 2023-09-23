@@ -32,7 +32,7 @@ import {
   LinkParagrafStyle,
 } from "../styled/Pay/InfoPayStyledComp";
 import { Rating } from "@mui/material";
-import { MESSAGE_ERROR_ID, NAME_SITE, NAME_SITE_URL } from "../Constants"
+import { MESSAGE_ERROR_ID, NAME_SITE, NAME_SITE_URL } from "../constants"
 import { useSelector } from "react-redux";
 import { useAction } from "../hooks/useAction";
 import { useNavigate, useParams } from "react-router-dom";

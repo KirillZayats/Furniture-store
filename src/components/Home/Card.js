@@ -11,7 +11,7 @@ import {
   LinkButtonStyle,
   ContainerInformationStyle,
 } from "../../styled/Main/CardStyledComp";
-import { NAME_SITE, NAME_SITE_URL } from "../../Constants";
+import { NAME_SITE, NAME_SITE_URL } from "../../constants";
 import { useAction } from "../../hooks/useAction";
 import { useSelector } from "react-redux";
 const Card = ({ product }) => {

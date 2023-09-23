@@ -6,7 +6,7 @@ import {
   LogotypeTitleStyle,
   LogotypeStyle,
 } from "../styled/LogotypeStyledComp";
-import { NAME_SITE } from "../Constants";
+import { NAME_SITE } from "../constants";
 import {LinkStyle} from "../styled/Footer/FooterStyledComp"
 const Logotype = () => {
   return (

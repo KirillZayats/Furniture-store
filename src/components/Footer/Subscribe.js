@@ -12,7 +12,7 @@ import {
 } from "../../styled/Footer/SubscribeStyledComp";
 import { useForm } from "react-hook-form";
 import ErrorMessage from "../ErrorMessage";
-import { MESSAGE_SUCCESS_SUBSCRIBE, NAME_SITE } from "../../Constants";
+import { MESSAGE_SUCCESS_SUBSCRIBE, NAME_SITE } from "../../constants";
 import Modal from "../Modal/Modal";
 
 const Subscribe = () => {

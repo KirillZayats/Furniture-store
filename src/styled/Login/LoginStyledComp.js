@@ -7,7 +7,6 @@ const LoginStyle = styled.form`
   flex-direction: column;
   @media ${device.mobileS} {
     max-width: calc(${size.mobileS} - 20px);
-
     gap: 20px;
     padding: 30px 0;
   }
@@ -25,6 +24,12 @@ const ContainerInputStyle = styled.div`
   display: flex;
   flex-direction: column;
   gap: 10px;
+`;
+
+const ContainerInputsStyle = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 `;
 
 const LabelInputStyle = styled.span`
@@ -84,11 +89,23 @@ const ContainerCheckboxStyle = styled.div`
   gap: 12px;
 `;
 
-const TextCheckboxStyle = styled.p`
+const LinkRegistationOrSignStyle = styled.a`
+  display: block;
+  width: 50%;
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
   line-height: 150%;
+  text-align: center;
+  margin: 0 auto;
+  transition: all 0.2s;
+  text-decoration: underline;
+`;
+
+const TextCheckboxStyle = styled.p`
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
 `;
 
 export {
@@ -101,4 +118,6 @@ export {
   InputStyle,
   LabelInputStyle,
   LoginStyle,
+  LinkRegistationOrSignStyle,
+  ContainerInputsStyle,
 };

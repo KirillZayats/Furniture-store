@@ -11,7 +11,7 @@ import {
   TestChoseStyle
 } from "../../../styled/Main/ChoseUs/ListChoseStyledComp";
 import ListChose from "./ListChose";
-import {NAME_SITE} from "../../../Constants"
+import {NAME_SITE} from "../../../constants"
 const ChoseUs = () => {
   return (
     <BlockContentStyle >

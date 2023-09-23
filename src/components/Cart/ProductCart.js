@@ -14,7 +14,7 @@ import {
   ContainerArrowStyle,
   ContainerArrowsStyle,
 } from "../../styled/Cart/ProductCartStyledComp";
-import { NAME_SITE_URL } from "../../Constants";
+import { NAME_SITE_URL } from "../../constants";
 import { useAction } from "../../hooks/useAction";
 import { useSelector } from "react-redux";
 

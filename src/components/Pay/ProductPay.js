@@ -7,7 +7,7 @@ import {
     ContainerTextStyle,
     ContainerMainTextStyle
   } from "../../styled/Pay/InfoPayStyledComp";
-import { NAME_SITE_URL } from '../../Constants';
+import { NAME_SITE_URL } from '../../constants';
 
 const ProductPay = ({product}) => {
 

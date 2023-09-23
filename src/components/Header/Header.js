@@ -42,11 +42,12 @@ import IconTwitter from "../../resource/images/icons/social/Twitter.svg";
 import IconLinkedin from "../../resource/images/icons/social/LinkedIn.svg";
 import { InputCheckBoxStyle } from "../../styled/Header/SidebarStyledComp";
 import SidebarActive from "./SidebarActive";
-import { NAME_SITE } from "../../Constants";
+import { IS_LOGGED, NAME_SITE } from "../../constants";
 import { LinkPage } from "../../styled/Main/MainStyledComp";
 import { useLocation } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { useAction } from "../../hooks/useAction";
+import { getCookie } from "../../storage/cookie";
 
 const Header = () => {
   const [containerLogotype, setContainerLogotype] = useState("");
@@ -59,13 +60,15 @@ const Header = () => {
   const { pathname } = useLocation();
   const [buttonDownUp, setButtonDownUp] = useState("");
   const [widthWindow, setWidthWindow] = useState(window.innerWidth);
-  const countProducts = useSelector(state => state.cartProduct.productsCart.length);
-  const {getValueSearch, addFunction} = useAction();
+  const countProducts = useSelector(
+    (state) => state.cartProduct.productsCart.length
+  );
+  const { getValueSearch, addFunction } = useAction();
 
   useEffect(() => {
     window.scrollTo(0, 0);
     closeSidebar();
-  }, [pathname])
+  }, [pathname]);
 
   useEffect(() => {
     setContainerLogotype(document.getElementById("container-logotype"));
@@ -73,18 +76,18 @@ const Header = () => {
     setInputSearch(document.querySelector("#search_products"));
     setSidebar(document.getElementById("sidebar"));
     setButtonDownUp(document.getElementById("down-up"));
-    if (window.innerWidth < 1024) setInputCheckbox(document.getElementById('checked'));
+    if (window.innerWidth < 1024)
+      setInputCheckbox(document.getElementById("checked"));
     document.addEventListener("scroll", scrollPage);
   });
 
   useEffect(() => {
     const handleWindowResize = () => {
-      setWidthWindow(window.innerWidth)
+      setWidthWindow(window.innerWidth);
     };
-    window.addEventListener('resize', handleWindowResize);
+    window.addEventListener("resize", handleWindowResize);
     // addFunction(closeSearchBlock)
     // addFunction(closeSidebar)
-
   }, []);
 
   const clickIconSearch = () => {
@@ -105,20 +108,17 @@ const Header = () => {
     } else {
       console.log("find");
     }
-
   };
 
   const scrollPage = () => {
-    closeSearchBlock()
-    closeSidebar()
+    closeSearchBlock();
+    closeSidebar();
   };
 
-  
-
   function closeSidebar() {
-    if(window.innerWidth < 1024) {
-      if(inputCheckbox.checked && inputCheckbox != "") {
-        inputCheckbox.checked = false
+    if (window.innerWidth < 1024) {
+      if (inputCheckbox.checked && inputCheckbox != "") {
+        inputCheckbox.checked = false;
       }
     }
   }
@@ -158,12 +158,12 @@ const Header = () => {
   const viewButtonDownUp = () => {
     buttonDownUp.style.opacity = 1;
     buttonDownUp.style.bottom = "20px";
-  }
+  };
 
   const hideButtonDownUp = () => {
     buttonDownUp.style.opacity = 0;
     buttonDownUp.style.bottom = "-50px";
-  }
+  };
 
   const toggleSidebar = () => {
     if (!isOpenSidebar) {
@@ -179,7 +179,7 @@ const Header = () => {
 
   const searchProducts = (e) => {
     getValueSearch(e.target.value);
-  }
+  };
 
   const loadHeader = () => {
     if (widthWindow >= 1024) {
@@ -231,12 +231,25 @@ const Header = () => {
                   <IconLeanguageStyle />
                   <TextInfoStyle>English</TextInfoStyle>
                 </ContainerBlockSetStyle>
-                <LinkElement to={`${NAME_SITE}/login`}>
-                  <ContainerBlockSetStyle className="container_setting">
-                    <IconSignStyle />
-                    <TextInfoStyle>Sign In</TextInfoStyle>
-                  </ContainerBlockSetStyle>
-                </LinkElement>
+                {getCookie(IS_LOGGED) === "true" ? (
+                  <LinkElement to={`${NAME_SITE}/account`}>
+                    <ContainerBlockSetStyle className="container_setting">
+                      <IconSignStyle />
+                      <TextInfoStyle className="header__title-block">
+                        Account
+                      </TextInfoStyle>
+                    </ContainerBlockSetStyle>
+                  </LinkElement>
+                ) : (
+                  <LinkElement to={`${NAME_SITE}/login`}>
+                    <ContainerBlockSetStyle className="container_setting">
+                      <IconSignStyle />
+                      <TextInfoStyle className="header__title-block">
+                        Sign In
+                      </TextInfoStyle>
+                    </ContainerBlockSetStyle>
+                  </LinkElement>
+                )}
               </ContainerSettingStyle>
             </RightContainerInfoStyle>
           </UpBlockHeaderStyle>
@@ -267,7 +280,8 @@ const Header = () => {
                 </ElementListStyle>
               </ListStyle>
               <ContainerSearchStyle className="container-search">
-                <InputSearchStyle onChange={searchProducts}
+                <InputSearchStyle
+                  onChange={searchProducts}
                   type="text"
                   name="search"
                   id="search_products"
@@ -283,7 +297,9 @@ const Header = () => {
                   <ContainerIconCartStyle className="container__link-cart">
                     <IconCartStyle />
                     <ContainerNumberProductsCartStyle>
-                      <NumberProductsCartStyle>{countProducts}</NumberProductsCartStyle>
+                      <NumberProductsCartStyle>
+                        {countProducts}
+                      </NumberProductsCartStyle>
                     </ContainerNumberProductsCartStyle>
                   </ContainerIconCartStyle>
                   <TitleCartStyle>Cart</TitleCartStyle>
@@ -324,9 +340,7 @@ const Header = () => {
                 </ElementListStyle>
                 <ElementListStyle>
                   <ContainerLinkNavStyle to={`${NAME_SITE}/contacts`}>
-                    <LinkSpanNavStyle >
-                      Contact
-                    </LinkSpanNavStyle>
+                    <LinkSpanNavStyle>Contact</LinkSpanNavStyle>
                   </ContainerLinkNavStyle>
                 </ElementListStyle>
                 <ElementListStyle>
@@ -335,7 +349,9 @@ const Header = () => {
                       <ContainerIconCartStyle className="container__link-cart">
                         <IconCartStyle />
                         <ContainerNumberProductsCartStyle>
-                          <NumberProductsCartStyle>{countProducts}</NumberProductsCartStyle>
+                          <NumberProductsCartStyle>
+                            {countProducts}
+                          </NumberProductsCartStyle>
                         </ContainerNumberProductsCartStyle>
                       </ContainerIconCartStyle>
                       <TitleCartStyle className="header__title-block">
@@ -345,24 +361,35 @@ const Header = () => {
                   </LinkElement>
                 </ElementListStyle>
                 <ElementListStyle>
-                <LinkElement to={`${NAME_SITE}/`}>
-                <ContainerBlockSetStyle className="container_setting">
-                    <IconLeanguageStyle />
-                    <TextInfoStyle className="header__title-block">
-                      English
-                    </TextInfoStyle>
-                  </ContainerBlockSetStyle>
-                </LinkElement>
-                </ElementListStyle>
-                <ElementListStyle>
-                  <LinkElement to={`${NAME_SITE}/login`}>
+                  <LinkElement to={`${NAME_SITE}/`}>
                     <ContainerBlockSetStyle className="container_setting">
-                      <IconSignStyle />
+                      <IconLeanguageStyle />
                       <TextInfoStyle className="header__title-block">
-                        Sign In
+                        English
                       </TextInfoStyle>
                     </ContainerBlockSetStyle>
                   </LinkElement>
+                </ElementListStyle>
+                <ElementListStyle>
+                  {getCookie(IS_LOGGED) === "true" ? (
+                    <LinkElement to={`${NAME_SITE}/account`}>
+                      <ContainerBlockSetStyle className="container_setting">
+                        <IconSignStyle />
+                        <TextInfoStyle className="header__title-block">
+                          Account
+                        </TextInfoStyle>
+                      </ContainerBlockSetStyle>
+                    </LinkElement>
+                  ) : (
+                    <LinkElement to={`${NAME_SITE}/login`}>
+                      <ContainerBlockSetStyle className="container_setting">
+                        <IconSignStyle />
+                        <TextInfoStyle className="header__title-block">
+                          Sign In
+                        </TextInfoStyle>
+                      </ContainerBlockSetStyle>
+                    </LinkElement>
+                  )}
                 </ElementListStyle>
               </ListStyle>
               <ContainerSocialStyle className="container-social__image">
@@ -402,7 +429,8 @@ const Header = () => {
             </NavStyle>
             <Logotype />
             <ContainerSearchStyle className="container-search">
-              <InputSearchStyle onChange={searchProducts}
+              <InputSearchStyle
+                onChange={searchProducts}
                 type="text"
                 name="search"
                 id="search_products"

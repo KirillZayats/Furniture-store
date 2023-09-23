@@ -29,7 +29,7 @@ import {
 } from "../../styled/Main/ContactsStyledComp";
 import { useForm } from "react-hook-form";
 import ErrorMessage from "../ErrorMessage";
-import { MESSAGE_SUCCESS_SEND, NAME_SITE } from "../../Constants";
+import { MESSAGE_SUCCESS_SEND, NAME_SITE } from "../../constants";
 import { useState } from "react";
 import Modal from "../Modal/Modal";
 

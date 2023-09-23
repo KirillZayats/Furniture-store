@@ -34,7 +34,7 @@ import { useForm } from "react-hook-form";
 import ErrorMessage from "../ErrorMessage";
 import { useSelector } from "react-redux";
 import { useAction } from "../../hooks/useAction";
-import { MESSAGE_ERROR_NO_PRODUCTS, SUCCESS_PAY } from "../../Constants";
+import { MESSAGE_ERROR_NO_PRODUCTS, SUCCESS_PAY } from "../../constants";
 
 const FormPay = ({setActive, setMessage}) => {
   const {

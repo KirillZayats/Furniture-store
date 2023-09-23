@@ -1,5 +1,6 @@
 import { styled } from "styled-components";
 import { device, size } from "../../styled/Media/MediaQueryStyledComp";
+import { Link } from "react-router-dom";
 
 const AccountStyle = styled.div`
   margin: 0 auto;
@@ -91,6 +92,9 @@ const ButtonLogoutStyle = styled.button`
   border-radius: 5px;
 `;
 
+const LinkButtonStyle = styled(Link)`
+`;
+
 export {
     ButtonLogoutStyle,
     EmailStyle,
@@ -99,5 +103,6 @@ export {
     ContainerLinkEditAvatar,
     PictureStyle,
     ContainerAvatarStyle,
-    AccountStyle
+    AccountStyle,
+    LinkButtonStyle
 }

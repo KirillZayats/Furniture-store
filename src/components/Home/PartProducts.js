@@ -13,7 +13,7 @@ import {
   LinkButtonStyle,
 } from "../../styled/Main/PartProductStyledComp";
 import Card from "./Card";
-import { NAME_SITE } from "../../Constants";
+import { NAME_SITE } from "../../constants";
 import { useSelector } from "react-redux";
 
 const PartProducts = () => {

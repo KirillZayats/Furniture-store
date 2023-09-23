@@ -1,5 +1,5 @@
 import { FETCH_PRODUCTS, FETCH_CATEGORIES, GET_PRODUCT, GET_VALUE_SEARCH } from "../types/types"
-import { CATEGORIES, NAME_SITE_URL, PRODUCTS } from '../../Constants';
+import { CATEGORIES, NAME_SITE_URL, PRODUCTS } from '../../constants';
 
 export const getProductsSuccess = (products) => {
     return {

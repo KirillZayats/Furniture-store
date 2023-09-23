@@ -14,7 +14,7 @@ import {
   SaleStyle,
 } from "../../styled/Main/SaleStyledComp";
 import {LinkButtonStyle} from "../../styled/Main/PartProductStyledComp"
-import { NAME_SITE } from "../../Constants";
+import { NAME_SITE } from "../../constants";
 
 const Sale = () => {
   return (

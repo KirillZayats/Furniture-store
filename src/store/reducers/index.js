@@ -7,6 +7,7 @@ import { productReduser } from './productReducer';
 import { cartReduser } from './cartReduser';
 import { payReduser } from './payReduser';
 import { functionsReducer } from './functionsReduser';
+import { userReduser } from './userReduser';
 
 export const rootReducer = combineReducers({
     count: countReducer,
@@ -16,5 +17,6 @@ export const rootReducer = combineReducers({
     product: productReduser,
     cartProduct: cartReduser,
     payProducts: payReduser,
-    functions: functionsReducer
+    functions: functionsReducer,
+    user: userReduser,
 });

@@ -27,7 +27,8 @@ import ProductCart from "../components/Cart/ProductCart";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { useAction } from "../hooks/useAction";
-import { NAME_SITE } from "../Constants";
+import { NAME_SITE } from "../constants";
+import Modal from "../components/Modal/Modal";
 
 const Cart = () => {
   const navigate = useNavigate();
@@ -192,6 +193,8 @@ const Cart = () => {
           </ContainerLinkPayStyle>
         </ContainerPayInfoStyle>
       </ContainerCartStyle>
+      <Modal active={modalActive} setActive={setModalActive} message={message} pathNameLink={`/${NAME_SITE}/login`} />
+
     </MainStyle>
   );
 };

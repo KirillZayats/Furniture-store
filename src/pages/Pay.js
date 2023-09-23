@@ -6,7 +6,8 @@ import {
   ContainerBlocksStyle,
 } from "../styled/Pay/InfoPayStyledComp";
 import Modal from "../components/Modal/Modal";
-import { NAME_SITE } from "../Constants";
+import { IS_LOGGED, NAME_SITE } from "../constants";
+import { getCookie } from "../storage/cookie";
 
 
 const Pay = () => {
@@ -20,7 +21,6 @@ const Pay = () => {
         <InfoPay />
         <FormPay setActive={setModalActive} setMessage={setMessage} />
       </ContainerBlocksStyle>
-
       <Modal active={modalActive} setActive={setModalActive} message={message} pathNameLink={`/${NAME_SITE}/products`} />
     </MainStyle>)
   );
