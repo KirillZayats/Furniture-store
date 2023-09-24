@@ -37,10 +37,10 @@ const CardFigcaptionStyle = styled.p`
   margin-top: 10px;
 
   @media ${device.mobileS} {
-    max-width: 245px;
+    max-width: 230px;
   }
   @media ${device.mobileM} {
-    max-width: 300px;
+    max-width: 285px;
   }
   @media ${device.mobileL} {
     max-width: 320px;
@@ -66,7 +66,26 @@ const ContainerFigcaptionStyle = styled.div`
 const ContainerInformationStyle = styled.div`
   display: flex;
   flex-direction: column;
-  height: 122px;
+  /* @media ${device.mobileS} {
+    height: 95px;
+  }
+  @media ${device.mobileM} {
+    height: 95px;
+  }
+  @media ${device.mobileL} {
+    height: 122px;
+  } */
+  @media ${device.tablet} {
+    height: 95px;
+  }
+
+  @media ${device.laptop} {
+    height: 122px;
+  }
+
+  @media ${device.desktop} {
+    height: 95px;
+  }
 `;
 
 

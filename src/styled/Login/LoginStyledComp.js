@@ -69,17 +69,21 @@ const ButtonLoginStyle = styled.button`
   height: 50px;
   background: ${({ theme }) => theme.colors.mainColor};
   color: ${({ theme }) => theme.colors.secondColor};
-
   text-align: center;
   font-size: 20.565px;
   font-style: normal;
   font-weight: 500;
   line-height: 27.42px;
-
   border: 1px solid ${({ theme }) => theme.colors.secondColor};
   border-radius: 5px;
-
   margin: 0px auto;
+
+  @media ${device.mobileS} {
+    font-size: 16px;
+  }
+  @media ${device.mobileL} {
+    font-size: 20.565px;
+  }
 `;
 
 const ButtonGoogleStyle = styled.a`

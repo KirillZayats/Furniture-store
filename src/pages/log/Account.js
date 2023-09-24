@@ -23,6 +23,7 @@ import {
 import {
   IS_LOGGED,
   MESSAGE_ERROR,
+  MESSAGE_ERROR_LOGIN,
   NAME,
   NAME_EMAIL,
   NAME_SITE,
@@ -34,6 +35,8 @@ const Account = () => {
   const [name, setName] = useState(getCookie(NAME));
   const [nickname, setNickName] = useState(getCookie(NICKNAME));
   const [email, setEmail] = useState(getCookie(NAME_EMAIL));
+  const [isStatusLogin, setIsStatusLogin] = useState(getCookie(IS_LOGGED));
+
   const { user, loading, error } = useSelector((state) => state.user);
 
   let fileHandle;
@@ -55,7 +58,7 @@ const Account = () => {
 
   return (
     <MainStyle>
-      {user === null ? (
+      {isStatusLogin === "true" ? (
         <AccountStyle>
           <ContainerAvatarStyle>
             <PictureStyle src={icon} id="pictureAvatar" />
@@ -80,7 +83,7 @@ const Account = () => {
         </AccountStyle>
       ) : (
         <ContainerErrorStyle>
-        <TextErrorStyle>{MESSAGE_ERROR}</TextErrorStyle>
+        <TextErrorStyle>{MESSAGE_ERROR_LOGIN}</TextErrorStyle>
       </ContainerErrorStyle>
       )}
     </MainStyle>

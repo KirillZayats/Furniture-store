@@ -34,6 +34,8 @@ const Login = () => {
   const [modalActive, setModalActive] = useState(false);
   const [message, setMessage] = useState("");
   const [textTypeLogin, setTextTypeLogin] = useState("Create account");
+  const [textButtonLogin, setTextButtonLogin] = useState("Sign in");
+
   const [isActivityBlockRepeat, setIsActivityBlockRepeat] = useState(false);
   const { user, loading, error } = useSelector((state) => state.user);
   const { logInEmail, logInGoogle, registerUser } = useAction();
@@ -82,9 +84,11 @@ const Login = () => {
     );
     if (fieldInputRepeatRegister === null) {
       setTextTypeLogin("Sign in");
+      setTextButtonLogin("Create account");
       setIsActivityBlockRepeat(true);
     } else {
       setTextTypeLogin("Create account");
+      setTextButtonLogin("Sign in");
       setIsActivityBlockRepeat(false);
     }
   };
@@ -165,9 +169,8 @@ const Login = () => {
       >
         <IconGoogle className="icon__button" />
       </ButtonGoogleStyle>
-        {/* <ButtonLoginStyle className="button_dark">Google</ButtonLoginStyle> */}
 
-        <ButtonLoginStyle className="button_dark">Sign in</ButtonLoginStyle>
+        <ButtonLoginStyle className="button_dark">{textButtonLogin}</ButtonLoginStyle>
         </ContainerLoginStyle>
 
       </LoginStyle>

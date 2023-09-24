@@ -9,6 +9,7 @@ export const NAME_EMAIL = "email";
 export const IMAGE_USER = "image_user";
 export const IS_LOGGED = "is_logged";
 
+export const MESSAGE_ERROR_LOGIN = "You are not logged in :(";
 export const MESSAGE_ERROR = "Unexpected error :(";
 export const MESSAGE_ERROR_ID = "There is no product with this id :(";
 export const MESSAGE_ERROR_NO_PRODUCTS = "Error. No products selected for payment :(";
@@ -20,3 +21,5 @@ export const MESSAGE_SUCCESS_SUBSCRIBE = (email) => {
 export const REGISTER_SUCCESS = "You have successfully registered. Welcome to Furniture Store :)";
 export const LOGIN_SUCCESS = "Welcome to Furniture Store :)";
 export const MESSAGE_NO_LOGIN = "Please, login to buy our products :)";
+export const MESSAGE_NO_LOGIN_ACCOUNT = "Please, login to buy our products :)";
+
