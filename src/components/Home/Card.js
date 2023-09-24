@@ -22,30 +22,40 @@ const Card = ({ product }) => {
     (state) => state.category
   );
   useEffect(() => {
+    let isStatus = false;
     products.forEach(element => {
       if(product.id === element.id) {
-        setNameButton("Delete from cart")
+        setNameButton("Delete from cart");
+        isStatus = true;
+      } else {
+        !isStatus && setNameButton("Add to cart");
       }
     });
-  }, [])
+  }, [product])
 
   const addToCart = (e) => {
     if(nameButton === "Add to cart") {
-      // e.target.innerText = "Delete from cart";
       setNameButton("Delete from cart");
       addProduct(product);
       setStatusPay(products.length - 1);
     } else {
-      // e.target.innerText = "Add to cart";
       setNameButton("Add to cart");
-      deleteProduct(product.id);
+      deleteProduct(findIndexCart());
     }
   }
+
+  const findIndexCart = () => {
+    let indexProduct = 0;
+    products.forEach((element, index) => {
+      indexProduct = element.id === product.id ? index : indexProduct;
+    })
+    return indexProduct;
+  } 
 
   return (
     <CardStyle className="block_product">
       <CardImageStyle
-        src={`${NAME_SITE_URL}images/${product.category}/${product.image[0]}.png`}
+        src={`${product.image[0]}`}
       />
       <ContainerInformationStyle>
         <ContainerFigcaptionStyle>

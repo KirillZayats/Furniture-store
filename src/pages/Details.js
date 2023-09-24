@@ -32,15 +32,18 @@ import {
   LinkParagrafStyle,
 } from "../styled/Pay/InfoPayStyledComp";
 import { Rating } from "@mui/material";
-import { MESSAGE_ERROR_ID, NAME_SITE, NAME_SITE_URL } from "../constants"
+import { IS_LOGGED, MESSAGE_ERROR_ID, MESSAGE_NO_LOGIN, NAME_SITE, NAME_SITE_URL } from "../constants"
 import { useSelector } from "react-redux";
 import { useAction } from "../hooks/useAction";
 import { useNavigate, useParams } from "react-router-dom";
 import { ContainerLoader } from "../styled/AppStyledComp";
 import { InfinitySpin } from "react-loader-spinner";
+import Modal from "../components/Modal/Modal";
+import { getCookie } from "../storage/cookie";
 const Details = () => {
   const navigate = useNavigate();
-
+  const [modalActive, setModalActive] = useState(false);
+  const [message, setMessage] = useState('');
   const [isLoadingData, setIsLoadingData] = useState(false)
   const params = useParams();
   const { value, limit } = useSelector((state) => state.count);
@@ -82,8 +85,15 @@ const Details = () => {
     }
   }
 
-  const clickPay = () => {
-    payProducts(product, value);
+  const clickPay = (e) => {
+    if(getCookie(IS_LOGGED) === "true") {
+      payProducts(product, value);
+    }
+    else {
+      setModalActive(true);
+      setMessage(MESSAGE_NO_LOGIN);
+      e.preventDefault();
+    }
   }
 
   return (
@@ -104,7 +114,7 @@ const Details = () => {
               />
               <ValueRatingStyle>{product.rating.toFixed(1)}</ValueRatingStyle>
             </ContainerRatingStyle>
-            <ImageProductStyle src={`${NAME_SITE_URL}images/${product.category}/${product.image[0]}.png`} />
+            <ImageProductStyle src={`${product.image[0]}`} />
             <DescriptionStyle>
               {product.description}
             </DescriptionStyle>
@@ -155,6 +165,7 @@ const Details = () => {
             </ContainerLoader>
         }
       </ContainerDetailsStyle>
+      <Modal active={modalActive} setActive={setModalActive} message={message} pathNameLink={`/${NAME_SITE}/login`} /> 
     </MainStyle>
   );
 };

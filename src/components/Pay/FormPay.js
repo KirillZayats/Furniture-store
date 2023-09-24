@@ -28,7 +28,7 @@ import {
   ButtonPayStyle,
   ContainerPayStyle,
   IconApplePay,
-  LinkButtonStyle
+  LinkButtonStyle,
 } from "../../styled/Pay/FormPayStyledComp";
 import { useForm } from "react-hook-form";
 import ErrorMessage from "../ErrorMessage";
@@ -36,7 +36,7 @@ import { useSelector } from "react-redux";
 import { useAction } from "../../hooks/useAction";
 import { MESSAGE_ERROR_NO_PRODUCTS, SUCCESS_PAY } from "../../constants";
 
-const FormPay = ({setActive, setMessage}) => {
+const FormPay = ({ setActive, setMessage }) => {
   const {
     register,
     handleSubmit,
@@ -44,24 +44,25 @@ const FormPay = ({setActive, setMessage}) => {
     reset,
   } = useForm();
   const [pastValueDate, setPastValueDate] = useState("");
+  const [pastValueCard, setPastValueCard] = useState("");
   const { products, pricePay } = useSelector((state) => state.payProducts);
-  const {deleteProductsPayFromCart, clearPrice} = useAction();
+  const { deleteProductsPayFromCart, clearPrice } = useAction();
 
   const onSubmit = (data) => {
     setActive(true);
-    if(products.length) {
-      setMessage(SUCCESS_PAY)
+    if (products.length) {
+      setMessage(SUCCESS_PAY);
       reset();
     } else {
-      setMessage(MESSAGE_ERROR_NO_PRODUCTS)
+      setMessage(MESSAGE_ERROR_NO_PRODUCTS);
     }
-    deleteProductsPayFromCart(products)
+    deleteProductsPayFromCart(products);
     clearPrice();
   };
 
   const addSymbolForDate = (e) => {
     let valueInput = e.target.value;
-    if (valueInput.length === 2 && pastValueDate < 3) valueInput += "/";
+    valueInput += (valueInput.length === 2 && pastValueDate.length < 3) ? "/" : "";
     if (pastValueDate.length === 4 && valueInput.length === 3) {
       valueInput = valueInput.split("");
       valueInput.length = valueInput.length - 1;
@@ -78,10 +79,55 @@ const FormPay = ({setActive, setMessage}) => {
     e.target.value = valueInput;
   };
 
+  const addSymbolForCard = (e) => {
+    let valueInput = e.target.value;
+    console.log(valueInput.length);
+    console.log(pastValueCard);
+
+    valueInput += isAddSymbolCard(valueInput.length, pastValueCard.length) ? " " : "";
+    if (isDeleteSymbolCard(valueInput.length, pastValueCard.length)) {
+      valueInput = valueInput.split("");
+      valueInput.length = valueInput.length - 1;
+      valueInput = valueInput.join("");
+    }
+    if (isAddNumberCard(valueInput.length, pastValueCard.length)) {
+      let lastValue = valueInput[valueInput.length - 1];
+      valueInput = valueInput.split("");
+      valueInput[valueInput.length - 1] = " ";
+      valueInput.push(lastValue);
+      valueInput = valueInput.join("");
+    }
+    setPastValueCard(valueInput);
+    e.target.value = valueInput;
+  };
+
+  const isAddSymbolCard = (inputLength, pastLength) => {
+    return ((inputLength === 4 && pastLength < 5) ||
+      (inputLength === 9 && pastLength < 10) ||
+      (inputLength === 14 && pastLength < 15))
+      ? true
+      : false;
+  };
+  const isAddNumberCard = (inputLength, pastLength) => {
+    return ((inputLength === 5 && pastLength === 4) ||
+      (inputLength === 10 && pastLength === 9) ||
+      (inputLength === 15 && pastLength === 14))
+      ? true
+      : false;
+  };
+  const isDeleteSymbolCard = (inputLength, pastLength) => {
+    return ((inputLength === 5 && pastLength === 6) ||
+    (inputLength === 10 && pastLength === 11) ||
+    (inputLength === 15 && pastLength === 16))
+      ? true
+      : false;
+  };
 
   return (
     <ContainerPayStyle onSubmit={handleSubmit(onSubmit)}>
-      <ButtonPayStyle href="https://www.apple.com/apple-pay/" target="_blank"
+      <ButtonPayStyle
+        href="https://www.apple.com/apple-pay/"
+        target="_blank"
         className="button_dark"
         disabled={true}
       >
@@ -119,11 +165,12 @@ const FormPay = ({setActive, setMessage}) => {
                 {...register("number_card", {
                   required: "Number card required",
                   pattern: {
-                    value: /^(\d{4}([-]|)\d{4}([-]|)\d{4}([-]|)\d{4})$/i,
+                    value: /^(\d{4}([ ]|)\d{4}([ ]|)\d{4}([ ]|)\d{4})$/i,
                     message: "Please enter a valid number card",
                   },
                 })}
-                placeholder="1234 1234 1234 1234"
+                placeholder="1234-1234-1234-1234"
+                onKeyUp={addSymbolForCard}
               />
               <ContainerImageCardStyle>
                 <ImageCardStyle src={IconVisa} />
@@ -191,9 +238,9 @@ const FormPay = ({setActive, setMessage}) => {
           {errors.name && <ErrorMessage message={errors.name.message} />}
         </ContainerInputStyle>
       </ContainerInputsStyle>
-        <ButtonPayCardStyle className="button_dark">
-          Pay ${Number(pricePay).toFixed(2)}
-        </ButtonPayCardStyle>
+      <ButtonPayCardStyle className="button_dark">
+        Pay ${Number(pricePay).toFixed(2)}
+      </ButtonPayCardStyle>
     </ContainerPayStyle>
   );
 };

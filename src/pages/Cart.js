@@ -27,14 +27,16 @@ import ProductCart from "../components/Cart/ProductCart";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { useAction } from "../hooks/useAction";
-import { NAME_SITE } from "../constants";
+import { IS_LOGGED, MESSAGE_NO_LOGIN, NAME_SITE } from "../constants";
 import Modal from "../components/Modal/Modal";
+import { getCookie } from "../storage/cookie";
 
 const Cart = () => {
   const navigate = useNavigate();
   const products = useSelector((state) => state.cartProduct.productsCart);
   const allPrice = useSelector((state) => state.cartProduct.allPrice);
-
+  const [modalActive, setModalActive] = useState(false);
+  const [message, setMessage] = useState('');
   const { deleteProduct, payProducts, setStatusPay } = useAction();
   const [textButtonPay, setTextButtonPay] = useState("Select All"); 
 
@@ -92,7 +94,14 @@ const Cart = () => {
       }
       e.preventDefault();
     } else {
-      payProducts(products);
+      if(getCookie(IS_LOGGED) === "true") {
+        payProducts(products);
+      }
+      else {
+        setModalActive(true);
+        setMessage(MESSAGE_NO_LOGIN);
+        e.preventDefault();
+      }
     }
   }
 
@@ -102,7 +111,6 @@ const Cart = () => {
       list.childNodes[index].querySelector("input").checked = false; 
     }
     for (let index = 0; index < products.length; index++) {
-      console.log(products);
       if (products[index].statusPay) {
         deleteProduct(index)
         index--;
@@ -193,8 +201,7 @@ const Cart = () => {
           </ContainerLinkPayStyle>
         </ContainerPayInfoStyle>
       </ContainerCartStyle>
-      <Modal active={modalActive} setActive={setModalActive} message={message} pathNameLink={`/${NAME_SITE}/login`} />
-
+       <Modal active={modalActive} setActive={setModalActive} message={message} pathNameLink={`/${NAME_SITE}/login`} /> 
     </MainStyle>
   );
 };

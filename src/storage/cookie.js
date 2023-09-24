@@ -1,11 +1,13 @@
-import { IS_LOGGED, NAME_EMAIL } from "../constants";
+import { IS_LOGGED, NAME_EMAIL, NICKNAME } from "../constants";
 
-export const setCookies = (data, saveValue = false) => {
+export const setCookies = (email, nickName = "-", saveValue = false) => {
     let dateSave = createInterval(saveValue);
-    document.cookie = `${NAME_EMAIL} = ${data}; expires=${dateSave.toUTCString()}`;
+    document.cookie = `${NAME_EMAIL} = ${email}; expires=${dateSave.toUTCString()}`;
+    document.cookie = `${NICKNAME} = ${nickName}; expires=${dateSave.toUTCString()}`;
     document.cookie = `${IS_LOGGED} = true; expires=${dateSave.toUTCString()}`;
-
 }
+
+
 
 export const setValueLogout = () => {
     document.cookie = `${IS_LOGGED} = false; expires=${createInterval().toUTCString()}`;

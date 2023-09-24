@@ -13,7 +13,7 @@ const ProductPay = ({product}) => {
 
   return (
     <ProductPayStyle>
-        <ImageProductStyle src={`${NAME_SITE_URL}images/${product.category}/${product.image[0]}.png`}/>
+        <ImageProductStyle src={`${product.image[0]}`}/>
         <ContainerTextStyle>
           <ContainerMainTextStyle>
           <TextProductStyle>{product.title}</TextProductStyle>

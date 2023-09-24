@@ -6,6 +6,7 @@ export const CATEGORIES = "categories";
 export const NAME = "name";
 export const NICKNAME = "nickname";
 export const NAME_EMAIL = "email";
+export const IMAGE_USER = "image_user";
 export const IS_LOGGED = "is_logged";
 
 export const MESSAGE_ERROR = "Unexpected error :(";
@@ -18,3 +19,4 @@ export const MESSAGE_SUCCESS_SUBSCRIBE = (email) => {
 }
 export const REGISTER_SUCCESS = "You have successfully registered. Welcome to Furniture Store :)";
 export const LOGIN_SUCCESS = "Welcome to Furniture Store :)";
+export const MESSAGE_NO_LOGIN = "Please, login to buy our products :)";

@@ -13,7 +13,6 @@ const initialState = {
 export const countReducer = (state = initialState, action) => {
   switch (action.type) {
     case INCREMENT_COUNT:
-      console.log(state.limit);
       return state.value < state.limit
         ? {
           value: state.value + 1,

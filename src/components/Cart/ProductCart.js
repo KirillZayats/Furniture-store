@@ -43,7 +43,7 @@ const ProductCart = ({index}) => {
   return (
     <ProductPayStyle>
       <ImageProductStyle
-        src={`${NAME_SITE_URL}images/${products[index].category}/${products[index].image[0]}.png`}
+        src={`${products[index].image[0]}`}
         alt="image product"
         title="Image product"
       />

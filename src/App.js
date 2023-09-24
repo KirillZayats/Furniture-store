@@ -27,7 +27,6 @@ const Login = lazy(() => import("./pages/log/Login"));
 
 export const App = () => {
   const { getDataProducts } = useAction();
-  // const {arrayFunctions} = useSelector(state => state.functions);
 
   const {isLoadingProducts } = useSelector(
     (state) => state.products
@@ -40,13 +39,6 @@ export const App = () => {
     getDataProducts("products");
     getDataProducts("categories");
   }, []);
-
-  // const scrollPage = () => {
-  //   // console.log(arrayFunctions[0]);
-  //   arrayFunctions[0]();
-  //   // (arrayFunctions[1])()
-  //   // arrayFunctions.closeSearchBlock();
-  // }
 
   return (
     <Theme>

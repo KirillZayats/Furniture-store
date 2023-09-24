@@ -12,6 +12,9 @@ import {
   LoginStyle,
   LinkRegistationOrSignStyle,
   ContainerInputsStyle,
+  ButtonGoogleStyle,
+  IconGoogle,
+  ContainerLoginStyle
 } from "../../styled/Login/LoginStyledComp";
 import { useForm } from "react-hook-form";
 import ErrorMessage from "../../components/ErrorMessage";
@@ -29,17 +32,15 @@ import { getCookie, setCookies } from "../../storage/cookie";
 const Login = () => {
   const [modalActiveError, setModalActiveError] = useState(false);
   const [modalActive, setModalActive] = useState(false);
-  // const [isSuccessSignin, setIsSuccessSignin] = useState(false);
   const [message, setMessage] = useState("");
   const [textTypeLogin, setTextTypeLogin] = useState("Create account");
   const [isActivityBlockRepeat, setIsActivityBlockRepeat] = useState(false);
   const { user, loading, error } = useSelector((state) => state.user);
-  const { logInEmail, logInGoogle, registerUser, logOut } = useAction();
+  const { logInEmail, logInGoogle, registerUser } = useAction();
   const {
     register,
     handleSubmit,
     formState: { errors },
-    reset,
     getValues,
   } = useForm();
 
@@ -47,23 +48,33 @@ const Login = () => {
     error != null && setModalActiveError(true);
   }, [error]);
 
+  useEffect(() => {
+    if(user != null && user.displayName != null) {
+      document.getElementById("checkbox_forgot").checked ? 
+      setCookies(user.email, user.displayName, true) : 
+      setCookies(user.email, user.displayName)
+    }
+  }, [user])
+
   const onSubmit = (data) => {
-    // reset();
-    console.log(modalActive);
+    console.log(data);
     if (data.repeat_password == undefined) {
       logInEmail(data.email_sign, data.password);
       setMessage(LOGIN_SUCCESS);
       setModalActive(true);
-
-      document.getElementById("checkbox_forgot").checked
-        ? setCookies(data.email_sign, true)
-        : setCookies(data.email_sign);
+      document.getElementById("checkbox_forgot").checked ? setCookies(data.email_sign, "-", true) : setCookies(data.email_sign)
     } else {
       registerUser(data.email_sign, data.password);
       setMessage(REGISTER_SUCCESS);
       setModalActive(true);
     }
   };
+
+  const loginGoogle = () => {
+    logInGoogle();
+    setMessage(LOGIN_SUCCESS);
+    setModalActive(true);
+  }
 
   const changeTypeLogin = () => {
     let fieldInputRepeatRegister = document.querySelector(
@@ -146,7 +157,19 @@ const Login = () => {
         <LinkRegistationOrSignStyle onClick={changeTypeLogin}>
           {textTypeLogin}
         </LinkRegistationOrSignStyle>
+        <ContainerLoginStyle>
+        <ButtonGoogleStyle
+        className="button_dark"
+        disabled={true}
+        onClick={loginGoogle}
+      >
+        <IconGoogle className="icon__button" />
+      </ButtonGoogleStyle>
+        {/* <ButtonLoginStyle className="button_dark">Google</ButtonLoginStyle> */}
+
         <ButtonLoginStyle className="button_dark">Sign in</ButtonLoginStyle>
+        </ContainerLoginStyle>
+
       </LoginStyle>
       {modalActive && !error && !loading && (
         <Modal

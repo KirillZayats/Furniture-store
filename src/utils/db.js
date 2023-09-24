@@ -7,7 +7,8 @@ const firebaseConfig = {
   projectId: "database-ab5ab",
   storageBucket: "database-ab5ab.appspot.com",
   messagingSenderId: "908064451021",
-  appId: "1:908064451021:web:38ae3e9d3e02a56585bc84"
+  appId: "1:908064451021:web:38ae3e9d3e02a56585bc84",
+  databaseURL: 'https://database-ab5ab-default-rtdb.europe-west1.firebasedatabase.app/'
 };
 
 export const app = initializeApp(firebaseConfig);

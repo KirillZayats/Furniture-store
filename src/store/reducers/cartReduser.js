@@ -22,9 +22,6 @@ export const cartReduser = (state = initialState, action) => {
       return {
         productsCart: state.productsCart,
         allPrice: state.allPrice
-        // state.allPrice +
-        // state.productsCart[state.productsCart.length - 1].price *
-        //   action.count,
       };
     case DELETE_FROM_CART:
       if (state.productsCart[action.index].statusPay) {

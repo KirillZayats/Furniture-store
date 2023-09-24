@@ -5,7 +5,8 @@ import * as productActions from './productActions';
 import * as cartActions from './cartActions';
 import * as payProducts from './payActions';
 import * as functionsActions from './functionsActions';
-import * as userActions from './userActions'
+import * as userActions from './userActions';
+
 export const actions = {
     ...countActions,
     ...productsActions,
@@ -14,5 +15,5 @@ export const actions = {
     ...cartActions,
     ...payProducts,
     ...functionsActions,
-    ...userActions
+    ...userActions,
 }
