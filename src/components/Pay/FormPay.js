@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import IconVisa from "../../resource/images/icons/pay/visa.svg";
 import IconMaster from "../../resource/images/icons/pay/master_sard.svg";
 import IconDiscover from "../../resource/images/icons/pay/discover.svg";
@@ -23,12 +23,10 @@ import {
   TextTransitionStyle,
   LineTransitionStyle,
   ContainerTransitionStyle,
-  ImgButtonPayStyle,
   ButtonPayCardStyle,
   ButtonPayStyle,
   ContainerPayStyle,
   IconApplePay,
-  LinkButtonStyle,
 } from "../../styled/Pay/FormPayStyledComp";
 import { useForm } from "react-hook-form";
 import ErrorMessage from "../ErrorMessage";
@@ -169,7 +167,7 @@ const FormPay = ({ setActive, setMessage }) => {
                     message: "Please enter a valid number card",
                   },
                 })}
-                placeholder="1234-1234-1234-1234"
+                placeholder="1234 1234 1234 1234"
                 onKeyUp={addSymbolForCard}
               />
               <ContainerImageCardStyle>
@@ -199,7 +197,7 @@ const FormPay = ({ setActive, setMessage }) => {
               <LineVerticalStyle />
               <ContainerInputCVCCardStyle>
                 <InputCVCSpecialStyle
-                  type="number"
+                  type="password"
                   placeholder="CVC"
                   {...register("cvc", {
                     required: "CVC required",

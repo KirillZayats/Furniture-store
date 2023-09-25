@@ -41,7 +41,6 @@ const Achievements = () => {
             setIsCheckGsap(true)
           }
         } else {
-          console.log(rect.top - window.innerHeight / 3);
           if((rect.top - window.innerHeight / 3 - 200) < 0) {
             setIsCheckGsap(true)
           }

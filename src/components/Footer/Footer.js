@@ -17,7 +17,16 @@ import { LineStyle } from "../../styled/Header/HeaderStyledComp";
 import InfoReserved from "./InfoReserved";
 import Social from "./Social";
 import { NAME_SITE } from "../../constants";
+import { useSelector } from "react-redux";
+import { useAction } from "../../hooks/useAction";
 const Footer = () => {
+  const { categories } = useSelector((state) => state.categories);
+  const { setCategory } = useAction();
+
+  const clickCategory = (e) => {
+    setCategory(e.target.innerText);
+  }
+
   return (
     <FooterContentStyle>
       <ContainerStyle>
@@ -27,21 +36,11 @@ const Footer = () => {
             <BlockStyle>
               <TitleBlockStyle>Categories</TitleBlockStyle>
               <ContainerListStyle>
-                <ListElementStyle>
-                  <LinkStyle>Wall art</LinkStyle>
-                </ListElementStyle>
-                <ListElementStyle>
-                  <LinkStyle>Wall art</LinkStyle>
-                </ListElementStyle>
-                <ListElementStyle>
-                  <LinkStyle>Wall art</LinkStyle>
-                </ListElementStyle>
-                <ListElementStyle>
-                  <LinkStyle>Wall art</LinkStyle>
-                </ListElementStyle>
-                <ListElementStyle>
-                  <LinkStyle>Wall art</LinkStyle>
-                </ListElementStyle>
+                {categories.map((category, index) => (
+                  <ListElementStyle key={index}>
+                    <LinkStyle onClick={clickCategory} to={`${NAME_SITE}/products#${category}`}>{category}</LinkStyle>
+                  </ListElementStyle>
+                ))}
               </ContainerListStyle>
             </BlockStyle>
             <BlockStyle>

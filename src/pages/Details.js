@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { MainStyle, ContainerErrorStyle, TextErrorStyle } from "../styled/Main/MainStyledComp";
-import ImageProduct from "../resource/images/lamps.jpg";
+import {
+  MainStyle,
+  ContainerErrorStyle,
+  TextErrorStyle,
+} from "../styled/Main/MainStyledComp";
 import IconLeft from "../resource/images/icons/setting/left.svg";
 import IconRight from "../resource/images/icons/setting/right.svg";
 import {
@@ -21,10 +24,10 @@ import {
   ImageProductStyle,
   ContainerProductStyle,
   LinkPayStyle,
-  ButtonAddCartStyle
+  ButtonAddCartStyle,
+  ContainerImageProductStyle,
 } from "../styled/Main/DetailsStyledComp";
 import {
-  ContainerBlocksStyle,
   LinkBackStyle,
   ContainerIconBackStyle,
   ContainerBackStyle,
@@ -32,7 +35,12 @@ import {
   LinkParagrafStyle,
 } from "../styled/Pay/InfoPayStyledComp";
 import { Rating } from "@mui/material";
-import { IS_LOGGED, MESSAGE_ERROR_ID, MESSAGE_NO_LOGIN, NAME_SITE, NAME_SITE_URL } from "../constants"
+import {
+  IS_LOGGED,
+  MESSAGE_ERROR_ID,
+  MESSAGE_NO_LOGIN,
+  NAME_SITE,
+} from "../constants";
 import { useSelector } from "react-redux";
 import { useAction } from "../hooks/useAction";
 import { useNavigate, useParams } from "react-router-dom";
@@ -40,70 +48,118 @@ import { ContainerLoader } from "../styled/AppStyledComp";
 import { InfinitySpin } from "react-loader-spinner";
 import Modal from "../components/Modal/Modal";
 import { getCookie } from "../storage/cookie";
+import SimpleImageSlider from "react-simple-image-slider";
+
 const Details = () => {
   const navigate = useNavigate();
   const [modalActive, setModalActive] = useState(false);
-  const [message, setMessage] = useState('');
-  const [isLoadingData, setIsLoadingData] = useState(false)
+  const [message, setMessage] = useState("");
+  const [isLoadingData, setIsLoadingData] = useState(false);
   const params = useParams();
-  const { value, limit } = useSelector((state) => state.count);
+  const { value } = useSelector((state) => state.count);
   const { product } = useSelector((state) => state.products);
-  const { incrementCount, decrementCount, initLimit, getProduct, addProduct, deleteProduct, payProducts } = useAction();
+  const {
+    incrementCount,
+    decrementCount,
+    initLimit,
+    getProduct,
+    addProduct,
+    deleteProduct,
+    payProducts,
+  } = useAction();
   const [nameButton, setNameButton] = useState("Add to cart");
-  const products = useSelector(state => state.cartProduct.productsCart);
+  const products = useSelector((state) => state.cartProduct.productsCart);
+  const [widthImage, setWidthImage] = useState(0);
+  const [heihgtImage, setHeightImage] = useState(0);
+  const [dataImage, setDataImage] = useState([]);
 
   useEffect(() => {
-    products.forEach(element => {
+    products.forEach((element) => {
       if (product.id === element.id) {
-        setNameButton("Delete from cart")
+        setNameButton("Delete from cart");
       }
     });
-  }, [])
+    window.addEventListener("resize", handleWindowResize);
+  }, []);
+
+  const handleWindowResize = () => {
+    setHeightImage(getParametersSize(true));
+    setWidthImage(getParametersSize(false));
+  };
 
   useEffect(() => {
-    console.log(product);
-
-    if ((product == null || product == undefined)) {
-      getProduct(params.id)
-
+    if (product === null || product === undefined) {
+      getProduct(params.id);
     } else {
       setIsLoadingData(true);
-      initLimit(product.limit)
+      initLimit(product.limit);
     }
-  }, [product])
+    if (product != null) {
+      let items = [];
+      product.image.forEach((item) => {
+        items.push({ url: item });
+      });
+      setDataImage(items);
+    }
+    setHeightImage(getParametersSize(true));
+    setWidthImage(getParametersSize(false));
+  }, [product]);
 
   const addToCart = (e) => {
     if (nameButton === "Add to cart") {
-      // e.target.innerText = "Delete from cart";
       setNameButton("Delete from cart");
       addProduct(product, value);
     } else {
-      // e.target.innerText = "Add to cart";
       setNameButton("Add to cart");
 
       deleteProduct(product.id);
     }
-  }
+  };
 
   const clickPay = (e) => {
-    if(getCookie(IS_LOGGED) === "true") {
+    if (getCookie(IS_LOGGED) === "true") {
       payProducts(product, value);
-    }
-    else {
+    } else {
       setModalActive(true);
       setMessage(MESSAGE_NO_LOGIN);
       e.preventDefault();
     }
-  }
+  };
+
+  const getParametersSize = (status) => {
+    let parameterWidth = 0;
+    let parameterHeight = 0;
+    if (window.innerWidth < 375) {
+      parameterHeight = 300;
+      parameterWidth = 300;
+    } else if (window.innerWidth < 425) {
+      parameterHeight = 300;
+      parameterWidth = 335;
+    } else if (window.innerWidth < 768) {
+      parameterHeight = 300;
+      parameterWidth = 375;
+    } else if (window.innerWidth < 800) {
+      parameterHeight = 300;
+      parameterWidth = 400;
+    } else if (window.innerWidth < 1024) {
+      parameterHeight = 300;
+      parameterWidth = 335;
+    } else if (window.innerWidth < 1440) {
+      parameterHeight = 300;
+      parameterWidth = 400;
+    } else {
+      parameterHeight = 350;
+      parameterWidth = 500;
+    }
+    return status ? parameterHeight : parameterWidth;
+  };
 
   return (
     <MainStyle>
       <ContainerDetailsStyle>
-        {isLoadingData === true ?
+        {isLoadingData === true ? (
           <ContainerProductStyle>
-            <TitleProductStyle>
-              {product.title}
-            </TitleProductStyle>
+            <TitleProductStyle>{product.title}</TitleProductStyle>
             <ContainerRatingStyle>
               <Rating
                 name="half-rating-read"
@@ -114,10 +170,21 @@ const Details = () => {
               />
               <ValueRatingStyle>{product.rating.toFixed(1)}</ValueRatingStyle>
             </ContainerRatingStyle>
-            <ImageProductStyle src={`${product.image[0]}`} />
-            <DescriptionStyle>
-              {product.description}
-            </DescriptionStyle>
+
+            {/* <ImageProductStyle src={`${product.image[0]}`} /> */}
+            <ContainerImageProductStyle>
+              {dataImage.length > 0 && (
+                <SimpleImageSlider
+                  width={widthImage}
+                  height={heihgtImage}
+                  images={dataImage}
+                  slideDuration={0.7}
+                  showBullets={true}
+                  className="image-product"
+                />
+              )}
+            </ContainerImageProductStyle>
+            <DescriptionStyle>{product.description}</DescriptionStyle>
             <ContainerPayStyle>
               <ContainerSettingForPayStyle>
                 <ContainerArrowsStyle>
@@ -130,42 +197,53 @@ const Details = () => {
                     <ArrowStyle src={IconRight} />
                   </ContainerArrowStyle>
                 </ContainerArrowsStyle>
-                <PriceStyle>Price: ${Number(product.price * value).toFixed(2)}</PriceStyle>
+                <PriceStyle>
+                  Price: ${Number(product.price * value).toFixed(2)}
+                </PriceStyle>
               </ContainerSettingForPayStyle>
               <ContainerButtonsStyle>
-                <ButtonAddCartStyle onClick={addToCart}>{nameButton}</ButtonAddCartStyle>
+                <ButtonAddCartStyle onClick={addToCart}>
+                  {nameButton}
+                </ButtonAddCartStyle>
                 <LinkPayStyle to={`pay`}>
                   <ButtonPayStyle onClick={clickPay}>Pay now</ButtonPayStyle>
                 </LinkPayStyle>
               </ContainerButtonsStyle>
             </ContainerPayStyle>
           </ContainerProductStyle>
-          :
-          product == undefined ?
-            <ContainerErrorStyle>
-              <TextErrorStyle>{MESSAGE_ERROR_ID}</TextErrorStyle>
-              <LinkBackStyle
-                to={`..`}
-                onClick={(e) => {
-                  e.preventDefault();
-                  navigate(-1);
-                }}
+        ) : product === undefined ? (
+          <ContainerErrorStyle>
+            <TextErrorStyle>{MESSAGE_ERROR_ID}</TextErrorStyle>
+            <LinkBackStyle
+              to={`..`}
+              onClick={(e) => {
+                e.preventDefault();
+                navigate(-1);
+              }}
+            >
+              <ContainerBackStyle
+                className="container_back"
+                title="Click to back"
               >
-                <ContainerBackStyle className="container_back" title="Click to back">
-                  <ContainerIconBackStyle>
-                    <IconArrowLeft />
-                  </ContainerIconBackStyle>
-                  <LinkParagrafStyle>Back</LinkParagrafStyle>
-                </ContainerBackStyle>
-              </LinkBackStyle>
-            </ContainerErrorStyle>
-            :
-            <ContainerLoader>
-              <InfinitySpin width="200" color="#000" />
-            </ContainerLoader>
-        }
+                <ContainerIconBackStyle>
+                  <IconArrowLeft />
+                </ContainerIconBackStyle>
+                <LinkParagrafStyle>Back</LinkParagrafStyle>
+              </ContainerBackStyle>
+            </LinkBackStyle>
+          </ContainerErrorStyle>
+        ) : (
+          <ContainerLoader>
+            <InfinitySpin width="200" color="#000" />
+          </ContainerLoader>
+        )}
       </ContainerDetailsStyle>
-      <Modal active={modalActive} setActive={setModalActive} message={message} pathNameLink={`/${NAME_SITE}/login`} /> 
+      <Modal
+        active={modalActive}
+        setActive={setModalActive}
+        message={message}
+        pathNameLink={`/${NAME_SITE}/login`}
+      />
     </MainStyle>
   );
 };

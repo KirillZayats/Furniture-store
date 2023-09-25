@@ -43,7 +43,6 @@ import IconLinkedin from "../../resource/images/icons/social/LinkedIn.svg";
 import { InputCheckBoxStyle } from "../../styled/Header/SidebarStyledComp";
 import SidebarActive from "./SidebarActive";
 import { IS_LOGGED, NAME_SITE } from "../../constants";
-import { LinkPage } from "../../styled/Main/MainStyledComp";
 import { useLocation } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { useAction } from "../../hooks/useAction";
@@ -63,7 +62,7 @@ const Header = () => {
   const countProducts = useSelector(
     (state) => state.cartProduct.productsCart.length
   );
-  const { getValueSearch, addFunction } = useAction();
+  const { getValueSearch } = useAction();
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -86,8 +85,6 @@ const Header = () => {
       setWidthWindow(window.innerWidth);
     };
     window.addEventListener("resize", handleWindowResize);
-    // addFunction(closeSearchBlock)
-    // addFunction(closeSidebar)
   }, []);
 
   const clickIconSearch = () => {
@@ -117,7 +114,7 @@ const Header = () => {
 
   function closeSidebar() {
     if (window.innerWidth < 1024) {
-      if (inputCheckbox.checked && inputCheckbox != "") {
+      if (inputCheckbox.checked && inputCheckbox !== "") {
         inputCheckbox.checked = false;
       }
     }

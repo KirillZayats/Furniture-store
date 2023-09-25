@@ -5,7 +5,7 @@ import {
   GET_VALUE_SEARCH,
 } from "../types/types";
 import { CATEGORIES, NAME_SITE_URL, PRODUCTS } from "../../constants";
-import { getDatabase, ref, onValue, get, child } from "firebase/database";
+import { getDatabase, ref, get, child } from "firebase/database";
 
 export const getProductsSuccess = (products) => {
   return {
@@ -35,17 +35,9 @@ export const getValueSearch = (value) => {
 };
 
 export const getDataProducts = (namePath) => {
-  const database = getDatabase();
-  // const response = ref(database, `/${namePath}`);
   let data = [];
-  // onValue(ref(database, `/${namePath}`), (snapshot) => {
-  //     data.push(snapshot.val());
-  // }, {
-  //     onlyOnce: true
-  //   });
   const dbRef = ref(getDatabase());
   console.log(NAME_SITE_URL + namePath);
-
   return async (dispatch) => {
     get(child(dbRef, `/${namePath}`))
       .then((snapshot) => {
@@ -57,6 +49,7 @@ export const getDataProducts = (namePath) => {
       })
       .then(() => {
         if (namePath === PRODUCTS) {
+          console.log(data["0"]);
           dispatch(getProductsSuccess(data["0"]));
         } else if (namePath === CATEGORIES) {
           dispatch(getCategoriesSuccess(data["0"]));
@@ -66,22 +59,4 @@ export const getDataProducts = (namePath) => {
         console.error(error);
       });
   };
-  // return async (dispatch) => {
-  //     fetch(NAME_SITE_URL+namePath)
-  //         .then(response => {
-  //             if(!response.ok) {
-  //                 throw new Error(response.statusText)
-  //             }
-  //             return response;
-  //         })
-  //         .then(response => response.json())
-  //         .then(data => {
-  //             if(namePath === PRODUCTS) {
-  //                 dispatch(getProductsSuccess(data))
-  //             }
-  //             else if(namePath === CATEGORIES) {
-  //                 dispatch(getCategoriesSuccess(data))
-  //             }
-  //         })
-  // }
 };

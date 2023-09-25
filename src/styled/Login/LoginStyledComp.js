@@ -1,6 +1,5 @@
 import { styled } from "styled-components";
 import { device, size } from "../../styled/Media/MediaQueryStyledComp";
-import { Link } from "react-router-dom";
 import Icon from "../../resource/images/icons/Icon";
 
 const LoginStyle = styled.form`

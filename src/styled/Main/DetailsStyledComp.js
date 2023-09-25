@@ -71,9 +71,28 @@ const ContainerProductStyle = styled.div`
     grid-template-columns: 500px 1fr;
     grid-template-rows: auto auto 55px auto auto;
   }
+
 `;
 
 const ImageProductStyle = styled.img`
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  @media ${device.mobileS} {
+    width: 100%;
+    height: 300px;
+  }
+  @media ${device.tablet} {
+    grid-column-start: 1;
+    grid-row-start: 1;
+    grid-row-end: 5;
+  }
+  @media ${device.desktop} {
+    height: 350px;
+  }
+`;
+
+const ContainerImageProductStyle = styled.div`
   width: 100%;
   height: 300px;
   object-fit: cover;
@@ -295,5 +314,6 @@ export {
   ImageProductStyle,
   ContainerProductStyle,
   LinkPayStyle,
-  ButtonAddCartStyle
+  ButtonAddCartStyle,
+  ContainerImageProductStyle
 };

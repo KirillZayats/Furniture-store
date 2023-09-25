@@ -266,11 +266,11 @@ const ContainerLoader = styled.div`
   justify-content: center;
   align-items: center;
   @media ${device.mobileS} {
-    height: 500px;
+    height: 800px;
   }
 
   @media ${device.laptop} {
-    height: 600px;
+    height: 700px;
   }
 
   @media ${device.desktop} {

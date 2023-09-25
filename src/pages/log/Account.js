@@ -16,13 +16,10 @@ import {
 } from "../../styled/Login/AccountStyledComp";
 import {
   getCookie,
-  setCookieImage,
-  setCookies,
   setValueLogout,
 } from "../../storage/cookie";
 import {
   IS_LOGGED,
-  MESSAGE_ERROR,
   MESSAGE_ERROR_LOGIN,
   NAME,
   NAME_EMAIL,
@@ -32,12 +29,12 @@ import {
 import { useSelector } from "react-redux";
 const Account = () => {
   const [icon, setIcon] = useState(PictureAvatar);
-  const [name, setName] = useState(getCookie(NAME));
-  const [nickname, setNickName] = useState(getCookie(NICKNAME));
-  const [email, setEmail] = useState(getCookie(NAME_EMAIL));
-  const [isStatusLogin, setIsStatusLogin] = useState(getCookie(IS_LOGGED));
+  const [name] = useState(getCookie(NAME));
+  const [nickname] = useState(getCookie(NICKNAME));
+  const [email] = useState(getCookie(NAME_EMAIL));
+  const [isStatusLogin] = useState(getCookie(IS_LOGGED));
 
-  const { user, loading, error } = useSelector((state) => state.user);
+  const { user } = useSelector((state) => state.user);
 
   let fileHandle;
   const editAvatar = async () => {
@@ -69,11 +66,11 @@ const Account = () => {
             </ContainerLinkEditAvatar>
           </ContainerAvatarStyle>
           <ContainerInfoAccountStyle>
-            <NameStyle>Name: {name != undefined ? name : "-"}</NameStyle>
+            <NameStyle>Name: {name !== undefined ? name : "-"}</NameStyle>
             <NameStyle>
-              Nickname: {nickname != undefined ? nickname : "-"}
+              Nickname: {nickname !== undefined ? nickname : "-"}
             </NameStyle>
-            <EmailStyle>Email: {email != undefined ? email : "-"}</EmailStyle>
+            <EmailStyle>Email: {email !== undefined ? email : "-"}</EmailStyle>
             <LinkButtonStyle to={`/${NAME_SITE}/`}>
               <ButtonLogoutStyle className="button_dark" onClick={logout}>
                 Logout
@@ -83,8 +80,8 @@ const Account = () => {
         </AccountStyle>
       ) : (
         <ContainerErrorStyle>
-        <TextErrorStyle>{MESSAGE_ERROR_LOGIN}</TextErrorStyle>
-      </ContainerErrorStyle>
+          <TextErrorStyle>{MESSAGE_ERROR_LOGIN}</TextErrorStyle>
+        </ContainerErrorStyle>
       )}
     </MainStyle>
   );

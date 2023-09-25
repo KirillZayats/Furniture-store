@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useSelector } from "react-redux";
 import { useAction } from "../../hooks/useAction";
 import {
@@ -7,6 +7,7 @@ import {
   ListStyle,
   ListCategoriesStyle,
 } from "../../styled/Main/ListCategoriesStyleComp"
+import { NAME_SITE } from "../../constants";
 const ListCategories = () => {
   const { categories } = useSelector(
     (state) => state.categories
@@ -22,7 +23,7 @@ const ListCategories = () => {
       <ListStyle id="categories-products">
         {categories.map((category, index) => (
           <ElementListStyle key={index} onClick={changeCategory}>
-            <TextElementStyle>{category}</TextElementStyle>
+            <TextElementStyle to={`/${NAME_SITE}/products?#${category}`}>{category}</TextElementStyle>
           </ElementListStyle>
         ))}
       </ListStyle>

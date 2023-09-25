@@ -5,7 +5,7 @@ import {
   GlobalStyle,
 } from "./styled/AppStyledComp";
 import { Theme } from "./styled/Theme";
-import { Route, Routes, useParams } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import { NAME_SITE } from "./constants";
 import DownUp from "./components/DownUp";
 import { useSelector } from "react-redux";

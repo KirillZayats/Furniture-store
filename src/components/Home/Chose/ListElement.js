@@ -1,5 +1,4 @@
 import React from "react";
-import IconArroyRight from "../../../resource/images/icons/arroyRight.svg";
 import {
   ContainerLinkStyle,
   IconArroyRightStyle
@@ -10,7 +9,6 @@ import {
   NumberListChoseStyle,
   TextChoseListStyle
 } from "../../../styled/Main/ChoseUs/ListChoseStyledComp";
-
 import {  LinkStyle } from "../../../styled/AppStyledComp"
 
 const ListElement = ({ id, title }) => {

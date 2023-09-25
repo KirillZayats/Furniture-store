@@ -3,32 +3,7 @@ import { device, size } from "../Media/MediaQueryStyledComp";
 import { Link } from "react-router-dom";
 
 const CardStyle = styled.div``;
-const CardImageStyle = styled.img`
-  object-fit: cover;
 
-  @media ${device.mobileS} {
-    width: 100%;
-    height: 300px;
-  }
-
-  @media ${device.tablet} {
-    width: calc(${size.tablet} / 2 - 70px);
-  }
-
-  @media ${device.tabletS} {
-    width: calc(${size.tabletS} / 2 - 80px);
-  }
-
-  @media ${device.laptop} {
-    width: calc(${size.laptop} / 4 - 40px);
-    height: 200px;
-  }
-
-  @media ${device.desktop} {
-    width: calc(${size.desktop} / 4 - 60px);
-    height: 300px;
-  }
-`;
 const CardFigcaptionStyle = styled.p`
   font-size: 18px;
   font-style: normal;
@@ -66,15 +41,6 @@ const ContainerFigcaptionStyle = styled.div`
 const ContainerInformationStyle = styled.div`
   display: flex;
   flex-direction: column;
-  /* @media ${device.mobileS} {
-    height: 95px;
-  }
-  @media ${device.mobileM} {
-    height: 95px;
-  }
-  @media ${device.mobileL} {
-    height: 122px;
-  } */
   @media ${device.tablet} {
     height: 95px;
   }
@@ -88,6 +54,48 @@ const ContainerInformationStyle = styled.div`
   }
 `;
 
+const ContainerImageStyle = styled.div`
+  @media ${device.mobileS} {
+    width: 100%;
+    height: 300px;
+  }
+
+  @media ${device.tablet} {
+    width: calc(${size.tablet} / 2 - 70px);
+  }
+
+  @media ${device.tabletS} {
+    width: calc(${size.tabletS} / 2 - 80px);
+  }
+
+  @media ${device.laptop} {
+    width: calc(${size.laptop} / 4 - 40px);
+    height: 200px;
+  }
+
+  @media ${device.desktop} {
+    width: calc(${size.desktop} / 4 - 60px);
+    height: 300px;
+  }
+`;
+const ContainerLoader = styled.div`
+  margin: auto;
+  vertical-align: middle;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  @media ${device.mobileS} {
+    height: 300px;
+  }
+
+  @media ${device.laptop} {
+    height: 200px;
+  }
+
+  @media ${device.desktop} {
+    height: 300px;
+  }
+`;
 
 const CardCategoriesStyle = styled.p`
   font-size: 14px;
@@ -135,10 +143,11 @@ export {
   CardButtonDetailsStyle,
   CardCategoriesStyle,
   CardFigcaptionStyle,
-  CardImageStyle,
   CardStyle,
   ContainerFigcaptionStyle,
   ContainerButtonStyle,
   LinkButtonStyle,
-  ContainerInformationStyle
+  ContainerInformationStyle,
+  ContainerImageStyle,
+  ContainerLoader
 };

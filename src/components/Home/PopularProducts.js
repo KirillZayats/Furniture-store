@@ -23,6 +23,9 @@ const PartProducts = () => {
   const { category } = useSelector(
     (state) => state.category
   );
+  const { categories } = useSelector(
+    (state) => state.categories
+  ); 
   const [partProducts, setPartProducts] = useState([]);
   const [popularProducts, setPopularProducts] = useState([]);
 
@@ -32,9 +35,27 @@ const PartProducts = () => {
           products.filter((product) => product.catalog.includes("popular"))
         );
       } else {
-        window.innerWidth < 1024
-        ? setPartProducts(popularProducts.slice(0, 4))
-        : setPartProducts(popularProducts.slice(0, 8));
+        let isCheckHref = false;
+        let categoryHref = "";
+        categories.forEach(element => {
+          if(window.location.href.includes(`#${element}`)) {
+            isCheckHref = true;
+            categoryHref = element;
+          }
+        });
+        if(isCheckHref) {
+          categoryHref === "All" ?
+        setPartProducts(
+          products.filter((product) => product.catalog.includes("popular"))
+        ) :
+          setPartProducts(
+            products.filter((product) => product.category.includes(categoryHref) && product.catalog.includes("popular"))
+          );
+        } else {
+          window.innerWidth < 1024
+          ? setPartProducts(popularProducts.slice(0, 4))
+          : setPartProducts(popularProducts.slice(0, 8));
+        }
       }
     }
 

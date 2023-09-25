@@ -32,14 +32,14 @@ export const logInEmail = (email, password) => {
 
 export const logInGoogle = () => {
   return async (dispatch) => {
-      dispatch({type: FETCH_USER});
-      try {
-          const provider = new GoogleAuthProvider();
-          const {user} = await signInWithPopup(auth, provider);
-          dispatch({type: USER_SUCCESS, payload: user});
-      } catch (error) {
-          dispatch({type: ERROR_USER, payload: "Не удалось"});
-      }
+    dispatch({ type: FETCH_USER });
+    try {
+      const provider = new GoogleAuthProvider();
+      const { user } = await signInWithPopup(auth, provider);
+      dispatch({ type: USER_SUCCESS, payload: user });
+    } catch (error) {
+      dispatch({ type: ERROR_USER, payload: "Failed to login via google account :(" });
+    }
   }
 }
 

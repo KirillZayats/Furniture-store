@@ -23,11 +23,10 @@ import { useSelector } from "react-redux";
 import Modal from "../../components/Modal/Modal";
 import {
   LOGIN_SUCCESS,
-  NAME_EMAIL,
   NAME_SITE,
   REGISTER_SUCCESS,
 } from "../../constants";
-import { getCookie, setCookies } from "../../storage/cookie";
+import { setCookies } from "../../storage/cookie";
 
 const Login = () => {
   const [modalActiveError, setModalActiveError] = useState(false);
@@ -51,16 +50,16 @@ const Login = () => {
   }, [error]);
 
   useEffect(() => {
-    if(user != null && user.displayName != null) {
-      document.getElementById("checkbox_forgot").checked ? 
-      setCookies(user.email, user.displayName, true) : 
-      setCookies(user.email, user.displayName)
+    if (user != null && user.displayName != null) {
+      document.getElementById("checkbox_forgot").checked ?
+        setCookies(user.email, user.displayName, true) :
+        setCookies(user.email, user.displayName)
     }
   }, [user])
 
   const onSubmit = (data) => {
     console.log(data);
-    if (data.repeat_password == undefined) {
+    if (data.repeat_password === undefined) {
       logInEmail(data.email_sign, data.password);
       setMessage(LOGIN_SUCCESS);
       setModalActive(true);
@@ -162,15 +161,15 @@ const Login = () => {
           {textTypeLogin}
         </LinkRegistationOrSignStyle>
         <ContainerLoginStyle>
-        <ButtonGoogleStyle
-        className="button_dark"
-        disabled={true}
-        onClick={loginGoogle}
-      >
-        <IconGoogle className="icon__button" />
-      </ButtonGoogleStyle>
+          <ButtonGoogleStyle
+            className="button_dark"
+            disabled={true}
+            onClick={loginGoogle}
+          >
+            <IconGoogle className="icon__button" />
+          </ButtonGoogleStyle>
 
-        <ButtonLoginStyle className="button_dark">{textButtonLogin}</ButtonLoginStyle>
+          <ButtonLoginStyle className="button_dark">{textButtonLogin}</ButtonLoginStyle>
         </ContainerLoginStyle>
 
       </LoginStyle>

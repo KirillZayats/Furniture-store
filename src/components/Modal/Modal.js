@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { LinkButtonStyle } from "../../styled/Pay/FormPayStyledComp";
 import {
     ButtonStyle,

@@ -1,5 +1,4 @@
-import React, { useEffect } from 'react'
-import ImageProduct from "../../resource/images/lamps.jpg"
+import React from 'react'
 import {
     ProductPayStyle,
     ImageProductStyle,
@@ -7,7 +6,6 @@ import {
     ContainerTextStyle,
     ContainerMainTextStyle
   } from "../../styled/Pay/InfoPayStyledComp";
-import { NAME_SITE_URL } from '../../constants';
 
 const ProductPay = ({product}) => {
 

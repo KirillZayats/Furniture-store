@@ -1,5 +1,6 @@
 import { styled } from "styled-components";
 import { device, size } from "../../styled/Media/MediaQueryStyledComp";
+import { Link } from "react-router-dom";
 
 const ListCategoriesStyle = styled.div`
   display: flex;
@@ -56,11 +57,16 @@ const ElementListStyle = styled.li`
     width: 100%;
     background: ${({ theme }) => theme.colors.mainColor};
   }
-  &:hover {
+  &:hover a {
     color: ${({ theme }) => theme.colors.textButtonPayColor};
   }
 `;
-const TextElementStyle = styled.p``;
+const TextElementStyle = styled(Link)`
+    transition: all 0.3s ease-in;
+    &:visited, &:link {
+      color: ${({ theme }) => theme.colors.mainColor};
+    }
+`;
 
 export {
     TextElementStyle,

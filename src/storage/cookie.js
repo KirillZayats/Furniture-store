@@ -7,8 +7,6 @@ export const setCookies = (email, nickName = "-", saveValue = false) => {
     document.cookie = `${IS_LOGGED} = true; expires=${dateSave.toUTCString()}`;
 }
 
-
-
 export const setValueLogout = () => {
     document.cookie = `${IS_LOGGED} = false; expires=${createInterval().toUTCString()}`;
 }
@@ -21,7 +19,7 @@ const createInterval = (saveValue) => {
 
 export const getCookie = (name) => {
     let matches = document.cookie.match(new RegExp(
-    "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
+    "(?:^|; )" + name.replace(/([.$?*|{}()[]\\\/\+^])/g, '\\$1') + "=([^;]*)"
     ));
     return matches ? decodeURIComponent(matches[1]) : undefined;
 }

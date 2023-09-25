@@ -1,8 +1,6 @@
 import React from "react";
-import IconArroyRight from "../../resource/images/icons/arroyRight.svg";
 import { BlockContentStyle } from "../../styled/AppStyledComp";
 import {
-  IconArroyRightStyle,
   TitleBlockStyle,
   PreTitleStyle,
   ArticleContainerStyle,

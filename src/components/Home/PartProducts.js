@@ -23,6 +23,9 @@ const PartProducts = () => {
   const { category } = useSelector(
     (state) => state.category
   );
+  const { categories } = useSelector(
+    (state) => state.categories
+  );  
   const [partProducts, setPartProducts] = useState([]);
   const [productFeatured, setProductFeatured] = useState([]);
 
@@ -31,17 +34,34 @@ const PartProducts = () => {
       setPartProducts(
         products.filter((product) => product.catalog.includes("featured"))
       );
-    } else {
-      window.innerWidth < 1024
-      ? setPartProducts(productFeatured.slice(0, 4))
-      : setPartProducts(productFeatured.slice(0, 8));
+    }  else {
+      let isCheckHref = false;
+      let categoryHref = "";
+      categories.forEach(element => {
+        if(window.location.href.includes(`#${element}`)) {
+          isCheckHref = true;
+          categoryHref = element;
+        }
+      });
+      if(isCheckHref) {
+        categoryHref === "All" ?
+        setPartProducts(
+          products.filter((product) => product.catalog.includes("featured"))
+        ) :
+        setPartProducts(
+          products.filter((product) => product.category.includes(categoryHref) && product.catalog.includes("featured"))
+        )
+      } else {
+        window.innerWidth < 1024
+        ? setPartProducts(productFeatured.slice(0, 4))
+        : setPartProducts(productFeatured.slice(0, 8));
+      }
     }
   }
 
   useEffect(() => {
     showProducts();
 }, [productFeatured]);
-
 
   useEffect(() => {
     if(valueInput.length) {

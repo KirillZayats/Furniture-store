@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import ImageProduct from "../../resource/images/lamps.jpg";
 import IconLeft from "../../resource/images/icons/setting/left.svg";
 import IconRight from "../../resource/images/icons/setting/right.svg";
 import {
@@ -14,7 +13,6 @@ import {
   ContainerArrowStyle,
   ContainerArrowsStyle,
 } from "../../styled/Cart/ProductCartStyledComp";
-import { NAME_SITE_URL } from "../../constants";
 import { useAction } from "../../hooks/useAction";
 import { useSelector } from "react-redux";
 
