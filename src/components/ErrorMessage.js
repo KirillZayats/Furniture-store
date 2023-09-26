@@ -5,7 +5,6 @@ const ErrorMessageStyle = styled.p`
     color: red;
 `;
 
-
 const ErrorMessage = ({message}) => {
   return (
     <ErrorMessageStyle>{message}</ErrorMessageStyle>

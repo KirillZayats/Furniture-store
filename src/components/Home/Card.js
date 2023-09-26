@@ -24,7 +24,7 @@ const Card = ({ product }) => {
   const products = useSelector((state) => state.cartProduct.productsCart);
   const [widthImage, setWidthImage] = useState(0);
   const [heihgtImage, setHeightImage] = useState(0);
-  const [dataImage, setDataImage] = useState([]);
+  const [autoPlayDelay, setAutoPlayDelay] = useState(3);
   useEffect(() => {
     window.addEventListener("resize", handleWindowResize);
   }, []);
@@ -44,14 +44,20 @@ const Card = ({ product }) => {
         !isStatus && setNameButton("Add to cart");
       }
     });
-    let items = [];
-    product.image.forEach((item) => {
-      items.push({ url: item });
-    });
-    setDataImage(items);
     setHeightImage(getParametersSize(true));
     setWidthImage(getParametersSize(false));
-    console.log(items);
+
+    if(product !== null) {
+      let buttonClick0 = (document.getElementById(`product-${product.id}`)).querySelector('button[data-id=bullet-0]');
+      if(buttonClick0 !== null) {
+        buttonClick0.click()
+      }
+      let buttonClick1 = (document.getElementById(`product-${product.id}`)).querySelector('button[data-id=bullet-1]');
+      if(buttonClick1 !== null) {
+        buttonClick1.click()
+      }
+    }
+
   }, [product]);
 
   const addToCart = (e) => {
@@ -102,15 +108,17 @@ const Card = ({ product }) => {
   };
 
   return (
-    <CardStyle className="block_product">
+    <CardStyle className="block_product" id={`product-${product.id}`}>
       <ContainerImageStyle>
-        {dataImage.length > 0 && widthImage > 0 && heihgtImage > 0 ? (
+        {product !== null && widthImage > 0 && heihgtImage > 0 ? (
           <SimpleImageSlider 
             width={widthImage}
             height={heihgtImage}
-            images={dataImage}
+            images={product.image}
             slideDuration={0.7}
             showBullets={true}
+            autoPlay={true}
+            autoPlayDelay={autoPlayDelay}
           />
         ) : (
           <ContainerLoader>

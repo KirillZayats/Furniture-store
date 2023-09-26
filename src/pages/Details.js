@@ -21,7 +21,6 @@ import {
   ContainerDetailsStyle,
   DescriptionStyle,
   TitleProductStyle,
-  ImageProductStyle,
   ContainerProductStyle,
   LinkPayStyle,
   ButtonAddCartStyle,
@@ -71,7 +70,6 @@ const Details = () => {
   const products = useSelector((state) => state.cartProduct.productsCart);
   const [widthImage, setWidthImage] = useState(0);
   const [heihgtImage, setHeightImage] = useState(0);
-  const [dataImage, setDataImage] = useState([]);
 
   useEffect(() => {
     products.forEach((element) => {
@@ -93,13 +91,6 @@ const Details = () => {
     } else {
       setIsLoadingData(true);
       initLimit(product.limit);
-    }
-    if (product != null) {
-      let items = [];
-      product.image.forEach((item) => {
-        items.push({ url: item });
-      });
-      setDataImage(items);
     }
     setHeightImage(getParametersSize(true));
     setWidthImage(getParametersSize(false));
@@ -170,17 +161,16 @@ const Details = () => {
               />
               <ValueRatingStyle>{product.rating.toFixed(1)}</ValueRatingStyle>
             </ContainerRatingStyle>
-
-            {/* <ImageProductStyle src={`${product.image[0]}`} /> */}
             <ContainerImageProductStyle>
-              {dataImage.length > 0 && (
+              {product !== null && (
                 <SimpleImageSlider
                   width={widthImage}
                   height={heihgtImage}
-                  images={dataImage}
+                  images={product.image}
                   slideDuration={0.7}
                   showBullets={true}
-                  className="image-product"
+                  autoPlay={true}
+                  autoPlayDelay={2.0}
                 />
               )}
             </ContainerImageProductStyle>

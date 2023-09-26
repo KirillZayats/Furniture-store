@@ -95,7 +95,11 @@ const ImageProductStyle = styled.img`
 const ContainerImageProductStyle = styled.div`
   width: 100%;
   height: 300px;
-  object-fit: cover;
+
+  .rsis-container div {
+    background-position-y: center;
+  }
+
   @media ${device.mobileS} {
     width: 100%;
     height: 300px;
@@ -288,7 +292,6 @@ const ContainerButtonsStyle = styled.div`
 `;
 
 const LinkPayStyle = styled(Link)`
-  /* display: block; */
   @media ${device.mobileS} {
     width: calc(50% - 5px);
   }

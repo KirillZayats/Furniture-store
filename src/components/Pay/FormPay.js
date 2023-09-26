@@ -115,8 +115,8 @@ const FormPay = ({ setActive, setMessage }) => {
   };
   const isDeleteSymbolCard = (inputLength, pastLength) => {
     return ((inputLength === 5 && pastLength === 6) ||
-    (inputLength === 10 && pastLength === 11) ||
-    (inputLength === 15 && pastLength === 16))
+      (inputLength === 10 && pastLength === 11) ||
+      (inputLength === 15 && pastLength === 16))
       ? true
       : false;
   };

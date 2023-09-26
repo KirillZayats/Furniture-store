@@ -55,6 +55,11 @@ const ContainerInformationStyle = styled.div`
 `;
 
 const ContainerImageStyle = styled.div`
+
+.rsis-container div {
+    background-position-y: center;
+  }
+
   @media ${device.mobileS} {
     width: 100%;
     height: 300px;

@@ -6,7 +6,6 @@ const SidebarStyle = styled.label`
   height: 24px;
   margin-top: 4px;
   z-index: 999;
-  /* left: -50px; */
   top: 0px;
   cursor: pointer;
   transition: all .5s ease-in;
