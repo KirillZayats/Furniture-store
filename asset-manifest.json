@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.js": "/Furniture-store/static/js/main.b76a9936.js",
+    "main.js": "/Furniture-store/static/js/main.16971a9d.js",
     "static/js/207.0873f600.chunk.js": "/Furniture-store/static/js/207.0873f600.chunk.js",
     "static/js/237.e6fd5fdd.chunk.js": "/Furniture-store/static/js/237.e6fd5fdd.chunk.js",
     "static/js/189.5f0ee50e.chunk.js": "/Furniture-store/static/js/189.5f0ee50e.chunk.js",
@@ -39,7 +39,7 @@
     "static/media/Facebook.svg": "/Furniture-store/static/media/Facebook.6e531286f6fd6dd1e7a22515460bda42.svg",
     "static/media/right.svg": "/Furniture-store/static/media/right.443483608e2e1aec3eb9013fd7bea782.svg",
     "static/media/Email.svg": "/Furniture-store/static/media/Email.73aaf316384160590e49f16b5dfb1000.svg",
-    "main.b76a9936.js.map": "/Furniture-store/static/js/main.b76a9936.js.map",
+    "main.16971a9d.js.map": "/Furniture-store/static/js/main.16971a9d.js.map",
     "207.0873f600.chunk.js.map": "/Furniture-store/static/js/207.0873f600.chunk.js.map",
     "237.e6fd5fdd.chunk.js.map": "/Furniture-store/static/js/237.e6fd5fdd.chunk.js.map",
     "189.5f0ee50e.chunk.js.map": "/Furniture-store/static/js/189.5f0ee50e.chunk.js.map",
@@ -60,6 +60,6 @@
     "220.567e45f9.chunk.js.map": "/Furniture-store/static/js/220.567e45f9.chunk.js.map"
   },
   "entrypoints": [
-    "static/js/main.b76a9936.js"
+    "static/js/main.16971a9d.js"
   ]
 }
