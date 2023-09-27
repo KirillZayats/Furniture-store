@@ -8,16 +8,22 @@ import {
   SET_STATUS_PAY,
 } from "../types/types";
 
+const initCart = () => {
+  let cart = getLocalStorage('cart')
+  return () => cart;
+}
+
+let cart = initCart();
 const initAllPrice = () => {
   let price = 0;
-  getLocalStorage('cart').forEach(element => {
-    price += element.statusPay && element.price * element.count
+  cart() !== null && cart().forEach(element => {
+     price += element.statusPay && element.price * element.count
   });
   return price;
 }
 
 const initialState = {
-  productsCart: getLocalStorage('cart') ? getLocalStorage('cart'): [],
+  productsCart: cart() ? cart(): [],
   allPrice: initAllPrice(),
 };
 
