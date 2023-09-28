@@ -54,11 +54,53 @@ const ContainerInformationStyle = styled.div`
   }
 `;
 
+const CardImageStyle = styled.img`
+  object-fit: cover;
+  @media ${device.mobileS} {
+    width: 100%;
+    height: 300px;
+  }
+  @media ${device.tablet} {
+    width: calc(${size.tablet} / 2 - 70px);
+  }
+  @media ${device.tabletS} {
+    width: calc(${size.tabletS} / 2 - 80px);
+  }
+  @media ${device.laptop} {
+    width: calc(${size.laptop} / 4 - 40px);
+    height: 200px;
+  }
+  @media ${device.desktop} {
+    width: calc(${size.desktop} / 4 - 60px);
+    height: 300px;
+  }
+`;
+
 const ContainerImageStyle = styled.div`
 
-.rsis-container div {
-    background-position-y: center;
+  .swiper-wrapper, .swiper-slide {
+    transition: all 1.4s ease-in-out;
+    transition-duration: 500ms !important;
   }
+
+  .swiper-pagination {
+    bottom: 16px !important;
+  }
+
+  .swiper-pagination-bullet {
+  width: 13px;
+  height: 13px;
+  box-shadow: 1px 1px 1px black;
+  background: inherit;
+  border: 1px solid ${({ theme }) => theme.colors.secondColor};
+  transition: all .3s ease-in;
+
+}
+
+.swiper-pagination-bullet-active {
+  background: ${({ theme }) => theme.colors.secondColor};
+  border: 1px solid ${({ theme }) => theme.colors.secondColor};
+}
 
   @media ${device.mobileS} {
     width: 100%;
@@ -154,5 +196,6 @@ export {
   LinkButtonStyle,
   ContainerInformationStyle,
   ContainerImageStyle,
-  ContainerLoader
+  ContainerLoader,
+  CardImageStyle
 };

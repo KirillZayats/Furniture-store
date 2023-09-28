@@ -11,12 +11,16 @@ import {
   ContainerInformationStyle,
   ContainerImageStyle,
   ContainerLoader,
+  CardImageStyle
 } from "../../styled/Main/CardStyledComp";
 import { NAME_SITE } from "../../constants";
 import { useAction } from "../../hooks/useAction";
 import { useSelector } from "react-redux";
-import SimpleImageSlider from "react-simple-image-slider";
 import { InfinitySpin } from "react-loader-spinner";
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Pagination, Autoplay } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/pagination';
 
 const Card = ({ product }) => {
   const { getProduct, addProduct, deleteProduct, setStatusPay } = useAction();
@@ -26,13 +30,7 @@ const Card = ({ product }) => {
   const [heihgtImage, setHeightImage] = useState(0);
   const [autoPlayDelay, setAutoPlayDelay] = useState(3);
   useEffect(() => {
-    window.addEventListener("resize", handleWindowResize);
   }, []);
-
-  const handleWindowResize = () => {
-    setHeightImage(getParametersSize(true));
-    setWidthImage(getParametersSize(false));
-  };
 
   useEffect(() => {
     let isStatus = false;
@@ -44,8 +42,6 @@ const Card = ({ product }) => {
         !isStatus && setNameButton("Add to cart");
       }
     });
-    setHeightImage(getParametersSize(true));
-    setWidthImage(getParametersSize(false));
 
     if(product !== null) {
       let buttonClick0 = (document.getElementById(`product-${product.id}`)).querySelector('button[data-id=bullet-0]');
@@ -79,47 +75,33 @@ const Card = ({ product }) => {
     return indexProduct;
   };
 
-  const getParametersSize = (status) => {
-    let parameterWidth = 0;
-    let parameterHeight = 0;
-    if (window.innerWidth < 375) {
-      parameterHeight = 300;
-      parameterWidth = 300;
-    } else if (window.innerWidth < 425) {
-      parameterHeight = 300;
-      parameterWidth = 355;
-    } else if (window.innerWidth < 768) {
-      parameterHeight = 300;
-      parameterWidth = 375;
-    } else if (window.innerWidth < 800) {
-      parameterHeight = 300;
-      parameterWidth = 314;
-    } else if (window.innerWidth < 1024) {
-      parameterHeight = 300;
-      parameterWidth = 320;
-    } else if (window.innerWidth < 1440) {
-      parameterHeight = 200;
-      parameterWidth = 216;
-    } else {
-      parameterHeight = 300;
-      parameterWidth = 300;
-    }
-    return status ? parameterHeight : parameterWidth;
+  const pagination = {
+    clickable: true,
+    renderBullet: function (index, className) {
+      return '<span class="' + className + ' "> </span>';
+    },
   };
 
   return (
     <CardStyle className="block_product" id={`product-${product.id}`}>
       <ContainerImageStyle>
-        {product !== null && widthImage > 0 && heihgtImage > 0 ? (
-          <SimpleImageSlider 
-            width={widthImage}
-            height={heihgtImage}
-            images={product.image}
-            slideDuration={0.7}
-            showBullets={true}
-            autoPlay={true}
-            autoPlayDelay={autoPlayDelay}
-          />
+        {product !== null ? (
+                          <Swiper
+                          pagination={pagination}
+                          autoplay={{
+                            delay: 2500,
+                            disableOnInteraction: false,
+                          }}
+                          modules={[Pagination, Autoplay]}
+                            className="mySwiper"
+                          >
+                            <SwiperSlide>  
+                              <CardImageStyle src={`${product.image[0]}`} />
+                            </SwiperSlide>
+                            <SwiperSlide>   
+                              <CardImageStyle src={`${product.image[1]}`} />
+                            </SwiperSlide>
+                          </Swiper>
         ) : (
           <ContainerLoader>
             <InfinitySpin width="200" color="#000" />

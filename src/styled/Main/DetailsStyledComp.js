@@ -75,9 +75,8 @@ const ContainerProductStyle = styled.div`
 `;
 
 const ImageProductStyle = styled.img`
-  width: 100%;
-  height: 300px;
   object-fit: cover;
+  object-position: 50% 80%;
   @media ${device.mobileS} {
     width: 100%;
     height: 300px;
@@ -96,9 +95,29 @@ const ContainerImageProductStyle = styled.div`
   width: 100%;
   height: 300px;
 
-  .rsis-container div {
-    background-position-y: center;
+  .swiper-wrapper, .swiper-slide {
+    transition: all 1.4s ease-in-out;
+    transition-duration: 500ms !important;
   }
+
+  .swiper-pagination {
+    bottom: 13px !important;
+  }
+
+  .swiper-pagination-bullet {
+  width: 13px;
+  height: 13px;
+  box-shadow: 1px 1px 1px black;
+  background: inherit;
+  border: 1px solid ${({ theme }) => theme.colors.secondColor};
+  transition: all .3s ease-in;
+
+}
+
+.swiper-pagination-bullet-active {
+  background: ${({ theme }) => theme.colors.secondColor};
+  border: 1px solid ${({ theme }) => theme.colors.secondColor};
+}
 
   @media ${device.mobileS} {
     width: 100%;
@@ -108,6 +127,15 @@ const ContainerImageProductStyle = styled.div`
     grid-column-start: 1;
     grid-row-start: 1;
     grid-row-end: 5;
+    position: absolute;
+    width: 315px;
+  }
+  @media ${device.tabletS} {
+    width: 335px;
+  }
+  @media ${device.laptop} {
+    position: static;
+    width: 100%;
   }
   @media ${device.desktop} {
     height: 350px;

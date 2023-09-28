@@ -105,6 +105,12 @@ const GlobalStyle = createGlobalStyle`
     animation: ${Scale} 0.2s ease-in;
   };
 
+
+  .swiper-pagination-bullet:active {
+    animation: ${Scale} 0.1s ease-in;
+
+  }
+
   button:active, .button_dark:active, #icon_delete:active {
     animation: ${ScaleButton} .1s ease-in;
   }
@@ -169,7 +175,7 @@ const GlobalStyle = createGlobalStyle`
     outline-color: ${({ theme }) => theme.colors.rearColor}; 
   }
 
-  .block-achievements:hover, .container_setting:hover svg, .block_product:hover img,
+  .block-achievements:hover, .container_setting:hover svg,
   li:hover .container_setting svg, #id_search_icon:hover, #container__icon-delete:hover {
     animation: ${Swing} .5s ease-in;
   }

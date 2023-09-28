@@ -25,6 +25,7 @@ import {
   LinkPayStyle,
   ButtonAddCartStyle,
   ContainerImageProductStyle,
+  ImageProductStyle
 } from "../styled/Main/DetailsStyledComp";
 import {
   LinkBackStyle,
@@ -47,8 +48,10 @@ import { ContainerLoader } from "../styled/AppStyledComp";
 import { InfinitySpin } from "react-loader-spinner";
 import Modal from "../components/Modal/Modal";
 import { getCookie } from "../storage/cookie";
-import SimpleImageSlider from "react-simple-image-slider";
-
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Pagination, Autoplay } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/pagination';
 const Details = () => {
   const navigate = useNavigate();
   const [modalActive, setModalActive] = useState(false);
@@ -73,17 +76,14 @@ const Details = () => {
 
   useEffect(() => {
     products.forEach((element) => {
-      if (product.id === element.id) {
-        setNameButton("Delete from cart");
+      if(product !== null) {
+        if (product.id === element.id) {
+          setNameButton("Delete from cart");
+        }
       }
     });
-    window.addEventListener("resize", handleWindowResize);
   }, []);
 
-  const handleWindowResize = () => {
-    setHeightImage(getParametersSize(true));
-    setWidthImage(getParametersSize(false));
-  };
 
   useEffect(() => {
     if (product === null || product === undefined) {
@@ -92,8 +92,6 @@ const Details = () => {
       setIsLoadingData(true);
       initLimit(product.limit);
     }
-    setHeightImage(getParametersSize(true));
-    setWidthImage(getParametersSize(false));
   }, [product]);
 
   const addToCart = (e) => {
@@ -117,32 +115,12 @@ const Details = () => {
     }
   };
 
-  const getParametersSize = (status) => {
-    let parameterWidth = 0;
-    let parameterHeight = 0;
-    if (window.innerWidth < 375) {
-      parameterHeight = 300;
-      parameterWidth = 300;
-    } else if (window.innerWidth < 425) {
-      parameterHeight = 300;
-      parameterWidth = 335;
-    } else if (window.innerWidth < 768) {
-      parameterHeight = 300;
-      parameterWidth = 375;
-    } else if (window.innerWidth < 800) {
-      parameterHeight = 300;
-      parameterWidth = 400;
-    } else if (window.innerWidth < 1024) {
-      parameterHeight = 300;
-      parameterWidth = 335;
-    } else if (window.innerWidth < 1440) {
-      parameterHeight = 300;
-      parameterWidth = 400;
-    } else {
-      parameterHeight = 350;
-      parameterWidth = 500;
-    }
-    return status ? parameterHeight : parameterWidth;
+
+  const pagination = {
+    clickable: true,
+    renderBullet: function (index, className) {
+      return '<span class="' + className + ' "> </span>';
+    },
   };
 
   return (
@@ -163,15 +141,22 @@ const Details = () => {
             </ContainerRatingStyle>
             <ContainerImageProductStyle>
               {product !== null && (
-                <SimpleImageSlider
-                  width={widthImage}
-                  height={heihgtImage}
-                  images={product.image}
-                  slideDuration={0.7}
-                  showBullets={true}
-                  autoPlay={true}
-                  autoPlayDelay={2.0}
-                />
+                <Swiper
+                pagination={pagination}
+                autoplay={{
+                  delay: 2500,
+                  disableOnInteraction: false,
+                }}
+                modules={[Pagination, Autoplay]}
+                  className="mySwiper"
+                >
+                  <SwiperSlide>  
+                    <ImageProductStyle src={`${product.image[0]}`} />
+                  </SwiperSlide>
+                  <SwiperSlide>   
+                    <ImageProductStyle src={`${product.image[1]}`} />
+                  </SwiperSlide>
+                </Swiper>
               )}
             </ContainerImageProductStyle>
             <DescriptionStyle>{product.description}</DescriptionStyle>
