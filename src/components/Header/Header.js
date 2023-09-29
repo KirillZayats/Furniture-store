@@ -42,7 +42,7 @@ import IconTwitter from "../../resource/images/icons/social/Twitter.svg";
 import IconLinkedin from "../../resource/images/icons/social/LinkedIn.svg";
 import { InputCheckBoxStyle } from "../../styled/Header/SidebarStyledComp";
 import SidebarActive from "./SidebarActive";
-import { IS_LOGGED, NAME_SITE } from "../../constants";
+import { IS_LOGGED } from "../../constants";
 import { useLocation } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { useAction } from "../../hooks/useAction";
@@ -229,7 +229,7 @@ const Header = () => {
                   <TextInfoStyle>English</TextInfoStyle>
                 </ContainerBlockSetStyle>
                 {getCookie(IS_LOGGED) === "true" ? (
-                  <LinkElement to={`${NAME_SITE}/account`}>
+                  <LinkElement to={`/account`}>
                     <ContainerBlockSetStyle className="container_setting">
                       <IconSignStyle />
                       <TextInfoStyle className="header__title-block">
@@ -238,7 +238,7 @@ const Header = () => {
                     </ContainerBlockSetStyle>
                   </LinkElement>
                 ) : (
-                  <LinkElement to={`${NAME_SITE}/login`}>
+                  <LinkElement to={`/login`}>
                     <ContainerBlockSetStyle className="container_setting">
                       <IconSignStyle />
                       <TextInfoStyle className="header__title-block">
@@ -256,22 +256,22 @@ const Header = () => {
             <NavStyle>
               <ListStyle>
                 <ElementListStyle>
-                  <ContainerLinkNavStyle to={`${NAME_SITE}/`}>
+                  <ContainerLinkNavStyle to={`/`}>
                     <LinkSpanNavStyle>Home</LinkSpanNavStyle>
                   </ContainerLinkNavStyle>
                 </ElementListStyle>
                 <ElementListStyle>
-                  <ContainerLinkNavStyle to={`${NAME_SITE}/products`}>
+                  <ContainerLinkNavStyle to={`/products`}>
                     <LinkSpanNavStyle>Products</LinkSpanNavStyle>
                   </ContainerLinkNavStyle>
                 </ElementListStyle>
                 <ElementListStyle>
-                  <ContainerLinkNavStyle to={`${NAME_SITE}/about`}>
+                  <ContainerLinkNavStyle to={`/about`}>
                     <LinkSpanNavStyle>About Us</LinkSpanNavStyle>
                   </ContainerLinkNavStyle>
                 </ElementListStyle>
                 <ElementListStyle>
-                  <ContainerLinkNavStyle to={`${NAME_SITE}/contacts`}>
+                  <ContainerLinkNavStyle to={`/contacts`}>
                     <LinkSpanNavStyle>Contact</LinkSpanNavStyle>
                   </ContainerLinkNavStyle>
                 </ElementListStyle>
@@ -289,7 +289,7 @@ const Header = () => {
                   <SearchIconStyle className="icon-search" />
                 </ContainerSearchIconStyle>{" "}
               </ContainerSearchStyle>
-              <LinkElement to={`${NAME_SITE}/cart`}>
+              <LinkElement to={`/cart`}>
                 <ContainerCartStyle className="block_hover">
                   <ContainerIconCartStyle className="container__link-cart">
                     <IconCartStyle />
@@ -321,27 +321,27 @@ const Header = () => {
               <SidebarActive />
               <ListStyle>
                 <ElementListStyle>
-                  <ContainerLinkNavStyle to={`${NAME_SITE}/`}>
+                  <ContainerLinkNavStyle to={`/`}>
                     <LinkSpanNavStyle>Home</LinkSpanNavStyle>
                   </ContainerLinkNavStyle>
                 </ElementListStyle>
                 <ElementListStyle>
-                  <ContainerLinkNavStyle to={`${NAME_SITE}/products`}>
+                  <ContainerLinkNavStyle to={`/products`}>
                     <LinkSpanNavStyle>Products</LinkSpanNavStyle>
                   </ContainerLinkNavStyle>
                 </ElementListStyle>
                 <ElementListStyle>
-                  <ContainerLinkNavStyle to={`${NAME_SITE}/about`}>
+                  <ContainerLinkNavStyle to={`/about`}>
                     <LinkSpanNavStyle>About Us</LinkSpanNavStyle>
                   </ContainerLinkNavStyle>
                 </ElementListStyle>
                 <ElementListStyle>
-                  <ContainerLinkNavStyle to={`${NAME_SITE}/contacts`}>
+                  <ContainerLinkNavStyle to={`/contacts`}>
                     <LinkSpanNavStyle>Contact</LinkSpanNavStyle>
                   </ContainerLinkNavStyle>
                 </ElementListStyle>
                 <ElementListStyle>
-                  <LinkElement to={`${NAME_SITE}/cart`}>
+                  <LinkElement to={`/cart`}>
                     <ContainerCartStyle className="block_hover">
                       <ContainerIconCartStyle className="container__link-cart">
                         <IconCartStyle />
@@ -358,7 +358,7 @@ const Header = () => {
                   </LinkElement>
                 </ElementListStyle>
                 <ElementListStyle>
-                  <LinkElement to={`${NAME_SITE}/`}>
+                  <LinkElement to={`/`}>
                     <ContainerBlockSetStyle className="container_setting">
                       <IconLeanguageStyle />
                       <TextInfoStyle className="header__title-block">
@@ -369,7 +369,7 @@ const Header = () => {
                 </ElementListStyle>
                 <ElementListStyle>
                   {getCookie(IS_LOGGED) === "true" ? (
-                    <LinkElement to={`${NAME_SITE}/account`}>
+                    <LinkElement to={`/account`}>
                       <ContainerBlockSetStyle className="container_setting">
                         <IconSignStyle />
                         <TextInfoStyle className="header__title-block">
@@ -378,7 +378,7 @@ const Header = () => {
                       </ContainerBlockSetStyle>
                     </LinkElement>
                   ) : (
-                    <LinkElement to={`${NAME_SITE}/login`}>
+                    <LinkElement to={`/login`}>
                       <ContainerBlockSetStyle className="container_setting">
                         <IconSignStyle />
                         <TextInfoStyle className="header__title-block">

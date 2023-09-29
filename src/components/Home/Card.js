@@ -13,7 +13,6 @@ import {
   ContainerLoader,
   CardImageStyle
 } from "../../styled/Main/CardStyledComp";
-import { NAME_SITE } from "../../constants";
 import { useAction } from "../../hooks/useAction";
 import { useSelector } from "react-redux";
 import { InfinitySpin } from "react-loader-spinner";
@@ -118,7 +117,7 @@ const Card = ({ product }) => {
         <CardCategoriesStyle>{product.category}</CardCategoriesStyle>
       </ContainerInformationStyle>
       <ContainerButtonStyle>
-        <LinkButtonStyle to={`/${NAME_SITE}/products/details/${product.id}`}>
+        <LinkButtonStyle to={`/products/details/${product.id}`}>
           <CardButtonDetailsStyle
             className="button_dark"
             onClick={() => getProduct(product.id)}

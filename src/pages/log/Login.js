@@ -23,7 +23,6 @@ import { useSelector } from "react-redux";
 import Modal from "../../components/Modal/Modal";
 import {
   LOGIN_SUCCESS,
-  NAME_SITE,
   REGISTER_SUCCESS,
 } from "../../constants";
 import { setCookies } from "../../storage/cookie";
@@ -178,7 +177,7 @@ const Login = () => {
           active={modalActive}
           setActive={setModalActive}
           message={message}
-          pathNameLink={`/${NAME_SITE}/`}
+          pathNameLink={`/`}
         />
       )}
       {error && (
@@ -186,7 +185,7 @@ const Login = () => {
           active={modalActiveError}
           setActive={setModalActiveError}
           message={error}
-          pathNameLink={`/${NAME_SITE}/login`}
+          pathNameLink={`/login`}
         />
       )}
     </MainStyle>

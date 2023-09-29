@@ -12,7 +12,6 @@ import {
   SaleStyle,
 } from "../../styled/Main/SaleStyledComp";
 import {LinkButtonStyle} from "../../styled/Main/PartProductStyledComp"
-import { NAME_SITE } from "../../constants";
 
 const Sale = () => {
   return (
@@ -23,7 +22,7 @@ const Sale = () => {
           <TitleBlockStyle>Sales Up to 50%</TitleBlockStyle>
           <ContainerIndentStyle>
             <BlockButtonsStyle>
-            <LinkButtonStyle to={`/${NAME_SITE}/products`}>
+            <LinkButtonStyle to={`/products`}>
             <BlackButtonInfoStyle className="button_special">
                 Shop Now
               </BlackButtonInfoStyle>

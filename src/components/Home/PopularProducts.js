@@ -13,7 +13,6 @@ import {
   LinkButtonStyle,
 } from "../../styled/Main/PartProductStyledComp";
 import Card from "./Card";
-import { NAME_SITE } from "../../constants";
 import { useSelector } from "react-redux";
 
 const PartProducts = () => {
@@ -104,7 +103,7 @@ const PartProducts = () => {
               Lorem ipsum dolor sit amet, consectetur adipiscing elit.
             </TextStyle>
             <ContainerButtonViewAllUpStyle>
-              <LinkButtonStyle to={`/${NAME_SITE}/products?#all_popular`}>
+              <LinkButtonStyle to={`/products?#all_popular`}>
                 <ButtonViewAllStyle className="button_white" onClick={getAllProducts}>
                   View all
                 </ButtonViewAllStyle>
@@ -117,7 +116,7 @@ const PartProducts = () => {
             ))}
           </ContainterCardsStyle>
           <ContainerButtonViewAllDownStyle>
-            <LinkButtonStyle to={`/${NAME_SITE}/products?#all_popular`}>
+            <LinkButtonStyle to={`/products?#all_popular`}>
               <ButtonViewAllStyle className="button_white" onClick={getAllProducts}>
                 View all
               </ButtonViewAllStyle>

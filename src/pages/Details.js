@@ -39,7 +39,6 @@ import {
   IS_LOGGED,
   MESSAGE_ERROR_ID,
   MESSAGE_NO_LOGIN,
-  NAME_SITE,
 } from "../constants";
 import { useSelector } from "react-redux";
 import { useAction } from "../hooks/useAction";
@@ -217,7 +216,7 @@ const Details = () => {
         active={modalActive}
         setActive={setModalActive}
         message={message}
-        pathNameLink={`/${NAME_SITE}/login`}
+        pathNameLink={`/login`}
       />
     </MainStyle>
   );

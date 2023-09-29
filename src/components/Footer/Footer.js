@@ -16,7 +16,6 @@ import Subscribe from "./Subscribe";
 import { LineStyle } from "../../styled/Header/HeaderStyledComp";
 import InfoReserved from "./InfoReserved";
 import Social from "./Social";
-import { NAME_SITE } from "../../constants";
 import { useSelector } from "react-redux";
 import { useAction } from "../../hooks/useAction";
 const Footer = () => {
@@ -38,7 +37,7 @@ const Footer = () => {
               <ContainerListStyle>
                 {categories.map((category, index) => (
                   <ListElementStyle key={index}>
-                    <LinkStyle onClick={clickCategory} to={`${NAME_SITE}/products#${category}`}>{category}</LinkStyle>
+                    <LinkStyle onClick={clickCategory} to={`/products#${category}`}>{category}</LinkStyle>
                   </ListElementStyle>
                 ))}
               </ContainerListStyle>
@@ -47,13 +46,13 @@ const Footer = () => {
               <TitleBlockStyle>About</TitleBlockStyle>
               <ContainerListStyle>
                 <ListElementStyle>
-                  <LinkStyle to={`${NAME_SITE}/contacts`}>Contact Us</LinkStyle>
+                  <LinkStyle to={`/contacts`}>Contact Us</LinkStyle>
                 </ListElementStyle>
                 <ListElementStyle>
-                  <LinkStyle to={`${NAME_SITE}/about`}>About Us</LinkStyle>
+                  <LinkStyle to={`/about`}>About Us</LinkStyle>
                 </ListElementStyle>
                 <ListElementStyle>
-                  <LinkStyle to={`${NAME_SITE}/contacts`}>
+                  <LinkStyle to={`/contacts`}>
                     Support/Help
                   </LinkStyle>
                 </ListElementStyle>

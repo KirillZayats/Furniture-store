@@ -11,7 +11,6 @@ import {
   TestChoseStyle
 } from "../../../styled/Main/ChoseUs/ListChoseStyledComp";
 import ListChose from "./ListChose";
-import {NAME_SITE} from "../../../constants"
 const ChoseUs = () => {
   return (
     <BlockContentStyle >
@@ -25,7 +24,7 @@ const ChoseUs = () => {
             and elegant dining sets to stylish office desks and comfortable
             beds.
           </TestChoseStyle>
-          <LinkPage to={`/${NAME_SITE}/products`}>
+          <LinkPage to={`/products`}>
           <BlackButtonInfoStyle className="button_dark">Shop Now</BlackButtonInfoStyle>
           </LinkPage>
         </ContainerChoseStyle>

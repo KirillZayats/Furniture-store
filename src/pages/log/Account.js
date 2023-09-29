@@ -23,14 +23,11 @@ import {
   MESSAGE_ERROR_LOGIN,
   NAME,
   NAME_EMAIL,
-  NAME_SITE,
-  NICKNAME,
 } from "../../constants";
 import { useSelector } from "react-redux";
 const Account = () => {
   const [icon, setIcon] = useState(PictureAvatar);
   const [name] = useState(getCookie(NAME));
-  const [nickname] = useState(getCookie(NICKNAME));
   const [email] = useState(getCookie(NAME_EMAIL));
   const [isStatusLogin] = useState(getCookie(IS_LOGGED));
 
@@ -67,11 +64,8 @@ const Account = () => {
           </ContainerAvatarStyle>
           <ContainerInfoAccountStyle>
             <NameStyle>Name: {name !== undefined ? name : "-"}</NameStyle>
-            <NameStyle>
-              Nickname: {nickname !== undefined ? nickname : "-"}
-            </NameStyle>
             <EmailStyle>Email: {email !== undefined ? email : "-"}</EmailStyle>
-            <LinkButtonStyle to={`/${NAME_SITE}/`}>
+            <LinkButtonStyle to={`/`}>
               <ButtonLogoutStyle className="button_dark" onClick={logout}>
                 Logout
               </ButtonLogoutStyle>

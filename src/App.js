@@ -6,7 +6,6 @@ import {
 } from "./styled/AppStyledComp";
 import { Theme } from "./styled/Theme";
 import { Route, Routes } from "react-router-dom";
-import { NAME_SITE } from "./constants";
 import DownUp from "./components/DownUp";
 import { useSelector } from "react-redux";
 import { useAction } from "./hooks/useAction";
@@ -55,16 +54,16 @@ export const App = () => {
           <ContainerProvider>
             <Header />
             <Routes>
-              <Route path={`${NAME_SITE}/`} element={<Home/>} />
-              <Route path={`${NAME_SITE}/contacts`} element={<Contacts />} />
-              <Route path={`${NAME_SITE}/about`} element={<AboutUs />} />
-              <Route path={`${NAME_SITE}/products`} element={<Products />} />
-              <Route path={`${NAME_SITE}/cart/pay`} element={<Pay />} />
-              <Route path={`${NAME_SITE}/products/details/:id/pay`} element={<Pay />} />
-              <Route path={`${NAME_SITE}/products/details/:id`} element={<Details/>} />
-              <Route path={`${NAME_SITE}/account`} element={<Account />} />
-              <Route path={`${NAME_SITE}/cart`} element={<Cart />} />
-              <Route path={`${NAME_SITE}/login`} element={<Login />} />
+              <Route path={`/`} element={<Home/>} />
+              <Route path={`/contacts`} element={<Contacts />} />
+              <Route path={`/about`} element={<AboutUs />} />
+              <Route path={`/products`} element={<Products />} />
+              <Route path={`/cart/pay`} element={<Pay />} />
+              <Route path={`/products/details/:id/pay`} element={<Pay />} />
+              <Route path={`/products/details/:id`} element={<Details/>} />
+              <Route path={`/account`} element={<Account />} />
+              <Route path={`/cart`} element={<Cart />} />
+              <Route path={`/login`} element={<Login />} />
             </Routes>
             <Footer />
             <DownUp />

@@ -1,9 +1,9 @@
-import { IS_LOGGED, NAME_EMAIL, NICKNAME } from "../constants";
+import { IS_LOGGED, NAME, NAME_EMAIL } from "../constants";
 
-export const setCookies = (email, nickName = "-", saveValue = false) => {
+export const setCookies = (email, name = "-", saveValue = false) => {
     let dateSave = createInterval(saveValue);
     document.cookie = `${NAME_EMAIL} = ${email}; expires=${dateSave.toUTCString()}`;
-    document.cookie = `${NICKNAME} = ${nickName}; expires=${dateSave.toUTCString()}`;
+    document.cookie = `${NAME} = ${name}; expires=${dateSave.toUTCString()}`;
     document.cookie = `${IS_LOGGED} = true; expires=${dateSave.toUTCString()}`;
 }
 

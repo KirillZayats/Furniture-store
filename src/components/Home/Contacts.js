@@ -29,7 +29,7 @@ import {
 } from "../../styled/Main/ContactsStyledComp";
 import { useForm } from "react-hook-form";
 import ErrorMessage from "../ErrorMessage";
-import { MESSAGE_SUCCESS_SEND, NAME_SITE } from "../../constants";
+import { MESSAGE_SUCCESS_SEND } from "../../constants";
 import { useState } from "react";
 import Modal from "../Modal/Modal";
 
@@ -148,7 +148,7 @@ const Contacts = () => {
           <FormSendStyle className="button_dark">Submit</FormSendStyle>
         </FormStyle>
       </ArticleContainerStyle>
-      <Modal active={modalActive} setActive={setModalActive} message={message} pathNameLink={`/${NAME_SITE}/`} />
+      <Modal active={modalActive} setActive={setModalActive} message={message} pathNameLink={`/`} />
     </BlockContentStyle>
   );
 };

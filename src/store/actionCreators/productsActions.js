@@ -4,7 +4,7 @@ import {
   GET_PRODUCT,
   GET_VALUE_SEARCH,
 } from "../types/types";
-import { CATEGORIES, NAME_SITE_URL, PRODUCTS } from "../../constants";
+import { CATEGORIES, PRODUCTS } from "../../constants";
 import { getDatabase, ref, get, child } from "firebase/database";
 
 export const getProductsSuccess = (products) => {
@@ -37,7 +37,6 @@ export const getValueSearch = (value) => {
 export const getDataProducts = (namePath) => {
   let data = [];
   const dbRef = ref(getDatabase());
-  console.log(NAME_SITE_URL + namePath);
   return async (dispatch) => {
     get(child(dbRef, `/${namePath}`))
       .then((snapshot) => {
